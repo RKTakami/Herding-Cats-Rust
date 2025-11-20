@@ -1,0 +1,14 @@
+{
+    "roots": [
+        "src"
+    ],
+    "crates": [
+        {
+            "root_module": "src/lib.rs",
+            "deps": [],
+            "cfg": [
+                "feature=\"notify\""
+            ]
+        }
+    ]
+}

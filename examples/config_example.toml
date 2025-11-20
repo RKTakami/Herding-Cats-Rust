@@ -1,0 +1,304 @@
+# Herding Cats Rust - Configuration Example
+#
+# This file demonstrates the complete configuration options available
+# in Herding Cats Rust version 0.50.00. Copy this to config/herding-cats.toml
+# and customize for your environment.
+
+[application]
+name = "Herding Cats Rust"
+version = "0.50.00"
+debug = false
+log_level = "info"
+data_directory = "data"
+temp_directory = "temp"
+backup_directory = "backups"
+
+[database]
+# Database configuration
+path = "data/herding-cats.db"
+wal_mode = true
+connection_pool_size = 10
+backup_interval = 300
+timeout_seconds = 30
+max_connections = 20
+cache_size = 10000
+
+# Performance tuning
+query_timeout = 10000
+busy_timeout = 5000
+synchronous = "normal"
+journal_mode = "WAL"
+foreign_keys = true
+
+# Indexing configuration
+auto_index_fts5 = true
+vector_index_batch_size = 100
+search_result_limit = 100
+
+[ai]
+# AI service configuration
+default_provider = "openai"
+usage_budget = 100.0
+rate_limit = 60
+timeout_seconds = 30
+retry_attempts = 3
+
+# Smart routing
+enable_smart_routing = true
+cost_optimization = true
+fallback_enabled = true
+health_check_interval = 60
+
+# Security
+encrypt_api_keys = true
+log_requests = false
+request_sanitization = true
+
+[ai.providers.openai]
+enabled = true
+api_key = "your-openai-api-key"
+model = "gpt-3.5-turbo"
+temperature = 0.7
+max_tokens = 4000
+top_p = 1.0
+frequency_penalty = 0.0
+presence_penalty = 0.0
+
+[ai.providers.claude]
+enabled = true
+api_key = "your-claude-api-key"
+model = "claude-3-sonnet"
+temperature = 0.5
+max_tokens = 4000
+top_k = 250
+
+[ai.providers.local]
+enabled = false
+model_path = "/path/to/local/model"
+backend = "llama"  # llama, gptj, stablelm
+threads = 4
+context_size = 2048
+batch_size = 8
+
+[backup]
+# Backup configuration
+automatic = true
+interval = 3600
+retention_days = 30
+compression = true
+encryption = true
+integrity_check = true
+
+# Backup types
+manual_backup_enabled = true
+scheduled_backup_enabled = true
+emergency_backup_enabled = true
+
+# Storage locations
+local_backup_path = "backups/local"
+cloud_backup_enabled = false
+cloud_provider = "s3"  # s3, gcs, azure
+cloud_bucket = "herding-cats-backup"
+
+[security]
+# Security features
+encryption_enabled = true
+audit_logging = true
+rate_limiting = true
+input_validation = true
+
+# Encryption settings
+encryption_algorithm = "AES-256-GCM"
+key_rotation_days = 90
+salt_iterations = 100000
+
+# Audit settings
+audit_log_file = "logs/audit.log"
+audit_retention_days = 365
+log_sensitive_operations = true
+
+[performance]
+# Performance monitoring
+enabled = true
+metrics_collection = true
+profiling = false
+memory_monitoring = true
+
+# Thresholds
+slow_query_threshold = 100
+high_memory_threshold = 80
+cpu_usage_threshold = 80
+
+# Caching
+memory_cache_size = 1000
+disk_cache_enabled = true
+cache_ttl_seconds = 3600
+
+[ui]
+# UI configuration
+theme = "default"
+font_family = "Segoe UI"
+font_size = 14
+window_width = 1200
+window_height = 800
+
+# Workspace settings
+auto_save_interval = 300
+auto_backup_interval = 3600
+recent_projects_limit = 10
+
+# Display options
+show_tooltips = true
+animate_transitions = true
+high_dpi_scaling = true
+
+# Accessibility
+screen_reader_support = true
+keyboard_navigation = true
+high_contrast_mode = false
+
+[search]
+# Search configuration
+fts5_enabled = true
+bm25_ranking = true
+semantic_search = true
+auto_indexing = true
+
+# Search behavior
+case_sensitive = false
+diacritics_sensitive = false
+stemming_enabled = true
+stop_words_enabled = true
+
+# Result configuration
+max_results = 100
+snippet_length = 200
+highlight_matches = true
+
+[integration]
+# External integrations
+obsidian_sync = false
+notion_sync = false
+google_drive = false
+dropbox = false
+
+# WebDAV settings
+webdav_enabled = false
+webdav_url = ""
+webdav_username = ""
+webdav_password = ""
+
+# Plugin system
+plugins_enabled = true
+plugin_directory = "plugins"
+auto_load_plugins = true
+
+[notification]
+# Notification settings
+enabled = true
+sound_enabled = true
+desktop_notifications = true
+email_notifications = false
+
+# Notification types
+backup_completed = true
+ai_quota_warning = true
+performance_alerts = true
+security_events = true
+
+[update]
+# Update configuration
+auto_check = true
+check_interval_hours = 24
+notify_beta = false
+download_prerelease = false
+
+# Rollback settings
+create_restore_point = true
+max_restore_points = 5
+auto_rollback_on_error = false
+
+[logging]
+# Logging configuration
+level = "info"
+file = "logs/herding-cats.log"
+max_size = "50MB"
+max_files = 5
+format = "json"  # json, text, syslog
+
+# Log specific components
+log_database = false
+log_ai_requests = false
+log_performance = true
+log_security = true
+
+# Remote logging
+remote_logging = false
+log_endpoint = ""
+log_api_key = ""
+
+[monitoring]
+# Health monitoring
+enabled = true
+health_check_interval = 60
+metrics_endpoint = "/metrics"
+health_endpoint = "/health"
+
+# External monitoring
+prometheus_enabled = false
+grafana_enabled = false
+datadog_enabled = false
+
+# Alerts
+alert_webhook = ""
+alert_email = ""
+alert_thresholds = true
+
+[experimental]
+# Experimental features
+ai_assistant = true
+collaborative_editing = false
+real_time_sync = false
+voice_input = false
+
+# Beta features
+advanced_analytics = true
+machine_learning = false
+natural_language_search = true
+
+[developer]
+# Developer settings (ignored in production)
+debug_mode = false
+verbose_logging = false
+mock_services = false
+test_data_generation = false
+
+# Development tools
+hot_reload = false
+live_editing = false
+inspector_enabled = false
+
+# Testing
+test_timeout = 30
+parallel_tests = true
+coverage_reporting = false
+
+# Performance profiling
+profile_memory = false
+profile_cpu = false
+profile_io = false
+
+# Example usage:
+#
+# 1. Copy this file to config/herding-cats.toml
+# cp examples/config_example.toml config/herding-cats.toml
+#
+# 2. Update API keys in config/ai.toml
+# nano config/ai.toml
+#
+# 3. Customize settings for your environment
+#
+# For more configuration examples, see:
+# - examples/ai_config_example.toml
+# - examples/database_config_example.toml
+# - docs/configuration_guide.md

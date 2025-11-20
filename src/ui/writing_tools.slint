@@ -1,0 +1,700 @@
+// Writing Tools Windows for Herding Cats Rust
+// Individual tool windows for the writing tools suite
+
+import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox, GridBox, StandardButton, LineEdit, ComboBox, ListView } from "std-widgets.slint";
+
+// Hierarchy Tool Window Component
+export component HierarchyTool inherits Window {
+    title: "Hierarchy Tool - Herding Cats";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📊 Document Hierarchy";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Hierarchy Tree View
+        ListView {
+            height: 400px;
+            model: [
+                { text: "Chapter 1: Introduction" },
+                { text: "Chapter 2: Background" },
+                { text: "Chapter 3: Main Story" },
+                { text: "Chapter 4: Climax" },
+                { text: "Chapter 5: Resolution" },
+            ];
+            
+            delegate := VerticalBox {
+                padding: 5px;
+                Rectangle {
+                    height: 30px;
+                    background: #f0f0f0;
+                    border-radius: 4px;
+                    
+                    Text {
+                        text: root.current_item.text;
+                        font-size: 12px;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+        
+        // Hierarchy Controls
+        HorizontalBox {
+            Button { text: "➕ Add Chapter"; }
+            Button { text: "✏️ Edit"; }
+            Button { text: "🗑️ Delete"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "⬆️ Move Up"; }
+            Button { text: "⬇️ Move Down"; }
+            Button { text: "🔄 Reorganize"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Codex Tool Window Component
+export component CodexTool inherits Window {
+    title: "Codex Tool - World Building";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📖 World Building Codex";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Codex Categories
+        HorizontalBox {
+            Button { text: "Characters"; }
+            Button { text: "Locations"; }
+            Button { text: "Events"; }
+            Button { text: "Magic/Technology"; }
+        }
+        
+        // Codex Content Area
+        ScrollView {
+            height: 450px;
+            
+            VerticalBox {
+                TextEdit {
+                    text: "Codex entries will appear here...\n\nExample Entry:\n\nCharacter Name: Alice\nDescription: A brave adventurer with a mysterious past\nSkills: Sword fighting, magic\nRelationships: Friend of Bob\n\nLocation Name: Mystic Forest\nDescription: Ancient woodland filled with magical creatures\nClimate: Temperate, misty\nDanger Level: Medium";
+                    wrap: word-wrap;
+                }
+            }
+        }
+        
+        // Codex Controls
+        HorizontalBox {
+            Button { text: "➕ Add Entry"; }
+            Button { text: "✏️ Edit"; }
+            Button { text: "🔍 Search"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "📤 Export"; }
+            Button { text: "📥 Import"; }
+            Button { text: "🗂️ Categories"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Plot Tool Window Component
+export component PlotTool inherits Window {
+    title: "Plot Tool - Story Structure";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📊 Plot Development";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Plot Structure Timeline
+        Text {
+            text: "Story Arc Timeline:";
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        ListView {
+            height: 300px;
+            model: [
+                { text: "Act I: Setup - Character Introduction", status: "✓ Done" },
+                { text: "Act I: Inciting Incident", status: "✓ Done" },
+                { text: "Act II: Rising Action", status: "🔄 In Progress" },
+                { text: "Act II: Midpoint Crisis", status: "📝 Planned" },
+                { text: "Act III: Climax", status: "📝 Planned" },
+                { text: "Act III: Resolution", status: "📝 Planned" },
+            ];
+            
+            delegate := HorizontalBox {
+                padding: 8px;
+                Rectangle {
+                    height: 35px;
+                    background: #e8f4fd;
+                    border-radius: 4px;
+                    
+                    Text {
+                        text: root.current_item.text;
+                        font-size: 11px;
+                        vertical-alignment: center;
+                    }
+                    
+                    Rectangle { }
+                    
+                    Text {
+                        text: root.current_item.status;
+                        font-size: 10px;
+                        color: #666;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+        
+        // Plot Controls
+        HorizontalBox {
+            Button { text: "➕ Add Plot Point"; }
+            Button { text: "✏️ Edit"; }
+            Button { text: "🎯 Track Progress"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "🌉 Connect Scenes"; }
+            Button { text: "📊 Analytics"; }
+            Button { text: "🔄 Timeline View"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Analysis Tool Window Component
+export component AnalysisTool inherits Window {
+    title: "Analysis Tool - Writing Statistics";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📈 Writing Analysis";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Statistics Grid
+        GridBox {
+            // Word Count Statistics
+            Rectangle {
+                background: #f8f9fa;
+                border-radius: 6px;
+                padding: 10px;
+                
+                VerticalBox {
+                    Text { text: "Word Count"; font-size: 12px; font-weight: 600; }
+                    Text { text: "1,247 words"; font-size: 18px; font-weight: 700; color: #2c3e50; }
+                    Text { text: "Current session: 203"; font-size: 10px; color: #7f8c8d; }
+                }
+            }
+            
+            // Character Count
+            Rectangle {
+                background: #e8f5e8;
+                border-radius: 6px;
+                padding: 10px;
+                
+                VerticalBox {
+                    Text { text: "Character Count"; font-size: 12px; font-weight: 600; }
+                    Text { text: "7,432 characters"; font-size: 18px; font-weight: 700; color: #27ae60; }
+                    Text { text: "Avg words/page: 250"; font-size: 10px; color: #7f8c8d; }
+                }
+            }
+            
+            // Reading Time
+            Rectangle {
+                background: #fff3cd;
+                border-radius: 6px;
+                padding: 10px;
+                
+                VerticalBox {
+                    Text { text: "Reading Time"; font-size: 12px; font-weight: 600; }
+                    Text { text: "~5 min"; font-size: 18px; font-weight: 700; color: #f39c12; }
+                    Text { text: "At 250 wpm"; font-size: 10px; color: #7f8c8d; }
+                }
+            }
+            
+            // Pages
+            Rectangle {
+                background: #e3f2fd;
+                border-radius: 6px;
+                padding: 10px;
+                
+                VerticalBox {
+                    Text { text: "Pages"; font-size: 12px; font-weight: 600; }
+                    Text { text: "3.2 pages"; font-size: 18px; font-weight: 700; color: #3498db; }
+                    Text { text: "Estimated"; font-size: 10px; color: #7f8c8d; }
+                }
+            }
+        }
+        
+        // Analysis Controls
+        Text {
+            text: "Detailed Analysis:";
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        ScrollView {
+            height: 150px;
+            
+            TextEdit {
+                text: "Writing Quality Metrics:\n• Readability Score: 8.2/10\n• Sentence Complexity: Medium\n• Active Voice Usage: 75%\n• Dialogue vs Narrative: 40% / 60%\n\nVocabulary Analysis:\n• Unique Words: 892\n• Average Word Length: 4.3\n• Rare Words (< 1% frequency): 67\n\nStyle Metrics:\n• Paragraph Length: 3-5 sentences avg\n• Chapter Transitions: Smooth\n• Consistency Score: 9.1/10";
+                wrap: word-wrap;
+            }
+        }
+        
+        HorizontalBox {
+            Button { text: "📊 Generate Report"; }
+            Button { text: "📈 Trends"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Notes Tool Window Component
+export component NotesTool inherits Window {
+    title: "Notes Tool - Research Organization";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📝 Research Notes";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Notes Categories
+        HorizontalBox {
+            Button { text: "📚 Research"; }
+            Button { text: "💡 Ideas"; }
+            Button { text: "🎭 Characters"; }
+            Button { text: "📍 Worldbuilding"; }
+        }
+        
+        // Notes List
+        ListView {
+            height: 350px;
+            model: [
+                { title: "Historical Context Research", category: "Research", content: "Medieval England social structure and customs", date: "2025-11-05" },
+                { title: "Character Arc Ideas", category: "Ideas", content: "Alice's transformation from skeptic to believer", date: "2025-11-04" },
+                { title: "Magic System Notes", category: "Worldbuilding", content: "Consistent rules for spell casting and limitations", date: "2025-11-03" },
+                { title: "Dialogue Research", category: "Research", content: "Authentic period speech patterns", date: "2025-11-02" },
+                { title: "Plot Twist Ideas", category: "Ideas", content: "The mysterious mentor has hidden agenda", date: "2025-11-01" },
+            ];
+            
+            delegate := Rectangle {
+                height: 60px;
+                background: #f8f9fa;
+                border-radius: 4px;
+                padding: 8px;
+                
+                VerticalBox {
+                    HorizontalBox {
+                        Text { 
+                            text: root.current_item.title; 
+                            font-size: 12px; 
+                            font-weight: 600;
+                            color: #2c3e50;
+                        }
+                        
+                        Rectangle { }
+                        
+                        Text { 
+                            text: root.current_item.category; 
+                            font-size: 10px; 
+                            color: #7f8c8d;
+                        }
+                    }
+                    
+                    Text { 
+                        text: root.current_item.content; 
+                        font-size: 11px; 
+                        color: #666;
+                    }
+                    
+                    Text { 
+                        text: root.current_item.date; 
+                        font-size: 9px; 
+                        color: #999;
+                    }
+                }
+            }
+        }
+        
+        // Notes Controls
+        HorizontalBox {
+            Button { text: "➕ Add Note"; }
+            Button { text: "✏️ Edit"; }
+            Button { text: "🔍 Search"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "📁 Organize"; }
+            Button { text: "🏷️ Tag"; }
+            Button { text: "📤 Export"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Research Tool Window Component
+export component ResearchTool inherits Window {
+    title: "Research Tool - Source Material";
+    
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "🔍 Research & Sources";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Research Categories
+        HorizontalBox {
+            Button { text: "📚 Books"; }
+            Button { text: "🌐 Websites"; }
+            Button { text: "📄 Articles"; }
+            Button { text: "📊 Data"; }
+            Button { text: "🎥 Videos"; }
+        }
+        
+        // Research Sources List
+        ScrollView {
+            height: 400px;
+            
+            VerticalBox {
+                // Research Source Entry Template
+                Rectangle {
+                    background: #ffffff;
+                    border: 1px solid #dee2e6;
+                    border-radius: 6px;
+                    padding: 12px;
+                    
+                    VerticalBox {
+                        HorizontalBox {
+                            Text {
+                                text: "📖 'The Time Traveler's Guide to Medieval England'";
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: #2c3e50;
+                            }
+                            
+                            Rectangle { }
+                            
+                            Text {
+                                text: "📖 Book";
+                                font-size: 10px;
+                                color: #7f8c8d;
+                            }
+                        }
+                        
+                        Text {
+                            text: "Author: Ian Mortimer\nRelevant Sections: Social hierarchy, daily life, customs\nNotes: Excellent source for authentic medieval dialogue patterns\nRating: ⭐⭐⭐⭐⭐ 5/5";
+                            font-size: 11px;
+                            color: #666;
+                        }
+                        
+                        HorizontalBox {
+                            Button { text: "🔗 Open Link"; }
+                            Button { text: "📝 Annotate"; }
+                            Button { text: "🔖 Bookmark"; }
+                        }
+                    }
+                }
+                
+                Rectangle { height: 10px; }
+                
+                Rectangle {
+                    background: #ffffff;
+                    border: 1px solid #dee2e6;
+                    border-radius: 6px;
+                    padding: 12px;
+                    
+                    VerticalBox {
+                        HorizontalBox {
+                            Text {
+                                text: "🌐 Medieval History Database";
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: #2c3e50;
+                            }
+                            
+                            Rectangle { }
+                            
+                            Text {
+                                text: "🌐 Website";
+                                font-size: 10px;
+                                color: #7f8c8d;
+                            }
+                        }
+                        
+                        Text {
+                            text: "URL: medieval.history.database.com\nContent: Comprehensive database of medieval events and customs\nUse Case: Fact-checking historical details\nNotes: Great for cross-referencing sources";
+                            font-size: 11px;
+                            color: #666;
+                        }
+                        
+                        HorizontalBox {
+                            Button { text: "🔗 Open Link"; }
+                            Button { text: "📝 Annotate"; }
+                            Button { text: "🔖 Bookmark"; }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Research Controls
+        HorizontalBox {
+            Button { text: "➕ Add Source"; }
+            Button { text: "📥 Import"; }
+            Button { text: "🔍 Find Sources"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "📊 Research Plan"; }
+            Button { text: "📈 Progress"; }
+            Button { text: "📤 Citation"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}
+
+// Structure Tool Window Component
+export component StructureTool inherits Window {
+    title: "Structure Tool - Story Organization";
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📊 Plot Structure";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Plot Type Selection
+        Rectangle {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 12px;
+            
+            VerticalBox {
+                Text {
+                    text: "Select Plot Structure Type:";
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                
+                HorizontalBox {
+                    Button { text: "Three-Part"; }
+                    Button { text: "Hero's Journey"; }
+                    Button { text: "Save the Cat"; }
+                }
+                
+                HorizontalBox {
+                    Button { text: "Freytag's Pyramid"; }
+                    Button { text: "Dan Harmon's Circle"; }
+                    Button { text: "Blake Snyder's Beat Sheet"; }
+                }
+            }
+        }
+        
+        // Structure Progress
+        Rectangle {
+            background: #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            
+            VerticalBox {
+                Text {
+                    text: "Structure Progress";
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+                
+                // Progress bar
+                Rectangle {
+                    height: 20px;
+                    background: #dee2e6;
+                    border-radius: 4px;
+                    
+                    Rectangle {
+                        height: 20px;
+                        width: 120px;
+                        background: #28a745;
+                        border-radius: 4px;
+                    }
+                }
+                
+                Text { text: "3/8 stages complete"; font-size: 12px; color: #6c757d; }
+            }
+        }
+        
+        // Plot Stages List
+        Text {
+            text: "Plot Stages:";
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        ListView {
+            height: 300px;
+            model: [
+                {
+                    title: "1. Ordinary World",
+                    description: "Hero's normal life before the adventure",
+                    completed: false,
+                    content: "Enter details about your hero's ordinary world..."
+                },
+                {
+                    title: "2. Call to Adventure",
+                    description: "The hero is presented with a challenge",
+                    completed: false,
+                    content: ""
+                },
+                {
+                    title: "3. Refusal of the Call",
+                    description: "Hero hesitates or refuses the adventure",
+                    completed: true,
+                    content: "The hero initially refuses the call to adventure..."
+                },
+                {
+                    title: "4. Meeting the Mentor",
+                    description: "Hero meets a wise guide or helper",
+                    completed: false,
+                    content: ""
+                },
+                {
+                    title: "5. Crossing the Threshold",
+                    description: "Hero commits to the adventure",
+                    completed: false,
+                    content: ""
+                },
+                {
+                    title: "6. Tests, Allies, Enemies",
+                    description: "Hero faces challenges and makes friends/enemies",
+                    completed: false,
+                    content: ""
+                },
+                {
+                    title: "7. Approach to the Inmost Cave",
+                    description: "Hero approaches the central challenge",
+                    completed: false,
+                    content: ""
+                },
+                {
+                    title: "8. Ordeal",
+                    description: "Hero faces their greatest challenge",
+                    completed: false,
+                    content: ""
+                }
+            ];
+            
+            delegate := Rectangle {
+                height: 80px;
+                background: root.current_item.completed ? #e8f5e8 : #ffffff;
+                border: 1px solid #dee2e6;
+                border-radius: 6px;
+                margin: 4px;
+                padding: 8px;
+                
+                VerticalBox {
+                    HorizontalBox {
+                        CheckBox {
+                            checked: root.current_item.completed;
+                        }
+                        
+                        Text {
+                            text: root.current_item.title;
+                            font-size: 13px;
+                            font-weight: 600;
+                            color: #495057;
+                        }
+                        
+                        Rectangle { }
+                        
+                        Text {
+                            text: root.current_item.completed ? "✓ Done" : "⏳ Pending";
+                            font-size: 11px;
+                            color: root.current_item.completed ? #28a745 : #6c757d;
+                        }
+                    }
+                    
+                    Text {
+                        text: root.current_item.description;
+                        font-size: 11px;
+                        color: #6c757d;
+                        wrap: word-wrap;
+                    }
+                }
+            }
+        }
+        
+        // Structure Controls
+        HorizontalBox {
+            Button { text: "➕ Add Custom Stage"; }
+            Button { text: "✏️ Edit Structure"; }
+            Button { text: "📋 Export Outline"; }
+        }
+        
+        HorizontalBox {
+            Button { text: "🔄 Switch Template"; }
+            Button { text: "📊 View Analytics"; }
+            Button { text: "🎯 Track Progress"; }
+        }
+        
+        StandardButton {
+            kind: close;
+        }
+    }
+}

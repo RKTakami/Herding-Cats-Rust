@@ -1,0 +1,30 @@
+//! Backup Service - Minimal placeholder
+//! 
+//! Provides basic backup functionality
+
+use crate::{DatabaseError, DatabaseResult};
+use std::path::{Path, PathBuf};
+
+/// Backup service - simplified placeholder
+#[derive(Debug)]
+pub struct BackupService;
+
+impl BackupService {
+    /// Create a new backup service
+    pub fn new(_database_service: std::rc::Rc<crate::enhanced_database::EnhancedDatabaseService>, _backup_dir: &Path) -> DatabaseResult<Self> {
+        Ok(Self)
+    }
+    
+    /// Placeholder methods
+    pub fn create_manual_backup(&self, _project_id: Option<&str>) -> DatabaseResult<String> {
+        Ok("backup-placeholder".to_string())
+    }
+    
+    pub fn list_backups(&self, _project_id: Option<&str>, _limit: Option<usize>) -> DatabaseResult<Vec<String>> {
+        Ok(vec![])
+    }
+    
+    pub fn delete_backup(&self, _backup_name: &str) -> DatabaseResult<()> {
+        Ok(())
+    }
+}

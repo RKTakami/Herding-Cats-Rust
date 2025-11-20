@@ -1,0 +1,253 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        rust: [stable]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Cache dependencies
+      uses: Swatinem/rust-cache@v2
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run Rust tests
+      run: cargo test
+
+    - name: Run clippy
+      run: cargo clippy -- -D warnings
+
+    - name: Check formatting
+      run: cargo fmt --check
+
+  build:
+    name: Build
+    needs: test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Cache dependencies
+      uses: Swatinem/rust-cache@v2
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Generate build hash for reproducibility
+      run: |
+        find src -type f -name "*.rs" -exec sha256sum {} \; | sort > source_hash.txt
+        echo "SOURCE_HASH=$(sha256sum source_hash.txt | cut -d' ' -f1)" >> $GITHUB_ENV
+
+    - name: Build application
+      uses: tauri-apps/tauri-action@v0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SOURCE_HASH: ${{ env.SOURCE_HASH }}
+      with:
+        tagName: v__VERSION__
+        releaseName: 'Release v__VERSION__'
+        releaseBody: |
+          See [CHANGELOG.md](CHANGELOG.md) for details.
+          Build Hash: ${{ env.SOURCE_HASH }}
+        releaseDraft: true
+        prerelease: false
+
+  container-build:
+    name: Build Container
+    runs-on: ubuntu-latest
+    needs: security-audit
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: herding-cats-rust
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=sha,prefix={{branch}}-
+          type=raw,value=latest,enable={{is_default_branch}}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Scan container image
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'image'
+        scan-ref: 'herding-cats-rust:latest'
+        format: 'sarif'
+        output: 'container-scan-results.sarif'
+
+    - name: Upload container scan results
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'container-scan-results.sarif'
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Install cargo-audit
+      run: cargo install cargo-audit
+
+    - name: Run cargo audit
+      run: cargo audit
+
+    - name: Install cargo-deny
+      run: cargo install cargo-deny
+
+    - name: Run cargo deny
+      run: cargo deny check
+
+    - name: Generate SBOM
+      run: cargo install cargo-sbom && cargo sbom --output-format json > sbom.json
+
+    - name: Upload SBOM
+      uses: actions/upload-artifact@v4
+      with:
+        name: sbom
+        path: sbom.json
+
+  dependency-check:
+    name: Dependency Check
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Run npm audit
+      run: npm audit --audit-level moderate
+
+    - name: Check for outdated dependencies
+      run: npm outdated || true
+
+    - name: Run npm license check
+      run: npx license-checker --failOn 'AGPL-3.0;GPL-3.0;LGPL-3.0'
+
+  security-scan:
+    name: Security Scanning
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scan-ref: '.'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v3
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
+
+  signing:
+    name: Sign Artifacts
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: artifacts
+
+    - name: Sign artifacts with GPG
+      run: |
+        echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import --no-tty --batch --yes
+        for file in *.exe *.dmg *.deb *.rpm *.AppImage; do
+          if [ -f "$file" ]; then
+            gpg --detach-sign --armor --yes "$file"
+          fi
+        done
+
+    - name: Upload signed artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: signed-artifacts
+        path: |
+          *.exe
+          *.dmg
+          *.deb
+          *.rpm
+          *.AppImage
+          *.asc

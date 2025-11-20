@@ -1,0 +1,299 @@
+// Independent Slint Codex Tool Window
+import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+
+export component CodexWindow inherits Window {
+    title: "Codex Tool - Herding Cats";
+    
+    // Window styling
+    property<color> title-bar-color: #7b1fa2;
+    property<color> background-color: #f8f9fa;
+    
+    // Main content
+    Rectangle {
+        background: title-bar-color;
+        height: 35px;
+        y: 0;
+        width: parent.width;
+        
+        HorizontalBox {
+            padding: 10px;
+            spacing: 10px;
+            
+            Text {
+                text: "📖 World Building Codex";
+                color: white;
+                font-size: 14px;
+                font-weight: 600;
+                vertical-alignment: center;
+            }
+            
+            Rectangle { }
+        }
+    }
+    
+    // Content area
+    Rectangle {
+        y: 35px;
+        height: parent.height - 35px;
+        width: parent.width;
+        background: background-color;
+        
+        VerticalBox {
+            padding: 15px;
+            spacing: 15px;
+            
+            Text {
+                text: "📖 World Building Codex - RESIZEABLE!";
+                font-size: 18px;
+                font-weight: 700;
+                color: #2c3e50;
+            }
+            
+            // Category tabs
+            HorizontalBox {
+                spacing: 8px;
+                
+                Button {
+                    text: "👥 Characters";
+                    width: 100px;
+                    height: 30px;
+                }
+                
+                Button {
+                    text: "📍 Places";
+                    width: 80px;
+                    height: 30px;
+                }
+                
+                Button {
+                    text: "🎭 Events";
+                    width: 80px;
+                    height: 30px;
+                }
+                
+                Button {
+                    text: "⚡ Magic/Tech";
+                    width: 100px;
+                    height: 30px;
+                }
+            }
+            
+            // Content area
+            ScrollView {
+                height: 350px;
+                
+                VerticalBox {
+                    spacing: 12px;
+                    
+                    Rectangle {
+                        background: white;
+                        border-radius: 8px;
+                        padding: 15px;
+                        
+                        VerticalBox {
+                            spacing: 8px;
+                            
+                            HorizontalBox {
+                                Text {
+                                    text: "👤 Alice Chen";
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #2c3e50;
+                                }
+                                
+                                Rectangle { }
+                                
+                                Text {
+                                    text: "⭐ Protagonist";
+                                    font-size: 12px;
+                                    color: #e74c3c;
+                                    font-weight: 600;
+                                }
+                            }
+                            
+                            Text {
+                                text: "A brave adventurer with a mysterious past who discovers her magical abilities.";
+                                font-size: 13px;
+                                color: #555;
+                                wrap: word-wrap;
+                            }
+                            
+                            HorizontalBox {
+                                Text {
+                                    text: "💪 Skills:";
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: #666;
+                                }
+                                
+                                Text {
+                                    text: " Sword fighting, Arcane magic, Leadership";
+                                    font-size: 12px;
+                                    color: #777;
+                                }
+                            }
+                            
+                            HorizontalBox {
+                                Text {
+                                    text: "❤️ Relationships:";
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: #666;
+                                }
+                                
+                                Text {
+                                    text: "Friend of Bob, Apprentice to Dr. Webb";
+                                    font-size: 12px;
+                                    color: #777;
+                                }
+                            }
+                        }
+                    }
+                    
+                    Rectangle {
+                        background: white;
+                        border-radius: 8px;
+                        padding: 15px;
+                        
+                        VerticalBox {
+                            spacing: 8px;
+                            
+                            HorizontalBox {
+                                Text {
+                                    text: "🏛️ Mystic Academy";
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                    color: #2c3e50;
+                                }
+                                
+                                Rectangle { }
+                                
+                                Text {
+                                    text: "🏢 Institution";
+                                    font-size: 12px;
+                                    color: #3498db;
+                                    font-weight: 600;
+                                }
+                            }
+                            
+                            Text {
+                                text: "Ancient learning institution where magical students train and masters teach.";
+                                font-size: 13px;
+                                color: #555;
+                                wrap: word-wrap;
+                            }
+                            
+                            HorizontalBox {
+                                Text {
+                                    text: "📊 Status:";
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: #666;
+                                }
+                                
+                                Text {
+                                    text: "Active, Well-funded, Secret Location";
+                                    font-size: 12px;
+                                    color: #27ae60;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Controls
+            HorizontalBox {
+                spacing: 10px;
+                
+                Button {
+                    text: "➕ Add Entry";
+                    width: 100px;
+                    height: 30px;
+                }
+                
+                Button {
+                    text: "✏️ Edit";
+                    width: 80px;
+                    height: 30px;
+                }
+                
+                Button {
+                    text: "🔍 Search";
+                    width: 80px;
+                    height: 30px;
+                }
+            }
+            
+            HorizontalBox {
+                spacing: 10px;
+                
+                Button {
+                    text: "📤 Export";
+                    width: 80px;
+                    height: 25px;
+                }
+                
+                Button {
+                    text: "📥 Import";
+                    width: 80px;
+                    height: 25px;
+                }
+                
+                Button {
+                    text: "🗂️ Categories";
+                    width: 100px;
+                    height: 25px;
+                }
+            }
+        }
+    }
+    
+    // VISUAL RESIZE HANDLES
+    // Bottom-right corner resize handle
+    Rectangle {
+        x: parent.width - 12px;
+        y: parent.height - 12px;
+        width: 12px;
+        height: 12px;
+        background: #7b1fa2;
+        border-radius: 1px;
+        drop-shadow-blur: 2px;
+    }
+    
+    // Right edge resize handle
+    Rectangle {
+        x: parent.width - 2px;
+        y: 35px;
+        width: 2px;
+        height: parent.height - 35px - 12px;
+        background: #7b1fa2;
+    }
+    
+    // Bottom edge resize handle
+    Rectangle {
+        x: 12px;
+        y: parent.height - 2px;
+        width: parent.width - 12px - 12px;
+        height: 2px;
+        background: #7b1fa2;
+    }
+    
+    // Left edge resize handle
+    Rectangle {
+        x: 0px;
+        y: 35px;
+        width: 2px;
+        height: parent.height - 35px - 12px;
+        background: #7b1fa2;
+    }
+    
+    // Top edge resize handle
+    Rectangle {
+        x: 12px;
+        y: 0px;
+        width: parent.width - 12px - 12px;
+        height: 2px;
+        background: #7b1fa2;
+    }
+}

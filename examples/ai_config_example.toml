@@ -1,0 +1,368 @@
+# Herding Cats Rust - AI Provider Configuration Example
+#
+# This file demonstrates configuration for different AI providers.
+# Copy this to config/ai.toml and customize with your API keys.
+
+[openai]
+# OpenAI API Configuration
+api_key = "your-openai-api-key-here"
+organization = ""
+base_url = "https://api.openai.com/v1"
+
+# Default model settings
+model = "gpt-3.5-turbo"
+temperature = 0.7
+max_tokens = 4000
+top_p = 1.0
+frequency_penalty = 0.0
+presence_penalty = 0.0
+
+# Advanced settings
+stream = true
+stop = []
+logit_bias = {}
+
+# Usage limits
+daily_budget = 10.0
+monthly_budget = 100.0
+max_requests_per_minute = 60
+max_tokens_per_minute = 90000
+
+# Retry configuration
+max_retries = 3
+retry_delay_ms = 1000
+timeout_seconds = 30
+
+[openai.models]
+# Available models for different use cases
+
+[openai.models.gpt-4]
+model = "gpt-4"
+max_tokens = 8192
+temperature = 0.3
+cost_per_1k_tokens = 0.03
+
+[openai.models.gpt-4-turbo]
+model = "gpt-4-turbo"
+max_tokens = 128000
+temperature = 0.5
+cost_per_1k_tokens = 0.01
+
+[openai.models.gpt-3.5-turbo]
+model = "gpt-3.5-turbo"
+max_tokens = 16385
+temperature = 0.7
+cost_per_1k_tokens = 0.0015
+
+[anthropic]
+# Anthropic Claude API Configuration
+api_key = "your-anthropic-api-key-here"
+base_url = "https://api.anthropic.com/v1"
+
+# Default model settings
+model = "claude-3-sonnet-20240229"
+temperature = 0.5
+max_tokens = 4000
+top_k = 250
+top_p = 1.0
+
+# Claude-specific settings
+stop_sequences = []
+metadata = {}
+
+# Usage limits
+daily_budget = 15.0
+monthly_budget = 150.0
+max_requests_per_minute = 50
+max_tokens_per_minute = 100000
+
+[anthropic.models]
+# Available Claude models
+
+[anthropic.models.claude-3-opus]
+model = "claude-3-opus-20240229"
+max_tokens = 200000
+temperature = 0.3
+cost_per_1k_tokens = 0.015
+
+[anthropic.models.claude-3-sonnet]
+model = "claude-3-sonnet-20240229"
+max_tokens = 200000
+temperature = 0.5
+cost_per_1k_tokens = 0.003
+
+[anthropic.models.claude-3-haiku]
+model = "claude-3-haiku-20240307"
+max_tokens = 200000
+temperature = 0.7
+cost_per_1k_tokens = 0.00025
+
+[local]
+# Local AI Model Configuration
+enabled = false
+backend = "llama"  # Options: llama, gptj, stablelm, mamba
+
+# Model path configuration
+model_path = "/path/to/your/model"
+model_name = "llama-2-7b-chat"
+
+# Performance settings
+threads = 4
+context_size = 4096
+batch_size = 8
+gpu_layers = 0
+
+# Backend-specific settings
+[mlock = false
+numa = false
+use_mmap = true
+use_mlock = false
+
+[local.llama]
+# Llama.cpp specific settings
+embedding = true
+rope_frequency_base = 10000.0
+rope_frequency_scale = 1.0
+grammar = ""
+
+[local.gptj]
+# GPT-J specific settings
+# No additional settings required
+
+[local.stablelm]
+# StableLM specific settings
+alibi_bias = 0.0
+rope_scaling = 1.0
+
+[azure_openai]
+# Azure OpenAI Configuration (for enterprise users)
+enabled = false
+api_key = "your-azure-openai-key"
+resource_name = "your-resource-name"
+deployment_name = "your-deployment-name"
+api_version = "2024-02-01"
+
+# Azure-specific settings
+api_base = "https://your-resource-name.openai.azure.com/"
+api_type = "azure"
+
+[cohere]
+# Cohere AI Configuration
+enabled = false
+api_key = "your-cohere-api-key"
+base_url = "https://api.cohere.ai/v1"
+
+# Model settings
+model = "command-r"
+temperature = 0.75
+max_tokens = 4000
+k = 0
+p = 0.75
+
+[google_ai]
+# Google AI Studio Configuration
+enabled = false
+api_key = "your-google-ai-api-key"
+base_url = "https://generativelanguage.googleapis.com/v1beta"
+
+# Model settings
+model = "gemini-pro"
+temperature = 0.7
+max_tokens = 4096
+top_k = 40
+top_p = 0.95
+
+[mistral]
+# Mistral AI Configuration
+enabled = false
+api_key = "your-mistral-api-key"
+base_url = "https://api.mistral.ai/v1"
+
+# Model settings
+model = "mistral-large-latest"
+temperature = 0.7
+max_tokens = 4000
+top_p = 1.0
+random_seed = 0
+
+[fireworks]
+# Fireworks AI Configuration
+enabled = false
+api_key = "your-fireworks-api-key"
+base_url = "https://api.fireworks.ai/v1"
+
+# Model settings
+model = "accounts/fireworks/models/llama-v3p1-70b-instruct"
+temperature = 0.7
+max_tokens = 4000
+top_p = 0.9
+top_k = 50
+
+[ai21]
+# AI21 Labs Configuration
+enabled = false
+api_key = "your-ai21-api-key"
+base_url = "https://api.ai21.com/studio/v1"
+
+# Model settings
+model = "j2-ultra"
+temperature = 0.7
+max_tokens = 4000
+top_p = 1.0
+count_penalty = 0.0
+presence_penalty = 0.0
+frequency_penalty = 0.0
+
+[palm2]
+# Google PaLM2 Configuration (legacy)
+enabled = false
+api_key = "your-palm2-api-key"
+base_url = "https://generativelanguage.googleapis.com/v1beta2"
+
+# Model settings
+model = "text-bison-001"
+temperature = 0.7
+max_tokens = 4000
+top_k = 40
+top_p = 0.95
+
+[custom_providers]
+# Custom AI Provider Configuration
+# Add your own AI providers here
+
+[custom_providers.my_custom_ai]
+enabled = false
+api_key = "your-custom-ai-api-key"
+base_url = "https://api.my-custom-ai.com/v1"
+model = "custom-model"
+temperature = 0.7
+max_tokens = 4000
+
+# Custom headers for authentication
+[custom_providers.my_custom_ai.headers]
+Authorization = "Bearer your-api-key"
+Custom-Header = "custom-value"
+
+# Prompt templates for different writing tools
+[prompt_templates]
+system_message = "You are a helpful writing assistant specialized in creative writing and content creation."
+
+[prompt_templates.hierarchy]
+description = "Generate a hierarchical outline for writing projects"
+max_iterations = 3
+structure_example = """
+# Example Structure:
+## Manuscript: [Title]
+### Act 1: [Description]
+#### Chapter 1: [Title]
+##### Scene 1.1: [Description]
+"""
+
+[prompt_templates.codex]
+description = "Generate world-building content and character details"
+max_iterations = 5
+worldbuilding_example = """
+# Example World-Building:
+## Location: [Name]
+- **Type**: [Fantasy City, Sci-Fi Space Station, etc.]
+- **Population**: [Number]
+- **Key Features**: [List]
+- **History**: [Brief description]
+"""
+
+[prompt_templates.notes]
+description = "Generate and organize notes with AI assistance"
+max_iterations = 2
+note_format = "Use bullet points and clear headings for organized notes"
+
+[prompt_templates.research]
+description = "Generate research content and mind maps"
+max_iterations = 3
+research_format = "Create interconnected nodes with relationships and hierarchies"
+
+[prompt_templates.plot]
+description = "Generate plot structures and story arcs"
+max_iterations = 3
+plot_templates = ["3-Act Structure", "Hero's Journey", "Save the Cat", "Freytag's Pyramid"]
+
+[prompt_templates.analysis]
+description = "Analyze writing content and provide feedback"
+max_iterations = 2
+analysis_focus = ["Character Development", "Plot Structure", "Pacing", "Dialogue Quality"]
+
+[prompt_templates.structure]
+description = "Develop comprehensive story structures"
+max_iterations = 4
+structure_methods = ["Save the Cat", "Story Grid", "Dan Harmon's Story Circle", "Michael Hauge's 6-Stage Structure"]
+
+[prompt_templates.brainstorming]
+description = "Generate creative ideas and brainstorming content"
+max_iterations = 5
+creativity_techniques = ["Mind Mapping", "SCAMPER", "Random Word Association", "What If Scenarios"]
+
+# Cost tracking and optimization
+[cost_tracking]
+enabled = true
+currency = "USD"
+update_interval_seconds = 300
+alert_threshold = 0.9  # Alert when 90% of budget is used
+
+[cost_tracking.providers]
+openai_cost_per_1k_input_tokens = 0.0015
+openai_cost_per_1k_output_tokens = 0.002
+anthropic_cost_per_1k_tokens = 0.003
+local_cost_per_1k_tokens = 0.0  # Free (excluding electricity)
+
+# Smart routing configuration
+[smart_routing]
+enabled = true
+strategy = "cost-performance"  # Options: cost-only, performance-only, cost-performance, availability
+
+[routing_rules]
+# Route different types of requests to optimal providers
+creative_writing = ["claude-3-opus", "gpt-4-turbo", "claude-3-sonnet"]
+technical_writing = ["claude-3-sonnet", "gpt-4-turbo", "gpt-3.5-turbo"]
+brainstorming = ["claude-3-haiku", "gpt-3.5-turbo", "local"]
+research = ["claude-3-sonnet", "gpt-4-turbo", "claude-3-opus"]
+analysis = ["claude-3-sonnet", "gpt-4-turbo", "gpt-3.5-turbo"]
+
+# Fallback configuration
+[fallback]
+enabled = true
+providers = ["openai", "anthropic", "local"]
+max_fallback_attempts = 2
+health_check_interval = 60
+
+# Rate limiting and throttling
+[rate_limiting]
+enabled = true
+global_requests_per_minute = 100
+provider_specific_limits = true
+
+[rate_limiting.providers]
+openai = 60
+anthropic = 50
+local = 1000
+
+# Security settings
+[security]
+encrypt_api_keys = true
+mask_api_keys_in_logs = true
+validate_ssl_certificates = true
+request_timeout = 60
+max_retries = 3
+
+# Logging and monitoring
+[logging]
+log_requests = false
+log_responses = false
+log_errors = true
+log_costs = true
+log_performance = true
+
+# Debug settings (development only)
+[debug]
+enabled = false
+mock_responses = false
+verbose_logging = false
+slow_down_requests = false
