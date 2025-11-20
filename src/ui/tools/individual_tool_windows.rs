@@ -8,7 +8,7 @@ use std::sync::{Arc, Mutex};
 use tokio::sync::RwLock;
 
 use crate::ui::tools::base_types::ToolType;
-use crate::{ui_state::AppState, database_app_state::DatabaseAppState};
+use crate::{AppState, DatabaseAppState};
 
 /// Individual tool window manager for each writing tool
 pub struct IndividualToolWindowManager {

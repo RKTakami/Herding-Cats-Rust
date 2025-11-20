@@ -1,6 +1,6 @@
 [package]
 name = "herding-cats-rust"
-version = "0.50.00"
+version = "0.50.0"
 description = "Enterprise Writing Suite - Advanced Rust Application with AI Integration"
 authors = ["Robyn <robyn@herdingcats.dev>"]
 edition = "2021"
@@ -15,6 +15,10 @@ readme = "README.md"
 [lib]
 name = "herding_cats_rust"
 path = "src/lib.rs"
+
+[[bin]]
+name = "herding-cats-rust"
+path = "src/main.rs"
 
 [features]
 default = []

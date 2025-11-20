@@ -12,7 +12,8 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::info;
 
 // Import database types and services
-use crate::{DatabaseAppState, SearchOptions, SearchService, SearchStatistics};
+use crate::database_app_state::DatabaseAppState;
+use crate::database::search_service::{SearchOptions, SearchService, SearchStatistics};
 
 /// Search result item for UI display
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -29,13 +30,13 @@ pub struct UISearchResult {
     pub metadata: Option<String>, // Keep as Option<String> to match SearchResult
 }
 
-impl From<crate::SearchResult> for UISearchResult {
-    fn from(result: crate::SearchResult) -> Self {
+impl From<crate::database::search_service::SearchResult> for UISearchResult {
+    fn from(result: crate::database::search_service::SearchResult) -> Self {
         Self {
             document_id: result.document_id.to_string(),
             title: result.title,
             snippet: result.snippet, // Keep as String, not Option<String>
-            relevance_score: result.similarity_score, // Map similarity_score to relevance_score
+            relevance_score: result.relevance_score,
             project_id: "unknown".to_string(), // Default value since project_id not available
             created_at: "unknown".to_string(), // Default value since created_at not available
             updated_at: "unknown".to_string(), // Default value since updated_at not available

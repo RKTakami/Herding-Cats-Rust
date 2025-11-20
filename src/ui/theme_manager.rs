@@ -3,7 +3,7 @@
 //! Provides unified theming capabilities across all application windows
 //! including main app window and individual writing tool windows.
 
-use crate::settings::{load_theme_settings, save_theme_settings, ThemeSettings};
+use crate::{load_theme_settings, save_theme_settings, ThemeSettings};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};

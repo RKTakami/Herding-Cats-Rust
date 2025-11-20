@@ -12,7 +12,7 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::{debug, info, warn};
 
 // Import database types and services
-use crate::DatabaseAppState;
+use crate::database_app_state::DatabaseAppState;
 
 /// Document state for tracking changes and persistence
 #[derive(Debug, Clone, Serialize, Deserialize)]

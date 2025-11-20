@@ -11,7 +11,7 @@ use tokio::sync::{broadcast, RwLock};
 use uuid::Uuid;
 
 // Database types for error handling
-use crate::error::{DatabaseError, DatabaseResult};
+use crate::{DatabaseError, DatabaseResult};
 
 // Use sqlx types directly to avoid import issues
 

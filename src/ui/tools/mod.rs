@@ -20,7 +20,7 @@ pub use threading_patterns::*;
 
 use crate::ui::tools::api_contracts::ToolLifecycleEvent;
 use anyhow::Result;
-use crate::database_app_state::DatabaseAppState;
+use crate::DatabaseAppState;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 use tokio::sync::RwLock;

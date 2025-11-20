@@ -173,40 +173,12 @@ impl From<DatabaseError> for ApplicationError {
     fn from(error: DatabaseError) -> Self {
         match error {
             DatabaseError::Connection(_) => ApplicationError::DatabaseConnection(error),
-            DatabaseError::Timeout { .. } => ApplicationError::DatabaseConnection(error),
-            DatabaseError::QueryFailed { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::ConstraintViolation { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::NotFound { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::AlreadyExists { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::MigrationFailed { .. } => ApplicationError::DatabaseMigration(error),
-            DatabaseError::TransactionFailed { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::PoolExhausted { .. } => ApplicationError::DatabaseConnection(error),
-            DatabaseError::ConfigurationError { message: _ } => {
-                ApplicationError::DatabaseQuery(error)
-            }
-            DatabaseError::IntegrityError { message: _ } => {
-                ApplicationError::DatabaseIntegrity(error)
-            }
-            DatabaseError::PermissionDenied { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::SerializationError { message: _ } => {
-                ApplicationError::DatabaseQuery(error)
-            }
-            DatabaseError::DeserializationError { message: _ } => {
-                ApplicationError::DatabaseQuery(error)
-            }
-            DatabaseError::Deadlock { message: _ } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::InvalidState { state: _ } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::BackupRestoreFailed { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::HealthCheckFailed { message: _ } => {
-                ApplicationError::DatabaseQuery(error)
-            }
-            DatabaseError::VersionMismatch { .. } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::Unknown { message: _ } => ApplicationError::DatabaseQuery(error),
-            DatabaseError::Configuration(_) => ApplicationError::DatabaseQuery(error),
+            DatabaseError::Configuration(_) => ApplicationError::DatabaseConnection(error),
             DatabaseError::IntegrityCheck(_) => ApplicationError::DatabaseIntegrity(error),
             DatabaseError::Migration(_) => ApplicationError::DatabaseMigration(error),
             DatabaseError::Service(_) => ApplicationError::DatabaseQuery(error),
             DatabaseError::ValidationError(_) => ApplicationError::DatabaseQuery(error),
+            DatabaseError::NotFound { entity: _, id: _ } => ApplicationError::DatabaseQuery(error),
             _ => ApplicationError::DatabaseQuery(error),
         }
     }

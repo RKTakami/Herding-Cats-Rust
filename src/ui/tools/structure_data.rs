@@ -1,11 +1,12 @@
 //! Structure Data Module for Herding Cats Rust
-//! 
+//!
 //! Pure Rust implementation of plot structure data and management.
 //! Provides plot types, stages, and data persistence without EGUI dependencies.
 
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use std::collections::HashMap;
+use chrono::{Utc, DateTime};
 
 /// Available plot structure types
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -166,14 +167,15 @@ pub struct StructureData {
     pub title: String,
     pub description: String,
     pub stages: Vec<PlotStage>,
-    pub created_at: String,
-    pub updated_at: String,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }
 
 impl StructureData {
     /// Create a new structure data with a specific plot type
     pub fn new(project_id: Uuid, plot_type: PlotType, title: String, description: String) -> Self {
         let stages = plot_type.get_plot_stages();
+        let now = Utc::now();
         Self {
             id: Uuid::new_v4(),
             project_id,
@@ -181,8 +183,8 @@ impl StructureData {
             title,
             description,
             stages,
-            created_at: chrono::Utc::now().to_rfc3339(),
-            updated_at: chrono::Utc::now().to_rfc3339(),
+            created_at: now,
+            updated_at: now,
         }
     }
 
@@ -207,7 +209,7 @@ impl StructureData {
     pub fn toggle_stage_completion(&mut self, stage_index: usize) -> Result<(), String> {
         if let Some(stage) = self.stages.get_mut(stage_index) {
             stage.completed = !stage.completed;
-            stage.updated_at = chrono::Utc::now().to_rfc3339();
+            stage.updated_at = Utc::now();
             Ok(())
         } else {
             Err("Stage not found".to_string())
@@ -218,7 +220,7 @@ impl StructureData {
     pub fn update_stage_content(&mut self, stage_index: usize, content: String) -> Result<(), String> {
         if let Some(stage) = self.stages.get_mut(stage_index) {
             stage.content = content;
-            stage.updated_at = chrono::Utc::now().to_rfc3339();
+            stage.updated_at = Utc::now();
             Ok(())
         } else {
             Err("Stage not found".to_string())
@@ -229,7 +231,7 @@ impl StructureData {
     pub fn set_stage_page_target(&mut self, stage_index: usize, page_target: Option<u32>) -> Result<(), String> {
         if let Some(stage) = self.stages.get_mut(stage_index) {
             stage.page_target = page_target;
-            stage.updated_at = chrono::Utc::now().to_rfc3339();
+            stage.updated_at = Utc::now();
             Ok(())
         } else {
             Err("Stage not found".to_string())
@@ -339,7 +341,7 @@ impl StructureManager {
         if let Some(structure) = self.structures.get_mut(&id) {
             structure.title = title;
             structure.description = description;
-            structure.updated_at = chrono::Utc::now().to_rfc3339();
+            structure.updated_at = Utc::now();
             Ok(())
         } else {
             Err("Structure not found".to_string())

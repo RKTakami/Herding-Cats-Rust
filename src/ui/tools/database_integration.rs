@@ -9,8 +9,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use tracing::{debug, warn};
 
-use crate::database::DatabaseError;
-use crate::{DatabaseAppState, EnhancedDatabaseService};
+use crate::{DatabaseError, DatabaseAppState, EnhancedDatabaseService};
 
 /// Unified database context for UI tools
 /// Provides consistent access to database services with proper error handling

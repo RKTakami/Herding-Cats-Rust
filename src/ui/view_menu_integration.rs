@@ -320,7 +320,7 @@ mod tests {
 
     #[tokio::test]
     async fn test_view_menu_integration_creation() {
-        let db_service: Arc<RwLock<EnhancedDatabaseService>> = Arc::new(RwLock::new(EnhancedDatabaseService));
+        let db_service: Arc<RwLock<EnhancedDatabaseService>> = Arc::new(RwLock::new(None));
         let integration = ViewMenuIntegration::new(db_service).unwrap();
 
         assert_eq!(integration.launcher.get_statistics().total_open_windows, 0);

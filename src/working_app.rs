@@ -1,7 +1,8 @@
 use anyhow::Result;
+use crate::main_window_comprehensive::MainWindowComprehensive;
 
 pub async fn run_working_app() -> Result<()> {
-    let window = crate::main_window_comprehensive::MainWindowComprehensive::new().await?;
+    let window = MainWindowComprehensive::new().await?;
 
     window.run()?;
 

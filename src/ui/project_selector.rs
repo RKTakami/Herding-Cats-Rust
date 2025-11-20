@@ -10,8 +10,9 @@ use tracing::{error, info};
 use uuid::Uuid;
 
 // Import database types and services from the library root
+use crate::database_app_state::DatabaseAppState;
+use crate::database::models::Project;
 use crate::database::project_management::ProjectSettings;
-use crate::{DatabaseAppState, Project};
 
 /// Project selector UI state and functionality
 pub struct ProjectSelector {

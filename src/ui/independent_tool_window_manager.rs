@@ -8,8 +8,8 @@ use std::sync::{Arc, Mutex};
 
 use crate::{
     ui::tools::base_types::ToolType,
-    ui_state::AppState,
-    database_app_state::DatabaseAppState,
+    AppState,
+    DatabaseAppState,
     ui::tools::individual_tool_windows::{IndividualToolWindowManager, ToolWindowState},
 };
 
