@@ -12,8 +12,9 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::info;
 
 // Import database types and services
-use crate::database_app_state::DatabaseAppState;
-use crate::database::search_service::{SearchOptions, SearchService, SearchStatistics};
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::DatabaseAppState;
+use hc_lib::database::search_service::{SearchOptions, SearchService, SearchStatistics};
 
 /// Search result item for UI display
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -30,8 +31,8 @@ pub struct UISearchResult {
     pub metadata: Option<String>, // Keep as Option<String> to match SearchResult
 }
 
-impl From<crate::database::search_service::SearchResult> for UISearchResult {
-    fn from(result: crate::database::search_service::SearchResult) -> Self {
+impl From<hc_lib::database::search_service::SearchResult> for UISearchResult {
+    fn from(result: hc_lib::database::search_service::SearchResult) -> Self {
         Self {
             document_id: result.document_id.to_string(),
             title: result.title,
@@ -591,7 +592,7 @@ mod tests {
         use uuid::Uuid;
 
         // Build a minimal SearchResult consistent with current struct definition
-        use crate::SearchResult;
+        use hc_lib::database::search_service::SearchResult;
         let search_result = SearchResult {
             document_id: Uuid::new_v4(),
             title: "Test Document".to_string(),
@@ -600,6 +601,7 @@ mod tests {
             chunk_index: 0,
             start_char: 0,
             end_char: 20,
+            relevance_score: 0.95,
         };
 
         // Convert to UISearchResult via From implementation

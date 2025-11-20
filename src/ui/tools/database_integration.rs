@@ -9,7 +9,8 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use tracing::{debug, warn};
 
-use crate::{DatabaseError, DatabaseAppState, EnhancedDatabaseService};
+use herding_cats_rust as hc_lib;
+use hc_lib::{DatabaseError, DatabaseAppState, EnhancedDatabaseService};
 
 /// Unified database context for UI tools
 /// Provides consistent access to database services with proper error handling

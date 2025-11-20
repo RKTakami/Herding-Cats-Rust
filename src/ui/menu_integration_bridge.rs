@@ -12,8 +12,9 @@ use crate::{
     ui::tools::base_types::ToolType,
     ui::view_menu_integration::{RealViewMenuHandler, ViewMenuIntegration},
 };
-use crate::database_app_state::EnhancedDatabaseService;
-use crate::ui_state::AppState;
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::EnhancedDatabaseService;
+use hc_lib::ui_state::AppState;
 
 /// Global menu integration bridge instance
 use lazy_static::lazy_static;
@@ -336,7 +337,7 @@ mod tests {
     #[tokio::test]
     async fn test_menu_bridge_initialization() {
         // Use a mock that matches the expected type
-        let db_service = Arc::new(RwLock::new(())); // Empty mock for testing
+        let _db_service = Arc::new(RwLock::new(())); // Empty mock for testing
         let mut bridge = MenuIntegrationBridge::new();
 
         // This will fail due to type mismatch, but we can test the structure

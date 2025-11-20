@@ -10,9 +10,11 @@ use tracing::{error, info};
 use uuid::Uuid;
 
 // Import database types and services from the library root
-use crate::database_app_state::DatabaseAppState;
-use crate::database::models::Project;
-use crate::database::project_management::ProjectSettings;
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::DatabaseAppState;
+use hc_lib::database::models::Project;
+use hc_lib::database::project_management::ProjectSettings;
+use hc_lib::database::project_management;
 
 /// Project selector UI state and functionality
 pub struct ProjectSelector {
@@ -245,7 +247,7 @@ impl ProjectSelector {
         &self,
         project_id: &str,
     ) -> Result<
-        crate::database::project_management::ProjectStatistics,
+        project_management::ProjectStatistics,
         Box<dyn std::error::Error>,
     > {
         let db_state = self.database_state.read().await;

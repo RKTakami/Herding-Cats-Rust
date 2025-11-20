@@ -13,8 +13,9 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::{debug, info};
 
 // Import types from the library since this is a binary project
-use crate::database_app_state::DatabaseAppState;
-use crate::error::DatabaseError;
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::DatabaseAppState;
+use hc_lib::error::DatabaseError;
 
 /// Comprehensive error types for the entire application
 #[derive(Debug, Clone, Serialize, Deserialize)]

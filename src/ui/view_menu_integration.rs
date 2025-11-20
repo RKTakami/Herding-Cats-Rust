@@ -9,8 +9,9 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 
 use crate::{ui::enhanced_tool_launcher::EnhancedToolLauncher, ui::tools::base_types::ToolType};
-use crate::database_app_state::EnhancedDatabaseService;
-use crate::ui_state::AppState;
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::EnhancedDatabaseService;
+use hc_lib::ui_state::AppState;
 
 /// View Menu Integration Handler
 ///
@@ -313,7 +314,7 @@ mod tests {
     use tokio::sync::RwLock;
 
     // Mock database service for testing - needs to match EnhancedDatabaseService interface
-    use crate::database_app_state::EnhancedDatabaseService;
+    use hc_lib::database_app_state::EnhancedDatabaseService;
 
     // For testing, we'll use a simple mock that matches the expected type
     type MockDatabaseService = EnhancedDatabaseService;

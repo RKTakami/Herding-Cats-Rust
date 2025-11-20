@@ -20,13 +20,14 @@ pub use threading_patterns::*;
 
 use crate::ui::tools::api_contracts::ToolLifecycleEvent;
 use anyhow::Result;
-use crate::DatabaseAppState;
+use herding_cats_rust as hc_lib;
+use hc_lib::DatabaseAppState;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
 use tokio::sync::RwLock;
 
 // Re-export types that are commonly used
-pub use crate::ui::tools::base_types::ToolType;
+// pub use hc_lib::ui::tools::base_types::ToolType;
 
 /// Main UI Tools Manager that orchestrates all tool operations
 pub struct UiToolsManager {

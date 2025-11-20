@@ -12,7 +12,8 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::{debug, info, warn};
 
 // Import database types and services
-use crate::database_app_state::DatabaseAppState;
+use herding_cats_rust as hc_lib;
+use hc_lib::database_app_state::DatabaseAppState;
 
 /// Document state for tracking changes and persistence
 #[derive(Debug, Clone, Serialize, Deserialize)]

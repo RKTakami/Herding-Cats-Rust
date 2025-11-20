@@ -11,7 +11,8 @@ use tokio::sync::{broadcast, RwLock};
 use uuid::Uuid;
 
 // Database types for error handling
-use crate::{DatabaseError, DatabaseResult};
+use herding_cats_rust as hc_lib;
+use hc_lib::error::{DatabaseError, DatabaseResult};
 
 // Use sqlx types directly to avoid import issues
 
