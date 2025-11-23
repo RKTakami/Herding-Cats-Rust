@@ -508,10 +508,39 @@ mod tests {
 
     #[tokio::test]
     async fn test_tool_health_check() {
-        let api_contract = Arc::new(ToolApiContract::new());
-        let database_state = Arc::new(RwLock::new(crate::DatabaseAppState::new()));
+        use tempfile::NamedTempFile;
+        use crate::database::{DatabaseConfig, EnhancedDatabaseService, ProjectManagementService};
+        use crate::database::service_factory::ServiceContainer;
+        use crate::database_app_state::{DatabaseAppState, DatabaseHealthStatus};
+        
+        // Create temp database
+        let temp_file = NamedTempFile::new().unwrap();
+        let db_path = temp_file.path().to_path_buf();
+        let config = DatabaseConfig::default();
+        
+        // Create service
+        let db_service = EnhancedDatabaseService::new(&db_path, config).await.unwrap();
+        let db_service = Arc::new(RwLock::new(db_service));
+        
+        // Create project service
+        let project_service = ProjectManagementService::new(db_service.clone());
+        let project_service = Arc::new(RwLock::new(project_service));
+        
+        // Create container
+        let mut container = ServiceContainer::new();
+        container.database_service = Some(db_service.clone());
+        container.project_service = Some(project_service);
+        container.initialized = true;
+        
+        // Create app state
+        let mut app_state = DatabaseAppState::new();
+        app_state.set_service_container(container);
+        app_state.update_health_status(DatabaseHealthStatus::Healthy);
+        
+        let database_state = Arc::new(RwLock::new(app_state));
         let database_context = ToolDatabaseContext::new("test_tool", database_state).await;
 
+        let api_contract = Arc::new(ToolApiContract::new());
         let mut tool_base = ToolBase::new(ToolType::Hierarchy, "Test Tool", api_contract);
         tool_base.initialize_tool(database_context).await.unwrap();
 

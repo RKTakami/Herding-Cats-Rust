@@ -21,8 +21,8 @@ A comprehensive writing assistant and document management application built with
 - ✅ **Real-time Features**: Auto-save, search, synchronization, and progress tracking
 - ✅ **Professional UI**: Modern Slint interface with comprehensive error handling
 - ✅ **Quality Assurance**: 80%+ test coverage with comprehensive integration testing
-- ✅ **AI Capabilities**: Multi-provider support with OpenAI, Anthropic Claude,Gemini, and local models
-- ✅ **Security Features**: Encrypted API key storage, rate limiting, and input validation
+- ✅ **AI Capabilities**: Multi-provider support with OpenAI, Anthropic Claude, Gemini, OpenRouter, and local models
+- ✅ **Security Features**: Encrypted API key storage via system keyring, rate limiting, and input validation
 
 
 ## Features
@@ -36,6 +36,13 @@ A comprehensive writing assistant and document management application built with
 - **Analysis Tool**: Multi-panel writing analysis dashboard with metrics
 - **Structure Tool**: Comprehensive plot development with 6 different methodologies
 - **Brainstorming Tool**: AI-powered idea generation and organization
+
+### **🎨 Enhanced UI Experience**
+- **Text Editor Ribbon**: Professional formatting tools (Bold, Italic, Underline, Alignment, Lists)
+- **Advanced Formatting**: Strikethrough, Sub/Superscript, Text/Highlight Colors, Indent/Outdent, Line Spacing
+- **Font Management**: Dedicated Font Manager for browsing and installing fonts
+- **Word Count**: Real-time word count tracking in the status bar
+- **AI Settings**: Secure configuration for multiple AI providers (Anthropic, OpenAI, Gemini, OpenRouter)
 
 ### **🗄️ Enterprise Database Features**
 - **SQLx-Powered Database**: Modern async database operations with connection pooling
@@ -64,7 +71,9 @@ A comprehensive writing assistant and document management application built with
 - **Developer Tools**: Integrated debugging and diagnostic tools for Slint development
 
 ### **🤖 AI-Powered Capabilities**
-- **Multi-Provider Support**: OpenAI, Anthropic Claude, and local model integration
+### **🤖 AI-Powered Capabilities**
+- **Multi-Provider Support**: OpenAI, Anthropic Claude, Gemini, OpenRouter, and local model integration
+- **Secure Configuration**: Dedicated AI Settings dialog with encrypted API key storage
 
 
 - **Security**: Encrypted API key storage with secure access patterns

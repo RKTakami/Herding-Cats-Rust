@@ -13,10 +13,14 @@ use crate::{
     ui::window_manager::{WindowId, WindowManager, WindowManagerError, WindowType},
 };
 
+use crate::ui::tools::individual_tool_windows::IndividualToolWindowManager;
+
 /// Enhanced tool launcher that enforces window management constraints
 pub struct EnhancedToolLauncher {
     /// Reference to the global window manager
     window_manager: Arc<Mutex<WindowManager>>,
+    /// Reference to the individual tool window manager (for spawning actual windows)
+    tool_window_manager: Arc<Mutex<Option<IndividualToolWindowManager>>>,
 }
 
 impl EnhancedToolLauncher {
@@ -24,12 +28,23 @@ impl EnhancedToolLauncher {
     pub fn new() -> Result<Self> {
         Ok(Self {
             window_manager: Arc::new(Mutex::new(WindowManager::new()?)),
+            tool_window_manager: Arc::new(Mutex::new(None)),
         })
+    }
+
+    /// Register the individual tool window manager
+    pub fn register_tool_manager(&self, manager: IndividualToolWindowManager) {
+        let mut tool_mgr = self.tool_window_manager.lock().unwrap();
+        *tool_mgr = Some(manager);
+        println!("✅ IndividualToolWindowManager registered with EnhancedToolLauncher");
     }
 
     /// Create a new enhanced tool launcher with custom window manager
     pub fn with_window_manager(window_manager: Arc<Mutex<WindowManager>>) -> Self {
-        Self { window_manager }
+        Self {
+            window_manager,
+            tool_window_manager: Arc::new(Mutex::new(None)),
+        }
     }
 
     /// Launch an individual tool window
@@ -55,6 +70,17 @@ impl EnhancedToolLauncher {
 
         // Tool is not open, create new window
         let window_id = wm.open_window(WindowType::IndividualTool(tool_type))?;
+
+        // Actually spawn the window using the registered manager
+        if let Some(manager) = &*self.tool_window_manager.lock().unwrap() {
+            println!("🖥️ Spawning Slint window for {}", tool_type.display_name());
+            if let Err(e) = manager.open_tool_window(tool_type) {
+                println!("❌ Failed to spawn Slint window: {}", e);
+                // Note: We might want to rollback the WM state here, but for now we just log it
+            }
+        } else {
+            println!("⚠️ No tool window manager registered! Window state updated but no UI shown.");
+        }
 
         println!(
             "🚀 Launched new {} tool window (ID: {})",

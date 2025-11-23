@@ -3,7 +3,7 @@
 //! Provides unified theming capabilities across all application windows
 //! including main app window and individual writing tool windows.
 
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::{load_theme_settings, save_theme_settings, ThemeSettings};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;

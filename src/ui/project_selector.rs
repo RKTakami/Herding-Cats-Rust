@@ -10,7 +10,7 @@ use tracing::{error, info};
 use uuid::Uuid;
 
 // Import database types and services from the library root
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::DatabaseAppState;
 use hc_lib::database::models::Project;
 use hc_lib::database::project_management::ProjectSettings;

@@ -165,6 +165,27 @@ pub enum AppError {
         phase: String,
         error: String,
     },
+
+    #[error("Font error: {0}")]
+    FontError(String),
+
+    #[error("IO error: {0}")]
+    Io(String),
+
+    #[error("Network error: {0}")]
+    Network(String),
+}
+
+impl From<std::io::Error> for AppError {
+    fn from(err: std::io::Error) -> Self {
+        AppError::Io(err.to_string())
+    }
+}
+
+impl From<reqwest::Error> for AppError {
+    fn from(err: reqwest::Error) -> Self {
+        AppError::Network(err.to_string())
+    }
 }
 
 /// Threading and concurrency error types

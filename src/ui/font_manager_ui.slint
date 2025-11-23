@@ -1,0 +1,94 @@
+import {
+    Button,
+    VerticalBox,
+    HorizontalBox,
+    ScrollView,
+    ListView,
+    StandardListView,
+    LineEdit,
+} from "std-widgets.slint";
+
+export struct FontItem {
+    name: string,
+    family: string,
+    category: string,
+    installed: bool,
+}
+
+export component FontManagerWindow inherits Window {
+    title: "Font Manager";
+    width: 600px;
+    height: 500px;
+    in property <[FontItem]> fonts;
+    callback install-font(string); // family
+    callback close-requested();
+
+    VerticalBox {
+        padding: 20px;
+        spacing: 10px;
+
+        Text {
+            text: "Font Manager";
+            font-size: 24px;
+            horizontal-alignment: center;
+        }
+
+        Text {
+            text: "Download and install fonts for your documents.";
+            color: grey;
+            horizontal-alignment: center;
+        }
+
+        ScrollView {
+            VerticalBox {
+                for font in fonts: Rectangle {
+                    height: 50px;
+                    background: #f0f0f0;
+                    border-radius: 4px;
+                    HorizontalBox {
+                        padding: 10px;
+                        alignment: space-between;
+                        Text {
+                            text: font.name;
+                            vertical-alignment: center;
+                            width: 200px;
+                        }
+
+                        Text {
+                            text: font.category;
+                            vertical-alignment: center;
+                            width: 150px;
+                            color: grey;
+                            font-size: 12px;
+                        }
+
+                        HorizontalBox {
+                            spacing: 10px;
+                            Text {
+                                text: font.installed ? "✅ Installed" : "Not Installed"; 
+                                vertical-alignment: center;
+                                color: font.installed ? green : red;
+                            }
+
+                            Button {
+                                text: font.installed ? "Re-install" : "Install";
+                                enabled: !font.installed;
+                                clicked => {
+                                    root.install-font(font.family);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Button {
+            text: "Close";
+            width: 100px;
+            clicked => {
+                root.close-requested();
+            }
+        }
+    }
+}

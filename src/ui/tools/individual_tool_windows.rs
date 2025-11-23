@@ -8,7 +8,7 @@ use std::sync::{Arc, Mutex};
 use tokio::sync::RwLock;
 
 use crate::ui::tools::base_types::ToolType;
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::{AppState, DatabaseAppState};
 
 /// Individual tool window manager for each writing tool

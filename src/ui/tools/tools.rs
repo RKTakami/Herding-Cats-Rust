@@ -10,7 +10,7 @@ use crate::ui::tools::{
     threading_patterns::ThreadSafeToolRegistry,
 };
 use anyhow::Result;
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::{
     ConnectionPoolStats, DatabaseAppState, DatabaseError, DatabaseHealthStatus, DatabaseResult,
     DatabaseStats,

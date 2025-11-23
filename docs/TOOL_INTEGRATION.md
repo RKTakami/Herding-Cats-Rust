@@ -508,10 +508,15 @@ pub enum ToolEvent {
 ### UI Integration
 
 #### Ribbon Interface
-- **Contextual Tabs**: Tool-specific ribbon tabs
+- **Text Editor Ribbon**: Specialized ribbon for document editing (formatting, styles)
+- **Contextual Tabs**: Tool-specific ribbon tabs for specialized operations
 - **Shared Commands**: Common operations across tools
 - **Dynamic Groups**: Context-sensitive command grouping
 - **Keyboard Shortcuts**: Consistent shortcut system
+
+#### Tools Menu Integration
+- **Centralized Launch Point**: Unified "Tools" menu for accessing all writing tools
+- **Keyboard Shortcuts**: Direct access to tools via shortcuts (e.g., Cmd+1 for Hierarchy)
 
 #### Universal Window Interface
 - **Dropdown Tool Selection**: Title bar integration for easy tool switching

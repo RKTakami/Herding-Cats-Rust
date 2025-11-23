@@ -9,7 +9,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 
 use crate::{ui::enhanced_tool_launcher::EnhancedToolLauncher, ui::tools::base_types::ToolType};
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::EnhancedDatabaseService;
 use hc_lib::ui_state::AppState;
 
@@ -321,7 +321,16 @@ mod tests {
 
     #[tokio::test]
     async fn test_view_menu_integration_creation() {
-        let db_service: Arc<RwLock<EnhancedDatabaseService>> = Arc::new(RwLock::new(None));
+        use tempfile::NamedTempFile;
+        use crate::database::DatabaseConfig;
+        
+        let temp_file = NamedTempFile::new().unwrap();
+        let db_path = temp_file.path().to_path_buf();
+        let config = DatabaseConfig::default();
+        
+        let db_service = EnhancedDatabaseService::new(&db_path, config).await.unwrap();
+        let db_service = Arc::new(RwLock::new(db_service));
+        
         let integration = ViewMenuIntegration::new(db_service).unwrap();
 
         assert_eq!(integration.launcher.get_statistics().total_open_windows, 0);

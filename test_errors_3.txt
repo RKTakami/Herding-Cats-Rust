@@ -1,0 +1,675 @@
+   Compiling herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)
+warning: herding-cats-rust@0.50.0: Found 7 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+error[E0432]: unresolved import `crate::database::ServiceContainer`
+   --> src/ui/tools/base.rs:512:72
+    |
+512 |         use crate::database::{DatabaseConfig, EnhancedDatabaseService, ServiceContainer};
+    |                                                                        ^^^^^^^^^^^^^^^^ no `ServiceContainer` in `database`
+    |
+    = help: consider importing this struct through its public re-export instead:
+            crate::ServiceContainer
+
+warning: unused import: `tokio::sync::RwLock`
+ --> src/main_window_comprehensive.rs:6:5
+  |
+6 | use tokio::sync::RwLock;
+  |     ^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `crate::database_app_state::DatabaseAppState`
+  --> src/main_window_comprehensive.rs:10:5
+   |
+10 | use crate::database_app_state::DatabaseAppState;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unnecessary braces around block return value
+  --> src/ui/menu_integration_bridge.rs:24:9
+   |
+24 |         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+   |         ^^                                                   ^^
+   |
+   = note: `#[warn(unused_braces)]` (part of `#[warn(unused)]`) on by default
+help: remove these braces
+   |
+24 -         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+24 +         Arc::new(RwLock::new(MenuIntegrationBridge::new()));
+   |
+
+warning: unused doc comment
+   --> src/ui/theme_manager.rs:511:1
+    |
+511 | /// Global theme manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `std::sync::Arc`
+  --> src/ui/backup_systems_integration.rs:83:9
+   |
+83 |     use std::sync::Arc;
+   |         ^^^^^^^^^^^^^^
+
+warning: unused doc comment
+   --> src/ui/tools/threading_patterns.rs:426:1
+    |
+426 | /// Global managers using safe threading patterns
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: private item shadows public glob re-export
+  --> src/ui/tools/mod.rs:21:5
+   |
+21 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: the name `ToolLifecycleEvent` in the type namespace is supposed to be publicly re-exported here
+  --> src/ui/tools/mod.rs:15:9
+   |
+15 | pub use api_contracts::*;
+   |         ^^^^^^^^^^^^^^^^
+note: but the private item here shadows it
+  --> src/ui/tools/mod.rs:21:5
+   |
+21 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: `#[warn(hidden_glob_reexports)]` on by default
+
+warning: unused doc comment
+   --> src/ui/unified_toolbar.rs:225:1
+    |
+225 | /// Unified toolbar component definition
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/ui/window_manager.rs:342:1
+    |
+342 | /// Global window manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: use of deprecated constant `ui::independent_tool_window_manager::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/independent_tool_window_manager.rs:553:26
+    |
+553 |                 padding: 20px;
+    |                          ^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:618:26
+    |
+618 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:740:26
+    |
+740 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:862:26
+    |
+862 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:985:26
+    |
+985 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1108:26
+     |
+1108 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1231:26
+     |
+1231 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1353:26
+     |
+1353 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1476:26
+     |
+1476 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'EnhancedToolbar' doesn't inherit Window. This is deprecated
+   --> src/ui/unified_toolbar.rs:507:22
+    |
+507 |     export component EnhancedToolbar {
+    |                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemeSelector' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:456:22
+    |
+456 |     export component ThemeSelector {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedMenuBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:362:22
+    |
+362 |     export component ThemedMenuBar {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedStatusBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:405:22
+    |
+405 |     export component ThemedStatusBar {
+    |                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'UnifiedToolbar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:278:22
+    |
+278 |     export component UnifiedToolbar {
+    |                      ^^^^^^^^^^^^^^
+
+warning: unused variable: `script`
+   --> src/automation/mod.rs:961:9
+    |
+961 |         script: &Script,
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:962:9
+    |
+962 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:978:9
+    |
+978 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1041:9
+     |
+1041 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1042:9
+     |
+1042 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1043:9
+     |
+1043 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1063:9
+     |
+1063 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1064:9
+     |
+1064 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1065:9
+     |
+1065 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1084:9
+     |
+1084 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1085:9
+     |
+1085 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1086:9
+     |
+1086 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1106:9
+     |
+1106 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1107:9
+     |
+1107 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script_id`
+    --> src/automation/mod.rs:1267:49
+     |
+1267 |                     ErrorAction::CustomScript { script_id } => {
+     |                                                 ^^^^^^^^^ help: try ignoring the field: `script_id: _`
+
+warning: unused variable: `file_path`
+   --> src/database/research_service.rs:576:9
+    |
+576 |         file_path: &PathBuf,
+    |         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_file_path`
+
+warning: unused variable: `context`
+   --> src/ui/comprehensive_error_handling.rs:461:9
+    |
+461 |         context: &ErrorContext,
+    |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_context`
+
+warning: unused variable: `db_service`
+   --> src/ui/document_persistence.rs:196:13
+    |
+196 |         let db_service = db_state
+    |             ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: unused variable: `now`
+   --> src/ui/document_persistence.rs:203:13
+    |
+203 |         let now = SystemTime::now()
+    |             ^^^ help: if this is intentional, prefix it with an underscore: `_now`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:270:38
+    |
+270 |     pub async fn open_hierarchy_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:271:13
+    |
+271 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:276:34
+    |
+276 |     pub async fn open_codex_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:277:13
+    |
+277 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:282:42
+    |
+282 |     pub async fn open_brainstorming_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                          ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:283:13
+    |
+283 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:288:37
+    |
+288 |     pub async fn open_analysis_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:289:13
+    |
+289 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:294:33
+    |
+294 |     pub async fn open_plot_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                 ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:295:13
+    |
+295 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:300:34
+    |
+300 |     pub async fn open_notes_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:301:13
+    |
+301 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:306:37
+    |
+306 |     pub async fn open_research_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:307:13
+    |
+307 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:312:38
+    |
+312 |     pub async fn open_structure_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:313:13
+    |
+313 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `tool`
+   --> src/ui/tools/threading_patterns.rs:238:13
+    |
+238 |         let tool = tools
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_tool`
+
+warning: unused variable: `duration`
+  --> src/ui/tools/tools.rs:88:21
+   |
+88 |                 let duration = start_time.elapsed();
+   |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+warning: unused variable: `duration`
+   --> src/ui/tools/tools.rs:405:21
+    |
+405 |                 let duration = start_time.elapsed();
+    |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+warning: unused variable: `registry_health`
+   --> src/ui/tools/mod.rs:121:13
+    |
+121 |         let registry_health = self.tool_registry.get_health().await;
+    |             ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_registry_health`
+
+warning: unused variable: `contract_tools`
+   --> src/ui/tools/mod.rs:124:13
+    |
+124 |         let contract_tools = self.api_contract.get_registered_tools().await;
+    |             ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contract_tools`
+
+warning: value assigned to `message` is never read
+   --> src/ui/window_persistence_integration.rs:144:17
+    |
+144 |         let mut message = None;
+    |                 ^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `stats` is never read
+   --> src/ui/window_persistence_integration.rs:145:17
+    |
+145 |         let mut stats = None;
+    |                 ^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: unused variable: `layout`
+   --> src/ui/window_state_persistence.rs:411:21
+    |
+411 |         if let Some(layout) = self.saved_layouts.remove(&layout_id) {
+    |                     ^^^^^^ help: if this is intentional, prefix it with an underscore: `_layout`
+
+warning: unused variable: `event_system`
+    --> src/automation/mod.rs:1151:25
+     |
+1151 |                     let event_system = self.event_system.write().unwrap();
+     |                         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_event_system`
+
+warning: unused variable: `scheduler`
+    --> src/automation/mod.rs:1162:25
+     |
+1162 |                     let scheduler = self.scheduler.write().unwrap();
+     |                         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scheduler`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:443:21
+    |
+443 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:453:21
+    |
+453 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:485:21
+    |
+485 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: variable does not need to be mutable
+   --> src/ui/tools/individual_tool_windows.rs:105:25
+    |
+105 |             if let Some(mut state) = states.get_mut(&tool_type) {
+    |                         ----^^^^^
+    |                         |
+    |                         help: remove this `mut`
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:145:12
+    |
+145 |         if let WindowType::IndividualTool(ref tool) = window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+    = note: `#[warn(irrefutable_let_patterns)]` on by default
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:192:12
+    |
+192 |         if let WindowType::IndividualTool(ref tool) = &window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:216:12
+    |
+216 |         if let WindowType::IndividualTool(ref tool) = &window_state.window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+
+warning: struct `WorkflowEventHandler` is never constructed
+    --> src/automation/mod.rs:1503:8
+     |
+1503 | struct WorkflowEventHandler {
+     |        ^^^^^^^^^^^^^^^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: method `generate_insights` is never used
+   --> src/database/analysis_service.rs:317:8
+    |
+ 29 | impl AnalysisService {
+    | -------------------- method in this implementation
+...
+317 |     fn generate_insights(&self, fields: &[AnalysisField]) -> Vec<String> {
+    |        ^^^^^^^^^^^^^^^^^
+
+warning: field `app_state` is never read
+    --> src/main_window_comprehensive.rs:1019:5
+     |
+1011 | pub struct MainWindowComprehensive {
+     |            ----------------------- field in this struct
+...
+1019 |     app_state: Arc<Mutex<AppState>>,
+     |     ^^^^^^^^^
+
+warning: method `apply_window_state` is never used
+   --> src/ui/enhanced_window_manager.rs:465:8
+    |
+ 41 | impl EnhancedWindowManager {
+    | -------------------------- method in this implementation
+...
+465 |     fn apply_window_state(
+    |        ^^^^^^^^^^^^^^^^^^
+
+warning: field `db_state` is never read
+  --> src/ui/independent_tool_window_manager.rs:22:5
+   |
+17 | pub struct IndependentToolWindowManager {
+   |            ---------------------------- field in this struct
+...
+22 |     db_state: Arc<tokio::sync::RwLock<DatabaseAppState>>,
+   |     ^^^^^^^^
+
+warning: field `database_state` is never read
+  --> src/ui/tools/base_types.rs:54:5
+   |
+53 | pub struct ToolManager {
+   |            ----------- field in this struct
+54 |     database_state: Arc<RwLock<DatabaseAppState>>,
+   |     ^^^^^^^^^^^^^^
+
+warning: field `auto_save_enabled` is never read
+  --> src/ui/window_persistence_integration.rs:22:5
+   |
+18 | pub struct WindowPersistenceIntegration {
+   |            ---------------------------- field in this struct
+...
+22 |     auto_save_enabled: bool,
+   |     ^^^^^^^^^^^^^^^^^
+   |
+   = note: `WindowPersistenceIntegration` has a derived impl for the trait `Clone`, but this is intentionally ignored during dead code analysis
+
+warning: unused implementer of `std::future::Future` that must be used
+  --> src/ui/menu_integration_bridge.rs:93:13
+   |
+93 |             view_integration.set_app_state(app_state.clone());
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: futures do nothing unless you `.await` or poll them
+   = note: `#[warn(unused_must_use)]` (part of `#[warn(unused)]`) on by default
+
+warning: `herding-cats-rust` (lib) generated 82 warnings (run `cargo fix --lib -p herding-cats-rust` to apply 12 suggestions)
+warning: unused variable: `window1`
+   --> src/ui/enhanced_tool_launcher.rs:337:13
+    |
+337 |         let window1 = launcher.launch_tool(ToolType::Hierarchy).unwrap();
+    |             ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_window1`
+
+warning: unused variable: `window2`
+   --> src/ui/enhanced_tool_launcher.rs:338:13
+    |
+338 |         let window2 = launcher.launch_tool(ToolType::Codex).unwrap();
+    |             ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_window2`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:332:13
+    |
+332 |         let mut bridge = MenuIntegrationBridge::new();
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:341:13
+    |
+341 |         let mut bridge = MenuIntegrationBridge::new();
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/ui/theme_manager.rs:568:13
+    |
+568 |         let mut manager = ThemeManager::new();
+    |             ----^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/ui/theme_manager.rs:583:13
+    |
+583 |         let mut manager = ThemeManager::new();
+    |             ----^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: variable does not need to be mutable
+   --> src/ui/tools/database_integration.rs:358:13
+    |
+358 |         let mut context = ToolDatabaseContext::new("test_tool", database_state).await;
+    |             ----^^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+For more information about this error, try `rustc --explain E0432`.
+warning: `herding-cats-rust` (lib test) generated 82 warnings (74 duplicates)
+warning: herding-cats-rust@0.50.0: Found 7 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+error: could not compile `herding-cats-rust` (lib test) due to 1 previous error; 82 warnings emitted

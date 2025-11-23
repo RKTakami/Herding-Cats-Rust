@@ -12,7 +12,7 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::{debug, info, warn};
 
 // Import database types and services
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::DatabaseAppState;
 
 /// Document state for tracking changes and persistence

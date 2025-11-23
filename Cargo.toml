@@ -27,16 +27,17 @@ default = []
 # Slint GUI Framework - Modern declarative UI framework (latest version)
 slint = "1.14.1"
 # Additional Slint dependencies for advanced features
-slint-build = "1.14.1"
+
 
 # Async runtime
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1.36.0", features = ["full"] }
+keyring = "2.3"
 
 # Database dependencies - replacing rusqlite with sqlx for async support
 sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio-rustls", "chrono", "uuid", "json"] }
 
 # HTTP client for AI services
-reqwest = { version = "0.11", features = ["json", "stream"] }
+reqwest = { version = "0.11", features = ["json", "stream", "blocking"] }
 
 # Utility dependencies
 num-traits = "0.2"
@@ -97,6 +98,7 @@ ratelimit = "0.10"
 notify = { version = "6.0", optional = true }
 
 [build-dependencies]
+slint-build = "1.14.1"
 # Build system dependencies for native library integration
 cc = "1.0"
 

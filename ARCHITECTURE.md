@@ -72,7 +72,7 @@ Herding Cats Rust is an enterprise-grade writing assistant application built wit
 #### Slint UI Framework
 - **Purpose**: Modern declarative UI framework for native performance
 - **Features**: Hardware-accelerated rendering, cross-platform consistency
-- **Components**: Main window, dialogs, custom controls
+- **Components**: Main window, dialogs, custom controls, `FontManagerWindow`, `AiSettingsPopup`
 
 #### Ribbon Interface
 - **Purpose**: Professional ribbon-style UI with tabs and command groups
@@ -162,8 +162,8 @@ Herding Cats Rust is an enterprise-grade writing assistant application built wit
 
 #### AI Service Integration
 - **Purpose**: Multi-provider AI capabilities with smart routing
-- **Features**: Provider selection, cost optimization, fallback mechanisms
-- **Components**: `AiServiceManager`, `AiRouter`, `UsageTracker`
+- **Features**: Provider selection (OpenAI, Anthropic, Gemini, OpenRouter), cost optimization, fallback mechanisms
+- **Components**: `AiServiceManager`, `AiRouter`, `UsageTracker`, `SecureStorageService`
 
 ### 4. Data Access Layer
 
@@ -216,7 +216,7 @@ project_settings (id, project_id, setting_key, setting_value, setting_type, crea
 ```
 
 #### Security Features
-- **Encrypted Storage**: API keys and sensitive data encryption
+- **Encrypted Storage**: API keys and sensitive data encryption via system keyring (`keyring` crate)
 - **Rate Limiting**: Protection against API abuse and DoS attacks
 - **Input Validation**: Comprehensive validation with sanitization
 - **Audit Logging**: Security event tracking and compliance

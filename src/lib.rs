@@ -13,6 +13,8 @@ pub mod settings;
 pub mod main_window_comprehensive;
 pub mod ui;
 pub mod ui_state;
+pub mod security;
+pub mod font_manager;
 
 // Re-export database types for easier access
 pub use database::{

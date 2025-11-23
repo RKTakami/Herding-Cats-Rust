@@ -118,11 +118,13 @@ impl EnhancedDatabaseService {
             })?;
         }
 
-        // Build connection string
-        let connection_string = format!("sqlite://{}", db_path_str);
+        // Create connection options
+        let options = sqlx::sqlite::SqliteConnectOptions::new()
+            .filename(db_path)
+            .create_if_missing(true);
 
         // Create connection pool
-        let pool = SqlitePool::connect(&connection_string).await.map_err(|e| {
+        let pool = SqlitePool::connect_with(options).await.map_err(|e| {
             DatabaseError::Connection(format!("Failed to connect to database: {}", e))
         })?;
 

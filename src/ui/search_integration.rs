@@ -12,7 +12,7 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::info;
 
 // Import database types and services
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::DatabaseAppState;
 use hc_lib::database::search_service::{SearchOptions, SearchService, SearchStatistics};
 
@@ -596,12 +596,16 @@ mod tests {
         let search_result = SearchResult {
             document_id: Uuid::new_v4(),
             title: "Test Document".to_string(),
-            similarity_score: 0.95,
             snippet: "This is a test document".to_string(),
-            chunk_index: 0,
-            start_char: 0,
-            end_char: 20,
             relevance_score: 0.95,
+            rank_position: 1,
+            search_rank: 1.0,
+            project_id: Uuid::new_v4(),
+            created_at: "2023-01-01T00:00:00Z".to_string(),
+            updated_at: "2023-01-01T00:00:00Z".to_string(),
+            document_type: "text".to_string(),
+            word_count: 100,
+            metadata: None,
         };
 
         // Convert to UISearchResult via From implementation

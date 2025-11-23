@@ -12,7 +12,7 @@ use crate::{
     ui::tools::base_types::ToolType,
     ui::view_menu_integration::{RealViewMenuHandler, ViewMenuIntegration},
 };
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::EnhancedDatabaseService;
 use hc_lib::ui_state::AppState;
 

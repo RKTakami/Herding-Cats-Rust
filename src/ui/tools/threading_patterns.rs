@@ -512,9 +512,13 @@ mod tests {
         assert_eq!(result.unwrap(), "success");
 
         // Test failing operation with retries
+        // Test failing operation with retries
+        let attempts = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        let attempts_clone = attempts.clone();
+
         let result = timeout
-            .execute_with_timeout("test_failure", || {
-                let attempts = std::sync::atomic::AtomicUsize::new(0);
+            .execute_with_timeout("test_failure", move || {
+                let attempts = attempts_clone.clone();
                 async move {
                     let current_attempts =
                         attempts.fetch_add(1, std::sync::atomic::Ordering::SeqCst) + 1;

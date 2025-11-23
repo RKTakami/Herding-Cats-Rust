@@ -13,7 +13,7 @@ use tokio::sync::{mpsc, RwLock};
 use tracing::{debug, info};
 
 // Import types from the library since this is a binary project
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::database_app_state::DatabaseAppState;
 use hc_lib::error::DatabaseError;
 

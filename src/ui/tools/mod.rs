@@ -20,7 +20,7 @@ pub use threading_patterns::*;
 
 use crate::ui::tools::api_contracts::ToolLifecycleEvent;
 use anyhow::Result;
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::DatabaseAppState;
 use std::sync::Arc;
 use std::time::{Duration, Instant};

@@ -35,6 +35,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("cargo:warning=No Slint files found to compile");
     }
 
+
+
+    // Compile the Font Manager UI
+    let config = slint_build::CompilerConfiguration::new()
+        .with_style("fluent".into());
+    
+    slint_build::compile_with_config(
+        "src/ui/font_manager_ui.slint",
+        config,
+    )?;
+
     Ok(())
 }
 

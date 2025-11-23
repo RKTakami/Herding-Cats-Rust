@@ -1,8 +1,9 @@
 //! Herding Cats Rust - Slint Multi-Window Application
 //! Modern UI framework with Slint
 
-mod ui;
+
 mod working_app;
+mod security;
 
 /// Main application entry point
 #[tokio::main]

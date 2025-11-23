@@ -9,7 +9,7 @@ use std::sync::Arc;
 use tokio::sync::RwLock;
 use tracing::{debug, warn};
 
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::{DatabaseError, DatabaseAppState, EnhancedDatabaseService};
 
 /// Unified database context for UI tools

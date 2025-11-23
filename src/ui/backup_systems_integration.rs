@@ -9,7 +9,7 @@ use std::path::PathBuf;
 use std::time::{SystemTime, UNIX_EPOCH};
 
 // Import database types and services
-use herding_cats_rust as hc_lib;
+use crate as hc_lib;
 use hc_lib::BackupType;
 
 /// UI representation of backup metadata
