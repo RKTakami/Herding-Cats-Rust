@@ -34,25 +34,23 @@ slint::slint! {
     min-height: 700px;
 
     // Document and application state
-        property <string> document-title: "Untitled Document";
+    property <string> document-title: "Untitled Document";
     property <string> document-content: "";
     property <string> status-message: "Ready - Database Connected";
     property <int> click-count: 0;
     property <bool> show-file-dropdown: false;
     property <bool> show-edit-dropdown: false;
     property <bool> show-view-dropdown: false;
-    property <bool> show-insert-dropdown: false;
-    property <bool> show-format-dropdown: false;
     property <bool> show-tools-dropdown: false;
     property <bool> show-help-dropdown: false;
     property <bool> show-projects-dropdown: false;
 
     // Database connection status
-        property <string> db-status: "Connected to Database";
+    property <string> db-status: "Connected to Database";
     property <bool> db-connected: true;
 
     // Theme colors - Professional Word-like theme
-        property <color> primary-bg: #ffffff;
+    property <color> primary-bg: #ffffff;
     property <color> secondary-bg: #f8f9fa;
     property <color> accent: #007bff;
     property <color> text-primary: #212529;
@@ -67,7 +65,7 @@ slint::slint! {
     property <color> dropdown-bg: #ffffff;
 
     // Initialize with professional theme
-        init => {
+    init => {
         primary-bg = #ffffff;
         secondary-bg = #f8f9fa;
         accent = #007bff;
@@ -83,8 +81,8 @@ slint::slint! {
         dropdown-bg = #ffffff;
     }
 
-        // Menu callbacks
-        callback file-new();
+    // Menu callbacks
+    callback file-new();
     callback file-open();
     callback file-save();
     callback file-save-as();
@@ -110,30 +108,46 @@ slint::slint! {
     callback edit-find();
     callback edit-replace();
 
+    // Word Processing Callbacks
+    callback format-bold();
+    callback format-italic();
+    callback format-underline();
+    callback format-font();
+    callback format-font-size();
+    callback format-text-color();
+    callback format-highlight();
+    callback align-left();
+    callback align-center();
+    callback align-right();
+    callback align-justify();
+    callback insert-bullet-list();
+    callback insert-numbered-list();
+    callback open-style-gallery();
+
     callback view-toolbar();
     callback view-statusbar();
     callback view-zoom();
     callback view-fullscreen();
 
-    callback insert-table();
-    callback insert-image();
-    callback insert-link();
-    callback insert-page-break();
-
-    callback format-font();
-    callback format-paragraph();
-    callback format-styles();
-
     callback tools-database();
     callback tools-search();
     callback tools-research();
     callback tools-analysis();
+    
+    // Writing Tools Callbacks
+    callback tools-hierarchy();
+    callback tools-codex();
+    callback tools-plot();
+    callback tools-notes();
+    callback tools-structure();
+    callback tools-brainstorming();
+    callback tools-font-manager();
 
     callback help-documentation();
     callback help-about();
 
     // Project management callbacks
-        callback project-new();
+    callback project-new();
     callback project-open();
     callback project-save();
     callback project-export();
@@ -142,7 +156,7 @@ slint::slint! {
         spacing: 0;
 
         // Application Title Bar with Database Status
-            Rectangle {
+        Rectangle {
             background: primary-bg;
             height: 35px;
             border-color: border;
@@ -173,8 +187,8 @@ slint::slint! {
             }
         }
 
-        // Menu Bar (Microsoft Word Style)
-            Rectangle {
+        // Menu Bar (Microsoft Word Style) - Insert and Format removed
+        Rectangle {
             background: menu-bg;
             height: 30px;
             border-color: border;
@@ -189,99 +203,11 @@ slint::slint! {
                     height: 24px;
                     clicked => {
                         root.show-file-dropdown = !root.show-file-dropdown;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-tools-dropdown = false;
-                        root.show-help-dropdown = false;
                         root.show-projects-dropdown = false;
+                        root.show-tools-dropdown = false;
+                        root.show-view-dropdown = false;
+                        root.show-help-dropdown = false;
                         root.status-message = "File menu opened";
-                    }
-                }
-
-                Button {
-                    text: "Edit";
-                    width: 50px;
-                    height: 24px;
-                    clicked => {
-                        root.show-edit-dropdown = !root.show-edit-dropdown;
-                        root.show-file-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-tools-dropdown = false;
-                        root.show-help-dropdown = false;
-                        root.show-projects-dropdown = false;
-                        root.status-message = "Edit menu opened";
-                    }
-                }
-
-                Button {
-                    text: "View";
-                    width: 50px;
-                    height: 24px;
-                    clicked => {
-                        root.show-view-dropdown = !root.show-view-dropdown;
-                        root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-tools-dropdown = false;
-                        root.show-help-dropdown = false;
-                        root.show-projects-dropdown = false;
-                        root.status-message = "View menu opened";
-                    }
-                }
-
-                Button {
-                    text: "Insert";
-                    width: 50px;
-                    height: 24px;
-                    clicked => {
-                        root.show-insert-dropdown = !root.show-insert-dropdown;
-                        root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-tools-dropdown = false;
-                        root.show-help-dropdown = false;
-                        root.show-projects-dropdown = false;
-                        root.status-message = "Insert menu opened";
-                    }
-                }
-
-                Button {
-                    text: "Format";
-                    width: 60px;
-                    height: 24px;
-                    clicked => {
-                        root.show-format-dropdown = !root.show-format-dropdown;
-                        root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-tools-dropdown = false;
-                        root.show-help-dropdown = false;
-                        root.show-projects-dropdown = false;
-                        root.status-message = "Format menu opened";
-                    }
-                }
-
-                Button {
-                    text: "Tools";
-                    width: 50px;
-                    height: 24px;
-                    clicked => {
-                        root.show-tools-dropdown = !root.show-tools-dropdown;
-                        root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-help-dropdown = false;
-                        root.show-projects-dropdown = false;
-                        root.status-message = "Tools menu opened";
                     }
                 }
 
@@ -292,13 +218,54 @@ slint::slint! {
                     clicked => {
                         root.show-projects-dropdown = !root.show-projects-dropdown;
                         root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
                         root.show-tools-dropdown = false;
+                        root.show-view-dropdown = false;
                         root.show-help-dropdown = false;
                         root.status-message = "Projects menu opened";
+                    }
+                }
+
+                Button {
+                    text: "Edit";
+                    width: 50px;
+                    height: 24px;
+                    clicked => {
+                        root.show-edit-dropdown = !root.show-edit-dropdown;
+                        root.show-file-dropdown = false;
+                        root.show-projects-dropdown = false;
+                        root.show-tools-dropdown = false;
+                        root.show-view-dropdown = false;
+                        root.show-help-dropdown = false;
+                        root.status-message = "Edit menu opened";
+                    }
+                }
+
+                Button {
+                    text: "Tools";
+                    width: 50px;
+                    height: 24px;
+                    clicked => {
+                        root.show-tools-dropdown = !root.show-tools-dropdown;
+                        root.show-file-dropdown = false;
+                        root.show-projects-dropdown = false;
+                        root.show-edit-dropdown = false;
+                        root.show-view-dropdown = false;
+                        root.show-help-dropdown = false;
+                        root.status-message = "Tools menu opened";
+                    }
+                }
+
+                Button {
+                    text: "View";
+                    width: 50px;
+                    height: 24px;
+                    clicked => {
+                        root.show-view-dropdown = !root.show-view-dropdown;
+                        root.show-file-dropdown = false;
+                        root.show-projects-dropdown = false;
+                        root.show-tools-dropdown = false;
+                        root.show-help-dropdown = false;
+                        root.status-message = "View menu opened";
                     }
                 }
 
@@ -309,67 +276,186 @@ slint::slint! {
                     clicked => {
                         root.show-help-dropdown = !root.show-help-dropdown;
                         root.show-file-dropdown = false;
-                        root.show-edit-dropdown = false;
-                        root.show-view-dropdown = false;
-                        root.show-insert-dropdown = false;
-                        root.show-format-dropdown = false;
-                        root.show-tools-dropdown = false;
                         root.show-projects-dropdown = false;
+                        root.show-tools-dropdown = false;
+                        root.show-view-dropdown = false;
                         root.status-message = "Help menu opened";
                     }
                 }
             }
         }
 
-        // Ribbon Toolbar (Microsoft Word Style)
-            Rectangle {
+        // Ribbon Toolbar (Microsoft Word Style) - Quick Access Toolbar Removed
+        Rectangle {
             background: ribbon-bg;
-            height: 120px;
+            height: 90px;
             border-color: border;
             border-width: 1px;
             VerticalBox {
                 padding: 6px;
                 spacing: 4px;
 
-                // Quick Access Toolbar
-                    HorizontalBox {
-                    spacing: 4px;
+                // Advanced Word Processing Ribbon Toolbar (Microsoft Word/WordPerfect Style)
+                HorizontalBox {
+                    spacing: 6px;
+                    
+                    // Home Tab - Font and Paragraph Formatting
                     Button {
-                        text: "📄 New";
+                        text: "𝐁 Bold";
                         width: 60px;
-                        height: 30px;
+                        height: 32px;
                         clicked => {
-                            root.file_new();
+                            root.status-message = "Bold formatting applied";
                             root.click-count += 1;
                         }
                     }
 
                     Button {
-                        text: "📂 Open";
+                        text: "𝘐 Italic";
                         width: 60px;
-                        height: 30px;
+                        height: 32px;
                         clicked => {
-                            root.file_open();
+                            root.status-message = "Italic formatting applied";
                             root.click-count += 1;
                         }
                     }
 
                     Button {
-                        text: "💾 Save";
-                        width: 60px;
-                        height: 30px;
+                        text: "U Underline";
+                        width: 70px;
+                        height: 32px;
                         clicked => {
-                            root.file_save();
+                            root.status-message = "Underline formatting applied";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 4px;
+                    }
+
+                    Button {
+                        text: "📝 Font";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Opening font settings...";
                             root.click-count += 1;
                         }
                     }
 
                     Button {
-                        text: "🖨 Print";
+                        text: "📏 Size";
                         width: 60px;
-                        height: 30px;
+                        height: 32px;
                         clicked => {
-                            root.file_print();
+                            root.status-message = "Opening font size selector...";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 4px;
+                    }
+
+                    Button {
+                        text: "🔤 Color";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Opening text color picker...";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Button {
+                        text: "🎨 Highlight";
+                        width: 70px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Opening highlight options...";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 4px;
+                    }
+
+                    Button {
+                        text: "⬅ Left";
+                        width: 50px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Left text alignment";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Button {
+                        text: "↔ Center";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Center text alignment";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Button {
+                        text: "➡ Right";
+                        width: 50px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Right text alignment";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Button {
+                        text: "↔ Justify";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Justify text alignment";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 4px;
+                    }
+
+                    Button {
+                        text: "📋 Bullet";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Bullet list applied";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Button {
+                        text: "🔢 Number";
+                        width: 60px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Numbered list applied";
+                            root.click-count += 1;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 4px;
+                    }
+
+                    Button {
+                        text: "📄 Styles";
+                        width: 70px;
+                        height: 32px;
+                        clicked => {
+                            root.status-message = "Opening style gallery...";
                             root.click-count += 1;
                         }
                     }
@@ -377,122 +463,9 @@ slint::slint! {
                     Rectangle { }
 
                     Button {
-                        text: "✂️ Cut";
-                        width: 50px;
-                        height: 30px;
-                        clicked => {
-                            root.edit_cut();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "📋 Copy";
-                        width: 50px;
-                        height: 30px;
-                        clicked => {
-                            root.edit_copy();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "📄 Paste";
-                        width: 50px;
-                        height: 30px;
-                        clicked => {
-                            root.edit_paste();
-                            root.click-count += 1;
-                        }
-                    }
-                }
-
-                // Writing Tools Ribbon with Database Integration
-                    HorizontalBox {
-                    spacing: 8px;
-                    Button {
-                        text: "🔧 Hierarchy";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Hierarchy tool (Database Connected)...";
-                            root.tools_database();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "📖 Codex";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Codex tool (Database Connected)...";
-                            root.tools_database();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "💭 Brainstorm";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Brainstorming tool (Database Connected)...";
-                            root.tools_database();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "🔬 Analysis";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Analysis tool (Database Connected)...";
-                            root.tools_analysis();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "📊 Plot";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Plot tool (Database Connected)...";
-                            root.tools_database();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "📝 Notes";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Notes tool (Database Connected)...";
-                            root.tools_database();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Button {
-                        text: "🔍 Research";
-                        width: 100px;
-                        height: 35px;
-                        clicked => {
-                            root.status-message = "Opening Research tool (Database Connected)...";
-                            root.tools_research();
-                            root.click-count += 1;
-                        }
-                    }
-
-                    Rectangle { }
-
-                    Button {
-                        text: "⚙️ Database";
-                        width: 80px;
-                        height: 35px;
+                        text: "⚙️ Settings";
+                        width: 70px;
+                        height: 32px;
                         clicked => {
                             root.tools_database();
                             root.click-count += 1;
@@ -503,7 +476,7 @@ slint::slint! {
         }
 
         // Document Editor Area
-            Rectangle {
+        Rectangle {
             background: editor-bg;
             border-color: border;
             border-width: 2px;
@@ -511,7 +484,7 @@ slint::slint! {
                 padding: 10px;
 
                 // Document Title Bar
-                    Rectangle {
+                Rectangle {
                     background: title-bg;
                     height: 40px;
                     border-color: border;
@@ -533,7 +506,7 @@ slint::slint! {
                 }
 
                 // Main Document Content Area
-                    Rectangle {
+                Rectangle {
                     background: editor-bg;
                     border-color: border;
                     border-width: 1px;
@@ -552,7 +525,7 @@ slint::slint! {
         }
 
         // Status Bar
-            Rectangle {
+        Rectangle {
             background: status-bg;
             height: 30px;
             border-color: border;
@@ -594,7 +567,7 @@ slint::slint! {
     }
 
     // File Dropdown Menu
-        Rectangle {
+    Rectangle {
         x: 4px;
         y: 65px;
         width: 180px;
@@ -697,8 +670,8 @@ slint::slint! {
     }
 
     // Edit Dropdown Menu
-        Rectangle {
-        x: 54px;
+    Rectangle {
+        x: 224px;
         y: 65px;
         width: 160px;
         height: 140px;
@@ -790,8 +763,8 @@ slint::slint! {
     }
 
     // View Dropdown Menu
-        Rectangle {
-        x: 104px;
+    Rectangle {
+        x: 264px;
         y: 65px;
         width: 140px;
         height: 100px;
@@ -844,112 +817,12 @@ slint::slint! {
         }
     }
 
-    // Insert Dropdown Menu
-        Rectangle {
-        x: 154px;
+    // Tools Dropdown Menu (Writing Tools & Database Integration)
+    Rectangle {
+        x: 184px;
         y: 65px;
-        width: 150px;
-        height: 100px;
-        background: dropdown-bg;
-        border-color: border;
-        border-width: 2px;
-        visible: show-insert-dropdown;
-        VerticalBox {
-            padding: 2px;
-            spacing: 1px;
-            Button {
-                text: "📋 Table";
-                width: 145px;
-                height: 22px;
-                clicked => {
-                    root.insert_table();
-                    root.show-insert-dropdown = false;
-                }
-            }
-
-            Button {
-                text: "🖼️ Image";
-                width: 145px;
-                height: 22px;
-                clicked => {
-                    root.insert_image();
-                    root.show-insert-dropdown = false;
-                }
-            }
-
-            Button {
-                text: "🔗 Link";
-                width: 145px;
-                height: 22px;
-                clicked => {
-                    root.insert_link();
-                    root.show-insert-dropdown = false;
-                }
-            }
-
-            Button {
-                text: "📄 Page Break";
-                width: 145px;
-                height: 22px;
-                clicked => {
-                    root.insert_page_break();
-                    root.show-insert-dropdown = false;
-                }
-            }
-        }
-    }
-
-    // Format Dropdown Menu
-        Rectangle {
-        x: 204px;
-        y: 65px;
-        width: 140px;
-        height: 80px;
-        background: dropdown-bg;
-        border-color: border;
-        border-width: 2px;
-        visible: show-format-dropdown;
-        VerticalBox {
-            padding: 2px;
-            spacing: 1px;
-            Button {
-                text: "🔤 Font";
-                width: 135px;
-                height: 22px;
-                clicked => {
-                    root.format_font();
-                    root.show-format-dropdown = false;
-                }
-            }
-
-            Button {
-                text: "📝 Paragraph";
-                width: 135px;
-                height: 22px;
-                clicked => {
-                    root.format_paragraph();
-                    root.show-format-dropdown = false;
-                }
-            }
-
-            Button {
-                text: "🎨 Styles";
-                width: 135px;
-                height: 22px;
-                clicked => {
-                    root.format_styles();
-                    root.show-format-dropdown = false;
-                }
-            }
-        }
-    }
-
-    // Tools Dropdown Menu (Database Integration)
-        Rectangle {
-        x: 264px;
-        y: 65px;
-        width: 160px;
-        height: 120px;
+        width: 200px;
+        height: 280px;
         background: dropdown-bg;
         border-color: border;
         border-width: 2px;
@@ -957,19 +830,90 @@ slint::slint! {
         VerticalBox {
             padding: 2px;
             spacing: 1px;
+            
+            // Writing Tools Section
+            Text {
+                text: "✍️ Writing Tools";
+                font-size: 11px;
+                font-weight: 600;
+                color: text-secondary;
+            }
+            
             Button {
-                text: "🗄️ Database Manager";
-                width: 155px;
+                text: "📊 Document Hierarchy";
+                width: 195px;
                 height: 22px;
                 clicked => {
-                    root.tools_database();
+                    root.tools_hierarchy();
                     root.show-tools-dropdown = false;
                 }
             }
 
             Button {
+                text: "📖 World Building Codex";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_codex();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📈 Plot Development";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_plot();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📝 Research Notes";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_notes();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📊 Plot Structure";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_structure();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🧠 Brainstorming";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_brainstorming();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+            
+            // Utility Tools Section
+            Text {
+                text: "🛠️ Utility Tools";
+                font-size: 11px;
+                font-weight: 600;
+                color: text-secondary;
+            }
+            
+            Button {
                 text: "🔍 Search Tools";
-                width: 155px;
+                width: 195px;
                 height: 22px;
                 clicked => {
                     root.tools_search();
@@ -979,7 +923,7 @@ slint::slint! {
 
             Button {
                 text: "📚 Research Hub";
-                width: 155px;
+                width: 195px;
                 height: 22px;
                 clicked => {
                     root.tools_research();
@@ -988,11 +932,43 @@ slint::slint! {
             }
 
             Button {
-                text: "🔬 Analysis Suite";
-                width: 155px;
+                text: "📈 Writing Analysis";
+                width: 195px;
                 height: 22px;
                 clicked => {
                     root.tools_analysis();
+                    root.show-tools-dropdown = false;
+                }
+            }
+            
+            Button {
+                text: "🔤 Font Manager";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_font_manager();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+            
+            // Database Tools Section
+            Text {
+                text: "🗄️ Database";
+                font-size: 11px;
+                font-weight: 600;
+                color: text-secondary;
+            }
+            
+            Button {
+                text: "🗄️ Database Manager";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools_database();
                     root.show-tools-dropdown = false;
                 }
             }
@@ -1000,8 +976,8 @@ slint::slint! {
     }
 
     // Projects Dropdown Menu
-        Rectangle {
-        x: 314px;
+    Rectangle {
+        x: 54px;
         y: 65px;
         width: 170px;
         height: 120px;
@@ -1148,191 +1124,4 @@ slint::slint! {
             }
         }
     }
-}
-}
-
-pub struct MainWindowComprehensive {
-    window: MainWindowComprehensiveWindow,
-    _db_service: Arc<Mutex<DatabaseService>>,
-    _app_state: Arc<Mutex<AppState>>,
-    secure_storage: Arc<crate::security::secure_storage::SecureStorageService>,
-    font_manager_window: Arc<Mutex<Option<FontManagerWindowManager>>>,
-}
-
-impl MainWindowComprehensive {
-    pub async fn new() -> Result<Self> {
-        // Initialize database service
-        let db_path = std::path::Path::new("data/comprehensive_app.db");
-        let db_config = DatabaseConfig::default();
-        let db_service = Arc::new(Mutex::new(
-            DatabaseService::new(db_path, db_config)
-                .await
-                .expect("Failed to initialize database service")
-        ));
-
-        // Initialize app state
-        let app_state = Arc::new(Mutex::new(AppState::default()));
-
-        // Initialize secure storage
-        let secure_storage = Arc::new(crate::security::secure_storage::SecureStorageService::new("herding-cats-rust"));
-
-        // Create window
-        let window = MainWindowComprehensiveWindow::new()?;
-        
-        // Initialize Font Manager Window holder
-        let font_manager_window = Arc::new(Mutex::new(None));
-
-        // Initialize callbacks
-        init_callbacks(&window, db_service.clone(), app_state.clone(), secure_storage.clone(), font_manager_window.clone())?;
-
-        Ok(Self {
-            window,
-            _db_service: db_service,
-            _app_state: app_state,
-            secure_storage,
-            font_manager_window,
-        })
-    }
-
-    pub fn run(&self) -> Result<()> {
-        self.window.run().map_err(|e| anyhow::anyhow!("Slint window error: {}", e))
-    }
-}
-
-fn init_callbacks(
-    window: &MainWindowComprehensiveWindow,
-    _db_service: Arc<Mutex<DatabaseService>>,
-    _app_state: Arc<Mutex<AppState>>,
-    secure_storage: Arc<crate::security::secure_storage::SecureStorageService>,
-    font_manager_window: Arc<Mutex<Option<FontManagerWindowManager>>>,
-) -> Result<()> {
-    // Initialize IndividualToolWindowManager and register it with EnhancedToolLauncher
-    // This ensures that when we call launch_tool, it can actually spawn the Slint windows
-    let db_app_state = Arc::new(RwLock::new(DatabaseAppState::new()));
-    let tool_manager = IndividualToolWindowManager::new(db_app_state);
-    get_enhanced_launcher().register_tool_manager(tool_manager);
-
-    // AI Settings Callbacks
-    let window_weak_ai = window.as_weak();
-    let secure_storage_clone_open = secure_storage.clone();
-    window.on_open_ai_settings(move || {
-        if let Some(window) = window_weak_ai.upgrade() {
-            let provider = window.get_ai_provider();
-            // Check if key exists
-            if let Ok(_) = secure_storage_clone_open.get_api_key(&provider) {
-                 window.set_ai_api_key("********".into());
-            } else {
-                 window.set_ai_api_key("".into());
-            }
-            window.set_show_ai_settings_popup(true);
-            window.set_ai_settings_status("".into());
-        }
-    });
-
-    let window_weak_ai_change = window.as_weak();
-    let secure_storage_clone_change = secure_storage.clone();
-    window.on_ai_provider_changed(move |provider| {
-        if let Some(window) = window_weak_ai_change.upgrade() {
-             if let Ok(_) = secure_storage_clone_change.get_api_key(&provider) {
-                 window.set_ai_api_key("********".into());
-            } else {
-                 window.set_ai_api_key("".into());
-            }
-            window.set_ai_settings_status("".into());
-        }
-    });
-
-    let window_weak_ai_close = window.as_weak();
-    window.on_close_ai_settings(move || {
-        if let Some(window) = window_weak_ai_close.upgrade() {
-            window.set_show_ai_settings_popup(false);
-        }
-    });
-
-    let secure_storage_clone = secure_storage.clone();
-    let window_weak_ai_save = window.as_weak();
-    window.on_save_ai_key(move |provider, key| {
-        if key == "********" {
-             if let Some(window) = window_weak_ai_save.upgrade() {
-                window.set_ai_settings_status("⚠️ Key unchanged (masked).".into());
-            }
-            return;
-        }
-
-        let status = match secure_storage_clone.set_api_key(&provider, &key) {
-            Ok(_) => format!("✅ Key for {} saved securely.", provider),
-            Err(e) => format!("❌ Failed to save key: {}", e),
-        };
-        if let Some(window) = window_weak_ai_save.upgrade() {
-            window.set_ai_settings_status(status.into());
-        }
-    });
-
-    // Menu callbacks
-    window.on_file_new(move || { println!("📄 New file requested"); });
-    window.on_file_open(move || { println!("📂 Open file requested"); });
-    window.on_file_save(move || { println!("💾 Save file requested"); });
-    window.on_file_save_as(move || { println!("💾 Save As requested"); });
-    window.on_file_print(move || { println!("🖨 Print requested"); });
-    window.on_file_export(move || { println!("📤 Export requested"); });
-    window.on_file_exit(move || { std::process::exit(0); });
-
-    // Edit callbacks
-    window.on_edit_cut(move || { println!("✂️ Cut requested"); });
-    window.on_edit_copy(move || { println!("📋 Copy requested"); });
-    window.on_edit_paste(move || { println!("📋 Paste requested"); });
-    window.on_edit_undo(move || { println!("Undo requested"); });
-    window.on_edit_redo(move || { println!("Redo requested"); });
-    window.on_edit_find(move || { println!("Find requested"); });
-    window.on_edit_replace(move || { println!("Replace requested"); });
-
-    // View callbacks
-    window.on_view_toolbar(move || { println!("View Toolbar requested"); });
-    window.on_view_statusbar(move || { println!("View Statusbar requested"); });
-    window.on_view_zoom(move || { println!("View Zoom requested"); });
-    window.on_view_fullscreen(move || { println!("View Fullscreen requested"); });
-
-    // Insert callbacks
-    window.on_insert_table(move || { println!("Insert Table requested"); });
-    window.on_insert_image(move || { println!("Insert Image requested"); });
-    window.on_insert_link(move || { println!("Insert Link requested"); });
-    window.on_insert_page_break(move || { println!("Insert Page Break requested"); });
-
-    // Format callbacks
-    let font_manager_window_clone = font_manager_window.clone();
-    window.on_format_font(move || { 
-        println!("Format Font requested");
-        if let Ok(mut manager_opt) = font_manager_window_clone.lock() {
-            if manager_opt.is_none() {
-                 if let Ok(manager) = FontManagerWindowManager::new() {
-                     *manager_opt = Some(manager);
-                 }
-            }
-            
-            if let Some(manager) = manager_opt.as_ref() {
-                let _ = manager.show();
-            }
-        }
-    });
-    
-    window.on_format_paragraph(move || { println!("Format Paragraph requested"); });
-    window.on_format_styles(move || { println!("Format Styles requested"); });
-
-    // Tools callbacks
-    window.on_tools_database(move || { println!("Tools Database requested"); });
-    window.on_tools_search(move || { println!("Tools Search requested"); });
-    window.on_tools_research(move || { println!("Tools Research requested"); });
-    window.on_tools_analysis(move || { println!("Tools Analysis requested"); });
-
-    // Help callbacks
-    window.on_help_documentation(move || { println!("Help Documentation requested"); });
-    window.on_help_about(move || { println!("Help About requested"); });
-
-    // Project callbacks
-    window.on_project_new(move || { println!("Project New requested"); });
-    window.on_project_open(move || { println!("Project Open requested"); });
-    window.on_project_save(move || { println!("Project Save requested"); });
-    window.on_project_export(move || { println!("Project Export requested"); });
-
-    Ok(())
 }

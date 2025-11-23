@@ -233,12 +233,12 @@ slint::slint! {
     in-out property <brush> border-color: #00000000; // Transparent by default for minimalist design
     in-out property <brush> text-color: #6c757d;
 
-        // Component behavior flags
+    // Component behavior flags
         in-out property <bool> show-border: false; // Disabled by default for minimalist design
     in-out property <bool> show-separators: false; // Disabled by default for minimalist design
     in-out property <bool> is-visible: true;
 
-        // Layout properties
+    // Layout properties
         in-out property <float> padding: 8;
     in-out property <float> spacing: 4;
     in-out property <float> border-width: 0; // No borders by default
@@ -286,11 +286,11 @@ slint::slint! {
     in-out property <[bool]> item-enabled: [];
     in-out property <[string]> item-tooltips: [];
 
-        // Callbacks
+    // Callbacks
         callback item-clicked(index: int);
     callback theme-changed();
 
-        // Initialize toolbar
+    // Initialize toolbar
         init => {
             // Subscribe to theme changes
             root.theme-changed();
@@ -309,20 +309,20 @@ slint::slint! {
         spacing: 0;
         padding: 8px;
 
-            // Toolbar items - simplified to avoid for loop issues
-            if item-labels.length > 0: Rectangle {
+        // Toolbar items
+            for label[index] in item-labels: Rectangle {
             background: #00000000;
             border-color: #00000000; // Always transparent for minimalist design
-            border-width: 0px; // No borders for minimalist design
-            border-radius: 0px; // No rounded corners for minimalist design
-            HorizontalBox {
+                border-width: 0px; // No borders for minimalist design
+                border-radius: 0px; // No rounded corners for minimalist design
+                HorizontalBox {
                 padding: 8px;
                 spacing: 4px;
                 ToolbarButton {
-                    text: item-icons[0] + " " + item-labels[0];
-                    enabled: item-enabled[0];
+                    text: item-icons[index] + " " + label;
+                    enabled: item-enabled[index];
                     clicked => {
-                        root.item-clicked(0);
+                        root.item-clicked(index);
                     }
                 }
             }
@@ -335,21 +335,21 @@ slint::slint! {
         spacing: 0;
         padding: 8px;
 
-            // Toolbar items - simplified to avoid for loop issues
-            if item-labels.length > 0: Rectangle {
+        // Toolbar items
+            for label[index] in item-labels: Rectangle {
             background: #00000000;
             border-color: #00000000; // Always transparent for minimalist design
-            border-width: 0px; // No borders for minimalist design
-            border-radius: 0px; // No rounded corners for minimalist design
-            HorizontalBox {
+                border-width: 0px; // No borders for minimalist design
+                border-radius: 0px; // No rounded corners for minimalist design
+                HorizontalBox {
                 padding: 6px;
                 spacing: 4px;
                 ToolbarButton {
-                    text: item-icons[0] + " " + item-labels[0];
-                    enabled: item-enabled[0];
+                    text: item-icons[index] + " " + label;
+                    enabled: item-enabled[index];
                     preferred-width: 120px;
                     clicked => {
-                        root.item-clicked(0);
+                        root.item-clicked(index);
                     }
                 }
             }
@@ -365,25 +365,25 @@ slint::slint! {
     in-out property <[string]> menu-labels: ["File", "View", "Theme", "Help"];
     in-out property <[string]> menu-shortcuts: ["", "", "", "", ""];
 
-        // Callbacks
+    // Callbacks
         callback menu-selected(index: int);
     callback theme-changed();
     HorizontalBox {
         spacing: 0;
         padding: 12px;
 
-            // Menu items - simplified to avoid for loop issues
-            if menu-labels.length > 0: Rectangle {
+        // Menu items
+            for label[index] in menu-labels: Rectangle {
             background: #00000000; // Transparent background for minimalist design
-            border-color: #00000000; // No borders
-            border-width: 0px;
+                border-color: #00000000; // No borders
+                border-width: 0px;
             HorizontalBox {
                 padding: 8px;
                 ToolbarButton {
-                    text: menu-labels[0] + (menu-shortcuts[0] != "" ? " (" + menu-shortcuts[0] + ")" : "");
+                    text: label + (menu-shortcuts[index] != "" ? " (" + menu-shortcuts[index] + ")" : "");
                     enabled: true;
                     clicked => {
-                        root.menu-selected(0);
+                        root.menu-selected(index);
                     }
                 }
             }
@@ -407,7 +407,7 @@ slint::slint! {
         in-out property <brush> background: #f8f9fa;
     in-out property <brush> text-color: #6c757d;
 
-        // Status information
+    // Status information
         in-out property <string> status-text: "Ready";
     in-out property <string> word-count: "0 words";
     in-out property <string> line-info: "Ln 1, Col 1";
@@ -460,7 +460,7 @@ slint::slint! {
     in-out property <[string]> theme-names: ["Light", "Dark", "High Contrast"];
     in-out property <[string]> theme-descriptions: ["Clean and bright", "Sleek and modern", "High contrast for accessibility"];
 
-        // Callbacks
+    // Callbacks
         callback theme-selected(index: int);
     callback close-selector();
     VerticalBox {
@@ -468,21 +468,21 @@ slint::slint! {
         spacing: 0;
         padding: 8px;
 
-            // Theme options - simplified to avoid for loop issues
-            if theme-names.length > 0: Rectangle {
+        // Theme options
+            for name[index] in theme-names: Rectangle {
             background: #00000000;
             HorizontalBox {
                 padding: 8px;
                 ToolbarButton {
-                    text: theme-names[0];
+                    text: name;
                     clicked => {
-                        root.theme-selected(0);
+                        root.theme-selected(index);
                     }
                 }
             }
         }
 
-            // Close button
+        // Close button
             Rectangle {
             background: #00000000;
             preferred-height: 36px;
@@ -510,11 +510,11 @@ slint::slint! {
     in-out property <bool> show-separators: true;
     in-out property <string> layout: "horizontal";
 
-        // Display options
+    // Display options
         in-out property <bool> show-labels: true;
     in-out property <bool> show-icons: true;
 
-        // Item data arrays
+    // Item data arrays
         in-out property <[string]> item-labels: [];
     in-out property <[string]> item-icons: [];
     in-out property <[bool]> item-enabled: [];
@@ -525,12 +525,12 @@ slint::slint! {
         callback item-clicked(index: int);
     callback theme-changed();
 
-        // Enhanced validation with bounds checking
+    // Enhanced validation with bounds checking
         function is-valid-index(index: int) -> bool {
         return index >= 0 && index < item-labels.length && item-labels.length > 0;
     }
 
-        // Validate array bounds before access
+    // Validate array bounds before access
         function safe-get-label(index: int) -> string {
         if (root.is-valid-index(index)) {
             return item-labels[index];
@@ -539,7 +539,7 @@ slint::slint! {
         }
     }
 
-        // Validate array bounds before access for icons
+    // Validate array bounds before access for icons
         function safe-get-icon(index: int) -> string {
         if (root.is-valid-index(index) && index < item-icons.length) {
             return item-icons[index];
@@ -548,7 +548,7 @@ slint::slint! {
         }
     }
 
-        // Initialize toolbar
+    // Initialize toolbar
         init => {
         root.theme-changed();
     }
@@ -564,20 +564,20 @@ slint::slint! {
         spacing: 0;
         padding: 8px;
 
-            // Enhanced toolbar items
-            if item-labels.length > 0: ThemedRectangle {
+        // Enhanced toolbar items
+            for label[index] in item-labels: ThemedRectangle {
             background: #00000000;
             show-border: show-separators;
             HorizontalBox {
                 padding: 8px;
                 spacing: 4px;
                 ToolbarButton {
-                    text: show-icons && show-labels ? (root.safe-get-icon(0) + " " + root.safe-get-label(0)) : (show-labels ? root.safe-get-label(0) : root.safe-get-icon(0));
-                    enabled: root.is-valid-index(0) && item-enabled[0];
-                    visible: is-valid-index(0);
+                    text: show-icons && show-labels ? (root.safe-get-icon(index) + " " + label) : (show-labels ? label : root.safe-get-icon(index));
+                    enabled: root.is-valid-index(index) && item-enabled[index];
+                    visible: is-valid-index(index);
                     clicked => {
-                        if (root.is-valid-index(0)) {
-                            root.item-clicked(0);
+                        if (root.is-valid-index(index)) {
+                            root.item-clicked(index);
                         }
                     }
                 }
@@ -590,20 +590,20 @@ slint::slint! {
         visible: layout == "vertical";
         spacing: 0;
         padding: 8px;
-        if item-labels.length > 0: ThemedRectangle {
+        for label[index] in item-labels: ThemedRectangle {
             background: #00000000;
             show-border: show-separators;
             HorizontalBox {
                 padding: 6px;
                 spacing: 4px;
                 ToolbarButton {
-                    text: show-icons && show-labels ? (root.safe-get-icon(0) + " " + root.safe-get-label(0)) : (show-labels ? root.safe-get-label(0) : root.safe-get-icon(0));
-                    enabled: root.is-valid-index(0) && item-enabled[0];
+                    text: show-icons && show-labels ? (root.safe-get-icon(index) + " " + label) : (show-labels ? label : root.safe-get-icon(index));
+                    enabled: root.is-valid-index(index) && item-enabled[index];
                     preferred-width: 120px;
-                    visible: is-valid-index(0);
+                    visible: is-valid-index(index);
                     clicked => {
-                        if (root.is-valid-index(0)) {
-                            root.item-clicked(0);
+                        if (root.is-valid-index(index)) {
+                            root.item-clicked(index);
                         }
                     }
                 }
