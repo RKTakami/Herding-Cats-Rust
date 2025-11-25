@@ -1,0 +1,225 @@
+import { Button, VerticalBox, HorizontalBox } from "std-widgets.slint";
+import { Theme } from "../styles.slint";
+
+export component RibbonToolbar inherits Rectangle {
+    background: Theme.ribbon-bg;
+    height: 90px;
+    border-color: Theme.border;
+    border-width: 1px;
+
+    in-out property <string> status-message;
+    in-out property <int> click-count;
+
+    callback format-bold();
+    callback format-italic();
+    callback format-underline();
+    callback format-font();
+    callback format-font-size();
+    callback format-text-color();
+    callback format-highlight();
+    callback align-left();
+    callback align-center();
+    callback align-right();
+    callback align-justify();
+    callback insert-bullet-list();
+    callback insert-numbered-list();
+    callback open-style-gallery();
+    callback tools-database();
+
+    VerticalBox {
+        padding: 6px;
+        spacing: 4px;
+
+        // Advanced Word Processing Ribbon Toolbar (Microsoft Word/WordPerfect Style)
+        HorizontalBox {
+            spacing: 6px;
+            
+            // Home Tab - Font and Paragraph Formatting
+            Button {
+                text: "𝐁 Bold";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Bold formatting applied";
+                    root.click-count += 1;
+                    root.format-bold();
+                }
+            }
+
+            Button {
+                text: "𝘐 Italic";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Italic formatting applied";
+                    root.click-count += 1;
+                    root.format-italic();
+                }
+            }
+
+            Button {
+                text: "U Underline";
+                width: 70px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Underline formatting applied";
+                    root.click-count += 1;
+                    root.format-underline();
+                }
+            }
+
+            Rectangle {
+                width: 4px;
+            }
+
+            Button {
+                text: "📝 Font";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Opening font settings...";
+                    root.click-count += 1;
+                    root.format-font();
+                }
+            }
+
+            Button {
+                text: "📏 Size";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Opening font size selector...";
+                    root.click-count += 1;
+                    root.format-font-size();
+                }
+            }
+
+            Rectangle {
+                width: 4px;
+            }
+
+            Button {
+                text: "🔤 Color";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Opening text color picker...";
+                    root.click-count += 1;
+                    root.format-text-color();
+                }
+            }
+
+            Button {
+                text: "🎨 Highlight";
+                width: 70px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Opening highlight options...";
+                    root.click-count += 1;
+                    root.format-highlight();
+                }
+            }
+
+            Rectangle {
+                width: 4px;
+            }
+
+            Button {
+                text: "⬅ Left";
+                width: 50px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Left text alignment";
+                    root.click-count += 1;
+                    root.align-left();
+                }
+            }
+
+            Button {
+                text: "↔ Center";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Center text alignment";
+                    root.click-count += 1;
+                    root.align-center();
+                }
+            }
+
+            Button {
+                text: "➡ Right";
+                width: 50px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Right text alignment";
+                    root.click-count += 1;
+                    root.align-right();
+                }
+            }
+
+            Button {
+                text: "↔ Justify";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Justify text alignment";
+                    root.click-count += 1;
+                    root.align-justify();
+                }
+            }
+
+            Rectangle {
+                width: 4px;
+            }
+
+            Button {
+                text: "📋 Bullet";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Bullet list applied";
+                    root.click-count += 1;
+                    root.insert-bullet-list();
+                }
+            }
+
+            Button {
+                text: "🔢 Number";
+                width: 60px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Numbered list applied";
+                    root.click-count += 1;
+                    root.insert-numbered-list();
+                }
+            }
+
+            Rectangle {
+                width: 4px;
+            }
+
+            Button {
+                text: "📄 Styles";
+                width: 70px;
+                height: 32px;
+                clicked => {
+                    root.status-message = "Opening style gallery...";
+                    root.click-count += 1;
+                    root.open-style-gallery();
+                }
+            }
+
+            Rectangle { }
+
+            Button {
+                text: "⚙️ Settings";
+                width: 70px;
+                height: 32px;
+                clicked => {
+                    root.tools-database();
+                    root.click-count += 1;
+                }
+            }
+        }
+    }
+}

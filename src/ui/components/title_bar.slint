@@ -1,0 +1,37 @@
+import { StandardButton, HorizontalBox } from "std-widgets.slint";
+import { Theme } from "../styles.slint";
+
+export component TitleBar inherits Rectangle {
+    background: Theme.primary-bg;
+    height: 35px;
+    border-color: Theme.border;
+    border-width: 0px;
+
+    in-out property <string> db-status;
+    in-out property <bool> db-connected;
+
+    HorizontalBox {
+        padding: 8px;
+        spacing: 16px;
+
+        Text {
+            text: "📝 Herding Cats - Professional Word Processor";
+            color: Theme.text-primary;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        Rectangle { }
+
+        Text {
+            text: root.db-status;
+            color: Theme.accent;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        StandardButton {
+            kind: close;
+        }
+    }
+}

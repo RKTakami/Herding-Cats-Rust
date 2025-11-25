@@ -1,0 +1,516 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+import { Theme } from "../styles.slint";
+
+export component MenuDropdowns inherits Rectangle {
+    // No background, so it's transparent and passes clicks through (unless intercepted)
+
+    in-out property <bool> show-file-dropdown;
+    in-out property <bool> show-projects-dropdown;
+    in-out property <bool> show-edit-dropdown;
+    in-out property <bool> show-tools-dropdown;
+    in-out property <bool> show-view-dropdown;
+    in-out property <bool> show-help-dropdown;
+
+    callback file-new();
+    callback file-open();
+    callback file-save();
+    callback file-save-as();
+    callback file-print();
+    callback file-export();
+    callback file-exit();
+    callback open-ai-settings();
+
+    callback edit-cut();
+    callback edit-copy();
+    callback edit-paste();
+    callback edit-undo();
+    callback edit-redo();
+    callback edit-find();
+    callback edit-replace();
+
+    callback view-toolbar();
+    callback view-statusbar();
+    callback view-zoom();
+    callback view-fullscreen();
+
+    callback tools-hierarchy();
+    callback tools-codex();
+    callback tools-plot();
+    callback tools-notes();
+    callback tools-structure();
+    callback tools-brainstorming();
+    callback tools-search();
+    callback tools-research();
+    callback tools-analysis();
+    callback tools-font-manager();
+    callback tools-database();
+
+    callback project-new();
+    callback project-open();
+    callback project-save();
+    callback project-export();
+
+    // File Dropdown Menu
+    Rectangle {
+        x: 4px;
+        y: 65px;
+        width: 180px;
+        height: 160px;
+        background: Theme.dropdown-bg;
+        border-color: Theme.border;
+        border-width: 2px;
+        visible: root.show-file-dropdown;
+        VerticalBox {
+            padding: 2px;
+            spacing: 1px;
+            Button {
+                text: "📄 New Document";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-new();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📂 Open Document";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-open();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "💾 Save Document";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-save();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "💾 Save As...";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-save-as();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+
+            Button {
+                text: "🤖 AI Settings";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.open-ai-settings();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+
+            Button {
+                text: "🖨 Print";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-print();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📤 Export";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-export();
+                    root.show-file-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "❌ Exit";
+                width: 175px;
+                height: 22px;
+                clicked => {
+                    root.file-exit();
+                    root.show-file-dropdown = false;
+                }
+            }
+        }
+    }
+
+    // Edit Dropdown Menu
+    Rectangle {
+        x: 224px;
+        y: 65px;
+        width: 160px;
+        height: 140px;
+        background: Theme.dropdown-bg;
+        border-color: Theme.border;
+        border-width: 2px;
+        visible: root.show-edit-dropdown;
+        VerticalBox {
+            padding: 2px;
+            spacing: 1px;
+            Button {
+                text: "✂️ Cut";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-cut();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📋 Copy";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-copy();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📄 Paste";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-paste();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+
+            Button {
+                text: "↶ Undo";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-undo();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "↷ Redo";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-redo();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+
+            Button {
+                text: "🔍 Find";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-find();
+                    root.show-edit-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🔄 Replace";
+                width: 155px;
+                height: 22px;
+                clicked => {
+                    root.edit-replace();
+                    root.show-edit-dropdown = false;
+                }
+            }
+        }
+    }
+
+    // View Dropdown Menu
+    Rectangle {
+        x: 264px;
+        y: 65px;
+        width: 140px;
+        height: 100px;
+        background: Theme.dropdown-bg;
+        border-color: Theme.border;
+        border-width: 2px;
+        visible: root.show-view-dropdown;
+        VerticalBox {
+            padding: 2px;
+            spacing: 1px;
+            Button {
+                text: "🛠️ Toolbar";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.view-toolbar();
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📊 Status Bar";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.view-statusbar();
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🔍 Zoom";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.view-zoom();
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🖥️ Full Screen";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.view-fullscreen();
+                    root.show-view-dropdown = false;
+                }
+            }
+        }
+    }
+
+    // Tools Dropdown Menu
+    Rectangle {
+        x: 184px;
+        y: 65px;
+        width: 200px;
+        height: 280px;
+        background: Theme.dropdown-bg;
+        border-color: Theme.border;
+        border-width: 2px;
+        visible: root.show-tools-dropdown;
+        VerticalBox {
+            padding: 2px;
+            spacing: 1px;
+            
+            // Writing Tools Section
+            Text {
+                text: "✍️ Writing Tools";
+                font-size: 11px;
+                font-weight: 600;
+                color: Theme.text-secondary;
+            }
+
+            Button {
+                text: "📊 Document Hierarchy";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-hierarchy();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📖 World Building Codex";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-codex();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📈 Plot Development";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-plot();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📝 Research Notes";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-notes();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📊 Plot Structure";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-structure();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🧠 Brainstorming";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-brainstorming();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+            
+            // Utility Tools Section
+            Text {
+                text: "🛠️ Utility Tools";
+                font-size: 11px;
+                font-weight: 600;
+                color: Theme.text-secondary;
+            }
+
+            Button {
+                text: "🔍 Search Tools";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-search();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📚 Research Hub";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-research();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📈 Writing Analysis";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-analysis();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "🔤 Font Manager";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-font-manager();
+                    root.show-tools-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+            
+            // Database Tools Section
+            Text {
+                text: "🗄️ Database";
+                font-size: 11px;
+                font-weight: 600;
+                color: Theme.text-secondary;
+            }
+
+            Button {
+                text: "🗄️ Database Manager";
+                width: 195px;
+                height: 22px;
+                clicked => {
+                    root.tools-database();
+                    root.show-tools-dropdown = false;
+                }
+            }
+        }
+    }
+
+    // Projects Dropdown Menu
+    Rectangle {
+        x: 54px;
+        y: 65px;
+        width: 170px;
+        height: 120px;
+        background: Theme.dropdown-bg;
+        border-color: Theme.border;
+        border-width: 2px;
+        visible: root.show-projects-dropdown;
+        VerticalBox {
+            padding: 2px;
+            spacing: 1px;
+            Button {
+                text: "📁 New Project";
+                width: 165px;
+                height: 22px;
+                clicked => {
+                    root.project-new();
+                    root.show-projects-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📂 Open Project";
+                width: 165px;
+                height: 22px;
+                clicked => {
+                    root.project-open();
+                    root.show-projects-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "💾 Save Project";
+                width: 165px;
+                height: 22px;
+                clicked => {
+                    root.project-save();
+                    root.show-projects-dropdown = false;
+                }
+            }
+
+            Button {
+                text: "📤 Export Project";
+                width: 165px;
+                height: 22px;
+                clicked => {
+                    root.project-export();
+                    root.show-projects-dropdown = false;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+import { HorizontalBox } from "std-widgets.slint";
+import { Theme } from "../styles.slint";
+
+export component StatusBar inherits Rectangle {
+    background: Theme.status-bg;
+    height: 30px;
+    border-color: Theme.border;
+    border-width: 1px;
+
+    in-out property <string> status-message;
+    in-out property <int> word-count;
+    in-out property <int> character-count;
+    in-out property <int> paragraph-count;
+    in-out property <string> cursor-position;
+
+    HorizontalBox {
+        padding: 4px;
+        spacing: 16px;
+        Text {
+            text: root.status-message;
+            color: Theme.text-secondary;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+
+        Text {
+            text: root.word-count + " words";
+            color: #28a745; // Green for word count
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+
+        Text {
+            text: root.character-count + " characters";
+            color: Theme.text-secondary;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+
+        Text {
+            text: root.paragraph-count + " paragraphs";
+            color: Theme.text-secondary;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+
+        Text {
+            text: root.cursor-position;
+            color: Theme.accent;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+
+        Rectangle { }
+
+        Text {
+            text: "Multi-Window Ready";
+            color: Theme.accent;
+            font-size: 12px;
+            vertical-alignment: center;
+        }
+    }
+}

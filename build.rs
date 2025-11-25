@@ -42,7 +42,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_style("fluent".into());
     
     slint_build::compile_with_config(
-        "src/ui/font_manager_ui.slint",
+        "src/ui/all_modules.slint",
         config,
     )?;
 
