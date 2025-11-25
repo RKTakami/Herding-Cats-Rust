@@ -1,5 +1,6 @@
-import { Button, VerticalBox } from "std-widgets.slint";
+import { VerticalBox } from "std-widgets.slint";
 import { Theme } from "../styles.slint";
+import { MenuButton } from "menu_button.slint";
 
 export component MenuDropdowns inherits Rectangle {
     // No background, so it's transparent and passes clicks through (unless intercepted)
@@ -63,7 +64,7 @@ export component MenuDropdowns inherits Rectangle {
         VerticalBox {
             padding: 2px;
             spacing: 1px;
-            Button {
+            MenuButton {
                 text: "📄 New Document";
                 width: 175px;
                 height: 22px;
@@ -73,7 +74,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📂 Open Document";
                 width: 175px;
                 height: 22px;
@@ -83,7 +84,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "💾 Save Document";
                 width: 175px;
                 height: 22px;
@@ -93,7 +94,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "💾 Save As...";
                 width: 175px;
                 height: 22px;
@@ -107,7 +108,7 @@ export component MenuDropdowns inherits Rectangle {
                 height: 4px;
             }
 
-            Button {
+            MenuButton {
                 text: "🤖 AI Settings";
                 width: 175px;
                 height: 22px;
@@ -121,7 +122,7 @@ export component MenuDropdowns inherits Rectangle {
                 height: 4px;
             }
 
-            Button {
+            MenuButton {
                 text: "🖨 Print";
                 width: 175px;
                 height: 22px;
@@ -131,7 +132,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📤 Export";
                 width: 175px;
                 height: 22px;
@@ -141,7 +142,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "❌ Exit";
                 width: 175px;
                 height: 22px;
@@ -166,7 +167,7 @@ export component MenuDropdowns inherits Rectangle {
         VerticalBox {
             padding: 2px;
             spacing: 1px;
-            Button {
+            MenuButton {
                 text: "✂️ Cut";
                 width: 155px;
                 height: 22px;
@@ -176,7 +177,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📋 Copy";
                 width: 155px;
                 height: 22px;
@@ -186,7 +187,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📄 Paste";
                 width: 155px;
                 height: 22px;
@@ -200,7 +201,7 @@ export component MenuDropdowns inherits Rectangle {
                 height: 4px;
             }
 
-            Button {
+            MenuButton {
                 text: "↶ Undo";
                 width: 155px;
                 height: 22px;
@@ -210,7 +211,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "↷ Redo";
                 width: 155px;
                 height: 22px;
@@ -224,7 +225,7 @@ export component MenuDropdowns inherits Rectangle {
                 height: 4px;
             }
 
-            Button {
+            MenuButton {
                 text: "🔍 Find";
                 width: 155px;
                 height: 22px;
@@ -234,7 +235,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "🔄 Replace";
                 width: 155px;
                 height: 22px;
@@ -259,7 +260,7 @@ export component MenuDropdowns inherits Rectangle {
         VerticalBox {
             padding: 2px;
             spacing: 1px;
-            Button {
+            MenuButton {
                 text: "🛠️ Toolbar";
                 width: 135px;
                 height: 22px;
@@ -269,7 +270,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📊 Status Bar";
                 width: 135px;
                 height: 22px;
@@ -279,7 +280,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "🔍 Zoom";
                 width: 135px;
                 height: 22px;
@@ -289,7 +290,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "🖥️ Full Screen";
                 width: 135px;
                 height: 22px;
@@ -323,7 +324,7 @@ export component MenuDropdowns inherits Rectangle {
                 color: Theme.text-secondary;
             }
 
-            Button {
+            MenuButton {
                 text: "📊 Document Hierarchy";
                 width: 195px;
                 height: 22px;
@@ -333,7 +334,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📖 World Building Codex";
                 width: 195px;
                 height: 22px;
@@ -343,7 +344,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📈 Plot Development";
                 width: 195px;
                 height: 22px;
@@ -353,7 +354,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📝 Research Notes";
                 width: 195px;
                 height: 22px;
@@ -363,7 +364,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📊 Plot Structure";
                 width: 195px;
                 height: 22px;
@@ -373,7 +374,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "🧠 Brainstorming";
                 width: 195px;
                 height: 22px;
@@ -395,7 +396,7 @@ export component MenuDropdowns inherits Rectangle {
                 color: Theme.text-secondary;
             }
 
-            Button {
+            MenuButton {
                 text: "🔍 Search Tools";
                 width: 195px;
                 height: 22px;
@@ -405,7 +406,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📚 Research Hub";
                 width: 195px;
                 height: 22px;
@@ -415,7 +416,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📈 Writing Analysis";
                 width: 195px;
                 height: 22px;
@@ -425,7 +426,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "🔤 Font Manager";
                 width: 195px;
                 height: 22px;
@@ -447,7 +448,7 @@ export component MenuDropdowns inherits Rectangle {
                 color: Theme.text-secondary;
             }
 
-            Button {
+            MenuButton {
                 text: "🗄️ Database Manager";
                 width: 195px;
                 height: 22px;
@@ -472,7 +473,7 @@ export component MenuDropdowns inherits Rectangle {
         VerticalBox {
             padding: 2px;
             spacing: 1px;
-            Button {
+            MenuButton {
                 text: "📁 New Project";
                 width: 165px;
                 height: 22px;
@@ -482,7 +483,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📂 Open Project";
                 width: 165px;
                 height: 22px;
@@ -492,7 +493,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "💾 Save Project";
                 width: 165px;
                 height: 22px;
@@ -502,7 +503,7 @@ export component MenuDropdowns inherits Rectangle {
                 }
             }
 
-            Button {
+            MenuButton {
                 text: "📤 Export Project";
                 width: 165px;
                 height: 22px;

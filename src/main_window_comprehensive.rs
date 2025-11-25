@@ -61,6 +61,12 @@ impl MainWindowComprehensive {
     pub fn run(&self) -> Result<()> {
         self.window.run().map_err(|e| anyhow::anyhow!("Slint window error: {}", e))
     }
+
+    pub async fn shutdown(&self) {
+        if let Ok(db) = self._db_service.lock() {
+            db.close().await;
+        }
+    }
 }
 
 fn init_callbacks(
@@ -165,7 +171,9 @@ fn init_callbacks(
 
     window.on_file_print(move || { println!("🖨 Print requested"); });
     window.on_file_export(move || { println!("📤 Export requested"); });
-    window.on_file_exit(move || { std::process::exit(0); });
+    window.on_file_exit(move || { 
+        slint::quit_event_loop().unwrap(); 
+    });
 
     // Edit callbacks
     window.on_edit_cut(move || { println!("✂️ Cut requested"); });

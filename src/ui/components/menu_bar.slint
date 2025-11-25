@@ -1,5 +1,6 @@
-import { Button, HorizontalBox } from "std-widgets.slint";
+import { HorizontalBox } from "std-widgets.slint";
 import { Theme } from "../styles.slint";
+import { ToolbarButton } from "toolbar_button.slint";
 
 export component MenuBar inherits Rectangle {
     background: Theme.menu-bg;
@@ -19,7 +20,7 @@ export component MenuBar inherits Rectangle {
         padding: 4px;
         spacing: 2px;
 
-        Button {
+        ToolbarButton {
             text: "File";
             width: 50px;
             height: 24px;
@@ -33,7 +34,7 @@ export component MenuBar inherits Rectangle {
             }
         }
 
-        Button {
+        ToolbarButton {
             text: "Projects";
             width: 70px;
             height: 24px;
@@ -47,7 +48,7 @@ export component MenuBar inherits Rectangle {
             }
         }
 
-        Button {
+        ToolbarButton {
             text: "Edit";
             width: 50px;
             height: 24px;
@@ -62,7 +63,7 @@ export component MenuBar inherits Rectangle {
             }
         }
 
-        Button {
+        ToolbarButton {
             text: "Tools";
             width: 50px;
             height: 24px;
@@ -77,7 +78,7 @@ export component MenuBar inherits Rectangle {
             }
         }
 
-        Button {
+        ToolbarButton {
             text: "View";
             width: 50px;
             height: 24px;
@@ -91,7 +92,7 @@ export component MenuBar inherits Rectangle {
             }
         }
 
-        Button {
+        ToolbarButton {
             text: "Help";
             width: 50px;
             height: 24px;

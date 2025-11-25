@@ -7,5 +7,8 @@ pub async fn run_working_app() -> Result<()> {
 
     window.run()?;
 
+    // Graceful shutdown
+    window.shutdown().await;
+
     Ok(())
 }

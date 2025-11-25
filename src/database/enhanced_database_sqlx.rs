@@ -420,6 +420,11 @@ impl EnhancedDatabaseService {
     pub fn get_database_path(&self) -> &Path {
         &self.db_path
     }
+
+    /// Close the database connection pool
+    pub async fn close(&self) {
+        self.pool.close().await;
+    }
 }
 
 /// Database performance metrics
