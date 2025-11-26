@@ -10,6 +10,7 @@ use crate::DatabaseError;
 use crate::DatabaseResult;
 use serde::{Deserialize, Serialize};
 use std::sync::Arc;
+use sqlx::Row;
 
 use super::hierarchy_base::{HierarchyItem, HierarchyLevel};
 
@@ -18,136 +19,163 @@ use super::hierarchy_base::{HierarchyItem, HierarchyLevel};
 /// Note: This service should be updated to use SQLx patterns instead of rusqlite.
 /// The current implementation is incomplete due to the migration from rusqlite to SQLx.
 pub struct HierarchyDatabaseService {
-    // TODO: Replace with SQLx database pool when implementing SQLx migration
-    // This should use sqlx::SqlitePool instead of rusqlite::Connection
+    pool: sqlx::SqlitePool,
 }
 
 impl HierarchyDatabaseService {
     /// Create a new hierarchy database service
-    /// 
-    /// Note: This constructor needs to be updated to accept SQLx pool
-    pub fn new() -> Self {
-        Self {}
+    pub fn new(pool: sqlx::SqlitePool) -> Self {
+        Self { pool }
     }
     
     /// Initialize the hierarchy table schema
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
     pub async fn initialize_schema(&self) -> DatabaseResult<()> {
-        // TODO: Implement SQLx-based schema initialization
-        // Replace rusqlite::Connection with sqlx::Pool<Sqlite>
-        Err(DatabaseError::NotImplemented(
-            "Schema initialization needs to be updated for SQLx".to_string()
-        ))
+        sqlx::query(
+            "CREATE TABLE IF NOT EXISTS hierarchy_items (
+                id TEXT PRIMARY KEY,
+                project_id TEXT NOT NULL,
+                title TEXT NOT NULL,
+                level TEXT NOT NULL,
+                parent_id TEXT,
+                position INTEGER NOT NULL DEFAULT 0,
+                created_at DATETIME,
+                updated_at DATETIME,
+                metadata TEXT,
+                FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE,
+                FOREIGN KEY (parent_id) REFERENCES hierarchy_items(id) ON DELETE SET NULL
+            )"
+        )
+        .execute(&self.pool)
+        .await
+        .map_err(|e| DatabaseError::Service(format!("Failed to create hierarchy_items table: {}", e)))?;
+
+        Ok(())
     }
     
     /// Create a new hierarchy item
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn create_item(&self, _item: &HierarchyItem) -> DatabaseResult<String> {
-        // TODO: Implement SQLx-based item creation
-        Err(DatabaseError::NotImplemented(
-            "Item creation needs to be updated for SQLx".to_string()
-        ))
-    }
-    
-    /// Get a hierarchy item by ID
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn get_item(&self, _item_id: &str) -> DatabaseResult<Option<HierarchyItem>> {
-        // TODO: Implement SQLx-based item retrieval
-        Err(DatabaseError::NotImplemented(
-            "Item retrieval needs to be updated for SQLx".to_string()
-        ))
-    }
-    
-    /// Update an existing hierarchy item
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn update_item(&self, _item: &HierarchyItem) -> DatabaseResult<()> {
-        // TODO: Implement SQLx-based item updates
-        Err(DatabaseError::NotImplemented(
-            "Item updates need to be updated for SQLx".to_string()
-        ))
-    }
-    
-    /// Delete a hierarchy item and all its children
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn delete_item(&self, _item_id: &str) -> DatabaseResult<()> {
-        // TODO: Implement SQLx-based item deletion
-        Err(DatabaseError::NotImplemented(
-            "Item deletion needs to be updated for SQLx".to_string()
-        ))
-    }
-    
-    /// Move an item to a new parent with position
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn move_item(&self, _item_id: &str, _new_parent_id: Option<String>, _position: u32) -> DatabaseResult<()> {
-        // TODO: Implement SQLx-based item moving
-        Err(DatabaseError::NotImplemented(
-            "Item moving needs to be updated for SQLx".to_string()
-        ))
+    pub async fn create_item(&self, item: &HierarchyItem) -> DatabaseResult<String> {
+        let level_str = format!("{:?}", item.level); // Serialize enum to string
+        let metadata_json = serde_json::to_string(&item.metadata).unwrap_or_default();
+        
+        sqlx::query(
+            "INSERT INTO hierarchy_items (id, project_id, title, level, parent_id, position, created_at, updated_at, metadata)
+             VALUES (?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'), ?)"
+        )
+        .bind(&item.id)
+        .bind(&item.project_id)
+        .bind(&item.title)
+        .bind(&level_str)
+        .bind(&item.parent_id)
+        .bind(item.position as i64)
+        .bind(metadata_json)
+        .execute(&self.pool)
+        .await
+        .map_err(|e| DatabaseError::Service(format!("Failed to create hierarchy item: {}", e)))?;
+        
+        Ok(item.id.clone())
     }
     
     /// Get all hierarchy items for a project
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
-    pub async fn get_items_by_project(&self, _project_id: &str) -> DatabaseResult<Vec<HierarchyItem>> {
-        // TODO: Implement SQLx-based project items retrieval
-        Err(DatabaseError::NotImplemented(
-            "Project items retrieval needs to be updated for SQLx".to_string()
-        ))
+    pub async fn get_items_by_project(&self, project_id: &str) -> DatabaseResult<Vec<HierarchyItem>> {
+        let rows = sqlx::query(
+            "SELECT id, project_id, title, level, parent_id, position, created_at, updated_at, metadata 
+             FROM hierarchy_items WHERE project_id = ? ORDER BY position ASC"
+        )
+        .bind(project_id)
+        .fetch_all(&self.pool)
+        .await
+        .map_err(|e| DatabaseError::Service(format!("Failed to get hierarchy items: {}", e)))?;
+        
+        let mut items = Vec::new();
+        for row in rows {
+            let id: String = row.get("id");
+            let title: String = row.get("title");
+            let level_str: String = row.get("level");
+            let parent_id: Option<String> = row.get("parent_id");
+            let position: i64 = row.get("position");
+            let project_id: String = row.get("project_id");
+            // Dates and metadata handling simplified for now
+            
+            let level = match level_str.as_str() {
+                "Manuscript" => HierarchyLevel::Manuscript,
+                "Chapter" => HierarchyLevel::Chapter,
+                "Scene" => HierarchyLevel::Scene,
+                _ => HierarchyLevel::Unassigned,
+            };
+            
+            let mut item = HierarchyItem::new(id, title, level, parent_id, project_id);
+            item.position = position as u32;
+            items.push(item);
+        }
+        
+        // Reconstruct children relationships
+        // This is O(N^2) but N is small for now. Better to use a map.
+        // For now, we just return the flat list and let the tool rebuild the tree if needed.
+        // But HierarchyItem has `children` field.
+        // The `HierarchyTree` in `MigratedHierarchyTool` rebuilds the tree from items.
+        // So returning flat items is fine, as long as `HierarchyTree::add_item` handles it.
+        // Wait, `HierarchyTree::add_item` expects children to be populated?
+        // No, `HierarchyTree::add_item` populates children in the tree structure based on `parent_id`.
+        // But `HierarchyItem` struct has `children` field.
+        // `HierarchyTree` uses `items: HashMap<String, HierarchyItem>`.
+        // When adding, it updates parent's children list.
+        // So the input items don't need `children` populated.
+        
+        Ok(items)
     }
     
-    /// Get root items (Unassigned and Manuscript level) for a project
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
+    /// Delete a hierarchy item
+    pub async fn delete_item(&self, item_id: &str) -> DatabaseResult<()> {
+        sqlx::query("DELETE FROM hierarchy_items WHERE id = ?")
+            .bind(item_id)
+            .execute(&self.pool)
+            .await
+            .map_err(|e| DatabaseError::Service(format!("Failed to delete hierarchy item: {}", e)))?;
+        Ok(())
+    }
+    
+    /// Update item position
+    pub async fn update_item_position(&self, item_id: &str, position: u32) -> DatabaseResult<()> {
+        sqlx::query("UPDATE hierarchy_items SET position = ? WHERE id = ?")
+            .bind(position as i64)
+            .bind(item_id)
+            .execute(&self.pool)
+            .await
+            .map_err(|e| DatabaseError::Service(format!("Failed to update item position: {}", e)))?;
+        Ok(())
+    }
+    
+    // Other methods can remain unimplemented or be implemented as needed
+    
+    pub async fn get_item(&self, _item_id: &str) -> DatabaseResult<Option<HierarchyItem>> {
+        Err(DatabaseError::NotImplemented("get_item".to_string()))
+    }
+    
+    pub async fn update_item(&self, _item: &HierarchyItem) -> DatabaseResult<()> {
+        Err(DatabaseError::NotImplemented("update_item".to_string()))
+    }
+    
+    pub async fn move_item(&self, _item_id: &str, _new_parent_id: Option<String>, _position: u32) -> DatabaseResult<()> {
+        Err(DatabaseError::NotImplemented("move_item".to_string()))
+    }
+    
     pub async fn get_root_items(&self, _project_id: &str) -> DatabaseResult<Vec<HierarchyItem>> {
-        // TODO: Implement SQLx-based root items retrieval
-        Err(DatabaseError::NotImplemented(
-            "Root items retrieval needs to be updated for SQLx".to_string()
-        ))
+        Err(DatabaseError::NotImplemented("get_root_items".to_string()))
     }
     
-    /// Get children of a specific item
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
     pub async fn get_children(&self, _parent_id: &str) -> DatabaseResult<Vec<HierarchyItem>> {
-        // TODO: Implement SQLx-based children retrieval
-        Err(DatabaseError::NotImplemented(
-            "Children retrieval needs to be updated for SQLx".to_string()
-        ))
+        Err(DatabaseError::NotImplemented("get_children".to_string()))
     }
     
-    /// Reorder items within a parent
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
     pub async fn reorder_items(&self, _parent_id: Option<String>, _item_ids: &[String]) -> DatabaseResult<()> {
-        // TODO: Implement SQLx-based reordering
-        Err(DatabaseError::NotImplemented(
-            "Item reordering needs to be updated for SQLx".to_string()
-        ))
+        Err(DatabaseError::NotImplemented("reorder_items".to_string()))
     }
     
-    /// Count items in a project
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
     pub async fn count_items(&self, _project_id: &str) -> DatabaseResult<usize> {
-        // TODO: Implement SQLx-based counting
-        Err(DatabaseError::NotImplemented(
-            "Item counting needs to be updated for SQLx".to_string()
-        ))
+        Err(DatabaseError::NotImplemented("count_items".to_string()))
     }
     
-    /// Check if an item exists
-    /// 
-    /// Note: This method needs to be updated to use SQLx patterns
     pub async fn item_exists(&self, _item_id: &str) -> DatabaseResult<bool> {
-        // TODO: Implement SQLx-based existence check
-        Err(DatabaseError::NotImplemented(
-            "Item existence check needs to be updated for SQLx".to_string()
-        ))
+        Err(DatabaseError::NotImplemented("item_exists".to_string()))
     }
 }

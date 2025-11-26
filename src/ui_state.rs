@@ -312,6 +312,14 @@ pub struct AppState {
     pub drag_over_main: bool,
 }
 
+impl AppState {
+    pub fn set_drag_state(&mut self, is_dragging: bool, drag_type: Option<String>, drag_data: Option<String>) {
+        self.is_dragging = is_dragging;
+        self.drag_type = drag_type;
+        self.drag_data = drag_data;
+    }
+}
+
 /// Window configuration export
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct WindowConfigExport {

@@ -107,6 +107,13 @@ pub enum ToolLifecycleEvent {
     },
     /// Tool was reinitialized
     Reinitialized { tool_id: String },
+    /// Custom lifecycle event
+    CustomEvent {
+        tool_id: String,
+        event_type: String,
+        payload: serde_json::Value,
+        timestamp: i64,
+    },
 }
 
 /// Error severity levels
@@ -498,7 +505,8 @@ impl ResourceAvailability {
     }
 }
 
-/// API contract for tool validation and verification
+/// API contract for tool integration
+#[derive(Clone)]
 #[derive(Debug)]
 pub struct ToolApiContract {
     /// Event bus for cross-tool communication

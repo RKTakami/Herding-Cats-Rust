@@ -11,7 +11,12 @@ use crate::{
     AppState,
     DatabaseAppState,
     ui::tools::individual_tool_windows::{IndividualToolWindowManager, ToolWindowState},
+    ui::generated::{
+        HierarchyWindow, CodexWindow, BrainstormingTool, AnalysisTool, 
+        PlotTool, NotesTool, ResearchTool, StructureTool
+    },
 };
+use slint::ComponentHandle;
 
 /// Independent tool window manager for managing separate tool windows
 pub struct IndependentToolWindowManager {
@@ -23,15 +28,81 @@ pub struct IndependentToolWindowManager {
 
     /// App state reference
     app_state: Arc<Mutex<AppState>>,
+
+    // Window handles for theme synchronization
+    hierarchy_window: Arc<Mutex<Option<slint::Weak<HierarchyWindow>>>>,
+    codex_window: Arc<Mutex<Option<slint::Weak<CodexWindow>>>>,
+    brainstorming_window: Arc<Mutex<Option<slint::Weak<BrainstormingTool>>>>,
+    analysis_window: Arc<Mutex<Option<slint::Weak<AnalysisTool>>>>,
+    plot_window: Arc<Mutex<Option<slint::Weak<PlotTool>>>>,
+    notes_window: Arc<Mutex<Option<slint::Weak<NotesTool>>>>,
+    research_window: Arc<Mutex<Option<slint::Weak<ResearchTool>>>>,
+    structure_window: Arc<Mutex<Option<slint::Weak<StructureTool>>>>,
 }
 
 impl IndependentToolWindowManager {
     /// Create a new independent tool window manager
     pub fn new(db_state: Arc<tokio::sync::RwLock<DatabaseAppState>>) -> Result<Self> {
+        let hierarchy_window = Arc::new(Mutex::new(None));
+        let codex_window = Arc::new(Mutex::new(None));
+        let brainstorming_window = Arc::new(Mutex::new(None));
+        let analysis_window = Arc::new(Mutex::new(None));
+        let plot_window = Arc::new(Mutex::new(None));
+        let notes_window = Arc::new(Mutex::new(None));
+        let research_window = Arc::new(Mutex::new(None));
+        let structure_window = Arc::new(Mutex::new(None));
+
+        // Register theme change listener
+        let h_win = hierarchy_window.clone();
+        let c_win = codex_window.clone();
+        let b_win = brainstorming_window.clone();
+        let a_win = analysis_window.clone();
+        let p_win = plot_window.clone();
+        let n_win = notes_window.clone();
+        let r_win = research_window.clone();
+        let s_win = structure_window.clone();
+
+        let theme_manager = crate::ui::theme_manager::get_theme_manager();
+        theme_manager.on_theme_change(move |theme| {
+            let theme_name = slint::SharedString::from(theme.name.clone());
+            if let Some(window) = h_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<HierarchyWindow>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = c_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<CodexWindow>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = b_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<BrainstormingTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = a_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<AnalysisTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = p_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<PlotTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = n_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<NotesTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = r_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<ResearchTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+            if let Some(window) = s_win.lock().unwrap().as_ref().and_then(|w: &slint::Weak<StructureTool>| w.upgrade()) {
+                window.invoke_set_theme(theme_name.clone());
+            }
+        });
+
         Ok(Self {
             individual_manager: IndividualToolWindowManager::new(db_state.clone()),
             db_state,
             app_state: Arc::new(Mutex::new(AppState::default())),
+            hierarchy_window,
+            codex_window,
+            brainstorming_window,
+            analysis_window,
+            plot_window,
+            notes_window,
+            research_window,
+            structure_window,
         })
     }
 
@@ -135,7 +206,10 @@ impl IndependentToolWindowManager {
         println!("🚀 Opening Hierarchy Tool Window (Independent)");
 
         // Create and configure the hierarchy window
-        let hierarchy_window = HierarchyIndependentWindow::new()?;
+        let hierarchy_window = HierarchyWindow::new()?;
+
+        // Store handle for theme synchronization
+        *self.hierarchy_window.lock().unwrap() = Some(hierarchy_window.as_weak());
 
         // Set up callbacks
         hierarchy_window.on_close_requested(move || {
@@ -159,7 +233,7 @@ impl IndependentToolWindowManager {
         });
 
         // Show the window
-        hierarchy_window.run()?;
+        hierarchy_window.show()?;
 
         // Update state
         let state = ToolWindowState {
@@ -175,10 +249,43 @@ impl IndependentToolWindowManager {
         Ok(())
     }
 
+    /// Set the theme for all open tool windows
+    pub fn set_theme(&self, theme_name: String) {
+        let theme_name = slint::SharedString::from(theme_name);
+        
+        if let Some(window) = self.hierarchy_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.codex_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.brainstorming_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.analysis_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.plot_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.notes_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.research_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+        if let Some(window) = self.structure_window.lock().unwrap().as_ref().and_then(|w| w.upgrade()) {
+            window.invoke_set_theme(theme_name.clone());
+        }
+    }
+
     async fn open_codex_window(&self) -> Result<()> {
         println!("🚀 Opening Codex Tool Window (Independent)");
 
-        let codex_window = CodexIndependentWindow::new()?;
+        let codex_window = CodexWindow::new()?;
+
+        // Store handle for theme synchronization
+        *self.codex_window.lock().unwrap() = Some(codex_window.as_weak());
 
         codex_window.on_close_requested(move || {
             println!("📖 Codex window closed");
@@ -200,7 +307,7 @@ impl IndependentToolWindowManager {
             println!("📥 Codex: Data imported");
         });
 
-        codex_window.run()?;
+        codex_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -218,7 +325,10 @@ impl IndependentToolWindowManager {
     async fn open_brainstorming_window(&self) -> Result<()> {
         println!("🚀 Opening Brainstorming Tool Window (Independent)");
 
-        let brainstorming_window = BrainstormingIndependentWindow::new()?;
+        let brainstorming_window = BrainstormingTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.brainstorming_window.lock().unwrap() = Some(brainstorming_window.as_weak());
 
         brainstorming_window.on_close_requested(move || {
             println!("💭 Brainstorming window closed");
@@ -240,7 +350,7 @@ impl IndependentToolWindowManager {
             println!("🔍 Brainstorming: Zoom out");
         });
 
-        brainstorming_window.run()?;
+        brainstorming_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -258,7 +368,10 @@ impl IndependentToolWindowManager {
     async fn open_analysis_window(&self) -> Result<()> {
         println!("🚀 Opening Analysis Tool Window (Independent)");
 
-        let analysis_window = AnalysisIndependentWindow::new()?;
+        let analysis_window = AnalysisTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.analysis_window.lock().unwrap() = Some(analysis_window.as_weak());
 
         analysis_window.on_close_requested(move || {
             println!("🔬 Analysis window closed");
@@ -280,7 +393,7 @@ impl IndependentToolWindowManager {
             println!("📥 Analysis: Data imported");
         });
 
-        analysis_window.run()?;
+        analysis_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -298,7 +411,10 @@ impl IndependentToolWindowManager {
     async fn open_plot_window(&self) -> Result<()> {
         println!("🚀 Opening Plot Tool Window (Independent)");
 
-        let plot_window = PlotIndependentWindow::new()?;
+        let plot_window = PlotTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.plot_window.lock().unwrap() = Some(plot_window.as_weak());
 
         plot_window.on_close_requested(move || {
             println!("📊 Plot window closed");
@@ -320,7 +436,7 @@ impl IndependentToolWindowManager {
             println!("📥 Plot: Data imported");
         });
 
-        plot_window.run()?;
+        plot_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -338,7 +454,10 @@ impl IndependentToolWindowManager {
     async fn open_notes_window(&self) -> Result<()> {
         println!("🚀 Opening Notes Tool Window (Independent)");
 
-        let notes_window = NotesIndependentWindow::new()?;
+        let notes_window = NotesTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.notes_window.lock().unwrap() = Some(notes_window.as_weak());
 
         notes_window.on_close_requested(move || {
             println!("📝 Notes window closed");
@@ -360,7 +479,7 @@ impl IndependentToolWindowManager {
             println!("📥 Notes: Notes imported");
         });
 
-        notes_window.run()?;
+        notes_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -378,17 +497,20 @@ impl IndependentToolWindowManager {
     async fn open_research_window(&self) -> Result<()> {
         println!("🚀 Opening Research Tool Window (Independent)");
 
-        let research_window = ResearchIndependentWindow::new()?;
+        let research_window = ResearchTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.research_window.lock().unwrap() = Some(research_window.as_weak());
 
         research_window.on_close_requested(move || {
             println!("📚 Research window closed");
         });
 
-        research_window.on_new_research_item(move || {
+        research_window.on_add_source(move || {
             println!("➕ Research: New research item created");
         });
 
-        research_window.on_cite_source(move || {
+        research_window.on_citation(move || {
             println!("📚 Research: Citation added");
         });
 
@@ -400,7 +522,7 @@ impl IndependentToolWindowManager {
             println!("📥 Research: Data imported");
         });
 
-        research_window.run()?;
+        research_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -418,7 +540,10 @@ impl IndependentToolWindowManager {
     async fn open_structure_window(&self) -> Result<()> {
         println!("🚀 Opening Structure Tool Window (Independent)");
 
-        let structure_window = StructureIndependentWindow::new()?;
+        let structure_window = StructureTool::new()?;
+
+        // Store handle for theme synchronization
+        *self.structure_window.lock().unwrap() = Some(structure_window.as_weak());
 
         structure_window.on_close_requested(move || {
             println!("🏗️ Structure window closed");
@@ -440,7 +565,7 @@ impl IndependentToolWindowManager {
             println!("📥 Structure: Data imported");
         });
 
-        structure_window.run()?;
+        structure_window.show()?;
 
         let state = ToolWindowState {
             is_open: true,
@@ -457,208 +582,6 @@ impl IndependentToolWindowManager {
 }
 
 // Independent window implementations using Slint
-slint::slint! {
-    import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
-
-    // Hierarchy Tool Window (Independent)
-    export component HierarchyIndependentWindow inherits Window {
-        width: 800px;
-        height: 600px;
-        title: "Herding Cats - Hierarchy Tool (Independent)";
-
-        // Menu callbacks
-        callback close_requested();
-        callback new_item();
-        callback delete_item();
-        callback move_up();
-        callback move_down();
-
-        VerticalBox {
-            spacing: 0;
-
-            // Menu Bar
-            Rectangle {
-                background: #2d3748;
-                height: 35px;
-
-                HorizontalBox {
-                    padding: 6px;
-                    spacing: 8px;
-
-                    // File Menu
-                    Rectangle {
-                        background: #4a5568;
-                        height: 31px;
-                        border-radius: 3px;
-
-                        HorizontalBox {
-                            spacing: 4px;
-
-                            Button {
-                                text: "New";
-                                width: 50px;
-                                height: 27px;
-                                clicked => { root.new_item(); }
-                            }
-
-                            Button {
-                                text: "Delete";
-                                width: 60px;
-                                height: 27px;
-                                clicked => { root.delete_item(); }
-                            }
-                        }
-                    }
-
-                    // Edit Menu
-                    Rectangle {
-                        background: #4a5568;
-                        height: 31px;
-                        border-radius: 3px;
-
-                        HorizontalBox {
-                            spacing: 4px;
-
-                            Button {
-                                text: "Up";
-                                width: 50px;
-                                height: 27px;
-                                clicked => { root.move_up(); }
-                            }
-
-                            Button {
-                                text: "Down";
-                                width: 60px;
-                                height: 27px;
-                                clicked => { root.move_down(); }
-                            }
-                        }
-                    }
-
-                    Rectangle { }
-
-                    Text {
-                        text: "📚 Independent Hierarchy Tool";
-                        color: white;
-                        font-size: 12px;
-                        vertical-alignment: center;
-                    }
-                }
-            }
-
-            // Content Area
-            Rectangle {
-                background: #ffffff;
-                vertical-stretch: 1;
-                padding: 20px;
-
-                ScrollView {
-                    width: parent.width;
-                    height: parent.height;
-
-                    TextEdit {
-                        text: "📚 Independent Hierarchy Tool\n\n" +
-                              "This tool helps you organize your manuscript structure.\n\n" +
-                              "Features:\n" +
-                              "• Chapter and scene management\n" +
-                              "• Drag-and-drop reordering\n" +
-                              "• Word count tracking\n" +
-                              "• Structure visualization\n\n" +
-                              "This is an INDEPENDENT window that operates separately\n" +
-                              "from other writing tools without requiring a universal container.\n\n" +
-                              "Click toolbar buttons above to test functionality:\n" +
-                              "• New: Create new hierarchy item\n" +
-                              "• Delete: Remove selected item\n" +
-                              "• Up: Move item up in hierarchy\n" +
-                              "• Down: Move item down in hierarchy";
-                        font-size: 14px;
-                        wrap: word-wrap;
-                        read-only: true;
-                    }
-                }
-            }
-        }
-    }
-}
-
-// Additional independent window components would follow the same pattern
-// for Codex, Brainstorming, Analysis, Plot, Notes, Research, and Structure tools
-
-// Placeholder implementations for other tools
-struct CodexIndependentWindow;
-struct BrainstormingIndependentWindow;
-struct AnalysisIndependentWindow;
-struct PlotIndependentWindow;
-struct NotesIndependentWindow;
-struct ResearchIndependentWindow;
-struct StructureIndependentWindow;
-
-impl CodexIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_entry(&self, _callback: impl Fn() + 'static) {}
-    fn on_search(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl BrainstormingIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_node(&self, _callback: impl Fn() + 'static) {}
-    fn on_layout(&self, _callback: impl Fn() + 'static) {}
-    fn on_zoom_in(&self, _callback: impl Fn() + 'static) {}
-    fn on_zoom_out(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl AnalysisIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_analysis(&self, _callback: impl Fn() + 'static) {}
-    fn on_generate_insights(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl PlotIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_plot_point(&self, _callback: impl Fn() + 'static) {}
-    fn on_timeline_view(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl NotesIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_note(&self, _callback: impl Fn() + 'static) {}
-    fn on_tag_note(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl ResearchIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_research_item(&self, _callback: impl Fn() + 'static) {}
-    fn on_cite_source(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
-
-impl StructureIndependentWindow {
-    fn new() -> Result<Self> { Ok(Self) }
-    fn on_close_requested(&self, _callback: impl Fn() + 'static) {}
-    fn on_new_structure(&self, _callback: impl Fn() + 'static) {}
-    fn on_validate(&self, _callback: impl Fn() + 'static) {}
-    fn on_export(&self, _callback: impl Fn() + 'static) {}
-    fn on_import(&self, _callback: impl Fn() + 'static) {}
-    fn run(&self) -> Result<()> { Ok(()) }
-}
+// Note: We are now using external .slint files imported via all_modules.slint
+// instead of inline macros. This allows for better code organization and
+// shared theme support.

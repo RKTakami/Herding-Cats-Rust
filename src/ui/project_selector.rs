@@ -205,6 +205,48 @@ impl ProjectSelector {
         Ok(project_id)
     }
 
+    /// Import a project from a folder path
+    pub async fn import_project_from_path(
+        &mut self,
+        path: String,
+        name: String,
+    ) -> Result<String, Box<dyn std::error::Error>> {
+        info!("Importing project '{}' from path: {}", name, path);
+
+        // 1. Create the project first
+        self.project_creation_form.name = name;
+        let project_id = self.create_project().await?;
+
+        // 2. Initialize Hierarchy Tool for this project
+        // We need to create a temporary tool instance to handle the import
+        // In a real app, we might want to use the actual tool manager, but here we'll instantiate one.
+        use crate::ui::tools::hierarchy_tool_migrated::MigratedHierarchyTool;
+        use crate::ui::tools::database_integration::ToolDatabaseContext;
+        use crate::ui::tools::base::ToolIntegration;
+
+        let mut hierarchy_tool = MigratedHierarchyTool::new();
+        let db_state = self.database_state.clone();
+        
+        // Create context for the tool
+        let mut context = ToolDatabaseContext::new(&project_id, db_state).await;
+        hierarchy_tool.initialize(&mut context).await.map_err(|e| format!("Failed to init hierarchy tool: {}", e))?;
+
+        // 3. Run the import
+        use crate::import::heuristic_import::import_folder_to_project;
+        use std::path::Path;
+
+        let import_stats = import_folder_to_project(
+            Path::new(&path),
+            &project_id,
+            &mut hierarchy_tool
+        ).await.map_err(|e| format!("Import failed: {}", e))?;
+
+        info!("Import finished. Stats: {:?}", import_stats);
+        self.set_success(format!("Project imported! Processed {} files.", import_stats.files_processed));
+
+        Ok(project_id)
+    }
+
     /// Set the current active project
     pub async fn set_current_project(
         &mut self,

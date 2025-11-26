@@ -1,0 +1,1929 @@
+   Compiling herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)
+warning: herding-cats-rust@0.50.0: Found 26 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error[E0432]: unresolved import `super::hierarchy_drag`
+  --> src/ui/tools/hierarchy_ui.rs:14:12
+   |
+14 | use super::hierarchy_drag::{HierarchyDragHandler, HierarchyDragData, DragVisualFeedback};
+   |            ^^^^^^^^^^^^^^ could not find `hierarchy_drag` in `super`
+
+warning: unnecessary braces around block return value
+  --> src/ui/menu_integration_bridge.rs:24:9
+   |
+24 |         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+   |         ^^                                                   ^^
+   |
+   = note: `#[warn(unused_braces)]` (part of `#[warn(unused)]`) on by default
+help: remove these braces
+   |
+24 -         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+24 +         Arc::new(RwLock::new(MenuIntegrationBridge::new()));
+   |
+
+warning: unused doc comment
+   --> src/ui/theme_manager.rs:511:1
+    |
+511 | /// Global theme manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused doc comment
+   --> src/ui/tools/threading_patterns.rs:426:1
+    |
+426 | /// Global managers using safe threading patterns
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `tokio::sync::RwLock`
+  --> src/ui/tools/hierarchy_tool_migrated.rs:18:5
+   |
+18 | use tokio::sync::RwLock;
+   |     ^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `super::hierarchy_database::HierarchyDatabaseService`
+  --> src/ui/tools/hierarchy_tool_migrated.rs:23:5
+   |
+23 | use super::hierarchy_database::HierarchyDatabaseService;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `Deserialize` and `Serialize`
+  --> src/ui/tools/hierarchy_database.rs:11:13
+   |
+11 | use serde::{Deserialize, Serialize};
+   |             ^^^^^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `std::sync::Arc`
+  --> src/ui/tools/hierarchy_database.rs:12:5
+   |
+12 | use std::sync::Arc;
+   |     ^^^^^^^^^^^^^^
+
+warning: unused import: `HierarchyLevel`
+  --> src/ui/tools/hierarchy_database.rs:14:44
+   |
+14 | use super::hierarchy_base::{HierarchyItem, HierarchyLevel};
+   |                                            ^^^^^^^^^^^^^^
+
+warning: unused imports: `ComponentHandle` and `Model`
+ --> src/ui/tools/hierarchy_ui.rs:9:13
+  |
+9 | use slint::{ComponentHandle, Model, ModelRc, VecModel, SharedString};
+  |             ^^^^^^^^^^^^^^^  ^^^^^
+
+warning: unused import: `HierarchyNode`
+  --> src/ui/tools/hierarchy_ui.rs:13:75
+   |
+13 | use super::hierarchy_base::{HierarchyItem, HierarchyLevel, HierarchyTree, HierarchyNode};
+   |                                                                           ^^^^^^^^^^^^^
+
+warning: unused import: `crate::ui_state::AppState`
+  --> src/ui/tools/hierarchy_ui.rs:15:5
+   |
+15 | use crate::ui_state::AppState;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: private item shadows public glob re-export
+  --> src/ui/tools/mod.rs:25:5
+   |
+25 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: the name `ToolLifecycleEvent` in the type namespace is supposed to be publicly re-exported here
+  --> src/ui/tools/mod.rs:19:9
+   |
+19 | pub use api_contracts::*;
+   |         ^^^^^^^^^^^^^^^^
+note: but the private item here shadows it
+  --> src/ui/tools/mod.rs:25:5
+   |
+25 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: `#[warn(hidden_glob_reexports)]` on by default
+
+warning: unused doc comment
+   --> src/ui/unified_toolbar.rs:225:1
+    |
+225 | /// Unified toolbar component definition
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/ui/window_manager.rs:342:1
+    |
+342 | /// Global window manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused imports: `Model` and `SharedString`
+ --> src/ui/font_manager_window.rs:2:30
+  |
+2 | use slint::{ComponentHandle, Model, VecModel, SharedString};
+  |                              ^^^^^            ^^^^^^^^^^^^
+
+warning: unused imports: `Arc` and `Mutex`
+ --> src/ui/font_manager_window.rs:3:17
+  |
+3 | use std::sync::{Arc, Mutex};
+  |                 ^^^  ^^^^^
+
+warning: unused imports: `FontManager` and `init_font_manager`
+ --> src/ui/font_manager_window.rs:5:27
+  |
+5 | use crate::font_manager::{FontManager, FontInfo, init_font_manager, get_font_manager};
+  |                           ^^^^^^^^^^^            ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `Context`
+ --> src/import/heuristic_import.rs:8:22
+  |
+8 | use anyhow::{Result, Context};
+  |                      ^^^^^^^
+
+warning: unused import: `HierarchyItem`
+  --> src/import/heuristic_import.rs:10:56
+   |
+10 | use crate::ui::tools::hierarchy_base::{HierarchyLevel, HierarchyItem};
+   |                                                        ^^^^^^^^^^^^^
+
+warning: unused import: `error`
+  --> src/import/heuristic_import.rs:12:27
+   |
+12 | use tracing::{info, warn, error};
+   |                           ^^^^^
+
+warning: unused import: `Context`
+ --> src/security/secure_storage.rs:1:22
+  |
+1 | use anyhow::{Result, Context};
+  |                      ^^^^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:618:26
+    |
+618 |                 padding: 20px;
+    |                          ^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:740:26
+    |
+740 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:862:26
+    |
+862 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+   --> src/ui/tools/individual_tool_windows.rs:985:26
+    |
+985 |                 padding: 20px;
+    |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1108:26
+     |
+1108 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1231:26
+     |
+1231 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1353:26
+     |
+1353 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::tools::individual_tool_windows::_::WARNING`: padding only has effect on layout elements
+    --> src/ui/tools/individual_tool_windows.rs:1476:26
+     |
+1476 |                 padding: 20px;
+     |                          ^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'EnhancedToolbar' doesn't inherit Window. This is deprecated
+   --> src/ui/unified_toolbar.rs:507:22
+    |
+507 |     export component EnhancedToolbar {
+    |                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemeSelector' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:456:22
+    |
+456 |     export component ThemeSelector {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedMenuBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:362:22
+    |
+362 |     export component ThemedMenuBar {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedStatusBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:405:22
+    |
+405 |     export component ThemedStatusBar {
+    |                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'UnifiedToolbar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:278:22
+    |
+278 |     export component UnifiedToolbar {
+    |                      ^^^^^^^^^^^^^^
+
+warning: unused variable: `script`
+   --> src/automation/mod.rs:961:9
+    |
+961 |         script: &Script,
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:962:9
+    |
+962 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:978:9
+    |
+978 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1041:9
+     |
+1041 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1042:9
+     |
+1042 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1043:9
+     |
+1043 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1063:9
+     |
+1063 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1064:9
+     |
+1064 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1065:9
+     |
+1065 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1084:9
+     |
+1084 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1085:9
+     |
+1085 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1086:9
+     |
+1086 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1106:9
+     |
+1106 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1107:9
+     |
+1107 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script_id`
+    --> src/automation/mod.rs:1267:49
+     |
+1267 |                     ErrorAction::CustomScript { script_id } => {
+     |                                                 ^^^^^^^^^ help: try ignoring the field: `script_id: _`
+
+warning: unused variable: `db_path_str`
+   --> src/database/enhanced_database_sqlx.rs:110:13
+    |
+110 |         let db_path_str = db_path.to_str().ok_or_else(|| {
+    |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_path_str`
+
+warning: unused variable: `file_path`
+   --> src/database/research_service.rs:576:9
+    |
+576 |         file_path: &PathBuf,
+    |         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_file_path`
+
+warning: unused variable: `context`
+   --> src/ui/comprehensive_error_handling.rs:461:9
+    |
+461 |         context: &ErrorContext,
+    |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_context`
+
+warning: unused variable: `db_service`
+   --> src/ui/document_persistence.rs:196:13
+    |
+196 |         let db_service = db_state
+    |             ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: unused variable: `now`
+   --> src/ui/document_persistence.rs:203:13
+    |
+203 |         let now = SystemTime::now()
+    |             ^^^ help: if this is intentional, prefix it with an underscore: `_now`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:270:38
+    |
+270 |     pub async fn open_hierarchy_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:271:13
+    |
+271 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:276:34
+    |
+276 |     pub async fn open_codex_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:277:13
+    |
+277 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:282:42
+    |
+282 |     pub async fn open_brainstorming_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                          ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:283:13
+    |
+283 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:288:37
+    |
+288 |     pub async fn open_analysis_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:289:13
+    |
+289 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:294:33
+    |
+294 |     pub async fn open_plot_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                 ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:295:13
+    |
+295 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:300:34
+    |
+300 |     pub async fn open_notes_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:301:13
+    |
+301 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:306:37
+    |
+306 |     pub async fn open_research_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:307:13
+    |
+307 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:312:38
+    |
+312 |     pub async fn open_structure_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:313:13
+    |
+313 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `tool`
+   --> src/ui/tools/threading_patterns.rs:238:13
+    |
+238 |         let tool = tools
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_tool`
+
+warning: unused variable: `duration`
+  --> src/ui/tools/tools.rs:88:21
+   |
+88 |                 let duration = start_time.elapsed();
+   |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+warning: unused variable: `duration`
+   --> src/ui/tools/tools.rs:405:21
+    |
+405 |                 let duration = start_time.elapsed();
+    |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+error[E0599]: no method named `get_hierarchy_by_project` found for struct `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>` in the current scope
+  --> src/ui/tools/hierarchy_tool_migrated.rs:65:50
+   |
+65 |                     let hierarchy_data = service.get_hierarchy_by_project(project_id).await?;
+   |                                                  ^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:64:36: 64:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<Vec<HierarchyItem>, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:62:34
+    |
+ 62 |             let result = context.execute_with_retry(
+    |                                  ^^^^^^^^^^^^^^^^^^ expected `Result<Vec<HierarchyItem>, ...>`, found `Result<Vec<HierarchyItem>, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:64:36: 64:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<Vec<HierarchyItem>, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:62:26
+    |
+ 62 |               let result = context.execute_with_retry(
+    |  __________________________^
+ 63 | |                 "load_hierarchy",
+ 64 | |                 |service| Box::pin(async move {
+ 65 | |                     let hierarchy_data = service.get_hierarchy_by_project(project_id).await?;
+...   |
+ 68 | |                 3,
+ 69 | |             ).await;
+    | |_____________^ expected `Result<Vec<HierarchyItem>, ...>`, found `Result<Vec<HierarchyItem>, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:64:36: 64:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<Vec<HierarchyItem>, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:69:15
+    |
+ 69 |             ).await;
+    |               ^^^^^ expected `Result<Vec<HierarchyItem>, ...>`, found `Result<Vec<HierarchyItem>, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0277]: the `?` operator can only be used in an async function that returns `Result` or `Option` (or another type that implements `FromResidual`)
+  --> src/ui/tools/hierarchy_tool_migrated.rs:76:86
+   |
+58 |       pub async fn load_hierarchy(&mut self, project_id: &str) -> DatabaseOperationResult<()> {
+   |  _____________________________________________________________________________________________-
+59 | |         let start_time = Instant::now();
+60 | |         
+61 | |         if let Some(context) = &mut self.database_context {
+...  |
+76 | |                         self.hierarchy_tree.add_item(item).map_err(|e| e.to_string())?;
+   | |                                                                                      ^ cannot use the `?` operator in an async function that returns `database_integration::DatabaseOperationResult<()>`
+...  |
+95 | |     }
+   | |_____- this function should return `Result` or `Option` to accept `?`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:85:58
+    |
+ 85 |                     DatabaseOperationResult::success((), duration)
+    |                     --------------------------------     ^^^^^^^^ expected `u64`, found `Duration`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:196:12
+    |
+196 |     pub fn success(data: T, operation_time_ms: u64) -> Self {
+    |            ^^^^^^^          ----------------------
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:89:63
+    |
+ 89 |                     DatabaseOperationResult::validation_error("load_hierarchy", e.to_string())
+    |                     ----------------------------------------- ^^^^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:212:12
+    |
+212 |     pub fn validation_error(field: String, message: String) -> Self {
+    |            ^^^^^^^^^^^^^^^^ -------------
+help: try using a conversion method
+    |
+ 89 |                     DatabaseOperationResult::validation_error("load_hierarchy".to_string(), e.to_string())
+    |                                                                               ++++++++++++
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:93:68
+    |
+ 93 |             DatabaseOperationResult::not_found("Database context", "unavailable")
+    |             ----------------------------------                     ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |             |
+    |             arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:204:12
+    |
+204 |     pub fn not_found(entity_type: &'static str, entity_id: String) -> Self {
+    |            ^^^^^^^^^                            -----------------
+help: try using a conversion method
+    |
+ 93 |             DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
+    |                                                                                 ++++++++++++
+
+error[E0599]: no method named `create_hierarchy_item` found for struct `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>` in the current scope
+   --> src/ui/tools/hierarchy_tool_migrated.rs:126:29
+    |
+126 |                     service.create_hierarchy_item(&item).await?;
+    |                             ^^^^^^^^^^^^^^^^^^^^^ method not found in `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:125:36: 125:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<String, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:123:34
+    |
+123 |             let result = context.execute_with_retry(
+    |                                  ^^^^^^^^^^^^^^^^^^ expected `Result<String, DatabaseError>`, found `Result<String, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:125:36: 125:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<String, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:123:26
+    |
+123 |               let result = context.execute_with_retry(
+    |  __________________________^
+124 | |                 "create_hierarchy_item",
+125 | |                 |service| Box::pin(async move {
+126 | |                     service.create_hierarchy_item(&item).await?;
+...   |
+129 | |                 3,
+130 | |             ).await;
+    | |_____________^ expected `Result<String, DatabaseError>`, found `Result<String, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:125:36: 125:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<String, String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:130:15
+    |
+130 |             ).await;
+    |               ^^^^^ expected `Result<String, DatabaseError>`, found `Result<String, String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:145:64
+    |
+145 |                     DatabaseOperationResult::success(saved_id, duration)
+    |                     --------------------------------           ^^^^^^^^ expected `u64`, found `Duration`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:196:12
+    |
+196 |     pub fn success(data: T, operation_time_ms: u64) -> Self {
+    |            ^^^^^^^          ----------------------
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:149:63
+    |
+149 |                     DatabaseOperationResult::validation_error("create_item", e.to_string())
+    |                     ----------------------------------------- ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:212:12
+    |
+212 |     pub fn validation_error(field: String, message: String) -> Self {
+    |            ^^^^^^^^^^^^^^^^ -------------
+help: try using a conversion method
+    |
+149 |                     DatabaseOperationResult::validation_error("create_item".to_string(), e.to_string())
+    |                                                                            ++++++++++++
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:153:68
+    |
+153 |             DatabaseOperationResult::not_found("Database context", "unavailable")
+    |             ----------------------------------                     ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |             |
+    |             arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:204:12
+    |
+204 |     pub fn not_found(entity_type: &'static str, entity_id: String) -> Self {
+    |            ^^^^^^^^^                            -----------------
+help: try using a conversion method
+    |
+153 |             DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
+    |                                                                                 ++++++++++++
+
+error[E0277]: the `?` operator can only be used in an async function that returns `Result` or `Option` (or another type that implements `FromResidual`)
+   --> src/ui/tools/hierarchy_tool_migrated.rs:165:71
+    |
+158 |       pub async fn delete_hierarchy_item(&mut self, item_id: &str) -> DatabaseOperationResult<()> {
+    |  _________________________________________________________________________________________________-
+159 | |         let start_time = Instant::now();
+160 | |         
+161 | |         if let Some(context) = &mut self.database_context {
+...   |
+165 | |                 .ok_or_else(|| "Item not found in memory".to_string())?;
+    | |                                                                       ^ cannot use the `?` operator in an async function that returns `database_integration::DatabaseOperationResult<()>`
+...   |
+200 | |     }
+    | |_____- this function should return `Result` or `Option` to accept `?`
+
+error[E0599]: no method named `delete_hierarchy_item` found for struct `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>` in the current scope
+   --> src/ui/tools/hierarchy_tool_migrated.rs:171:29
+    |
+171 |                     service.delete_hierarchy_item(item_id).await?;
+    |                             ^^^^^^^^^^^^^^^^^^^^^ method not found in `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:170:36: 170:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:168:34
+    |
+168 |             let result = context.execute_with_retry(
+    |                                  ^^^^^^^^^^^^^^^^^^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:170:36: 170:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:168:26
+    |
+168 |               let result = context.execute_with_retry(
+    |  __________________________^
+169 | |                 "delete_hierarchy_item",
+170 | |                 |service| Box::pin(async move {
+171 | |                     service.delete_hierarchy_item(item_id).await?;
+...   |
+174 | |                 3,
+175 | |             ).await;
+    | |_____________^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:170:36: 170:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:175:15
+    |
+175 |             ).await;
+    |               ^^^^^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:190:58
+    |
+190 |                     DatabaseOperationResult::success((), duration)
+    |                     --------------------------------     ^^^^^^^^ expected `u64`, found `Duration`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:196:12
+    |
+196 |     pub fn success(data: T, operation_time_ms: u64) -> Self {
+    |            ^^^^^^^          ----------------------
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:194:63
+    |
+194 |                     DatabaseOperationResult::validation_error("delete_item", e.to_string())
+    |                     ----------------------------------------- ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:212:12
+    |
+212 |     pub fn validation_error(field: String, message: String) -> Self {
+    |            ^^^^^^^^^^^^^^^^ -------------
+help: try using a conversion method
+    |
+194 |                     DatabaseOperationResult::validation_error("delete_item".to_string(), e.to_string())
+    |                                                                            ++++++++++++
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:198:68
+    |
+198 |             DatabaseOperationResult::not_found("Database context", "unavailable")
+    |             ----------------------------------                     ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |             |
+    |             arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:204:12
+    |
+204 |     pub fn not_found(entity_type: &'static str, entity_id: String) -> Self {
+    |            ^^^^^^^^^                            -----------------
+help: try using a conversion method
+    |
+198 |             DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
+    |                                                                                 ++++++++++++
+
+error[E0599]: no method named `update_hierarchy_item_position` found for struct `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>` in the current scope
+   --> src/ui/tools/hierarchy_tool_migrated.rs:215:29
+    |
+215 |                     service.update_hierarchy_item_position(item_id, new_position).await?;
+    |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ method not found in `Arc<tokio::sync::RwLock<enhanced_database_sqlx::EnhancedDatabaseService>>`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:214:36: 214:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:212:34
+    |
+212 |             let result = context.execute_with_retry(
+    |                                  ^^^^^^^^^^^^^^^^^^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:214:36: 214:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:212:26
+    |
+212 |               let result = context.execute_with_retry(
+    |  __________________________^
+213 | |                 "update_item_position",
+214 | |                 |service| Box::pin(async move {
+215 | |                     service.update_hierarchy_item_position(item_id, new_position).await?;
+...   |
+218 | |                 3,
+219 | |             ).await;
+    | |_____________^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0271]: expected `Pin<Box<{async block@src/ui/tools/hierarchy_tool_migrated.rs:214:36: 214:46}>>` to be a future that resolves to `Result<_, DatabaseError>`, but it resolves to `Result<(), String>`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:219:15
+    |
+219 |             ).await;
+    |               ^^^^^ expected `Result<(), DatabaseError>`, found `Result<(), String>`
+    |
+    = note: expected enum `Result<_, database::DatabaseError>`
+               found enum `Result<_, std::string::String>`
+note: required by a bound in `ToolDatabaseContext::execute_with_retry`
+   --> src/ui/tools/database_integration.rs:101:34
+    |
+ 93 |     pub async fn execute_with_retry<F, Fut, T>(
+    |                  ------------------ required by a bound in this associated function
+...
+101 |         Fut: std::future::Future<Output = Result<T, DatabaseError>>,
+    |                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `ToolDatabaseContext::execute_with_retry`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:231:58
+    |
+231 |                     DatabaseOperationResult::success((), duration)
+    |                     --------------------------------     ^^^^^^^^ expected `u64`, found `Duration`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:196:12
+    |
+196 |     pub fn success(data: T, operation_time_ms: u64) -> Self {
+    |            ^^^^^^^          ----------------------
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:235:63
+    |
+235 |                     DatabaseOperationResult::validation_error("update_position", e.to_string())
+    |                     ----------------------------------------- ^^^^^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                     |
+    |                     arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:212:12
+    |
+212 |     pub fn validation_error(field: String, message: String) -> Self {
+    |            ^^^^^^^^^^^^^^^^ -------------
+help: try using a conversion method
+    |
+235 |                     DatabaseOperationResult::validation_error("update_position".to_string(), e.to_string())
+    |                                                                                ++++++++++++
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:239:68
+    |
+239 |             DatabaseOperationResult::not_found("Database context", "unavailable")
+    |             ----------------------------------                     ^^^^^^^^^^^^^ expected `String`, found `&str`
+    |             |
+    |             arguments to this function are incorrect
+    |
+note: associated function defined here
+   --> src/ui/tools/database_integration.rs:204:12
+    |
+204 |     pub fn not_found(entity_type: &'static str, entity_id: String) -> Self {
+    |            ^^^^^^^^^                            -----------------
+help: try using a conversion method
+    |
+239 |             DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
+    |                                                                                 ++++++++++++
+
+error[E0599]: no variant named `CustomEvent` found for enum `api_contracts::ToolLifecycleEvent`
+   --> src/ui/tools/hierarchy_tool_migrated.rs:298:83
+    |
+298 |         if let Err(e) = self.api_contract.broadcast_lifecycle(ToolLifecycleEvent::CustomEvent {
+    |                                                                                   ^^^^^^^^^^^ variant not found in `api_contracts::ToolLifecycleEvent`
+    |
+   ::: src/ui/tools/api_contracts.rs:71:1
+    |
+ 71 | pub enum ToolLifecycleEvent {
+    | --------------------------- variant `CustomEvent` not found here
+
+error[E0277]: `?` couldn't convert the error: `std::string::String: StdError` is not satisfied
+   --> src/ui/tools/hierarchy_tool_migrated.rs:317:56
+    |
+317 |         migrated_tool.initialize(&mut db_context).await?;
+    |         -----------------------------------------------^ the trait `StdError` is not implemented for `std::string::String`
+    |         |
+    |         this has type `Result<_, std::string::String>`
+    |
+    = note: the question mark operation (`?`) implicitly performs a conversion on the error value using the `From` trait
+    = note: required for `anyhow::Error` to implement `From<std::string::String>`
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:39:28
+   |
+39 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:49:28
+   |
+49 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:59:28
+   |
+59 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:69:28
+   |
+69 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:79:28
+   |
+79 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:89:28
+   |
+89 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+  --> src/ui/tools/hierarchy_database.rs:99:28
+   |
+99 |         Err(DatabaseError::NotImplemented(
+   |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+   |
+  ::: src/database/mod.rs:44:1
+   |
+44 | pub enum DatabaseError {
+   | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+   --> src/ui/tools/hierarchy_database.rs:109:28
+    |
+109 |         Err(DatabaseError::NotImplemented(
+    |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+    |
+   ::: src/database/mod.rs:44:1
+    |
+ 44 | pub enum DatabaseError {
+    | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+   --> src/ui/tools/hierarchy_database.rs:119:28
+    |
+119 |         Err(DatabaseError::NotImplemented(
+    |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+    |
+   ::: src/database/mod.rs:44:1
+    |
+ 44 | pub enum DatabaseError {
+    | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+   --> src/ui/tools/hierarchy_database.rs:129:28
+    |
+129 |         Err(DatabaseError::NotImplemented(
+    |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+    |
+   ::: src/database/mod.rs:44:1
+    |
+ 44 | pub enum DatabaseError {
+    | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+   --> src/ui/tools/hierarchy_database.rs:139:28
+    |
+139 |         Err(DatabaseError::NotImplemented(
+    |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+    |
+   ::: src/database/mod.rs:44:1
+    |
+ 44 | pub enum DatabaseError {
+    | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+error[E0599]: no variant or associated item named `NotImplemented` found for enum `database::DatabaseError` in the current scope
+   --> src/ui/tools/hierarchy_database.rs:149:28
+    |
+149 |         Err(DatabaseError::NotImplemented(
+    |                            ^^^^^^^^^^^^^^ variant or associated item not found in `database::DatabaseError`
+    |
+   ::: src/database/mod.rs:44:1
+    |
+ 44 | pub enum DatabaseError {
+    | ---------------------- variant or associated item `NotImplemented` not found for this enum
+
+warning: unused variable: `registry_health`
+   --> src/ui/tools/mod.rs:125:13
+    |
+125 |         let registry_health = self.tool_registry.get_health().await;
+    |             ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_registry_health`
+
+warning: unused variable: `contract_tools`
+   --> src/ui/tools/mod.rs:128:13
+    |
+128 |         let contract_tools = self.api_contract.get_registered_tools().await;
+    |             ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_contract_tools`
+
+warning: value assigned to `message` is never read
+   --> src/ui/window_persistence_integration.rs:144:17
+    |
+144 |         let mut message = None;
+    |                 ^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `stats` is never read
+   --> src/ui/window_persistence_integration.rs:145:17
+    |
+145 |         let mut stats = None;
+    |                 ^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: unused variable: `layout`
+   --> src/ui/window_state_persistence.rs:411:21
+    |
+411 |         if let Some(layout) = self.saved_layouts.remove(&layout_id) {
+    |                     ^^^^^^ help: if this is intentional, prefix it with an underscore: `_layout`
+
+error[E0609]: no field `data` on type `database_integration::DatabaseOperationResult<std::string::String>`
+  --> src/import/heuristic_import.rs:41:13
+   |
+41 |     ).await.data.ok_or_else(|| anyhow::anyhow!("Failed to create import root"))?;
+   |             ^^^^ unknown field
+
+error[E0308]: mismatched types
+   --> src/import/heuristic_import.rs:107:21
+    |
+102 |                   match hierarchy_tool.create_hierarchy_item(
+    |  _______________________-
+103 | |                     filename,
+104 | |                     valid_level,
+105 | |                     parent_id,
+106 | |                 ).await {
+    | |_______________________- this expression has type `database_integration::DatabaseOperationResult<std::string::String>`
+107 |                       Ok(_) => stats.items_created += 1,
+    |                       ^^^^^ expected `DatabaseOperationResult<String>`, found `Result<_, _>`
+    |
+    = note: expected enum `database_integration::DatabaseOperationResult<std::string::String>`
+               found enum `Result<_, _>`
+
+error[E0308]: mismatched types
+   --> src/import/heuristic_import.rs:108:21
+    |
+102 |                   match hierarchy_tool.create_hierarchy_item(
+    |  _______________________-
+103 | |                     filename,
+104 | |                     valid_level,
+105 | |                     parent_id,
+106 | |                 ).await {
+    | |_______________________- this expression has type `database_integration::DatabaseOperationResult<std::string::String>`
+107 |                       Ok(_) => stats.items_created += 1,
+108 |                       Err(e) => {
+    |                       ^^^^^^ expected `DatabaseOperationResult<String>`, found `Result<_, _>`
+    |
+    = note: expected enum `database_integration::DatabaseOperationResult<std::string::String>`
+               found enum `Result<_, _>`
+
+error[E0308]: mismatched types
+  --> src/ui/tools/hierarchy_tool_migrated.rs:48:27
+   |
+48 |             api_contract: get_api_contract().clone(),
+   |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `Arc<ToolApiContract>`, found `&ToolApiContract`
+   |
+   = note: expected struct `Arc<api_contracts::ToolApiContract>`
+           found reference `&api_contracts::ToolApiContract`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_tool_migrated.rs:363:29
+    |
+363 |         self.api_contract = get_api_contract().clone();
+    |         -----------------   ^^^^^^^^^^^^^^^^^^^^^^^^^^ expected `Arc<ToolApiContract>`, found `&ToolApiContract`
+    |         |
+    |         expected due to the type of this binding
+    |
+    = note: expected struct `Arc<api_contracts::ToolApiContract>`
+            found reference `&api_contracts::ToolApiContract`
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_base.rs:419:48
+    |
+419 |             if item.parent_id.as_ref() == Some(parent_id) {
+    |                                           ---- ^^^^^^^^^ expected `&String`, found `&str`
+    |                                           |
+    |                                           arguments to this enum variant are incorrect
+    |
+    = note: expected reference `&std::string::String`
+               found reference `&str`
+help: the type constructed contains `&str` due to the type of the argument passed
+   --> src/ui/tools/hierarchy_base.rs:419:43
+    |
+419 |             if item.parent_id.as_ref() == Some(parent_id) {
+    |                                           ^^^^^---------^
+    |                                                |
+    |                                                this argument influences the type of `Some`
+note: tuple variant defined here
+   --> /private/tmp/rust-20251113-8447-hxwdfq/rustc-1.91.1-src/library/core/src/option.rs:602:5
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_base.rs:492:38
+    |
+492 |                 self.root_items.push(item_id.clone());
+    |                                 ---- ^^^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                                 |
+    |                                 arguments to this method are incorrect
+    |
+note: method defined here
+   --> /private/tmp/rust-20251113-8447-hxwdfq/rustc-1.91.1-src/library/alloc/src/vec/mod.rs:2571:12
+help: try using a conversion method
+    |
+492 -                 self.root_items.push(item_id.clone());
+492 +                 self.root_items.push(item_id.to_string());
+    |
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_base.rs:503:38
+    |
+503 |                 new_parent.add_child(item_id.clone());
+    |                            --------- ^^^^^^^^^^^^^^^ expected `String`, found `&str`
+    |                            |
+    |                            arguments to this method are incorrect
+    |
+note: method defined here
+   --> src/ui/tools/hierarchy_base.rs:146:12
+    |
+146 |     pub fn add_child(&mut self, child_id: String) {
+    |            ^^^^^^^^^            ----------------
+help: try using a conversion method
+    |
+503 -                 new_parent.add_child(item_id.clone());
+503 +                 new_parent.add_child(item_id.to_string());
+    |
+
+error[E0308]: mismatched types
+  --> src/ui/tools/hierarchy_ui.rs:54:45
+   |
+54 |         self.selected_item.as_ref() == Some(item_id)
+   |                                        ---- ^^^^^^^ expected `&String`, found `&str`
+   |                                        |
+   |                                        arguments to this enum variant are incorrect
+   |
+   = note: expected reference `&std::string::String`
+              found reference `&str`
+help: the type constructed contains `&str` due to the type of the argument passed
+  --> src/ui/tools/hierarchy_ui.rs:54:40
+   |
+54 |         self.selected_item.as_ref() == Some(item_id)
+   |                                        ^^^^^-------^
+   |                                             |
+   |                                             this argument influences the type of `Some`
+note: tuple variant defined here
+  --> /private/tmp/rust-20251113-8447-hxwdfq/rustc-1.91.1-src/library/core/src/option.rs:602:5
+
+error[E0277]: the trait bound `slint::SharedString: serde::Serialize` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:74:24
+     |
+  74 | #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+     |                        ^^^^^^^^^^^^^^^^ the trait `Serialize` is not implemented for `slint::SharedString`
+  75 | pub struct SlintHierarchyItem {
+  76 |     pub id: SharedString,
+     |     --- required by a bound introduced by this call
+     |
+     = note: for local types consider adding `#[derive(serde::Serialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Serialize`:
+               &'a T
+               &'a mut T
+               ()
+               (T,)
+               (T0, T1)
+               (T0, T1, T2)
+               (T0, T1, T2, T3)
+               (T0, T1, T2, T3, T4)
+             and 397 others
+note: required by a bound in `automation::_::_serde::ser::SerializeStruct::serialize_field`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/ser/mod.rs:1917:21
+     |
+1915 |     fn serialize_field<T>(&mut self, key: &'static str, value: &T) -> Result<(), Self::Error>
+     |        --------------- required by a bound in this associated function
+1916 |     where
+1917 |         T: ?Sized + Serialize;
+     |                     ^^^^^^^^^ required by this bound in `SerializeStruct::serialize_field`
+     = note: this error originates in the derive macro `serde::Serialize` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:76:13
+     |
+  76 |     pub id: SharedString,
+     |             ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_element`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1771:12
+     |
+1769 |     fn next_element<T>(&mut self) -> Result<Option<T>, Self::Error>
+     |        ------------ required by a bound in this associated function
+1770 |     where
+1771 |         T: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `SeqAccess::next_element`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:77:16
+     |
+  77 |     pub title: SharedString,
+     |                ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_element`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1771:12
+     |
+1769 |     fn next_element<T>(&mut self) -> Result<Option<T>, Self::Error>
+     |        ------------ required by a bound in this associated function
+1770 |     where
+1771 |         T: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `SeqAccess::next_element`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:79:21
+     |
+  79 |     pub level_name: SharedString,
+     |                     ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_element`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1771:12
+     |
+1769 |     fn next_element<T>(&mut self) -> Result<Option<T>, Self::Error>
+     |        ------------ required by a bound in this associated function
+1770 |     where
+1771 |         T: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `SeqAccess::next_element`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:76:13
+     |
+  76 |     pub id: SharedString,
+     |             ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_value`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1916:12
+     |
+1914 |     fn next_value<V>(&mut self) -> Result<V, Self::Error>
+     |        ---------- required by a bound in this associated function
+1915 |     where
+1916 |         V: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `MapAccess::next_value`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:77:16
+     |
+  77 |     pub title: SharedString,
+     |                ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_value`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1916:12
+     |
+1914 |     fn next_value<V>(&mut self) -> Result<V, Self::Error>
+     |        ---------- required by a bound in this associated function
+1915 |     where
+1916 |         V: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `MapAccess::next_value`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+    --> src/ui/tools/hierarchy_ui.rs:79:21
+     |
+  79 |     pub level_name: SharedString,
+     |                     ^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+     |
+     = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+     = note: for types from other crates check whether the crate offers a `serde` feature flag
+     = help: the following other types implement trait `Deserialize<'de>`:
+               `&'a JsonRawValue` implements `Deserialize<'de>`
+               `&'a [u8]` implements `Deserialize<'de>`
+               `&'a std::path::Path` implements `Deserialize<'de>`
+               `&'a str` implements `Deserialize<'de>`
+               `()` implements `Deserialize<'de>`
+               `(T,)` implements `Deserialize<'de>`
+               `(T0, T1)` implements `Deserialize<'de>`
+               `(T0, T1, T2)` implements `Deserialize<'de>`
+             and 402 others
+note: required by a bound in `next_value`
+    --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde_core-1.0.228/src/de/mod.rs:1916:12
+     |
+1914 |     fn next_value<V>(&mut self) -> Result<V, Self::Error>
+     |        ---------- required by a bound in this associated function
+1915 |     where
+1916 |         V: Deserialize<'de>,
+     |            ^^^^^^^^^^^^^^^^ required by this bound in `MapAccess::next_value`
+
+error[E0277]: the trait bound `slint::SharedString: serde::Deserialize<'de>` is not satisfied
+  --> src/ui/tools/hierarchy_ui.rs:74:42
+   |
+74 | #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+   |                                          ^^^^^^^^^^^^^^^^^^ the trait `Deserialize<'_>` is not implemented for `slint::SharedString`
+   |
+   = note: for local types consider adding `#[derive(serde::Deserialize)]` to your `slint::SharedString` type
+   = note: for types from other crates check whether the crate offers a `serde` feature flag
+   = help: the following other types implement trait `Deserialize<'de>`:
+             `&'a JsonRawValue` implements `Deserialize<'de>`
+             `&'a [u8]` implements `Deserialize<'de>`
+             `&'a std::path::Path` implements `Deserialize<'de>`
+             `&'a str` implements `Deserialize<'de>`
+             `()` implements `Deserialize<'de>`
+             `(T,)` implements `Deserialize<'de>`
+             `(T0, T1)` implements `Deserialize<'de>`
+             `(T0, T1, T2)` implements `Deserialize<'de>`
+           and 402 others
+note: required by a bound in `automation::_::_serde::__private228::de::missing_field`
+  --> /Users/rkt/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:26:8
+   |
+24 | pub fn missing_field<'de, V, E>(field: &'static str) -> Result<V, E>
+   |        ------------- required by a bound in this function
+25 | where
+26 |     V: Deserialize<'de>,
+   |        ^^^^^^^^^^^^^^^^ required by this bound in `missing_field`
+   = note: this error originates in the derive macro `serde::Deserialize` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0609]: no field `word_count` on type `&hierarchy_base::HierarchyItem`
+   --> src/ui/tools/hierarchy_ui.rs:104:30
+    |
+104 |             word_count: item.word_count,
+    |                              ^^^^^^^^^^ unknown field
+    |
+    = note: available fields are: `id`, `title`, `level`, `parent_id`, `children` ... and 5 others
+
+error[E0308]: mismatched types
+   --> src/ui/tools/hierarchy_ui.rs:129:21
+    |
+129 |         self.tree = tree.clone();
+    |         ---------   ^^^^^^^^^^^^ expected `HierarchyTree`, found `&HierarchyTree`
+    |         |
+    |         expected due to the type of this binding
+    |
+note: `HierarchyTree` does not implement `Clone`, so `&HierarchyTree` was cloned instead
+   --> src/ui/tools/hierarchy_ui.rs:129:21
+    |
+129 |         self.tree = tree.clone();
+    |                     ^^^^
+help: consider annotating `HierarchyTree` with `#[derive(Clone)]`
+   --> src/ui/tools/hierarchy_base.rs:295:1
+    |
+295 + #[derive(Clone)]
+296 | pub struct HierarchyTree {
+    |
+
+warning: unused variable: `event_system`
+    --> src/automation/mod.rs:1151:25
+     |
+1151 |                     let event_system = self.event_system.write().unwrap();
+     |                         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_event_system`
+
+warning: unused variable: `scheduler`
+    --> src/automation/mod.rs:1162:25
+     |
+1162 |                     let scheduler = self.scheduler.write().unwrap();
+     |                         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scheduler`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:443:21
+    |
+443 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:453:21
+    |
+453 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:485:21
+    |
+485 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: variable does not need to be mutable
+   --> src/ui/tools/individual_tool_windows.rs:105:25
+    |
+105 |             if let Some(mut state) = states.get_mut(&tool_type) {
+    |                         ----^^^^^
+    |                         |
+    |                         help: remove this `mut`
+
+error[E0502]: cannot borrow `self.items` as mutable because it is also borrowed as immutable
+   --> src/ui/tools/hierarchy_base.rs:395:43
+    |
+393 |             if let Some(item) = self.items.get(item_id) {
+    |                                 ---------- immutable borrow occurs here
+394 |                 if let Some(ref parent_id) = item.parent_id {
+395 |                     if let Some(parent) = self.items.get_mut(parent_id) {
+    |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ mutable borrow occurs here
+...
+401 |                 if item.level.is_top_level() {
+    |                    ---------- immutable borrow later used here
+
+error[E0502]: cannot borrow `*self` as mutable because it is also borrowed as immutable
+   --> src/ui/tools/hierarchy_ui.rs:168:9
+    |
+168 |         self.update_from_tree(&self.tree);
+    |         ^^^^^----------------^----------^
+    |         |    |                |
+    |         |    |                immutable borrow occurs here
+    |         |    immutable borrow later used by call
+    |         mutable borrow occurs here
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:145:12
+    |
+145 |         if let WindowType::IndividualTool(ref tool) = window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+    = note: `#[warn(irrefutable_let_patterns)]` on by default
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:192:12
+    |
+192 |         if let WindowType::IndividualTool(ref tool) = &window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:216:12
+    |
+216 |         if let WindowType::IndividualTool(ref tool) = &window_state.window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+
+warning: unused variable: `window_weak`
+  --> src/ui/font_manager_window.rs:24:13
+   |
+24 |         let window_weak = self.window.as_weak();
+   |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_window_weak`
+
+Some errors have detailed explanations: E0271, E0277, E0308, E0432, E0502, E0599, E0609.
+For more information about an error, try `rustc --explain E0271`.
+warning: `herding-cats-rust` (lib) generated 88 warnings
+warning: herding-cats-rust@0.50.0: Found 26 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error: could not compile `herding-cats-rust` (lib) due to 66 previous errors; 88 warnings emitted

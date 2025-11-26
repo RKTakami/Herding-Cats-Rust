@@ -13,6 +13,9 @@ pub mod settings;
 pub mod main_window_comprehensive;
 pub mod ui;
 pub mod ui_state;
+pub mod classify;
+pub mod import;
+pub mod convert;
 pub mod security;
 pub mod font_manager;
 

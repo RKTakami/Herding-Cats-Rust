@@ -1,12 +1,87 @@
 // Independent Slint Codex Tool Window
-import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+import {
+    Button,
+    TextEdit,
+    ScrollView,
+    HorizontalBox,
+    VerticalBox,
+} from "std-widgets.slint";
+import { ToolbarButton } from "components/toolbar_button.slint";
+import { Theme } from "styles.slint";
 
 export component CodexWindow inherits Window {
     title: "Codex Tool - Herding Cats";
+
+    callback set-theme(string);
+    set-theme(theme-name) => {
+        if (theme-name == "Normal") {
+            Theme.primary-bg = #ffffff;
+            Theme.secondary-bg = #f8f9fa;
+            Theme.accent = #007bff;
+            Theme.text-primary = #212529;
+            Theme.text-secondary = #6c757d;
+            Theme.border = #dee2e6;
+            Theme.menu-bg = #f8f9fa;
+            Theme.toolbar-bg = #ffffff;
+            Theme.status-bg = #e9ecef;
+            Theme.editor-bg = #ffffff;
+            Theme.title-bg = #e9ecef;
+            Theme.ribbon-bg = #f5f5f5;
+            Theme.dropdown-bg = #ffffff;
+        } else if (theme-name == "Warm") {
+            Theme.primary-bg = #fdf6e3;
+            Theme.secondary-bg = #eee8d5;
+            Theme.accent = #cb4b16;
+            Theme.text-primary = #586e75;
+            Theme.text-secondary = #93a1a1;
+            Theme.border = #d3cbb7;
+            Theme.menu-bg = #eee8d5;
+            Theme.toolbar-bg = #fdf6e3;
+            Theme.status-bg = #eee8d5;
+            Theme.editor-bg = #fdf6e3;
+            Theme.title-bg = #eee8d5;
+            Theme.ribbon-bg = #fdf6e3;
+            Theme.dropdown-bg = #fdf6e3;
+        } else if (theme-name == "CRT Green") {
+            Theme.primary-bg = #0d1117;
+            Theme.secondary-bg = #161b22;
+            Theme.accent = #00ff00;
+            Theme.text-primary = #00ff00;
+            Theme.text-secondary = #008f00;
+            Theme.border = #30363d;
+            Theme.menu-bg = #161b22;
+            Theme.toolbar-bg = #0d1117;
+            Theme.status-bg = #161b22;
+            Theme.editor-bg = #0d1117;
+            Theme.title-bg = #161b22;
+            Theme.ribbon-bg = #0d1117;
+            Theme.dropdown-bg = #161b22;
+        } else if (theme-name == "CRT Amber") {
+            Theme.primary-bg = #1a1a1a;
+            Theme.secondary-bg = #2b2b2b;
+            Theme.accent = #ffb000;
+            Theme.text-primary = #ffb000;
+            Theme.text-secondary = #b37b00;
+            Theme.border = #4d4d4d;
+            Theme.menu-bg = #2b2b2b;
+            Theme.toolbar-bg = #1a1a1a;
+            Theme.status-bg = #2b2b2b;
+            Theme.editor-bg = #1a1a1a;
+            Theme.title-bg = #2b2b2b;
+            Theme.ribbon-bg = #1a1a1a;
+            Theme.dropdown-bg = #2b2b2b;
+        }
+    }
+
+    callback close_requested();
+    callback new_entry();
+    callback search();
+    callback export();
+    callback import();
     
     // Window styling
-    property<color> title-bar-color: #7b1fa2;
-    property<color> background-color: #f8f9fa;
+    property <color> title-bar-color: Theme.title-bg;
+    property <color> background-color: Theme.secondary-bg;
     
     // Main content
     Rectangle {
@@ -14,19 +89,17 @@ export component CodexWindow inherits Window {
         height: 35px;
         y: 0;
         width: parent.width;
-        
         HorizontalBox {
             padding: 10px;
             spacing: 10px;
-            
             Text {
                 text: "📖 World Building Codex";
-                color: white;
+                color: Theme.text-primary;
                 font-size: 14px;
                 font-weight: 600;
                 vertical-alignment: center;
             }
-            
+
             Rectangle { }
         }
     }
@@ -37,41 +110,38 @@ export component CodexWindow inherits Window {
         height: parent.height - 35px;
         width: parent.width;
         background: background-color;
-        
         VerticalBox {
             padding: 15px;
             spacing: 15px;
-            
             Text {
                 text: "📖 World Building Codex - RESIZEABLE!";
                 font-size: 18px;
                 font-weight: 700;
-                color: #2c3e50;
+                color: Theme.text-primary;
             }
             
             // Category tabs
             HorizontalBox {
                 spacing: 8px;
-                
-                Button {
+                ToolbarButton {
                     text: "👥 Characters";
                     width: 100px;
                     height: 30px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "📍 Places";
                     width: 80px;
                     height: 30px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🎭 Events";
                     width: 80px;
                     height: 30px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "⚡ Magic/Tech";
                     width: 100px;
                     height: 30px;
@@ -81,28 +151,24 @@ export component CodexWindow inherits Window {
             // Content area
             ScrollView {
                 height: 350px;
-                
                 VerticalBox {
                     spacing: 12px;
-                    
                     Rectangle {
-                        background: white;
+                        background: Theme.primary-bg;
                         border-radius: 8px;
                         padding: 15px;
-                        
                         VerticalBox {
                             spacing: 8px;
-                            
                             HorizontalBox {
                                 Text {
                                     text: "👤 Alice Chen";
                                     font-size: 16px;
                                     font-weight: 600;
-                                    color: #2c3e50;
+                                    color: Theme.text-primary;
                                 }
-                                
+
                                 Rectangle { }
-                                
+
                                 Text {
                                     text: "⭐ Protagonist";
                                     font-size: 12px;
@@ -110,14 +176,14 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                 }
                             }
-                            
+
                             Text {
                                 text: "A brave adventurer with a mysterious past who discovers her magical abilities.";
                                 font-size: 13px;
                                 color: #555;
                                 wrap: word-wrap;
                             }
-                            
+
                             HorizontalBox {
                                 Text {
                                     text: "💪 Skills:";
@@ -125,14 +191,14 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                     color: #666;
                                 }
-                                
+
                                 Text {
                                     text: " Sword fighting, Arcane magic, Leadership";
                                     font-size: 12px;
                                     color: #777;
                                 }
                             }
-                            
+
                             HorizontalBox {
                                 Text {
                                     text: "❤️ Relationships:";
@@ -140,7 +206,7 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                     color: #666;
                                 }
-                                
+
                                 Text {
                                     text: "Friend of Bob, Apprentice to Dr. Webb";
                                     font-size: 12px;
@@ -149,15 +215,13 @@ export component CodexWindow inherits Window {
                             }
                         }
                     }
-                    
+
                     Rectangle {
                         background: white;
                         border-radius: 8px;
                         padding: 15px;
-                        
                         VerticalBox {
                             spacing: 8px;
-                            
                             HorizontalBox {
                                 Text {
                                     text: "🏛️ Mystic Academy";
@@ -165,9 +229,9 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Rectangle { }
-                                
+
                                 Text {
                                     text: "🏢 Institution";
                                     font-size: 12px;
@@ -175,14 +239,14 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                 }
                             }
-                            
+
                             Text {
                                 text: "Ancient learning institution where magical students train and masters teach.";
                                 font-size: 13px;
                                 color: #555;
                                 wrap: word-wrap;
                             }
-                            
+
                             HorizontalBox {
                                 Text {
                                     text: "📊 Status:";
@@ -190,7 +254,7 @@ export component CodexWindow inherits Window {
                                     font-weight: 600;
                                     color: #666;
                                 }
-                                
+
                                 Text {
                                     text: "Active, Well-funded, Secret Location";
                                     font-size: 12px;
@@ -205,42 +269,40 @@ export component CodexWindow inherits Window {
             // Controls
             HorizontalBox {
                 spacing: 10px;
-                
-                Button {
+                ToolbarButton {
                     text: "➕ Add Entry";
                     width: 100px;
                     height: 30px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "✏️ Edit";
                     width: 80px;
                     height: 30px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🔍 Search";
                     width: 80px;
                     height: 30px;
                 }
             }
-            
+
             HorizontalBox {
                 spacing: 10px;
-                
-                Button {
+                ToolbarButton {
                     text: "📤 Export";
                     width: 80px;
                     height: 25px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "📥 Import";
                     width: 80px;
                     height: 25px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🗂️ Categories";
                     width: 100px;
                     height: 25px;

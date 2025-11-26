@@ -32,6 +32,7 @@ pub mod window_manager;
 pub mod window_persistence_integration;
 pub mod window_state_persistence;
 pub mod font_manager_window;
+pub mod generated;
 
 // Re-export theme management types for easier access
 // Re-export error handling and logging

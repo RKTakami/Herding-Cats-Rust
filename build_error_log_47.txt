@@ -1,0 +1,113 @@
+   Compiling herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)
+warning: herding-cats-rust@0.50.0: Found 20 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+error: failed to run custom build command for `herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)`
+
+Caused by:
+  process didn't exit successfully: `/Users/rkt/Documents/Herding-Cats-Rust/target/debug/build/herding-cats-rust-7f30155696c0ceba/build-script-build` (exit status: 1)
+  --- stdout
+  cargo:rerun-if-changed=src/ui/*.slint
+  cargo:rerun-if-changed=src/ui/**/*.slint
+  cargo:rerun-if-changed=src/**/*.slint
+  cargo:rerun-if-changed=build.rs
+  cargo:warning=Found 20 Slint files to compile
+  cargo:warning=Processing: src/ui/codex_window.slint
+  cargo:warning=Processing: src/ui/styles.slint
+  cargo:warning=Processing: src/ui/font_manager_ui.slint
+  cargo:warning=Processing: src/ui/project_selector.slint
+  cargo:warning=Processing: src/ui/brainstorming_tool.slint
+  cargo:warning=Processing: src/ui/main_window_comprehensive.slint
+  cargo:warning=Processing: src/ui/hierarchy_window.slint
+  cargo:warning=Processing: src/ui/components/status_bar.slint
+  cargo:warning=Processing: src/ui/components/ai_settings_popup.slint
+  cargo:warning=Processing: src/ui/components/menu_dropdowns.slint
+  cargo:warning=Processing: src/ui/components/menu_button.slint
+  cargo:warning=Processing: src/ui/components/menu_bar.slint
+  cargo:warning=Processing: src/ui/components/title_bar.slint
+  cargo:warning=Processing: src/ui/components/toolbar_button.slint
+  cargo:warning=Processing: src/ui/components/ribbon_toolbar.slint
+  cargo:warning=Processing: src/ui/components/document_editor.slint
+  cargo:warning=Processing: src/ui/writing_tools.slint
+  cargo:warning=Processing: src/ui/writing_tools_enhanced.slint
+  cargo:warning=Processing: src/ui/all_modules.slint
+  cargo:warning=Processing: src/ui/universal_tools_ui.slint
+  cargo:warning=Slint files detected - compilation will be handled by slint macros
+
+  --- stderr
+  error: Parse error: expected a top-level item such as a component, a struct, or a global
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools.slint:288:1
+      |
+  288 | }
+      | ^
+  error: No exported type called 'AnalysisTool' found in "writing_tools.slint"
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12:8
+      |
+  12  | } from "writing_tools.slint";
+      |        ^
+  error: No exported type called 'PlotTool' found in "writing_tools.slint"
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12:8
+      |
+  12  | } from "writing_tools.slint";
+      |        ^
+  error: No exported type called 'NotesTool' found in "writing_tools.slint"
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12:8
+      |
+  12  | } from "writing_tools.slint";
+      |        ^
+  error: No exported type called 'ResearchTool' found in "writing_tools.slint"
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12:8
+      |
+  12  | } from "writing_tools.slint";
+      |        ^
+  error: No exported type called 'StructureTool' found in "writing_tools.slint"
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12:8
+      |
+  12  | } from "writing_tools.slint";
+      |        ^
+  error: 'AnalysisTool' not found
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:20:5
+      |
+  20  |     AnalysisTool,
+      |     ^
+  error: 'PlotTool' not found
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:21:5
+      |
+  21  |     PlotTool,
+      |     ^
+  error: 'NotesTool' not found
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:22:5
+      |
+  22  |     NotesTool,
+      |     ^
+  error: 'ResearchTool' not found
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:23:5
+      |
+  23  |     ResearchTool,
+      |     ^
+  error: 'StructureTool' not found
+     --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:24:5
+      |
+  24  |     StructureTool
+      |     ^
+
+  Error: CompileError(["/Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools.slint:288: Parse error: expected a top-level item such as a component, a struct, or a global", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12: No exported type called 'AnalysisTool' found in \"writing_tools.slint\"", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12: No exported type called 'PlotTool' found in \"writing_tools.slint\"", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12: No exported type called 'NotesTool' found in \"writing_tools.slint\"", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12: No exported type called 'ResearchTool' found in \"writing_tools.slint\"", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:12: No exported type called 'StructureTool' found in \"writing_tools.slint\"", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:20: 'AnalysisTool' not found", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:21: 'PlotTool' not found", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:22: 'NotesTool' not found", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:23: 'ResearchTool' not found", "/Users/rkt/Documents/Herding-Cats-Rust/src/ui/all_modules.slint:24: 'StructureTool' not found"])

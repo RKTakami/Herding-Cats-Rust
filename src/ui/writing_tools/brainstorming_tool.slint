@@ -1,19 +1,94 @@
 // Brainstorming Tool - Mindmap Visualization Component
 // Simple working version based on existing patterns
 
-import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+import {
+    Button,
+    TextEdit,
+    ScrollView,
+    HorizontalBox,
+    VerticalBox,
+} from "std-widgets.slint";
+import { ToolbarButton } from "../components/toolbar_button.slint";
+import { Theme } from "../styles.slint";
 
 export component BrainstormingTool inherits Window {
-    title: "🧠 Brainstorming - Mindmap Tool";
+    title: "Brainstorming Tool - Herding Cats";
+
+    callback set-theme(string);
+    set-theme(theme-name) => {
+        if (theme-name == "Normal") {
+            Theme.primary-bg = #ffffff;
+            Theme.secondary-bg = #f8f9fa;
+            Theme.accent = #007bff;
+            Theme.text-primary = #212529;
+            Theme.text-secondary = #6c757d;
+            Theme.border = #dee2e6;
+            Theme.menu-bg = #f8f9fa;
+            Theme.toolbar-bg = #ffffff;
+            Theme.status-bg = #e9ecef;
+            Theme.editor-bg = #ffffff;
+            Theme.title-bg = #e9ecef;
+            Theme.ribbon-bg = #f5f5f5;
+            Theme.dropdown-bg = #ffffff;
+        } else if (theme-name == "Warm") {
+            Theme.primary-bg = #fdf6e3;
+            Theme.secondary-bg = #eee8d5;
+            Theme.accent = #cb4b16;
+            Theme.text-primary = #586e75;
+            Theme.text-secondary = #93a1a1;
+            Theme.border = #d3cbb7;
+            Theme.menu-bg = #eee8d5;
+            Theme.toolbar-bg = #fdf6e3;
+            Theme.status-bg = #eee8d5;
+            Theme.editor-bg = #fdf6e3;
+            Theme.title-bg = #eee8d5;
+            Theme.ribbon-bg = #fdf6e3;
+            Theme.dropdown-bg = #fdf6e3;
+        } else if (theme-name == "CRT Green") {
+            Theme.primary-bg = #0d1117;
+            Theme.secondary-bg = #161b22;
+            Theme.accent = #00ff00;
+            Theme.text-primary = #00ff00;
+            Theme.text-secondary = #008f00;
+            Theme.border = #30363d;
+            Theme.menu-bg = #161b22;
+            Theme.toolbar-bg = #0d1117;
+            Theme.status-bg = #161b22;
+            Theme.editor-bg = #0d1117;
+            Theme.title-bg = #161b22;
+            Theme.ribbon-bg = #0d1117;
+            Theme.dropdown-bg = #161b22;
+        } else if (theme-name == "CRT Amber") {
+            Theme.primary-bg = #1a1a1a;
+            Theme.secondary-bg = #2b2b2b;
+            Theme.accent = #ffb000;
+            Theme.text-primary = #ffb000;
+            Theme.text-secondary = #b37b00;
+            Theme.border = #4d4d4d;
+            Theme.menu-bg = #2b2b2b;
+            Theme.toolbar-bg = #1a1a1a;
+            Theme.status-bg = #2b2b2b;
+            Theme.editor-bg = #1a1a1a;
+            Theme.title-bg = #2b2b2b;
+            Theme.ribbon-bg = #1a1a1a;
+            Theme.dropdown-bg = #2b2b2b;
+        }
+    }
+
+    callback close_requested();
+    callback new_node();
+    callback layout();
+    callback zoom_in();
+    callback zoom_out();
     
     // Window styling
-    property<color> title-bar-color: #4a90e2;
-    property<color> background-color: #f8f9fa;
-    property<color> node-central-color: #ff6b6b;
-    property<color> node-primary-color: #4ecdc4;
-    property<color> node-secondary-color: #45b7d1;
-    property<color> node-detail-color: #96ceb4;
-    property<color> node-note-color: #ffeaa7;
+    property <color> title-bar-color: Theme.title-bg;
+    property <color> background-color: Theme.secondary-bg;
+    property <color> node-central-color: #ff6b6b;
+    property <color> node-primary-color: #4ecdc4;
+    property <color> node-secondary-color: #45b7d1;
+    property <color> node-detail-color: #96ceb4;
+    property <color> node-note-color: #ffeaa7;
     
     // Title bar
     Rectangle {
@@ -21,19 +96,17 @@ export component BrainstormingTool inherits Window {
         height: 35px;
         y: 0;
         width: parent.width;
-        
         HorizontalBox {
             padding: 10px;
             spacing: 10px;
-            
             Text {
                 text: "🧠 Brainstorming Tool";
-                color: white;
+                color: Theme.text-primary;
                 font-size: 14px;
                 font-weight: 600;
                 vertical-alignment: center;
             }
-            
+
             Rectangle { }
         }
     }
@@ -44,38 +117,34 @@ export component BrainstormingTool inherits Window {
         height: parent.height - 35px;
         width: parent.width;
         background: background-color;
-        
         VerticalBox {
             padding: 15px;
             spacing: 15px;
-            
             Text {
                 text: "🧠 Brainstorming Mindmap Tool";
                 font-size: 18px;
                 font-weight: 700;
-                color: #2c3e50;
+                color: Theme.text-primary;
             }
-            
+
             Text {
                 text: "Create and organize your ideas visually with mindmap nodes and connections";
                 font-size: 12px;
-                color: #7f8c8d;
+                color: Theme.text-secondary;
                 wrap: word-wrap;
             }
             
             // Node Type Examples
             ScrollView {
                 height: 300px;
-                
                 VerticalBox {
                     spacing: 12px;
                     
                     // Central Idea Example
                     Rectangle {
-                        background: white;
+                        background: Theme.primary-bg;
                         border-radius: 8px;
                         padding: 12px;
-                        
                         HorizontalBox {
                             spacing: 10px;
                             
@@ -85,7 +154,6 @@ export component BrainstormingTool inherits Window {
                                 height: 60px;
                                 background: node-central-color;
                                 border-radius: 30px;
-                                
                                 Text {
                                     text: "🎯";
                                     font-size: 16px;
@@ -93,32 +161,31 @@ export component BrainstormingTool inherits Window {
                                     vertical-alignment: center;
                                 }
                             }
-                            
+
                             VerticalBox {
                                 spacing: 4px;
-                                
                                 Text {
                                     text: "Central Idea";
                                     font-size: 14px;
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Text {
                                     text: "The main concept or central idea of your mindmap";
                                     font-size: 11px;
                                     color: #7f8c8d;
                                     wrap: word-wrap;
                                 }
-                                
+
                                 HorizontalBox {
-                                    Button {
+                                    ToolbarButton {
                                         text: "Create Central";
                                         width: 100px;
                                         height: 25px;
                                     }
-                                    
-                                    Button {
+
+                                    ToolbarButton {
                                         text: "Edit";
                                         width: 60px;
                                         height: 25px;
@@ -133,7 +200,6 @@ export component BrainstormingTool inherits Window {
                         background: white;
                         border-radius: 8px;
                         padding: 12px;
-                        
                         HorizontalBox {
                             spacing: 10px;
                             
@@ -143,7 +209,6 @@ export component BrainstormingTool inherits Window {
                                 height: 50px;
                                 background: node-primary-color;
                                 border-radius: 25px;
-                                
                                 Text {
                                     text: "📊";
                                     font-size: 14px;
@@ -151,25 +216,24 @@ export component BrainstormingTool inherits Window {
                                     vertical-alignment: center;
                                 }
                             }
-                            
+
                             VerticalBox {
                                 spacing: 4px;
-                                
                                 Text {
                                     text: "Primary Branch";
                                     font-size: 14px;
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Text {
                                     text: "Main branches extending from the central idea";
                                     font-size: 11px;
                                     color: #7f8c8d;
                                     wrap: word-wrap;
                                 }
-                                
-                                Button {
+
+                                ToolbarButton {
                                     text: "Add Primary Branch";
                                     width: 120px;
                                     height: 25px;
@@ -183,7 +247,6 @@ export component BrainstormingTool inherits Window {
                         background: white;
                         border-radius: 8px;
                         padding: 12px;
-                        
                         HorizontalBox {
                             spacing: 10px;
                             
@@ -193,7 +256,6 @@ export component BrainstormingTool inherits Window {
                                 height: 45px;
                                 background: node-secondary-color;
                                 border-radius: 22px;
-                                
                                 Text {
                                     text: "📈";
                                     font-size: 13px;
@@ -201,25 +263,24 @@ export component BrainstormingTool inherits Window {
                                     vertical-alignment: center;
                                 }
                             }
-                            
+
                             VerticalBox {
                                 spacing: 4px;
-                                
                                 Text {
                                     text: "Secondary Branch";
                                     font-size: 14px;
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Text {
                                     text: "Sub-branches extending from primary branches";
                                     font-size: 11px;
                                     color: #7f8c8d;
                                     wrap: word-wrap;
                                 }
-                                
-                                Button {
+
+                                ToolbarButton {
                                     text: "Add Secondary";
                                     width: 100px;
                                     height: 25px;
@@ -233,7 +294,6 @@ export component BrainstormingTool inherits Window {
                         background: white;
                         border-radius: 8px;
                         padding: 12px;
-                        
                         HorizontalBox {
                             spacing: 10px;
                             
@@ -243,7 +303,6 @@ export component BrainstormingTool inherits Window {
                                 height: 40px;
                                 background: node-detail-color;
                                 border-radius: 20px;
-                                
                                 Text {
                                     text: "📋";
                                     font-size: 12px;
@@ -251,25 +310,24 @@ export component BrainstormingTool inherits Window {
                                     vertical-alignment: center;
                                 }
                             }
-                            
+
                             VerticalBox {
                                 spacing: 4px;
-                                
                                 Text {
                                     text: "Detail Node";
                                     font-size: 14px;
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Text {
                                     text: "Specific details or examples for any branch";
                                     font-size: 11px;
                                     color: #7f8c8d;
                                     wrap: word-wrap;
                                 }
-                                
-                                Button {
+
+                                ToolbarButton {
                                     text: "Add Detail";
                                     width: 90px;
                                     height: 25px;
@@ -283,7 +341,6 @@ export component BrainstormingTool inherits Window {
                         background: white;
                         border-radius: 8px;
                         padding: 12px;
-                        
                         HorizontalBox {
                             spacing: 10px;
                             
@@ -293,7 +350,6 @@ export component BrainstormingTool inherits Window {
                                 height: 35px;
                                 background: node-note-color;
                                 border-radius: 17px;
-                                
                                 Text {
                                     text: "📝";
                                     font-size: 11px;
@@ -301,25 +357,24 @@ export component BrainstormingTool inherits Window {
                                     vertical-alignment: center;
                                 }
                             }
-                            
+
                             VerticalBox {
                                 spacing: 4px;
-                                
                                 Text {
                                     text: "Note Node";
                                     font-size: 14px;
                                     font-weight: 600;
                                     color: #2c3e50;
                                 }
-                                
+
                                 Text {
                                     text: "Additional notes or comments";
                                     font-size: 11px;
                                     color: #7f8c8d;
                                     wrap: word-wrap;
                                 }
-                                
-                                Button {
+
+                                ToolbarButton {
                                     text: "Add Note";
                                     width: 80px;
                                     height: 25px;
@@ -335,39 +390,36 @@ export component BrainstormingTool inherits Window {
                 background: white;
                 border-radius: 8px;
                 padding: 15px;
-                
                 VerticalBox {
                     spacing: 10px;
-                    
                     Text {
                         text: "Layout Algorithms";
                         font-size: 16px;
                         font-weight: 600;
                         color: #2c3e50;
                     }
-                    
+
                     HorizontalBox {
                         spacing: 10px;
-                        
-                        Button {
+                        ToolbarButton {
                             text: "⭕ Radial";
                             width: 100px;
                             height: 30px;
                         }
-                        
-                        Button {
+
+                        ToolbarButton {
                             text: "🌳 Hierarchical";
                             width: 120px;
                             height: 30px;
                         }
-                        
-                        Button {
+
+                        ToolbarButton {
                             text: "⚡ Force-Directed";
                             width: 140px;
                             height: 30px;
                         }
-                        
-                        Button {
+
+                        ToolbarButton {
                             text: "🔲 Grid";
                             width: 90px;
                             height: 30px;
@@ -379,40 +431,39 @@ export component BrainstormingTool inherits Window {
             // Controls
             HorizontalBox {
                 spacing: 15px;
-                
-                Button {
+                ToolbarButton {
                     text: "➕ Add Node";
                     width: 100px;
                     height: 35px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🔗 Connect";
                     width: 90px;
                     height: 35px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🗑️ Delete";
                     width: 90px;
                     height: 35px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "🔍 Search";
                     width: 80px;
                     height: 35px;
                 }
-                
+
                 Rectangle { }
-                
-                Button {
+
+                ToolbarButton {
                     text: "📤 Export";
                     width: 90px;
                     height: 35px;
                 }
-                
-                Button {
+
+                ToolbarButton {
                     text: "📥 Import";
                     width: 90px;
                     height: 35px;
@@ -424,23 +475,21 @@ export component BrainstormingTool inherits Window {
                 background: white;
                 border-radius: 8px;
                 padding: 10px;
-                
                 HorizontalBox {
                     spacing: 10px;
-                    
                     Text {
                         text: "Zoom:";
                         font-size: 12px;
                         color: #2c3e50;
                         vertical-alignment: center;
                     }
-                    
-                    Button {
+
+                    ToolbarButton {
                         text: "➖";
                         width: 30px;
                         height: 25px;
                     }
-                    
+
                     Text {
                         text: "100%";
                         font-size: 12px;
@@ -449,14 +498,14 @@ export component BrainstormingTool inherits Window {
                         horizontal-alignment: center;
                         vertical-alignment: center;
                     }
-                    
-                    Button {
+
+                    ToolbarButton {
                         text: "➕";
                         width: 30px;
                         height: 25px;
                     }
-                    
-                    Button {
+
+                    ToolbarButton {
                         text: "🔄 Reset";
                         width: 70px;
                         height: 25px;

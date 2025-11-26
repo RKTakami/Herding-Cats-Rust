@@ -33,6 +33,7 @@ export component MenuDropdowns inherits Rectangle {
     callback view-statusbar();
     callback view-zoom();
     callback view-fullscreen();
+    callback set-theme(string);
 
     callback tools-hierarchy();
     callback tools-codex();
@@ -252,7 +253,7 @@ export component MenuDropdowns inherits Rectangle {
         x: 264px;
         y: 65px;
         width: 140px;
-        height: 100px;
+        height: 240px;
         background: Theme.dropdown-bg;
         border-color: Theme.border;
         border-width: 2px;
@@ -296,6 +297,57 @@ export component MenuDropdowns inherits Rectangle {
                 height: 22px;
                 clicked => {
                     root.view-fullscreen();
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            Rectangle {
+                height: 4px;
+            }
+
+            Text {
+                text: "🎨 Themes";
+                font-size: 11px;
+                font-weight: 600;
+                color: Theme.text-secondary;
+            }
+
+            MenuButton {
+                text: "☀️ Default (Light)";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.set-theme("Normal");
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            MenuButton {
+                text: "🌅 Warm (Sepia)";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.set-theme("Warm");
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            MenuButton {
+                text: "🟢 CRT Green";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.set-theme("CRT Green");
+                    root.show-view-dropdown = false;
+                }
+            }
+
+            MenuButton {
+                text: "🟠 CRT Amber";
+                width: 135px;
+                height: 22px;
+                clicked => {
+                    root.set-theme("CRT Amber");
                     root.show-view-dropdown = false;
                 }
             }

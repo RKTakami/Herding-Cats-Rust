@@ -1,0 +1,218 @@
+import {
+    Button,
+    TextEdit,
+    ScrollView,
+    HorizontalBox,
+    VerticalBox,
+    GridBox,
+    StandardButton,
+    LineEdit,
+    ComboBox,
+    ListView,
+    CheckBox,
+} from "std-widgets.slint";
+import { ToolbarButton } from "../components/toolbar_button.slint";
+import { Theme } from "../styles.slint";
+
+export component NotesTool inherits Window {
+    title: "Notes Tool - Research & Ideas";
+
+    callback set-theme(string);
+    callback close_requested();
+    callback new_note();
+    callback tag_note();
+    callback export();
+    callback import();
+    set-theme(theme-name) => {
+        if (theme-name == "Normal") {
+            Theme.primary-bg = #ffffff;
+            Theme.secondary-bg = #f8f9fa;
+            Theme.accent = #007bff;
+            Theme.text-primary = #212529;
+            Theme.text-secondary = #6c757d;
+            Theme.border = #dee2e6;
+            Theme.menu-bg = #f8f9fa;
+            Theme.toolbar-bg = #ffffff;
+            Theme.status-bg = #e9ecef;
+            Theme.editor-bg = #ffffff;
+            Theme.title-bg = #e9ecef;
+            Theme.ribbon-bg = #f5f5f5;
+            Theme.dropdown-bg = #ffffff;
+        } else if (theme-name == "Warm") {
+            Theme.primary-bg = #fdf6e3;
+            Theme.secondary-bg = #eee8d5;
+            Theme.accent = #cb4b16;
+            Theme.text-primary = #586e75;
+            Theme.text-secondary = #93a1a1;
+            Theme.border = #d3cbb7;
+            Theme.menu-bg = #eee8d5;
+            Theme.toolbar-bg = #fdf6e3;
+            Theme.status-bg = #eee8d5;
+            Theme.editor-bg = #fdf6e3;
+            Theme.title-bg = #eee8d5;
+            Theme.ribbon-bg = #fdf6e3;
+            Theme.dropdown-bg = #fdf6e3;
+        } else if (theme-name == "CRT Green") {
+            Theme.primary-bg = #0d1117;
+            Theme.secondary-bg = #161b22;
+            Theme.accent = #00ff00;
+            Theme.text-primary = #00ff00;
+            Theme.text-secondary = #008f00;
+            Theme.border = #30363d;
+            Theme.menu-bg = #161b22;
+            Theme.toolbar-bg = #0d1117;
+            Theme.status-bg = #161b22;
+            Theme.editor-bg = #0d1117;
+            Theme.title-bg = #161b22;
+            Theme.ribbon-bg = #0d1117;
+            Theme.dropdown-bg = #161b22;
+        } else if (theme-name == "CRT Amber") {
+            Theme.primary-bg = #1a1a1a;
+            Theme.secondary-bg = #2b2b2b;
+            Theme.accent = #ffb000;
+            Theme.text-primary = #ffb000;
+            Theme.text-secondary = #b37b00;
+            Theme.border = #4d4d4d;
+            Theme.menu-bg = #2b2b2b;
+            Theme.toolbar-bg = #1a1a1a;
+            Theme.status-bg = #2b2b2b;
+            Theme.editor-bg = #1a1a1a;
+            Theme.title-bg = #2b2b2b;
+            Theme.ribbon-bg = #1a1a1a;
+            Theme.dropdown-bg = #2b2b2b;
+        }
+    }
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "📝 Research Notes";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Notes Categories
+        HorizontalBox {
+            ToolbarButton {
+                text: "📚 Research"; }
+           
+
+            ToolbarButton {
+                text: "💡 Ideas"; }
+           
+
+            ToolbarButton {
+                text: "🎭 Characters"; }
+           
+
+            ToolbarButton {
+                text: "📍 Worldbuilding"; }
+           
+        }
+
+        // Notes List
+        ListView {
+            height: 350px;
+            for item in [
+                {
+                    title: "Historical Context Research",
+                    category: "Research",
+                    content: "Medieval England social structure and customs",
+                    date: "2025-11-05"
+                },
+                {
+                    title: "Character Arc Ideas",
+                    category: "Ideas",
+                    content: "Alice's transformation from skeptic to believer",
+                    date: "2025-11-04"
+                },
+                {
+                    title: "Magic System Notes",
+                    category: "Worldbuilding",
+                    content: "Consistent rules for spell casting and limitations",
+                    date: "2025-11-03"
+                },
+                {
+                    title: "Dialogue Research",
+                    category: "Research",
+                    content: "Authentic period speech patterns",
+                    date: "2025-11-02"
+                },
+                {
+                    title: "Plot Twist Ideas",
+                    category: "Ideas",
+                    content: "The mysterious mentor has hidden agenda",
+                    date: "2025-11-01"
+                },
+            ]: Rectangle {
+                height: 60px;
+                background: #f8f9fa;
+                border-radius: 4px;
+                padding: 8px;
+                VerticalBox {
+                    HorizontalBox {
+                        Text {
+                            text: item.title;
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: #2c3e50;
+                        }
+
+                        Rectangle { }
+
+                        Text {
+                            text: item.category;
+                            font-size: 10px;
+                            color: #7f8c8d;
+                        }
+                    }
+
+                    Text {
+                        text: item.content;
+                        font-size: 11px;
+                        color: #666;
+                    }
+
+                    Text {
+                        text: item.date;
+                        font-size: 9px;
+                        color: #999;
+                    }
+                }
+            }
+        }
+        
+        // Notes Controls
+        HorizontalBox {
+            ToolbarButton {
+                text: "➕ Add Note"; }
+           
+
+            ToolbarButton {
+                text: "✏️ Edit"; }
+           
+
+            ToolbarButton {
+                text: "🔍 Search"; }
+           
+
+            ToolbarButton {
+                text: "📁 Organize"; }
+           
+
+            ToolbarButton {
+                text: "🏷️ Tag"; }
+           
+
+            ToolbarButton {
+                text: "📤 Export"; }
+           
+        }
+
+        StandardButton {
+            kind: close;
+        }
+    }
+}

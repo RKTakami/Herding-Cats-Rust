@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
 // Re-export commonly used types
-pub use self::{HierarchyItem, HierarchyLevel, HierarchyTree, HierarchyNode};
+// pub use self::{HierarchyItem, HierarchyLevel, HierarchyTree, HierarchyNode};
 
 /// Hierarchy levels as specified in the requirements
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -291,7 +291,7 @@ impl HierarchyItem {
 }
 
 /// Hierarchy tree structure for managing relationships
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone)]
 pub struct HierarchyTree {
     items: HashMap<String, HierarchyItem>,
     root_items: Vec<String>, // Unassigned and Manuscript level items
@@ -390,17 +390,19 @@ impl HierarchyTree {
         // Second pass: actually remove the items and update parent references
         for item_id in &items_to_remove {
             // Remove from parent's children list
-            if let Some(item) = self.items.get(item_id) {
-                if let Some(ref parent_id) = item.parent_id {
-                    if let Some(parent) = self.items.get_mut(parent_id) {
-                        parent.remove_child(item_id);
-                    }
+            // Remove from parent's children list
+            let parent_id = self.items.get(item_id).and_then(|item| item.parent_id.clone());
+            
+            if let Some(pid) = parent_id {
+                if let Some(parent) = self.items.get_mut(&pid) {
+                    parent.remove_child(item_id);
                 }
-                
-                // Remove from root items if applicable
-                if item.level.is_top_level() {
-                    self.root_items.retain(|id| id != item_id);
-                }
+            }
+            
+            // Remove from root items if applicable
+            let is_top_level = self.items.get(item_id).map(|item| item.level.is_top_level()).unwrap_or(false);
+            if is_top_level {
+                self.root_items.retain(|id| id != item_id);
             }
         }
         
@@ -416,7 +418,7 @@ impl HierarchyTree {
     fn collect_descendants(&self, parent_id: &str, items: &mut Vec<String>) {
         // Find direct children
         for (id, item) in &self.items {
-            if item.parent_id.as_ref() == Some(parent_id) {
+            if item.parent_id.as_deref() == Some(parent_id) {
                 items.push(id.clone());
                 // Recursively collect their children
                 self.collect_descendants(id, items);
@@ -456,52 +458,62 @@ impl HierarchyTree {
     }
     
     /// Move an item to a new parent
+    /// Move an item to a new parent
     pub fn move_item(&mut self, item_id: &str, new_parent_id: Option<String>) -> Result<(), String> {
-        let mut item = self.items.get_mut(item_id)
-            .ok_or_else(|| format!("Item with ID '{}' not found", item_id))?;
+        // 1. Get item info (cloned) to avoid holding borrow
+        let (item_level, old_parent_id) = {
+            let item = self.items.get(item_id)
+                .ok_or_else(|| format!("Item with ID '{}' not found", item_id))?;
+            (item.level, item.parent_id.clone())
+        };
         
-        // Validate new parent relationship
-        if let Some(ref new_parent_id) = new_parent_id {
-            let new_parent = self.items.get(new_parent_id)
-                .ok_or_else(|| format!("Parent item with ID '{}' not found", new_parent_id))?;
+        // 2. Validate new parent relationship
+        if let Some(ref pid) = new_parent_id {
+            let new_parent = self.items.get(pid)
+                .ok_or_else(|| format!("Parent item with ID '{}' not found", pid))?;
             
-            if !new_parent.can_have_as_child(&item) {
+            if !new_parent.level.can_have_as_child(item_level) {
                 return Err(format!(
                     "Cannot move {} to {} - invalid parent-child relationship",
-                    item.level.display_name(),
+                    item_level.display_name(),
                     new_parent.level.display_name()
                 ));
             }
+        } else {
+             // Validate top level
+             if !item_level.is_top_level() {
+                 return Err(format!("{} items must have a parent", item_level.display_name()));
+             }
         }
-        
-        // Update parent's children list
-        if let Some(ref old_parent_id) = item.parent_id {
-            if let Some(old_parent) = self.items.get_mut(old_parent_id) {
+
+        // 3. Update old parent
+        if let Some(ref pid) = old_parent_id {
+            if let Some(old_parent) = self.items.get_mut(pid) {
                 old_parent.remove_child(item_id);
             }
         }
         
-        // Update root items if needed
-        if item.level.is_top_level() {
-            if item.parent_id.is_none() {
-                // Moving from root - remove from root list
+        // 4. Update root items list
+        if item_level.is_top_level() {
+            if old_parent_id.is_none() {
                 self.root_items.retain(|id| id != item_id);
             }
             if new_parent_id.is_none() {
-                // Moving to root - add to root list
-                self.root_items.push(item_id.clone());
+                self.root_items.push(item_id.to_string());
                 self.root_items.sort();
             }
         }
         
-        // Update item's parent
-        item.parent_id = new_parent_id;
-        
-        // Update new parent's children list
-        if let Some(ref new_parent_id) = item.parent_id {
-            if let Some(new_parent) = self.items.get_mut(new_parent_id) {
-                new_parent.add_child(item_id.clone());
+        // 5. Update new parent
+        if let Some(ref pid) = new_parent_id {
+            if let Some(new_parent) = self.items.get_mut(pid) {
+                new_parent.add_child(item_id.to_string());
             }
+        }
+        
+        // 6. Update item itself
+        if let Some(item) = self.items.get_mut(item_id) {
+            item.parent_id = new_parent_id;
         }
         
         Ok(())

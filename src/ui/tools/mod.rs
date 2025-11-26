@@ -11,6 +11,11 @@ pub mod database_integration;
 pub mod individual_tool_windows;
 pub mod threading_patterns;
 pub mod tools;
+pub mod hierarchy_tool_migrated;
+pub mod hierarchy_base;
+pub mod hierarchy_database;
+pub mod hierarchy_drag;
+pub mod hierarchy_ui;
 
 pub use api_contracts::*;
 pub use base_types::*;

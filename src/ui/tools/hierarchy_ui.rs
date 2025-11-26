@@ -51,7 +51,7 @@ impl HierarchyUiState {
     
     /// Check if an item is selected
     pub fn is_selected(&self, item_id: &str) -> bool {
-        self.selected_item.as_ref() == Some(item_id)
+        self.selected_item.as_deref() == Some(item_id)
     }
     
     /// Clear selection
@@ -70,12 +70,35 @@ impl HierarchyUiState {
     }
 }
 
+mod shared_string_serde {
+    use serde::{Deserialize, Deserializer, Serializer};
+    use slint::SharedString;
+
+    pub fn serialize<S>(value: &SharedString, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        serializer.serialize_str(value.as_str())
+    }
+
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<SharedString, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let s = String::deserialize(deserializer)?;
+        Ok(SharedString::from(s))
+    }
+}
+
 /// Hierarchy item data structure for Slint UI
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct SlintHierarchyItem {
+    #[serde(with = "shared_string_serde")]
     pub id: SharedString,
+    #[serde(with = "shared_string_serde")]
     pub title: SharedString,
     pub level: u32, // Convert from HierarchyLevel for Slint compatibility
+    #[serde(with = "shared_string_serde")]
     pub level_name: SharedString,
     pub has_children: bool,
     pub is_expanded: bool,
@@ -101,7 +124,7 @@ impl From<&HierarchyItem> for SlintHierarchyItem {
             has_children: !item.children.is_empty(),
             is_expanded: false, // This would be managed by UI state
             depth: item.level.depth(),
-            word_count: item.word_count,
+            word_count: 0,
             position: item.position,
         }
     }
@@ -165,7 +188,7 @@ impl SlintHierarchyModel {
     pub fn toggle_expansion(&mut self, item_id: &str) {
         let current = self.expanded_items.get(item_id).copied().unwrap_or(false);
         self.expanded_items.insert(item_id.to_string(), !current);
-        self.update_from_tree(&self.tree);
+        self.update_from_tree(&self.tree.clone());
     }
     
     /// Get the items as a model for Slint

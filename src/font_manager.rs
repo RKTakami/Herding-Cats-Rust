@@ -68,27 +68,19 @@ impl FontManager {
                 local_path: None,
             },
 
-            // Microsoft Fonts
+            // Microsoft Fonts (Open Source Alternatives)
             FontInfo {
-                name: "Segoe UI".to_string(),
-                family: "SegoeUI".to_string(),
+                name: "Cascadia Code".to_string(),
+                family: "CascadiaCode".to_string(),
                 url: "https://github.com/microsoft/cascadia-code/raw/main/fonts/ttf/CascadiaCode-Regular.ttf".to_string(),
                 installed: false,
                 category: "Microsoft Fonts".to_string(),
                 local_path: None,
             },
             FontInfo {
-                name: "Segoe UI Bold".to_string(),
-                family: "SegoeUI-Bold".to_string(),
+                name: "Cascadia Code Bold".to_string(),
+                family: "CascadiaCode-Bold".to_string(),
                 url: "https://github.com/microsoft/cascadia-code/raw/main/fonts/ttf/CascadiaCode-Bold.ttf".to_string(),
-                installed: false,
-                category: "Microsoft Fonts".to_string(),
-                local_path: None,
-            },
-            FontInfo {
-                name: "Consolas".to_string(),
-                family: "Consolas".to_string(),
-                url: "https://github.com/microsoft/cascadia-code/raw/main/fonts/ttf/CascadiaCode-Regular.ttf".to_string(),
                 installed: false,
                 category: "Microsoft Fonts".to_string(),
                 local_path: None,

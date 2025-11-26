@@ -1,0 +1,205 @@
+import {
+    Button,
+    TextEdit,
+    ScrollView,
+    HorizontalBox,
+    VerticalBox,
+    GridBox,
+    StandardButton,
+    LineEdit,
+    ComboBox,
+    ListView,
+    CheckBox,
+} from "std-widgets.slint";
+import { ToolbarButton } from "../components/toolbar_button.slint";
+import { Theme } from "../styles.slint";
+
+export component ResearchTool inherits Window {
+    title: "Research Tool - Sources & Citations";
+
+    callback set-theme(string);
+    callback close_requested();
+    callback add_source();
+    callback export();
+    callback import();
+    callback find_sources();
+    callback research_plan();
+    callback progress();
+    callback citation();
+    set-theme(theme-name) => {
+        if (theme-name == "Normal") {
+            Theme.primary-bg = #ffffff;
+            Theme.secondary-bg = #f8f9fa;
+            Theme.accent = #007bff;
+            Theme.text-primary = #212529;
+            Theme.text-secondary = #6c757d;
+            Theme.border = #dee2e6;
+            Theme.menu-bg = #f8f9fa;
+            Theme.toolbar-bg = #ffffff;
+            Theme.status-bg = #e9ecef;
+            Theme.editor-bg = #ffffff;
+            Theme.title-bg = #e9ecef;
+            Theme.ribbon-bg = #f5f5f5;
+            Theme.dropdown-bg = #ffffff;
+        } else if (theme-name == "Warm") {
+            Theme.primary-bg = #fdf6e3;
+            Theme.secondary-bg = #eee8d5;
+            Theme.accent = #cb4b16;
+            Theme.text-primary = #586e75;
+            Theme.text-secondary = #93a1a1;
+            Theme.border = #d3cbb7;
+            Theme.menu-bg = #eee8d5;
+            Theme.toolbar-bg = #fdf6e3;
+            Theme.status-bg = #eee8d5;
+            Theme.editor-bg = #fdf6e3;
+            Theme.title-bg = #eee8d5;
+            Theme.ribbon-bg = #fdf6e3;
+            Theme.dropdown-bg = #fdf6e3;
+        } else if (theme-name == "CRT Green") {
+            Theme.primary-bg = #0d1117;
+            Theme.secondary-bg = #161b22;
+            Theme.accent = #00ff00;
+            Theme.text-primary = #00ff00;
+            Theme.text-secondary = #008f00;
+            Theme.border = #30363d;
+            Theme.menu-bg = #161b22;
+            Theme.toolbar-bg = #0d1117;
+            Theme.status-bg = #161b22;
+            Theme.editor-bg = #0d1117;
+            Theme.title-bg = #161b22;
+            Theme.ribbon-bg = #0d1117;
+            Theme.dropdown-bg = #161b22;
+        } else if (theme-name == "CRT Amber") {
+            Theme.primary-bg = #1a1a1a;
+            Theme.secondary-bg = #2b2b2b;
+            Theme.accent = #ffb000;
+            Theme.text-primary = #ffb000;
+            Theme.text-secondary = #b37b00;
+            Theme.border = #4d4d4d;
+            Theme.menu-bg = #2b2b2b;
+            Theme.toolbar-bg = #1a1a1a;
+            Theme.status-bg = #2b2b2b;
+            Theme.editor-bg = #1a1a1a;
+            Theme.title-bg = #2b2b2b;
+            Theme.ribbon-bg = #1a1a1a;
+            Theme.dropdown-bg = #2b2b2b;
+        }
+    }
+    VerticalBox {
+        padding: 10px;
+        spacing: 10px;
+        
+        // Tool Title
+        Text {
+            text: "🔍 Research & Sources";
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        // Research Categories
+        HorizontalBox {
+            ToolbarButton { text: "📚 Books"; }
+            ToolbarButton { text: "🌐 Websites"; }
+            ToolbarButton { text: "📄 Articles"; }
+            ToolbarButton { text: "📊 Data"; }
+            ToolbarButton { text: "🎥 Videos"; }
+        }
+        
+        // Research Sources List
+        ScrollView {
+            height: 400px;
+            VerticalBox {
+                // Research Source Entry Template
+                Rectangle {
+                    background: #ffffff;
+                    border-width: 1px;
+                    border-color: #dee2e6;
+                    border-radius: 6px;
+                    padding: 12px;
+                    VerticalBox {
+                        HorizontalBox {
+                            Text {
+                                text: "📖 'The Time Traveler's Guide to Medieval England'";
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: #2c3e50;
+                            }
+
+                            Rectangle { }
+
+                            Text {
+                                text: "📖 Book";
+                                font-size: 10px;
+                                color: #7f8c8d;
+                            }
+                        }
+
+                        Text {
+                            text: "Author: Ian Mortimer\nRelevant Sections: Social hierarchy, daily life, customs\nNotes: Excellent source for authentic medieval dialogue patterns\nRating: ⭐⭐⭐⭐⭐ 5/5";
+                            font-size: 11px;
+                            color: #666;
+                        }
+
+                        HorizontalBox {
+                            ToolbarButton { text: "🔗 Open Link"; }
+                            ToolbarButton { text: "📝 Annotate"; }
+                            ToolbarButton { text: "🔖 Bookmark"; }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    background: #ffffff;
+                    border-width: 1px;
+                    border-color: #dee2e6;
+                    border-radius: 6px;
+                    padding: 12px;
+                    VerticalBox {
+                        HorizontalBox {
+                            Text {
+                                text: "🌐 Medieval History Database";
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: #2c3e50;
+                            }
+
+                            Rectangle { }
+
+                            Text {
+                                text: "🌐 Website";
+                                font-size: 10px;
+                                color: #7f8c8d;
+                            }
+                        }
+
+                        Text {
+                            text: "URL: medieval.history.database.com\nContent: Comprehensive database of medieval events and customs\nUse Case: Fact-checking historical details\nNotes: Great for cross-referencing sources";
+                            font-size: 11px;
+                            color: #666;
+                        }
+
+                        HorizontalBox {
+                            ToolbarButton { text: "🔗 Open Link"; }
+                            ToolbarButton { text: "📝 Annotate"; }
+                            ToolbarButton { text: "🔖 Bookmark"; }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Research Controls
+        HorizontalBox {
+            ToolbarButton { text: "➕ Add Source"; }
+            ToolbarButton { text: "📥 Import"; }
+            ToolbarButton { text: "🔍 Find Sources"; }
+            ToolbarButton { text: "📊 Research Plan"; }
+            ToolbarButton { text: "📈 Progress"; }
+            ToolbarButton { text: "📤 Citation"; }
+        }
+
+        StandardButton {
+            kind: close;
+        }
+    }
+}

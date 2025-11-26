@@ -8,11 +8,15 @@ use crate::ui::tools::{
     database_integration::{ToolDatabaseContext, DatabaseOperationResult},
     threading_patterns::get_tool_registry,
     api_contracts::{ToolApiContract, get_api_contract, ToolLifecycleEvent},
-    ToolIntegration, ToolType,
+    base::ToolIntegration,
+    base_types::ToolType,
 };
+use crate::database::DatabaseError;
+use tracing::{info, warn, debug};
 use anyhow::Result;
 use std::sync::Arc;
-use std::time::{Instant, Duration};
+use std::time::{Instant, Duration, SystemTime, UNIX_EPOCH};
+use serde_json::json;
 use tokio::sync::RwLock;
 use async_trait::async_trait;
 
@@ -43,7 +47,7 @@ impl MigratedHierarchyTool {
     pub fn new() -> Self {
         Self {
             database_context: None,
-            api_contract: get_api_contract().clone(),
+            api_contract: Arc::new(get_api_contract().clone()),
             hierarchy_tree: HierarchyTree::new(),
             ui_state: HierarchyUiState::new(),
             tool_registry: get_tool_registry(),
@@ -57,12 +61,22 @@ impl MigratedHierarchyTool {
         let start_time = Instant::now();
         
         if let Some(context) = &mut self.database_context {
+            let project_id = project_id.to_string();
             let result = context.execute_with_retry(
                 "load_hierarchy",
-                |service| Box::pin(async move {
-                    let hierarchy_data = service.get_hierarchy_by_project(project_id).await?;
-                    Ok::<Vec<HierarchyItem>, String>(hierarchy_data)
-                }),
+                |service| {
+                    let project_id = project_id.clone();
+                    Box::pin(async move {
+                        let pool = service.read().await.pool.clone();
+                        let db_service = HierarchyDatabaseService::new(pool);
+                        // Ensure schema exists (should be done in initialize, but safe here too)
+                        db_service.initialize_schema().await.map_err(|e| DatabaseError::Service(e.to_string()))?;
+                        
+                        let hierarchy_data = db_service.get_items_by_project(&project_id).await
+                            .map_err(|e| DatabaseError::Service(e.to_string()))?;
+                        Ok::<Vec<HierarchyItem>, DatabaseError>(hierarchy_data)
+                    })
+                },
                 3,
             ).await;
 
@@ -71,7 +85,10 @@ impl MigratedHierarchyTool {
                     // Build hierarchy tree from loaded data
                     self.hierarchy_tree.clear();
                     for item in hierarchy_items {
-                        self.hierarchy_tree.add_item(item).map_err(|e| e.to_string())?;
+                        if let Err(e) = self.hierarchy_tree.add_item(item) {
+                            warn!("Failed to add item to tree: {}", e);
+                            return DatabaseOperationResult::validation_error("load_hierarchy".to_string(), e);
+                        }
                     }
                     
                     let duration = start_time.elapsed();
@@ -80,15 +97,14 @@ impl MigratedHierarchyTool {
                     // Broadcast successful load
                     self.broadcast_hierarchy_event("loaded").await;
                     
-                    DatabaseOperationResult::success((), duration)
+                    DatabaseOperationResult::success((), duration.as_millis() as u64)
                 }
                 Err(e) => {
-                    let duration = start_time.elapsed();
-                    DatabaseOperationResult::validation_error("load_hierarchy", e.to_string())
+                    DatabaseOperationResult::validation_error("load_hierarchy".to_string(), e.to_string())
                 }
             }
         } else {
-            DatabaseOperationResult::not_found("Database context", "unavailable")
+            DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
         }
     }
 
@@ -118,12 +134,19 @@ impl MigratedHierarchyTool {
             );
 
             // Save to database
+            let item_clone = item.clone();
             let result = context.execute_with_retry(
                 "create_hierarchy_item",
-                |service| Box::pin(async move {
-                    service.create_hierarchy_item(&item).await?;
-                    Ok::<String, String>(item_id.clone())
-                }),
+                |service| {
+                    let item_clone = item_clone.clone();
+                    let item_id = item_id.clone();
+                    Box::pin(async move {
+                        let pool = service.read().await.pool.clone();
+                        let db_service = HierarchyDatabaseService::new(pool);
+                        db_service.create_item(&item_clone).await.map_err(|e| DatabaseError::Service(e.to_string()))?;
+                        Ok::<String, DatabaseError>(item_id)
+                    })
+                },
                 3,
             ).await;
 
@@ -140,15 +163,14 @@ impl MigratedHierarchyTool {
                     // Broadcast creation event
                     self.broadcast_hierarchy_event("item_created").await;
                     
-                    DatabaseOperationResult::success(saved_id, duration)
+                    DatabaseOperationResult::success(saved_id, duration.as_millis() as u64)
                 }
                 Err(e) => {
-                    let duration = start_time.elapsed();
-                    DatabaseOperationResult::validation_error("create_item", e.to_string())
+                    DatabaseOperationResult::validation_error("create_item".to_string(), e.to_string())
                 }
             }
         } else {
-            DatabaseOperationResult::not_found("Database context", "unavailable")
+            DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
         }
     }
 
@@ -158,17 +180,24 @@ impl MigratedHierarchyTool {
         
         if let Some(context) = &mut self.database_context {
             // Get item for validation
-            let item_to_delete = self.hierarchy_tree.get_item(item_id)
-                .cloned()
-                .ok_or_else(|| "Item not found in memory".to_string())?;
+            let _item_to_delete = match self.hierarchy_tree.get_item(item_id).cloned() {
+                Some(item) => item,
+                None => return DatabaseOperationResult::not_found("Hierarchy Item", item_id.to_string()),
+            };
 
             // Delete from database
+            let item_id_clone = item_id.to_string();
             let result = context.execute_with_retry(
                 "delete_hierarchy_item",
-                |service| Box::pin(async move {
-                    service.delete_hierarchy_item(item_id).await?;
-                    Ok::<(), String>(())
-                }),
+                |service| {
+                    let item_id_clone = item_id_clone.clone();
+                    Box::pin(async move {
+                        let pool = service.read().await.pool.clone();
+                        let db_service = HierarchyDatabaseService::new(pool);
+                        db_service.delete_item(&item_id_clone).await.map_err(|e| DatabaseError::Service(e.to_string()))?;
+                        Ok::<(), DatabaseError>(())
+                    })
+                },
                 3,
             ).await;
 
@@ -185,15 +214,14 @@ impl MigratedHierarchyTool {
                     // Broadcast deletion event
                     self.broadcast_hierarchy_event("item_deleted").await;
                     
-                    DatabaseOperationResult::success((), duration)
+                    DatabaseOperationResult::success((), duration.as_millis() as u64)
                 }
                 Err(e) => {
-                    let duration = start_time.elapsed();
-                    DatabaseOperationResult::validation_error("delete_item", e.to_string())
+                    DatabaseOperationResult::validation_error("delete_item".to_string(), e.to_string())
                 }
             }
         } else {
-            DatabaseOperationResult::not_found("Database context", "unavailable")
+            DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
         }
     }
 
@@ -207,12 +235,18 @@ impl MigratedHierarchyTool {
         
         if let Some(context) = &mut self.database_context {
             // Update in database
+            let item_id_clone = item_id.to_string();
             let result = context.execute_with_retry(
                 "update_item_position",
-                |service| Box::pin(async move {
-                    service.update_hierarchy_item_position(item_id, new_position).await?;
-                    Ok::<(), String>(())
-                }),
+                |service| {
+                    let item_id_clone = item_id_clone.clone();
+                    Box::pin(async move {
+                        let pool = service.read().await.pool.clone();
+                        let db_service = HierarchyDatabaseService::new(pool);
+                        db_service.update_item_position(&item_id_clone, new_position).await.map_err(|e| DatabaseError::Service(e.to_string()))?;
+                        Ok::<(), DatabaseError>(())
+                    })
+                },
                 3,
             ).await;
 
@@ -226,15 +260,14 @@ impl MigratedHierarchyTool {
                     let duration = start_time.elapsed();
                     self.last_operation_duration = Some(duration);
                     
-                    DatabaseOperationResult::success((), duration)
+                    DatabaseOperationResult::success((), duration.as_millis() as u64)
                 }
                 Err(e) => {
-                    let duration = start_time.elapsed();
-                    DatabaseOperationResult::validation_error("update_position", e.to_string())
+                    DatabaseOperationResult::validation_error("update_position".to_string(), e.to_string())
                 }
             }
         } else {
-            DatabaseOperationResult::not_found("Database context", "unavailable")
+            DatabaseOperationResult::not_found("Database context", "unavailable".to_string())
         }
     }
 
@@ -293,11 +326,13 @@ impl MigratedHierarchyTool {
 
     /// Broadcast hierarchy-related events
     async fn broadcast_hierarchy_event(&self, event_type: &str) {
+        use std::time::{SystemTime, UNIX_EPOCH};
+        use serde_json::json;
         if let Err(e) = self.api_contract.broadcast_lifecycle(ToolLifecycleEvent::CustomEvent {
-            tool_id: self.tool_type().display_name().to_string(),
+            tool_id: "hierarchy".to_string(),
             event_type: event_type.to_string(),
-            timestamp: Instant::now(),
-            data: Some(format!("Hierarchy event: {}", event_type)),
+            timestamp: SystemTime::now().duration_since(UNIX_EPOCH).unwrap_or_default().as_secs() as i64,
+            payload: json!({ "message": format!("Hierarchy event: {}", event_type) }),
         }).await {
             warn!("Failed to broadcast hierarchy event: {}", e);
         }
@@ -312,7 +347,7 @@ impl MigratedHierarchyTool {
         
         // Initialize with database context
         let mut db_context = database_context;
-        migrated_tool.initialize(&mut db_context).await?;
+        migrated_tool.initialize(&mut db_context).await.map_err(|e| anyhow::anyhow!(e))?;
         
         // Copy hierarchy data
         let legacy_tree = legacy_tool.get_hierarchy();
@@ -358,8 +393,21 @@ impl ToolIntegration for MigratedHierarchyTool {
         self.tool_registry.register_tool(tool_id.clone(), Arc::new(()) as Arc<dyn Send + Sync + 'static>).await?;
         
         // Initialize API contract
-        self.api_contract = get_api_contract().clone();
+        self.api_contract = Arc::new(get_api_contract().clone());
         
+        // Initialize database service and schema
+        if let Ok(db_service) = database_context.get_database_service().await {
+            let pool = db_service.read().await.pool.clone();
+            let hierarchy_db = HierarchyDatabaseService::new(pool);
+            if let Err(e) = hierarchy_db.initialize_schema().await {
+                warn!("Failed to initialize hierarchy database schema: {}", e);
+                return Err(e.to_string());
+            }
+            self.db_service = Some(hierarchy_db);
+        } else {
+            warn!("Database service not available during initialization");
+        }
+
         // Mark as initialized
         self.initialized_at = Some(Instant::now());
         
@@ -419,6 +467,22 @@ impl ToolIntegration for MigratedHierarchyTool {
         info!("Hierarchy tool cleanup completed");
         Ok(())
     }
+
+    fn tool_type(&self) -> ToolType {
+        ToolType::Hierarchy
+    }
+
+    fn display_name(&self) -> &str {
+        "Hierarchy Tool"
+    }
+
+    fn is_initialized(&self) -> bool {
+        self.initialized_at.is_some()
+    }
+
+    fn initialized_at(&self) -> Option<Instant> {
+        self.initialized_at
+    }
 }
 
 impl MigratedHierarchyTool {
@@ -464,23 +528,7 @@ impl Default for MigratedHierarchyTool {
     }
 }
 
-impl ToolType for MigratedHierarchyTool {
-    fn display_name(&self) -> &'static str {
-        "Hierarchy Tool"
-    }
-    
-    fn tool_id(&self) -> &'static str {
-        "hierarchy_tool"
-    }
-    
-    fn version(&self) -> &'static str {
-        "2.0.0"
-    }
-    
-    fn description(&self) -> &'static str {
-        "Manuscript hierarchy management tool with database integration"
-    }
-}
+
 
 #[cfg(test)]
 mod tests {
@@ -538,7 +586,7 @@ mod tests {
         
         assert!(item_id.is_success());
         
-        let delete_result = tool.delete_hierarchy_item(&item_id.data.unwrap()).await;
+        let delete_result = tool.delete_hierarchy_item(&item_id.into_result().unwrap()).await;
         assert!(delete_result.is_success());
         assert_eq!(tool.hierarchy_tree.len(), 0);
     }
@@ -556,13 +604,13 @@ mod tests {
             "Test Manuscript".to_string(),
             HierarchyLevel::Manuscript,
             None,
-        ).await.data.unwrap();
+        ).await.into_result().unwrap();
         
         let chapter_id = tool.create_hierarchy_item(
             "Test Chapter".to_string(),
             HierarchyLevel::Chapter,
             Some(manuscript_id),
-        ).await.data.unwrap();
+        ).await.into_result().unwrap();
         
         tool.create_hierarchy_item(
             "Test Scene".to_string(),

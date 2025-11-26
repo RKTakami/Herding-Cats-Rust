@@ -106,7 +106,6 @@ pub enum DragVisualFeedback {
 
 /// Hierarchy drag handler for managing drag operations
 pub struct HierarchyDragHandler {
-    app_state: Option<*mut AppState>,
     service_registry: Option<ServiceRegistry>,
 }
 
@@ -114,14 +113,8 @@ impl HierarchyDragHandler {
     /// Create a new hierarchy drag handler
     pub fn new() -> Self {
         Self {
-            app_state: None,
             service_registry: None,
         }
-    }
-    
-    /// Set the app state reference
-    pub fn set_app_state(&mut self, app_state: *mut AppState) {
-        self.app_state = Some(app_state);
     }
     
     /// Set the service registry
