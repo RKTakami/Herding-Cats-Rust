@@ -8,8 +8,6 @@
 
 use crate::DatabaseError;
 use crate::DatabaseResult;
-use serde::{Deserialize, Serialize};
-use std::sync::Arc;
 use sqlx::Row;
 
 use super::hierarchy_base::{HierarchyItem, HierarchyLevel};

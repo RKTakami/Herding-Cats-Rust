@@ -11,6 +11,12 @@ use crate::database_app_state::DatabaseAppState;
 use crate::ui::tools::individual_tool_windows::IndividualToolWindowManager;
 use crate::ui::enhanced_tool_launcher::get_enhanced_launcher;
 use crate::ui::font_manager_window::FontManagerWindowManager;
+use crate::import::heuristic_import::import_folder_to_project;
+use crate::ui::tools::hierarchy_tool_migrated::MigratedHierarchyTool;
+use crate::ui::tools::base::ToolIntegration;
+use crate::database::ServiceFactory;
+use crate::ui::tools::database_integration::ToolDatabaseContext;
+use rfd::FileDialog;
 
 // Import the Word processor component
 slint::include_modules!();
@@ -307,6 +313,90 @@ fn init_callbacks(
     window.on_project_open(move || { println!("Project Open requested"); });
     window.on_project_save(move || { println!("Project Save requested"); });
     window.on_project_export(move || { println!("Project Export requested"); });
+
+    let window_weak_import = window.as_weak();
+    window.on_project_import_heuristic(move || {
+        let window_weak = window_weak_import.clone();
+        if let Some(folder) = FileDialog::new().pick_folder() {
+            if let Some(window) = window_weak.upgrade() {
+                window.set_status_message(format!("Importing from {}...", folder.display()).into());
+            }
+            
+            tokio::spawn(async move {
+                // Initialize DB connection
+                let db_path = std::path::Path::new("data/comprehensive_app.db");
+                let backup_path = std::path::Path::new("data/backups");
+                let config = DatabaseConfig {
+                    max_connections: 5,
+                    ..Default::default()
+                };
+                
+                let factory = match ServiceFactory::with_paths(db_path, backup_path, config).await {
+                    Ok(f) => f,
+                    Err(e) => {
+                        let window_weak_inner = window_weak.clone();
+                        let _ = slint::invoke_from_event_loop(move || {
+                            if let Some(window) = window_weak_inner.upgrade() {
+                                window.set_status_message(format!("Import failed: DB Factory error {}", e).into());
+                            }
+                        });
+                        return;
+                    }
+                };
+                
+                let container = match factory.initialize().await {
+                    Ok(c) => c,
+                    Err(e) => {
+                        let window_weak_inner = window_weak.clone();
+                        let _ = slint::invoke_from_event_loop(move || {
+                            if let Some(window) = window_weak_inner.upgrade() {
+                                window.set_status_message(format!("Import failed: DB Container error {}", e).into());
+                            }
+                        });
+                        return;
+                    }
+                };
+                
+                let mut app_state = DatabaseAppState::new();
+                app_state.set_service_container(container);
+                let app_state_arc = Arc::new(RwLock::new(app_state));
+                
+                let mut tool = MigratedHierarchyTool::new();
+                let mut context = ToolDatabaseContext::new("import_tool", app_state_arc).await;
+                
+                if let Err(e) = tool.initialize(&mut context).await {
+                     let window_weak_inner = window_weak.clone();
+                     let _ = slint::invoke_from_event_loop(move || {
+                        if let Some(window) = window_weak_inner.upgrade() {
+                            window.set_status_message(format!("Import failed: Tool init error {}", e).into());
+                        }
+                    });
+                    return;
+                }
+                
+                let project_name = folder.file_name().unwrap_or_default().to_string_lossy().to_string();
+                
+                match import_folder_to_project(&folder, &project_name, &mut tool).await {
+                    Ok(stats) => {
+                        let window_weak_inner = window_weak.clone();
+                        let _ = slint::invoke_from_event_loop(move || {
+                            if let Some(window) = window_weak_inner.upgrade() {
+                                window.set_status_message(format!("Imported {} items from {} files.", stats.items_created, stats.files_processed).into());
+                            }
+                        });
+                    },
+                    Err(e) => {
+                        let window_weak_inner = window_weak.clone();
+                        let _ = slint::invoke_from_event_loop(move || {
+                            if let Some(window) = window_weak_inner.upgrade() {
+                                window.set_status_message(format!("Import failed: {}", e).into());
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    });
 
     Ok(())
 }

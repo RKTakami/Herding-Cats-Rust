@@ -64,6 +64,15 @@ impl EnhancedToolLauncher {
                     tool_type.display_name(),
                     existing_window_id.0
                 );
+                
+                // Ensure the Slint window is actually shown (it might be hidden)
+                if let Some(manager) = &*self.tool_window_manager.lock().unwrap() {
+                    println!("🔄 Ensuring Slint window is visible for {}", tool_type.display_name());
+                    if let Err(e) = manager.open_tool_window(tool_type) {
+                        println!("❌ Failed to re-show Slint window: {}", e);
+                    }
+                }
+                
                 return Ok(existing_window_id);
             }
         }

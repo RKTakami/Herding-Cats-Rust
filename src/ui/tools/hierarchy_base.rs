@@ -44,8 +44,8 @@ impl HierarchyLevel {
     pub fn can_have_as_child(&self, child_level: HierarchyLevel) -> bool {
         match self {
             HierarchyLevel::Unassigned => {
-                // Unassigned can only have Chapter as child, not Manuscript
-                matches!(child_level, HierarchyLevel::Chapter)
+                // Unassigned can have Chapter or Unassigned (notes) as children
+                matches!(child_level, HierarchyLevel::Chapter | HierarchyLevel::Unassigned)
             }
             HierarchyLevel::Manuscript => {
                 matches!(child_level, HierarchyLevel::Chapter)
@@ -342,7 +342,7 @@ impl HierarchyTree {
         }
         
         // Add to appropriate root list if it's a root item
-        if item.level.is_top_level() {
+        if item.level.is_top_level() && item.parent_id.is_none() {
             // Ensure we don't add duplicates to root list
             if !self.root_items.contains(&item.id) {
                 self.root_items.push(item.id.clone());

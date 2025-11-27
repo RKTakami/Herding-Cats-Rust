@@ -176,6 +176,7 @@ export component MainWindowComprehensiveWindow inherits Window {
     callback project-open();
     callback project-save();
     callback project-export();
+    callback project-import-heuristic();
     
     // Writing statistics callbacks
     callback update-writing-stats();
@@ -381,6 +382,9 @@ export component MainWindowComprehensiveWindow inherits Window {
         }
         project-export => {
             root.project-export();
+        }
+        project-import-heuristic => {
+            root.project-import-heuristic();
         }
     }
 

@@ -15,9 +15,8 @@ use crate::database::DatabaseError;
 use tracing::{info, warn, debug};
 use anyhow::Result;
 use std::sync::Arc;
-use std::time::{Instant, Duration, SystemTime, UNIX_EPOCH};
+use std::time::{Instant, Duration};
 use serde_json::json;
-use tokio::sync::RwLock;
 use async_trait::async_trait;
 
 use super::hierarchy_base::{HierarchyItem, HierarchyLevel, HierarchyTree};
@@ -40,6 +39,8 @@ pub struct MigratedHierarchyTool {
     initialized_at: Option<Instant>,
     /// Last operation duration tracking
     last_operation_duration: Option<Duration>,
+    /// Direct database service access
+    db_service: Option<HierarchyDatabaseService>,
 }
 
 impl MigratedHierarchyTool {
@@ -53,6 +54,7 @@ impl MigratedHierarchyTool {
             tool_registry: get_tool_registry(),
             initialized_at: None,
             last_operation_duration: None,
+            db_service: None,
         }
     }
 
@@ -119,10 +121,8 @@ impl MigratedHierarchyTool {
         
         if let Some(context) = &mut self.database_context {
             // Generate item ID
-            let item_id = format!("hierarchy_{}", std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
-                .unwrap_or_default()
-                .as_millis());
+            // Generate item ID
+            let item_id = format!("hierarchy_{}", uuid::Uuid::new_v4());
 
             // Create hierarchy item
             let item = HierarchyItem::new(

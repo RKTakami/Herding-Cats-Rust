@@ -5,13 +5,12 @@
 
 use std::path::Path;
 use std::fs;
-use anyhow::{Result, Context};
+use anyhow::Result;
 use crate::classify::classify_content;
-use crate::ui::tools::hierarchy_base::{HierarchyLevel, HierarchyItem};
-use crate::ui::tools::hierarchy_tool_migrated::MigratedHierarchyTool;
-use crate::ui::tools::database_integration::DatabaseOperationResult;
-use tracing::{info, warn, error};
+use crate::ui::tools::hierarchy_base::HierarchyLevel;
 use crate::ui::tools::base::ToolIntegration;
+use crate::ui::tools::hierarchy_tool_migrated::MigratedHierarchyTool;
+use tracing::{info, warn};
 use crate::database::{ServiceFactory, DatabaseConfig};
 
 /// Statistics for the import process
@@ -162,6 +161,29 @@ mod tests {
             .await
             .unwrap();
         let container = factory.initialize().await.unwrap();
+
+        // Initialize projects table and create default project
+        if let Some(db_service) = &container.database_service {
+            let pool = db_service.read().await.pool.clone();
+            sqlx::query(
+                "CREATE TABLE IF NOT EXISTS projects (
+                    id TEXT PRIMARY KEY,
+                    name TEXT NOT NULL,
+                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                )"
+            )
+            .execute(&pool)
+            .await
+            .unwrap();
+
+            sqlx::query("INSERT INTO projects (id, name, created_at, updated_at) VALUES (?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)")
+                .bind("default_project")
+                .bind("Test Project")
+                .execute(&pool)
+                .await
+                .unwrap();
+        }
 
         // Setup tool
         let mut db_state_inner = DatabaseAppState::new();

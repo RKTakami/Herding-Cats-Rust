@@ -51,6 +51,7 @@ export component MenuDropdowns inherits Rectangle {
     callback project-open();
     callback project-save();
     callback project-export();
+    callback project-import-heuristic();
 
     // File Dropdown Menu
     Rectangle {
@@ -517,7 +518,7 @@ export component MenuDropdowns inherits Rectangle {
         x: 54px;
         y: 65px;
         width: 170px;
-        height: 120px;
+        height: 145px;
         background: Theme.dropdown-bg;
         border-color: Theme.border;
         border-width: 2px;
@@ -561,6 +562,16 @@ export component MenuDropdowns inherits Rectangle {
                 height: 22px;
                 clicked => {
                     root.project-export();
+                    root.show-projects-dropdown = false;
+                }
+            }
+
+            MenuButton {
+                text: "📥 Import Project";
+                width: 165px;
+                height: 22px;
+                clicked => {
+                    root.project-import-heuristic();
                     root.show-projects-dropdown = false;
                 }
             }

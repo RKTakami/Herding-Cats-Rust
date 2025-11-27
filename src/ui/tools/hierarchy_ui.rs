@@ -6,13 +6,12 @@
 //! This module provides the interface between the Slint hierarchy tool
 //! components and the underlying hierarchy logic.
 
-use slint::{ComponentHandle, Model, ModelRc, VecModel, SharedString};
+use slint::{Model, ModelRc, VecModel, SharedString};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use super::hierarchy_base::{HierarchyItem, HierarchyLevel, HierarchyTree, HierarchyNode};
-use super::hierarchy_drag::{HierarchyDragHandler, HierarchyDragData, DragVisualFeedback};
-use crate::ui_state::AppState;
+use super::hierarchy_base::{HierarchyItem, HierarchyLevel, HierarchyTree};
+use super::hierarchy_drag::HierarchyDragHandler;
 
 /// Hierarchy UI state for managing UI-specific state
 #[derive(Debug, Default, Serialize, Deserialize)]
