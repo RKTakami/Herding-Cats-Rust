@@ -51,6 +51,10 @@ impl EnhancedToolLauncher {
     ///
     /// If the tool is already open, this will focus the existing window.
     /// If the tool is not open, this will create a new window.
+    /// Launch an individual tool window
+    ///
+    /// If the tool is already open, this will focus the existing window.
+    /// If the tool is not open, this will create a new window.
     pub fn launch_tool(&self, tool_type: ToolType) -> Result<WindowId, WindowManagerError> {
         // Scope for WindowManager lock
         let (window_id, is_new) = {
@@ -61,11 +65,6 @@ impl EnhancedToolLauncher {
                 // Tool is already open, focus the existing window
                 if let Some(existing_window_id) = wm.find_open_tool_window(&tool_type) {
                     wm.focus_window(existing_window_id)?;
-                    println!(
-                        "🎯 Tool {} is already open - focusing existing window {}",
-                        tool_type.display_name(),
-                        existing_window_id.0
-                    );
                     (existing_window_id, false)
                 } else {
                     // Should not happen if is_tool_open is true
@@ -87,30 +86,12 @@ impl EnhancedToolLauncher {
         };
 
         if let Some(manager) = manager_opt {
-            if is_new {
-                println!("🖥️ Spawning Slint window for {}", tool_type.display_name());
-            } else {
-                println!("🔄 Ensuring Slint window is visible for {}", tool_type.display_name());
-            }
-            
             if let Err(e) = manager.open_tool_window(tool_type) {
-                if is_new {
-                    println!("❌ Failed to spawn Slint window: {}", e);
-                } else {
-                    println!("❌ Failed to re-show Slint window: {}", e);
-                }
+                log::error!("Failed to open tool window: {}", e);
                 // Note: We might want to rollback the WM state here, but for now we just log it
             }
         } else {
-            println!("⚠️ No tool window manager registered! Window state updated but no UI shown.");
-        }
-
-        if is_new {
-            println!(
-                "🚀 Launched new {} tool window (ID: {})",
-                tool_type.display_name(),
-                window_id.0
-            );
+            log::warn!("No tool window manager registered! Window state updated but no UI shown.");
         }
 
         Ok(window_id)
@@ -336,16 +317,16 @@ pub struct WindowStatisticsInfo {
 use lazy_static::lazy_static;
 
 lazy_static! {
-    pub static ref GLOBAL_ENHANCED_LAUNCHER: Arc<Mutex<EnhancedToolLauncher>> = {
-        Arc::new(Mutex::new(
+    pub static ref GLOBAL_ENHANCED_LAUNCHER: Arc<EnhancedToolLauncher> = {
+        Arc::new(
             EnhancedToolLauncher::new().expect("Failed to create global enhanced launcher"),
-        ))
+        )
     };
 }
 
 /// Get a reference to the global enhanced launcher
-pub fn get_enhanced_launcher() -> std::sync::MutexGuard<'static, EnhancedToolLauncher> {
-    GLOBAL_ENHANCED_LAUNCHER.lock().unwrap()
+pub fn get_enhanced_launcher() -> Arc<EnhancedToolLauncher> {
+    GLOBAL_ENHANCED_LAUNCHER.clone()
 }
 
 #[cfg(test)]

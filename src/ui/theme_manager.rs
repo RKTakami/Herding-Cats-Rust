@@ -62,6 +62,10 @@ pub struct ThemeColors {
     pub container_border_radius: f32,
     /// Input field border radius
     pub input_border_radius: f32,
+    /// Ribbon background color
+    pub ribbon_bg: String,
+    /// Dropdown background color
+    pub dropdown_bg: String,
 }
 
 impl ThemeColors {
@@ -89,6 +93,8 @@ impl ThemeColors {
             "input_text" => self.input_text.clone(),
             "input_border" => self.input_border.clone(),
             "input_focus" => self.input_focus.clone(),
+            "ribbon_bg" => self.ribbon_bg.clone(),
+            "dropdown_bg" => self.dropdown_bg.clone(),
             _ => "#ffffff".to_string(), // Default fallback
         }
     }
@@ -182,6 +188,8 @@ impl Theme {
                 menu_border_radius: 3.0,
                 container_border_radius: 6.0,
                 input_border_radius: 4.0,
+                ribbon_bg: "#f8f9fa".to_string(),
+                dropdown_bg: "#ffffff".to_string(),
             },
         }
     }
@@ -220,6 +228,8 @@ impl Theme {
                 menu_border_radius: 3.0,
                 container_border_radius: 6.0,
                 input_border_radius: 4.0,
+                ribbon_bg: "#343a40".to_string(),
+                dropdown_bg: "#212529".to_string(),
             },
         }
     }
@@ -258,6 +268,8 @@ impl Theme {
                 menu_border_radius: 2.0,
                 container_border_radius: 4.0,
                 input_border_radius: 2.0,
+                ribbon_bg: "#ffffff".to_string(),
+                dropdown_bg: "#ffffff".to_string(),
             },
         }
     }
@@ -278,7 +290,7 @@ impl Theme {
 /// Theme manager for handling theme switching and management
 pub struct ThemeManager {
     /// Available themes
-    themes: HashMap<ThemeType, Theme>,
+    themes: Arc<Mutex<HashMap<ThemeType, Theme>>>,
     /// Current active theme
     current_theme: Arc<Mutex<Theme>>,
     /// Theme change callbacks
@@ -290,12 +302,12 @@ pub struct ThemeManager {
 impl ThemeManager {
     /// Create a new theme manager with default themes
     pub fn new() -> Self {
-        let mut themes = HashMap::new();
+        let mut themes_map = HashMap::new();
 
         // Add default themes
-        themes.insert(ThemeType::Light, Theme::light());
-        themes.insert(ThemeType::Dark, Theme::dark());
-        themes.insert(ThemeType::HighContrast, Theme::high_contrast());
+        themes_map.insert(ThemeType::Light, Theme::light());
+        themes_map.insert(ThemeType::Dark, Theme::dark());
+        themes_map.insert(ThemeType::HighContrast, Theme::high_contrast());
 
         // Note: Minimalist themes are defined in minimalist_theme.rs module
         // to avoid circular dependencies
@@ -305,7 +317,7 @@ impl ThemeManager {
 
         // Create theme manager instance
         let mut manager = Self {
-            themes,
+            themes: Arc::new(Mutex::new(themes_map)),
             current_theme: Arc::new(Mutex::new(Theme::light())),
             theme_change_callbacks: Arc::new(Mutex::new(Vec::new())),
             settings: Arc::new(Mutex::new(settings)),
@@ -318,19 +330,22 @@ impl ThemeManager {
     }
 
     /// Initialize theme manager from settings
-    fn initialize_from_settings(&mut self) {
-        let settings = self.settings.lock().unwrap();
+    fn initialize_from_settings(&self) {
+        let theme_name = {
+            let settings = self.settings.lock().unwrap();
+            settings.current_theme.clone()
+        };
 
         // Try to load the saved theme
-        if let Ok(()) = self.set_theme_by_name(&settings.current_theme) {
+        if let Ok(()) = self.set_theme_by_name(&theme_name) {
             log::info!(
                 "Initialized theme manager with theme: {}",
-                settings.current_theme
+                theme_name
             );
         } else {
             log::warn!(
                 "Failed to load saved theme: {}, using default",
-                settings.current_theme
+                theme_name
             );
         }
     }
@@ -346,10 +361,22 @@ impl ThemeManager {
             "Minimalist Dark" => self.set_theme(ThemeType::Custom("Minimalist Dark".to_string())),
             _ => {
                 // Try to find custom theme
-                if let Some(theme) = self.themes.values().find(|t| t.name == theme_name) {
+                let themes = self.themes.lock().unwrap();
+                if let Some(theme) = themes.values().find(|t| t.name == theme_name) {
                     let mut current = self.current_theme.lock().unwrap();
                     *current = theme.clone();
-                    self.notify_theme_change(theme);
+                    // Drop locks before notifying to avoid deadlocks
+                    drop(current);
+                    drop(themes);
+                    
+                    // We need to get the theme again to pass reference, or clone it before dropping lock
+                    // Let's clone it inside the lock
+                    let theme_clone = {
+                        let themes = self.themes.lock().unwrap();
+                        themes.values().find(|t| t.name == theme_name).unwrap().clone()
+                    };
+                    
+                    self.notify_theme_change(&theme_clone);
                     Ok(())
                 } else {
                     Err(format!("Theme '{}' not found", theme_name))
@@ -358,8 +385,15 @@ impl ThemeManager {
         }
     }
 
+    // ... (skipping create_custom_theme for brevity as it's less critical)
+
+    /// Get theme colors for current theme
+    pub fn get_colors(&self) -> ThemeColors {
+        self.current_theme.lock().unwrap().colors.clone()
+    }
+
     /// Create and add a custom theme from colors
-    pub fn create_custom_theme(&mut self, name: &str, colors: ThemeColors) -> Result<(), String> {
+    pub fn create_custom_theme(&self, name: &str, colors: ThemeColors) -> Result<(), String> {
         let theme = Theme::from_custom_colors(name, colors);
         self.add_theme(theme.clone());
 
@@ -376,12 +410,12 @@ impl ThemeManager {
 
     /// Get all available theme types
     pub fn get_available_themes(&self) -> Vec<ThemeType> {
-        self.themes.keys().cloned().collect()
+        self.themes.lock().unwrap().keys().cloned().collect()
     }
 
     /// Get all available theme names
     pub fn get_available_theme_names(&self) -> Vec<String> {
-        self.themes.values().map(|t| t.name.clone()).collect()
+        self.themes.lock().unwrap().values().map(|t| t.name.clone()).collect()
     }
 
     /// Get available theme names (static method for external use)
@@ -397,13 +431,13 @@ impl ThemeManager {
     }
 
     /// Get theme by type
-    pub fn get_theme(&self, theme_type: &ThemeType) -> Option<&Theme> {
-        self.themes.get(theme_type)
+    pub fn get_theme(&self, theme_type: &ThemeType) -> Option<Theme> {
+        self.themes.lock().unwrap().get(theme_type).cloned()
     }
 
     /// Get theme by name
-    pub fn get_theme_by_name(&self, theme_name: &str) -> Option<&Theme> {
-        self.themes.values().find(|t| t.name == theme_name)
+    pub fn get_theme_by_name(&self, theme_name: &str) -> Option<Theme> {
+        self.themes.lock().unwrap().values().find(|t| t.name == theme_name).cloned()
     }
 
     /// Get current theme
@@ -418,7 +452,8 @@ impl ThemeManager {
 
     /// Set current theme
     pub fn set_theme(&self, theme_type: ThemeType) -> Result<(), String> {
-        if let Some(theme) = self.themes.get(&theme_type) {
+        let themes = self.themes.lock().unwrap();
+        if let Some(theme) = themes.get(&theme_type) {
             let mut current = self.current_theme.lock().unwrap();
             *current = theme.clone();
 
@@ -430,9 +465,13 @@ impl ThemeManager {
                     log::warn!("Failed to save theme settings: {}", e);
                 }
             }
+            
+            let theme_clone = theme.clone();
+            drop(current);
+            drop(themes);
 
             // Notify callbacks
-            self.notify_theme_change(theme);
+            self.notify_theme_change(&theme_clone);
             Ok(())
         } else {
             Err(format!("Theme {:?} not found", theme_type))
@@ -440,14 +479,14 @@ impl ThemeManager {
     }
 
     /// Add or update a custom theme
-    pub fn add_theme(&mut self, theme: Theme) {
-        self.themes.insert(theme.theme_type.clone(), theme);
+    pub fn add_theme(&self, theme: Theme) {
+        self.themes.lock().unwrap().insert(theme.theme_type.clone(), theme);
     }
 
     /// Remove a custom theme
-    pub fn remove_theme(&mut self, theme_type: &ThemeType) -> bool {
+    pub fn remove_theme(&self, theme_type: &ThemeType) -> bool {
         if matches!(theme_type, ThemeType::Custom(_)) {
-            self.themes.remove(theme_type).is_some()
+            self.themes.lock().unwrap().remove(theme_type).is_some()
         } else {
             false // Don't allow removing built-in themes
         }
@@ -485,9 +524,7 @@ impl ThemeManager {
     }
 
     /// Get theme colors for current theme
-    pub fn get_colors(&self) -> ThemeColors {
-        self.current_theme.lock().unwrap().colors.clone()
-    }
+
 
     /// Get a specific color from current theme
     pub fn get_color(&self, color_name: &str) -> String {
@@ -510,19 +547,27 @@ impl ThemeManager {
 
 /// Global theme manager instance
 lazy_static::lazy_static! {
-    pub static ref THEME_MANAGER: Arc<Mutex<ThemeManager>> = {
-        Arc::new(Mutex::new(ThemeManager::new()))
+    pub static ref THEME_MANAGER: Arc<ThemeManager> = {
+        Arc::new(ThemeManager::new())
     };
 }
 
 /// Get a reference to the global theme manager
-pub fn get_theme_manager() -> std::sync::MutexGuard<'static, ThemeManager> {
-    THEME_MANAGER.lock().unwrap()
+pub fn get_theme_manager() -> Arc<ThemeManager> {
+    // println!("🔒 [ThemeManager] Accessing global instance...");
+    let manager = THEME_MANAGER.clone();
+    // println!("🔓 [ThemeManager] Global instance accessed.");
+    manager
 }
 
 /// Get current theme colors
 pub fn get_current_theme_colors() -> ThemeColors {
-    get_theme_manager().get_colors()
+    println!("🎨 [get_current_theme_colors] Calling get_theme_manager()...");
+    let manager = get_theme_manager();
+    println!("🎨 [get_current_theme_colors] Manager acquired. Calling get_colors()...");
+    let colors = manager.get_colors();
+    println!("🎨 [get_current_theme_colors] Colors acquired.");
+    colors
 }
 
 /// Get a specific color from current theme
@@ -565,7 +610,7 @@ mod tests {
 
     #[test]
     fn test_theme_switching() {
-        let mut manager = ThemeManager::new();
+        let manager = ThemeManager::new();
 
         // Switch to dark theme
         assert!(manager.set_theme(ThemeType::Dark).is_ok());
@@ -580,14 +625,14 @@ mod tests {
 
     #[test]
     fn test_invalid_theme_switch() {
-        let mut manager = ThemeManager::new();
+        let manager = ThemeManager::new();
         let result = manager.set_theme(ThemeType::Custom("nonexistent".to_string()));
         assert!(result.is_err());
     }
 
     #[test]
     fn test_custom_theme() {
-        let mut manager = ThemeManager::new();
+        let manager = ThemeManager::new();
 
         let custom_theme = Theme {
             name: "Custom".to_string(),
@@ -621,6 +666,8 @@ mod tests {
                 menu_border_radius: 3.0,
                 container_border_radius: 6.0,
                 input_border_radius: 4.0,
+                ribbon_bg: "#cccccc".to_string(),
+                dropdown_bg: "#dddddd".to_string(),
             },
         };
 
