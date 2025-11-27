@@ -15,8 +15,12 @@ use crate::ui::tools::base_types::ToolType;
 use crate as hc_lib;
 use hc_lib::{AppState, DatabaseAppState};
 
-slint::slint! {
+pub mod hierarchy {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Hierarchy Tool Window
     export component HierarchyToolWindow inherits Window {
@@ -151,10 +155,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod codex {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Codex Tool Window
     export component CodexToolWindow inherits Window {
@@ -289,10 +300,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod brainstorming {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Brainstorming Tool Window
     export component BrainstormingToolWindow inherits Window {
@@ -428,10 +446,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod analysis {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Analysis Tool Window
     export component AnalysisToolWindow inherits Window {
@@ -567,10 +592,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod plot {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Plot Tool Window
     export component PlotToolWindow inherits Window {
@@ -706,10 +738,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod notes {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Notes Tool Window
     export component NotesToolWindow inherits Window {
@@ -844,10 +883,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod research {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Research Tool Window
     export component ResearchToolWindow inherits Window {
@@ -983,10 +1029,17 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
 
-slint::slint! {
+
+pub mod structure {
+    slint::slint! {
+
     import { Button, TextEdit, ScrollView, HorizontalBox, VerticalBox } from "std-widgets.slint";
+    import { Theme } from "../styles.slint";
+    import { SlintThemeColors } from "../theme_types.slint";
 
     // Structure Tool Window
     export component StructureToolWindow inherits Window {
@@ -1122,7 +1175,10 @@ slint::slint! {
             }
         }
     }
+
+    }
 }
+
 
 
 
@@ -1142,8 +1198,8 @@ fn hex_to_color(hex: &str) -> slint::Color {
 
 // Macro to apply theme to any window via invoke_set_theme
 macro_rules! apply_theme {
-    ($window:expr, $colors:expr) => {
-        let slint_colors = SlintThemeColors {
+    ($window:expr, $colors:expr, $mod_name:ident) => {{
+        let slint_colors = $mod_name::SlintThemeColors {
             primary_bg: hex_to_color(&$colors.primary_bg),
             secondary_bg: hex_to_color(&$colors.secondary_bg),
             accent: hex_to_color(&$colors.accent),
@@ -1159,18 +1215,18 @@ macro_rules! apply_theme {
             dropdown_bg: hex_to_color(&$colors.dropdown_bg),
         };
         $window.invoke_set_theme(slint_colors);
-    };
+    }};
 }
 
 enum ToolWindowHandle {
-    Hierarchy(HierarchyToolWindow),
-    Codex(CodexToolWindow),
-    Brainstorming(BrainstormingToolWindow),
-    Analysis(AnalysisToolWindow),
-    Plot(PlotToolWindow),
-    Notes(NotesToolWindow),
-    Research(ResearchToolWindow),
-    Structure(StructureToolWindow),
+    Hierarchy(hierarchy::HierarchyToolWindow),
+    Codex(codex::CodexToolWindow),
+    Brainstorming(brainstorming::BrainstormingToolWindow),
+    Analysis(analysis::AnalysisToolWindow),
+    Plot(plot::PlotToolWindow),
+    Notes(notes::NotesToolWindow),
+    Research(research::ResearchToolWindow),
+    Structure(structure::StructureToolWindow),
 }
 
 impl ToolWindowHandle {
@@ -1202,14 +1258,14 @@ impl ToolWindowHandle {
     
     fn apply_theme(&self, colors: &ThemeColors) {
         match self {
-            ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Codex(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Analysis(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Plot(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Notes(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Research(w) => apply_theme!(w, colors),
-            ToolWindowHandle::Structure(w) => apply_theme!(w, colors),
+            ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors, hierarchy),
+            ToolWindowHandle::Codex(w) => apply_theme!(w, colors, codex),
+            ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors, brainstorming),
+            ToolWindowHandle::Analysis(w) => apply_theme!(w, colors, analysis),
+            ToolWindowHandle::Plot(w) => apply_theme!(w, colors, plot),
+            ToolWindowHandle::Notes(w) => apply_theme!(w, colors, notes),
+            ToolWindowHandle::Research(w) => apply_theme!(w, colors, research),
+            ToolWindowHandle::Structure(w) => apply_theme!(w, colors, structure),
         }
     }
 }
@@ -1219,6 +1275,7 @@ thread_local! {
 }
 
 /// Individual tool window manager for each writing tool
+#[derive(Clone)]
 pub struct IndividualToolWindowManager {
     /// Database state for all tools
     pub db_state: Arc<RwLock<DatabaseAppState>>,
@@ -1353,10 +1410,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Hierarchy tool
-        let hierarchy_window = HierarchyToolWindow::new()?;
+        let hierarchy_window = hierarchy::HierarchyToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&hierarchy_window, &colors);
+        apply_theme!(&hierarchy_window, &colors, hierarchy);
 
         // Set up callbacks
         let window_weak = hierarchy_window.as_weak();
@@ -1438,10 +1495,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Codex tool
-        let codex_window = CodexToolWindow::new()?;
+        let codex_window = codex::CodexToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&codex_window, &colors);
+        apply_theme!(&codex_window, &colors, codex);
 
         // Set up callbacks
         let window_weak = codex_window.as_weak();
@@ -1523,10 +1580,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Brainstorming tool
-        let brainstorming_window = BrainstormingToolWindow::new()?;
+        let brainstorming_window = brainstorming::BrainstormingToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&brainstorming_window, &colors);
+        apply_theme!(&brainstorming_window, &colors, brainstorming);
 
         // Set up callbacks
         let window_weak = brainstorming_window.as_weak();
@@ -1608,10 +1665,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Analysis tool
-        let analysis_window = AnalysisToolWindow::new()?;
+        let analysis_window = analysis::AnalysisToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&analysis_window, &colors);
+        apply_theme!(&analysis_window, &colors, analysis);
 
         // Set up callbacks
         let window_weak = analysis_window.as_weak();
@@ -1693,10 +1750,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Plot tool
-        let plot_window = PlotToolWindow::new()?;
+        let plot_window = plot::PlotToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&plot_window, &colors);
+        apply_theme!(&plot_window, &colors, plot);
 
         // Set up callbacks
         let window_weak = plot_window.as_weak();
@@ -1778,10 +1835,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Notes tool
-        let notes_window = NotesToolWindow::new()?;
+        let notes_window = notes::NotesToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&notes_window, &colors);
+        apply_theme!(&notes_window, &colors, notes);
 
         // Set up callbacks
         let window_weak = notes_window.as_weak();
@@ -1863,10 +1920,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Research tool
-        let research_window = ResearchToolWindow::new()?;
+        let research_window = research::ResearchToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&research_window, &colors);
+        apply_theme!(&research_window, &colors, research);
 
         // Set up callbacks
         let window_weak = research_window.as_weak();
@@ -1948,10 +2005,10 @@ impl IndividualToolWindowManager {
         }
 
         // Create Slint window for Structure tool
-        let structure_window = StructureToolWindow::new()?;
+        let structure_window = structure::StructureToolWindow::new()?;
         
         // Apply theme
-        apply_theme!(&structure_window, &colors);
+        apply_theme!(&structure_window, &colors, structure);
 
         // Set up callbacks
         let window_weak = structure_window.as_weak();

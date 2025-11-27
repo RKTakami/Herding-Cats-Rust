@@ -52,50 +52,66 @@ impl EnhancedToolLauncher {
     /// If the tool is already open, this will focus the existing window.
     /// If the tool is not open, this will create a new window.
     pub fn launch_tool(&self, tool_type: ToolType) -> Result<WindowId, WindowManagerError> {
-        let mut wm = self.window_manager.lock().unwrap();
+        // Scope for WindowManager lock
+        let (window_id, is_new) = {
+            let mut wm = self.window_manager.lock().unwrap();
 
-        // Check if tool is already open
-        if wm.is_tool_open(tool_type) {
-            // Tool is already open, focus the existing window
-            if let Some(existing_window_id) = wm.find_open_tool_window(&tool_type) {
-                wm.focus_window(existing_window_id)?;
-                println!(
-                    "🎯 Tool {} is already open - focusing existing window {}",
-                    tool_type.display_name(),
-                    existing_window_id.0
-                );
-                
-                // Ensure the Slint window is actually shown (it might be hidden)
-                if let Some(manager) = &*self.tool_window_manager.lock().unwrap() {
-                    println!("🔄 Ensuring Slint window is visible for {}", tool_type.display_name());
-                    if let Err(e) = manager.open_tool_window(tool_type) {
-                        println!("❌ Failed to re-show Slint window: {}", e);
-                    }
+            // Check if tool is already open
+            if wm.is_tool_open(tool_type) {
+                // Tool is already open, focus the existing window
+                if let Some(existing_window_id) = wm.find_open_tool_window(&tool_type) {
+                    wm.focus_window(existing_window_id)?;
+                    println!(
+                        "🎯 Tool {} is already open - focusing existing window {}",
+                        tool_type.display_name(),
+                        existing_window_id.0
+                    );
+                    (existing_window_id, false)
+                } else {
+                    // Should not happen if is_tool_open is true
+                    return Err(WindowManagerError::WindowNotFound { window_id: WindowId(0) });
                 }
-                
-                return Ok(existing_window_id);
+            } else {
+                // Tool is not open, create new window
+                let window_id = wm.open_window(WindowType::IndividualTool(tool_type))?;
+                (window_id, true)
             }
-        }
+        }; // wm lock dropped here
 
-        // Tool is not open, create new window
-        let window_id = wm.open_window(WindowType::IndividualTool(tool_type))?;
+        // Actually spawn/show the window using the registered manager
+        // This is done outside the WindowManager lock to prevent deadlocks
+        // We also clone the manager and release the tool_window_manager lock to prevent deadlocks there too
+        let manager_opt = {
+            let guard = self.tool_window_manager.lock().unwrap();
+            guard.clone()
+        };
 
-        // Actually spawn the window using the registered manager
-        if let Some(manager) = &*self.tool_window_manager.lock().unwrap() {
-            println!("🖥️ Spawning Slint window for {}", tool_type.display_name());
+        if let Some(manager) = manager_opt {
+            if is_new {
+                println!("🖥️ Spawning Slint window for {}", tool_type.display_name());
+            } else {
+                println!("🔄 Ensuring Slint window is visible for {}", tool_type.display_name());
+            }
+            
             if let Err(e) = manager.open_tool_window(tool_type) {
-                println!("❌ Failed to spawn Slint window: {}", e);
+                if is_new {
+                    println!("❌ Failed to spawn Slint window: {}", e);
+                } else {
+                    println!("❌ Failed to re-show Slint window: {}", e);
+                }
                 // Note: We might want to rollback the WM state here, but for now we just log it
             }
         } else {
             println!("⚠️ No tool window manager registered! Window state updated but no UI shown.");
         }
 
-        println!(
-            "🚀 Launched new {} tool window (ID: {})",
-            tool_type.display_name(),
-            window_id.0
-        );
+        if is_new {
+            println!(
+                "🚀 Launched new {} tool window (ID: {})",
+                tool_type.display_name(),
+                window_id.0
+            );
+        }
 
         Ok(window_id)
     }
