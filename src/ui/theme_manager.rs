@@ -285,6 +285,126 @@ impl Theme {
             colors,
         }
     }
+
+    /// Create a warm theme (Sepia)
+    pub fn warm() -> Self {
+        Self {
+            name: "Warm".to_string(),
+            theme_type: ThemeType::Custom("Warm".to_string()),
+            description: "Warm sepia theme for comfortable reading".to_string(),
+            author: "Herding Cats Team".to_string(),
+            version: "1.0".to_string(),
+            colors: ThemeColors {
+                primary_bg: "#fdf6e3".to_string(),
+                secondary_bg: "#eee8d5".to_string(),
+                accent: "#cb4b16".to_string(),
+                text_primary: "#586e75".to_string(),
+                text_secondary: "#93a1a1".to_string(),
+                text_accent: "#cb4b16".to_string(),
+                border: "#d3cbb7".to_string(),
+                button_bg: "#cb4b16".to_string(),
+                button_text: "#ffffff".to_string(),
+                button_hover: "#dc322f".to_string(),
+                menu_bg: "#eee8d5".to_string(),
+                toolbar_bg: "#fdf6e3".to_string(),
+                status_bg: "#eee8d5".to_string(),
+                editor_bg: "#fdf6e3".to_string(),
+                title_bg: "#eee8d5".to_string(),
+                window_bg: "#fdf6e3".to_string(),
+                panel_bg: "#eee8d5".to_string(),
+                input_bg: "#fdf6e3".to_string(),
+                input_text: "#586e75".to_string(),
+                input_border: "#d3cbb7".to_string(),
+                input_focus: "#cb4b16".to_string(),
+                border_radius: 4.0,
+                menu_border_radius: 3.0,
+                container_border_radius: 6.0,
+                input_border_radius: 4.0,
+                ribbon_bg: "#fdf6e3".to_string(),
+                dropdown_bg: "#fdf6e3".to_string(),
+            },
+        }
+    }
+
+    /// Create a CRT Green theme
+    pub fn crt_green() -> Self {
+        Self {
+            name: "CRT Green".to_string(),
+            theme_type: ThemeType::Custom("CRT Green".to_string()),
+            description: "Retro CRT monitor green theme".to_string(),
+            author: "Herding Cats Team".to_string(),
+            version: "1.0".to_string(),
+            colors: ThemeColors {
+                primary_bg: "#0d1117".to_string(),
+                secondary_bg: "#161b22".to_string(),
+                accent: "#00ff00".to_string(),
+                text_primary: "#00ff00".to_string(),
+                text_secondary: "#008f00".to_string(),
+                text_accent: "#00ff00".to_string(),
+                border: "#30363d".to_string(),
+                button_bg: "#00ff00".to_string(),
+                button_text: "#0d1117".to_string(),
+                button_hover: "#00cc00".to_string(),
+                menu_bg: "#161b22".to_string(),
+                toolbar_bg: "#0d1117".to_string(),
+                status_bg: "#161b22".to_string(),
+                editor_bg: "#0d1117".to_string(),
+                title_bg: "#161b22".to_string(),
+                window_bg: "#0d1117".to_string(),
+                panel_bg: "#161b22".to_string(),
+                input_bg: "#0d1117".to_string(),
+                input_text: "#00ff00".to_string(),
+                input_border: "#30363d".to_string(),
+                input_focus: "#00ff00".to_string(),
+                border_radius: 0.0,
+                menu_border_radius: 0.0,
+                container_border_radius: 0.0,
+                input_border_radius: 0.0,
+                ribbon_bg: "#0d1117".to_string(),
+                dropdown_bg: "#161b22".to_string(),
+            },
+        }
+    }
+
+    /// Create a CRT Amber theme
+    pub fn crt_amber() -> Self {
+        Self {
+            name: "CRT Amber".to_string(),
+            theme_type: ThemeType::Custom("CRT Amber".to_string()),
+            description: "Retro CRT monitor amber theme".to_string(),
+            author: "Herding Cats Team".to_string(),
+            version: "1.0".to_string(),
+            colors: ThemeColors {
+                primary_bg: "#1a1a1a".to_string(),
+                secondary_bg: "#2b2b2b".to_string(),
+                accent: "#ffb000".to_string(),
+                text_primary: "#ffb000".to_string(),
+                text_secondary: "#b37b00".to_string(),
+                text_accent: "#ffb000".to_string(),
+                border: "#4d4d4d".to_string(),
+                button_bg: "#ffb000".to_string(),
+                button_text: "#1a1a1a".to_string(),
+                button_hover: "#cc8d00".to_string(),
+                menu_bg: "#2b2b2b".to_string(),
+                toolbar_bg: "#1a1a1a".to_string(),
+                status_bg: "#2b2b2b".to_string(),
+                editor_bg: "#1a1a1a".to_string(),
+                title_bg: "#2b2b2b".to_string(),
+                window_bg: "#1a1a1a".to_string(),
+                panel_bg: "#2b2b2b".to_string(),
+                input_bg: "#1a1a1a".to_string(),
+                input_text: "#ffb000".to_string(),
+                input_border: "#4d4d4d".to_string(),
+                input_focus: "#ffb000".to_string(),
+                border_radius: 0.0,
+                menu_border_radius: 0.0,
+                container_border_radius: 0.0,
+                input_border_radius: 0.0,
+                ribbon_bg: "#1a1a1a".to_string(),
+                dropdown_bg: "#2b2b2b".to_string(),
+            },
+        }
+    }
 }
 
 /// Theme manager for handling theme switching and management
@@ -308,6 +428,16 @@ impl ThemeManager {
         themes_map.insert(ThemeType::Light, Theme::light());
         themes_map.insert(ThemeType::Dark, Theme::dark());
         themes_map.insert(ThemeType::HighContrast, Theme::high_contrast());
+        
+        // Add custom themes that match Slint UI
+        let warm = Theme::warm();
+        themes_map.insert(warm.theme_type.clone(), warm);
+        
+        let crt_green = Theme::crt_green();
+        themes_map.insert(crt_green.theme_type.clone(), crt_green);
+        
+        let crt_amber = Theme::crt_amber();
+        themes_map.insert(crt_amber.theme_type.clone(), crt_amber);
 
         // Note: Minimalist themes are defined in minimalist_theme.rs module
         // to avoid circular dependencies

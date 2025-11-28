@@ -195,6 +195,22 @@ fn init_callbacks(
     window.on_view_statusbar(move || { println!("View Statusbar requested"); });
     window.on_view_zoom(move || { println!("View Zoom requested"); });
     window.on_view_fullscreen(move || { println!("View Fullscreen requested"); });
+    
+    // Theme callback
+    let window_weak_theme = window.as_weak();
+    window.on_set_theme(move |theme_name| {
+        println!("🎨 Theme change requested: {}", theme_name);
+        use crate::ui::theme_manager::ThemeManager;
+        if let Err(e) = ThemeManager::set_theme_by_name_static(&theme_name) {
+            println!("❌ Failed to set theme '{}': {}", theme_name, e);
+        } else {
+            println!("✅ Theme '{}' set successfully via ThemeManager", theme_name);
+            // Also update the main window visuals locally
+            if let Some(window) = window_weak_theme.upgrade() {
+                let _ = window.invoke_apply_theme_visuals(theme_name.into());
+            }
+        }
+    });
 
     // Format callbacks (Simulated Markdown)
     let window_weak_bold = window.as_weak();

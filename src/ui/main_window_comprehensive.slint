@@ -91,7 +91,9 @@ export component MainWindowComprehensiveWindow inherits Window {
     callback set-theme(string);
     
     // Theme switching logic
-    set-theme(theme-name) => {
+    // Theme switching logic
+    callback apply-theme-visuals(string);
+    apply-theme-visuals(theme-name) => {
         if (theme-name == "Normal") {
             Theme.primary-bg = #ffffff;
             Theme.secondary-bg = #f8f9fa;
