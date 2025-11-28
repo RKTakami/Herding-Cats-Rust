@@ -41,8 +41,8 @@ pub struct EnhancedDatabaseService {
 /// Database row data for sqlx
 #[derive(Debug, Clone)]
 pub struct DatabaseRow {
-    columns: Vec<String>,
-    values: Vec<Option<String>>,
+    pub columns: Vec<String>,
+    pub values: Vec<Option<String>>,
 }
 
 impl DatabaseRow {

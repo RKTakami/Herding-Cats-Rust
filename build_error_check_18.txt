@@ -1,0 +1,2961 @@
+   Compiling herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)
+warning: herding-cats-rust@0.50.0: Found 27 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/theme_types.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error: Unknown type 'SlintThemeColors'
+  --> src/ui/tools/individual_tool_windows.rs:31:28
+   |
+31 |         callback set_theme(SlintThemeColors);
+   |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:33:13
+   |
+33 |             Theme.primary-bg = c.primary-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:33:34
+   |
+33 |             Theme.primary-bg = c.primary-bg;
+   |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:34:13
+   |
+34 |             Theme.secondary-bg = c.secondary-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:34:36
+   |
+34 |             Theme.secondary-bg = c.secondary-bg;
+   |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:35:13
+   |
+35 |             Theme.accent = c.accent;
+   |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:35:30
+   |
+35 |             Theme.accent = c.accent;
+   |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:36:13
+   |
+36 |             Theme.text-primary = c.text-primary;
+   |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:36:36
+   |
+36 |             Theme.text-primary = c.text-primary;
+   |                                    ^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:37:13
+   |
+37 |             Theme.text-secondary = c.text-secondary;
+   |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:37:38
+   |
+37 |             Theme.text-secondary = c.text-secondary;
+   |                                      ^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:38:13
+   |
+38 |             Theme.border = c.border;
+   |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:38:30
+   |
+38 |             Theme.border = c.border;
+   |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:39:13
+   |
+39 |             Theme.menu-bg = c.menu-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:39:31
+   |
+39 |             Theme.menu-bg = c.menu-bg;
+   |                               ^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:40:13
+   |
+40 |             Theme.toolbar-bg = c.toolbar-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:40:34
+   |
+40 |             Theme.toolbar-bg = c.toolbar-bg;
+   |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:41:13
+   |
+41 |             Theme.status-bg = c.status-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:41:33
+   |
+41 |             Theme.status-bg = c.status-bg;
+   |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:42:13
+   |
+42 |             Theme.editor-bg = c.editor-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:42:33
+   |
+42 |             Theme.editor-bg = c.editor-bg;
+   |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:43:13
+   |
+43 |             Theme.title-bg = c.title-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:43:32
+   |
+43 |             Theme.title-bg = c.title-bg;
+   |                                ^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:44:13
+   |
+44 |             Theme.ribbon-bg = c.ribbon-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:44:33
+   |
+44 |             Theme.ribbon-bg = c.ribbon-bg;
+   |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:45:13
+   |
+45 |             Theme.dropdown-bg = c.dropdown-bg;
+   |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+  --> src/ui/tools/individual_tool_windows.rs:45:35
+   |
+45 |             Theme.dropdown-bg = c.dropdown-bg;
+   |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:57:29
+   |
+57 |                 background: Theme.menu-bg;
+   |                             ^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:66:37
+   |
+66 |                         background: Theme.status-bg;
+   |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+  --> src/ui/tools/individual_tool_windows.rs:91:37
+   |
+91 |                         background: Theme.status-bg;
+   |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:118:32
+    |
+118 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:127:29
+    |
+127 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:174:28
+    |
+174 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:176:13
+    |
+176 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:176:34
+    |
+176 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:177:13
+    |
+177 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:177:36
+    |
+177 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:178:13
+    |
+178 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:178:30
+    |
+178 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:179:13
+    |
+179 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:179:36
+    |
+179 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:180:13
+    |
+180 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:180:38
+    |
+180 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:181:13
+    |
+181 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:181:30
+    |
+181 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:182:13
+    |
+182 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:182:31
+    |
+182 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:183:13
+    |
+183 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:183:34
+    |
+183 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:184:13
+    |
+184 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:184:33
+    |
+184 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:185:13
+    |
+185 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:185:33
+    |
+185 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:186:13
+    |
+186 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:186:32
+    |
+186 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:187:13
+    |
+187 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:187:33
+    |
+187 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:188:13
+    |
+188 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:188:35
+    |
+188 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:200:29
+    |
+200 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:209:37
+    |
+209 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:234:37
+    |
+234 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:261:32
+    |
+261 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:270:29
+    |
+270 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:317:28
+    |
+317 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:319:13
+    |
+319 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:319:34
+    |
+319 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:320:13
+    |
+320 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:320:36
+    |
+320 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:321:13
+    |
+321 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:321:30
+    |
+321 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:322:13
+    |
+322 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:322:36
+    |
+322 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:323:13
+    |
+323 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:323:38
+    |
+323 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:324:13
+    |
+324 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:324:30
+    |
+324 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:325:13
+    |
+325 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:325:31
+    |
+325 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:326:13
+    |
+326 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:326:34
+    |
+326 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:327:13
+    |
+327 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:327:33
+    |
+327 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:328:13
+    |
+328 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:328:33
+    |
+328 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:329:13
+    |
+329 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:329:32
+    |
+329 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:330:13
+    |
+330 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:330:33
+    |
+330 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:331:13
+    |
+331 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:331:35
+    |
+331 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:343:29
+    |
+343 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:352:37
+    |
+352 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:377:37
+    |
+377 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:404:32
+    |
+404 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:413:29
+    |
+413 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:461:28
+    |
+461 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:463:13
+    |
+463 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:463:34
+    |
+463 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:464:13
+    |
+464 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:464:36
+    |
+464 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:465:13
+    |
+465 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:465:30
+    |
+465 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:466:13
+    |
+466 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:466:36
+    |
+466 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:467:13
+    |
+467 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:467:38
+    |
+467 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:468:13
+    |
+468 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:468:30
+    |
+468 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:469:13
+    |
+469 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:469:31
+    |
+469 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:470:13
+    |
+470 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:470:34
+    |
+470 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:471:13
+    |
+471 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:471:33
+    |
+471 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:472:13
+    |
+472 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:472:33
+    |
+472 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:473:13
+    |
+473 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:473:32
+    |
+473 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:474:13
+    |
+474 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:474:33
+    |
+474 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:475:13
+    |
+475 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:475:35
+    |
+475 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:487:29
+    |
+487 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:496:37
+    |
+496 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:521:37
+    |
+521 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:548:32
+    |
+548 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:557:29
+    |
+557 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:605:28
+    |
+605 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:607:13
+    |
+607 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:607:34
+    |
+607 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:608:13
+    |
+608 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:608:36
+    |
+608 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:609:13
+    |
+609 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:609:30
+    |
+609 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:610:13
+    |
+610 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:610:36
+    |
+610 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:611:13
+    |
+611 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:611:38
+    |
+611 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:612:13
+    |
+612 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:612:30
+    |
+612 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:613:13
+    |
+613 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:613:31
+    |
+613 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:614:13
+    |
+614 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:614:34
+    |
+614 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:615:13
+    |
+615 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:615:33
+    |
+615 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:616:13
+    |
+616 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:616:33
+    |
+616 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:617:13
+    |
+617 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:617:32
+    |
+617 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:618:13
+    |
+618 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:618:33
+    |
+618 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:619:13
+    |
+619 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:619:35
+    |
+619 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:631:29
+    |
+631 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:640:37
+    |
+640 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:665:37
+    |
+665 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:692:32
+    |
+692 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:701:29
+    |
+701 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:749:28
+    |
+749 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:751:13
+    |
+751 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:751:34
+    |
+751 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:752:13
+    |
+752 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:752:36
+    |
+752 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:753:13
+    |
+753 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:753:30
+    |
+753 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:754:13
+    |
+754 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:754:36
+    |
+754 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:755:13
+    |
+755 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:755:38
+    |
+755 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:756:13
+    |
+756 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:756:30
+    |
+756 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:757:13
+    |
+757 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:757:31
+    |
+757 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:758:13
+    |
+758 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:758:34
+    |
+758 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:759:13
+    |
+759 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:759:33
+    |
+759 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:760:13
+    |
+760 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:760:33
+    |
+760 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:761:13
+    |
+761 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:761:32
+    |
+761 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:762:13
+    |
+762 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:762:33
+    |
+762 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:763:13
+    |
+763 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:763:35
+    |
+763 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:775:29
+    |
+775 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:784:37
+    |
+784 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:809:37
+    |
+809 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:836:32
+    |
+836 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:845:29
+    |
+845 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+   --> src/ui/tools/individual_tool_windows.rs:892:28
+    |
+892 |         callback set_theme(SlintThemeColors);
+    |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:894:13
+    |
+894 |             Theme.primary-bg = c.primary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:894:34
+    |
+894 |             Theme.primary-bg = c.primary-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:895:13
+    |
+895 |             Theme.secondary-bg = c.secondary-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:895:36
+    |
+895 |             Theme.secondary-bg = c.secondary-bg;
+    |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:896:13
+    |
+896 |             Theme.accent = c.accent;
+    |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:896:30
+    |
+896 |             Theme.accent = c.accent;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:897:13
+    |
+897 |             Theme.text-primary = c.text-primary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:897:36
+    |
+897 |             Theme.text-primary = c.text-primary;
+    |                                    ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:898:13
+    |
+898 |             Theme.text-secondary = c.text-secondary;
+    |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:898:38
+    |
+898 |             Theme.text-secondary = c.text-secondary;
+    |                                      ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:899:13
+    |
+899 |             Theme.border = c.border;
+    |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:899:30
+    |
+899 |             Theme.border = c.border;
+    |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:900:13
+    |
+900 |             Theme.menu-bg = c.menu-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:900:31
+    |
+900 |             Theme.menu-bg = c.menu-bg;
+    |                               ^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:901:13
+    |
+901 |             Theme.toolbar-bg = c.toolbar-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:901:34
+    |
+901 |             Theme.toolbar-bg = c.toolbar-bg;
+    |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:902:13
+    |
+902 |             Theme.status-bg = c.status-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:902:33
+    |
+902 |             Theme.status-bg = c.status-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:903:13
+    |
+903 |             Theme.editor-bg = c.editor-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:903:33
+    |
+903 |             Theme.editor-bg = c.editor-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:904:13
+    |
+904 |             Theme.title-bg = c.title-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:904:32
+    |
+904 |             Theme.title-bg = c.title-bg;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:905:13
+    |
+905 |             Theme.ribbon-bg = c.ribbon-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:905:33
+    |
+905 |             Theme.ribbon-bg = c.ribbon-bg;
+    |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:906:13
+    |
+906 |             Theme.dropdown-bg = c.dropdown-bg;
+    |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+   --> src/ui/tools/individual_tool_windows.rs:906:35
+    |
+906 |             Theme.dropdown-bg = c.dropdown-bg;
+    |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:918:29
+    |
+918 |                 background: Theme.menu-bg;
+    |                             ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:927:37
+    |
+927 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:952:37
+    |
+952 |                         background: Theme.status-bg;
+    |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:979:32
+    |
+979 |                         color: Theme.text-primary;
+    |                                ^^^^^
+
+error: Cannot access id 'Theme'
+   --> src/ui/tools/individual_tool_windows.rs:988:29
+    |
+988 |                 background: Theme.primary-bg;
+    |                             ^^^^^
+
+error: Unknown type 'SlintThemeColors'
+    --> src/ui/tools/individual_tool_windows.rs:1036:28
+     |
+1036 |         callback set_theme(SlintThemeColors);
+     |                            ^^^^^^^^^^^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1038:13
+     |
+1038 |             Theme.primary-bg = c.primary-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'primary-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1038:34
+     |
+1038 |             Theme.primary-bg = c.primary-bg;
+     |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1039:13
+     |
+1039 |             Theme.secondary-bg = c.secondary-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'secondary-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1039:36
+     |
+1039 |             Theme.secondary-bg = c.secondary-bg;
+     |                                    ^^^^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1040:13
+     |
+1040 |             Theme.accent = c.accent;
+     |             ^^^^^
+
+error: Cannot access the field 'accent' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1040:30
+     |
+1040 |             Theme.accent = c.accent;
+     |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1041:13
+     |
+1041 |             Theme.text-primary = c.text-primary;
+     |             ^^^^^
+
+error: Cannot access the field 'text-primary' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1041:36
+     |
+1041 |             Theme.text-primary = c.text-primary;
+     |                                    ^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1042:13
+     |
+1042 |             Theme.text-secondary = c.text-secondary;
+     |             ^^^^^
+
+error: Cannot access the field 'text-secondary' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1042:38
+     |
+1042 |             Theme.text-secondary = c.text-secondary;
+     |                                      ^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1043:13
+     |
+1043 |             Theme.border = c.border;
+     |             ^^^^^
+
+error: Cannot access the field 'border' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1043:30
+     |
+1043 |             Theme.border = c.border;
+     |                              ^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1044:13
+     |
+1044 |             Theme.menu-bg = c.menu-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'menu-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1044:31
+     |
+1044 |             Theme.menu-bg = c.menu-bg;
+     |                               ^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1045:13
+     |
+1045 |             Theme.toolbar-bg = c.toolbar-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'toolbar-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1045:34
+     |
+1045 |             Theme.toolbar-bg = c.toolbar-bg;
+     |                                  ^^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1046:13
+     |
+1046 |             Theme.status-bg = c.status-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'status-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1046:33
+     |
+1046 |             Theme.status-bg = c.status-bg;
+     |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1047:13
+     |
+1047 |             Theme.editor-bg = c.editor-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'editor-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1047:33
+     |
+1047 |             Theme.editor-bg = c.editor-bg;
+     |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1048:13
+     |
+1048 |             Theme.title-bg = c.title-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'title-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1048:32
+     |
+1048 |             Theme.title-bg = c.title-bg;
+     |                                ^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1049:13
+     |
+1049 |             Theme.ribbon-bg = c.ribbon-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'ribbon-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1049:33
+     |
+1049 |             Theme.ribbon-bg = c.ribbon-bg;
+     |                                 ^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1050:13
+     |
+1050 |             Theme.dropdown-bg = c.dropdown-bg;
+     |             ^^^^^
+
+error: Cannot access the field 'dropdown-bg' of <error>
+    --> src/ui/tools/individual_tool_windows.rs:1050:35
+     |
+1050 |             Theme.dropdown-bg = c.dropdown-bg;
+     |                                   ^^^^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1062:29
+     |
+1062 |                 background: Theme.menu-bg;
+     |                             ^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1071:37
+     |
+1071 |                         background: Theme.status-bg;
+     |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1096:37
+     |
+1096 |                         background: Theme.status-bg;
+     |                                     ^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1123:32
+     |
+1123 |                         color: Theme.text-primary;
+     |                                ^^^^^
+
+error: Cannot access id 'Theme'
+    --> src/ui/tools/individual_tool_windows.rs:1132:29
+     |
+1132 |                 background: Theme.primary-bg;
+     |                             ^^^^^
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1245 |             ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1245 |             ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors),
+     |                                               ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1245 |             ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors);,
+     |                                                                      +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1246 |             ToolWindowHandle::Codex(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1246 |             ToolWindowHandle::Codex(w) => apply_theme!(w, colors),
+     |                                           ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1246 |             ToolWindowHandle::Codex(w) => apply_theme!(w, colors);,
+     |                                                                  +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1247 |             ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors),
+     |                                                   ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1247 |             ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors),
+     |                                                   ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1247 |             ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors);,
+     |                                                                          +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1248 |             ToolWindowHandle::Analysis(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1248 |             ToolWindowHandle::Analysis(w) => apply_theme!(w, colors),
+     |                                              ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1248 |             ToolWindowHandle::Analysis(w) => apply_theme!(w, colors);,
+     |                                                                     +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1249 |             ToolWindowHandle::Plot(w) => apply_theme!(w, colors),
+     |                                          ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1249 |             ToolWindowHandle::Plot(w) => apply_theme!(w, colors),
+     |                                          ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1249 |             ToolWindowHandle::Plot(w) => apply_theme!(w, colors);,
+     |                                                                 +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1250 |             ToolWindowHandle::Notes(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1250 |             ToolWindowHandle::Notes(w) => apply_theme!(w, colors),
+     |                                           ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1250 |             ToolWindowHandle::Notes(w) => apply_theme!(w, colors);,
+     |                                                                  +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1251 |             ToolWindowHandle::Research(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1251 |             ToolWindowHandle::Research(w) => apply_theme!(w, colors),
+     |                                              ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1251 |             ToolWindowHandle::Research(w) => apply_theme!(w, colors);,
+     |                                                                     +
+
+error: expected expression, found `let` statement
+    --> src/ui/tools/individual_tool_windows.rs:1186:9
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |         ^^^
+...
+1252 |             ToolWindowHandle::Structure(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+     = note: only supported directly in conditions of `if` and `while` expressions
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: macro expansion ignores `expr` metavariable and any tokens following
+    --> src/ui/tools/individual_tool_windows.rs:1201:9
+     |
+1201 |         $window.invoke_set_theme(slint_colors);
+     |         ^^^^^^^
+...
+1252 |             ToolWindowHandle::Structure(w) => apply_theme!(w, colors),
+     |                                               ----------------------- caused by the macro expansion here
+     |
+     = note: the usage of `apply_theme!` is likely invalid in expression context
+help: you might be missing a semicolon here
+     |
+1252 |             ToolWindowHandle::Structure(w) => apply_theme!(w, colors);,
+     |                                                                      +
+
+error[E0433]: failed to resolve: could not find `HierarchyToolWindow` in `hierarchy`
+    --> src/ui/tools/individual_tool_windows.rs:1398:43
+     |
+1398 |         let hierarchy_window = hierarchy::HierarchyToolWindow::new()?;
+     |                                           ^^^^^^^^^^^^^^^^^^^ could not find `HierarchyToolWindow` in `hierarchy`
+
+error[E0433]: failed to resolve: could not find `CodexToolWindow` in `codex`
+    --> src/ui/tools/individual_tool_windows.rs:1483:35
+     |
+1483 |         let codex_window = codex::CodexToolWindow::new()?;
+     |                                   ^^^^^^^^^^^^^^^ could not find `CodexToolWindow` in `codex`
+
+error[E0433]: failed to resolve: could not find `BrainstormingToolWindow` in `brainstorming`
+    --> src/ui/tools/individual_tool_windows.rs:1568:51
+     |
+1568 |         let brainstorming_window = brainstorming::BrainstormingToolWindow::new()?;
+     |                                                   ^^^^^^^^^^^^^^^^^^^^^^^ could not find `BrainstormingToolWindow` in `brainstorming`
+
+error[E0433]: failed to resolve: could not find `AnalysisToolWindow` in `analysis`
+    --> src/ui/tools/individual_tool_windows.rs:1653:41
+     |
+1653 |         let analysis_window = analysis::AnalysisToolWindow::new()?;
+     |                                         ^^^^^^^^^^^^^^^^^^ could not find `AnalysisToolWindow` in `analysis`
+
+error[E0433]: failed to resolve: could not find `PlotToolWindow` in `plot`
+    --> src/ui/tools/individual_tool_windows.rs:1738:33
+     |
+1738 |         let plot_window = plot::PlotToolWindow::new()?;
+     |                                 ^^^^^^^^^^^^^^ could not find `PlotToolWindow` in `plot`
+
+error[E0433]: failed to resolve: could not find `NotesToolWindow` in `notes`
+    --> src/ui/tools/individual_tool_windows.rs:1823:35
+     |
+1823 |         let notes_window = notes::NotesToolWindow::new()?;
+     |                                   ^^^^^^^^^^^^^^^ could not find `NotesToolWindow` in `notes`
+
+error[E0433]: failed to resolve: could not find `ResearchToolWindow` in `research`
+    --> src/ui/tools/individual_tool_windows.rs:1908:41
+     |
+1908 |         let research_window = research::ResearchToolWindow::new()?;
+     |                                         ^^^^^^^^^^^^^^^^^^ could not find `ResearchToolWindow` in `research`
+
+error[E0433]: failed to resolve: could not find `StructureToolWindow` in `structure`
+    --> src/ui/tools/individual_tool_windows.rs:1993:43
+     |
+1993 |         let structure_window = structure::StructureToolWindow::new()?;
+     |                                           ^^^^^^^^^^^^^^^^^^^ could not find `StructureToolWindow` in `structure`
+
+error[E0412]: cannot find type `HierarchyToolWindow` in module `hierarchy`
+    --> src/ui/tools/individual_tool_windows.rs:1206:26
+     |
+1206 |     Hierarchy(hierarchy::HierarchyToolWindow),
+     |                          ^^^^^^^^^^^^^^^^^^^ not found in `hierarchy`
+
+error[E0412]: cannot find type `CodexToolWindow` in module `codex`
+    --> src/ui/tools/individual_tool_windows.rs:1207:18
+     |
+1207 |     Codex(codex::CodexToolWindow),
+     |                  ^^^^^^^^^^^^^^^ not found in `codex`
+
+error[E0412]: cannot find type `BrainstormingToolWindow` in module `brainstorming`
+    --> src/ui/tools/individual_tool_windows.rs:1208:34
+     |
+1208 |     Brainstorming(brainstorming::BrainstormingToolWindow),
+     |                                  ^^^^^^^^^^^^^^^^^^^^^^^ not found in `brainstorming`
+
+error[E0412]: cannot find type `AnalysisToolWindow` in module `analysis`
+    --> src/ui/tools/individual_tool_windows.rs:1209:24
+     |
+1209 |     Analysis(analysis::AnalysisToolWindow),
+     |                        ^^^^^^^^^^^^^^^^^^ not found in `analysis`
+
+error[E0412]: cannot find type `PlotToolWindow` in module `plot`
+    --> src/ui/tools/individual_tool_windows.rs:1210:16
+     |
+1210 |     Plot(plot::PlotToolWindow),
+     |                ^^^^^^^^^^^^^^ not found in `plot`
+
+error[E0412]: cannot find type `NotesToolWindow` in module `notes`
+    --> src/ui/tools/individual_tool_windows.rs:1211:18
+     |
+1211 |     Notes(notes::NotesToolWindow),
+     |                  ^^^^^^^^^^^^^^^ not found in `notes`
+
+error[E0412]: cannot find type `ResearchToolWindow` in module `research`
+    --> src/ui/tools/individual_tool_windows.rs:1212:24
+     |
+1212 |     Research(research::ResearchToolWindow),
+     |                        ^^^^^^^^^^^^^^^^^^ not found in `research`
+
+error[E0412]: cannot find type `StructureToolWindow` in module `structure`
+    --> src/ui/tools/individual_tool_windows.rs:1213:26
+     |
+1213 |     Structure(structure::StructureToolWindow),
+     |                          ^^^^^^^^^^^^^^^^^^^ not found in `structure`
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1245 |             ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1246 |             ToolWindowHandle::Codex(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1247 |             ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors),
+     |                                                   ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1248 |             ToolWindowHandle::Analysis(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1249 |             ToolWindowHandle::Plot(w) => apply_theme!(w, colors),
+     |                                          ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1250 |             ToolWindowHandle::Notes(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1251 |             ToolWindowHandle::Research(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1252 |             ToolWindowHandle::Structure(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1401 |         apply_theme!(&hierarchy_window, &colors);
+     |         ---------------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1486 |         apply_theme!(&codex_window, &colors);
+     |         ------------------------------------ in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1571 |         apply_theme!(&brainstorming_window, &colors);
+     |         -------------------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1656 |         apply_theme!(&analysis_window, &colors);
+     |         --------------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1741 |         apply_theme!(&plot_window, &colors);
+     |         ----------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1826 |         apply_theme!(&notes_window, &colors);
+     |         ------------------------------------ in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1911 |         apply_theme!(&research_window, &colors);
+     |         --------------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0422]: cannot find struct, variant or union type `SlintThemeColors` in this scope
+    --> src/ui/tools/individual_tool_windows.rs:1186:28
+     |
+1186 |         let slint_colors = SlintThemeColors {
+     |                            ^^^^^^^^^^^^^^^^ help: a struct with a similar name exists: `ThemeColors`
+...
+1996 |         apply_theme!(&structure_window, &colors);
+     |         ---------------------------------------- in this macro invocation
+     |
+    ::: src/ui/theme_manager.rs:14:1
+     |
+  14 | pub struct ThemeColors {
+     | ---------------------- similarly named struct `ThemeColors` defined here
+     |
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unnecessary braces around block return value
+  --> src/ui/menu_integration_bridge.rs:24:9
+   |
+24 |         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+   |         ^^                                                   ^^
+   |
+   = note: `#[warn(unused_braces)]` (part of `#[warn(unused)]`) on by default
+help: remove these braces
+   |
+24 -         { Arc::new(RwLock::new(MenuIntegrationBridge::new())) };
+24 +         Arc::new(RwLock::new(MenuIntegrationBridge::new()));
+   |
+
+warning: unused doc comment
+   --> src/ui/theme_manager.rs:523:1
+    |
+523 | /// Global theme manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+    = note: `#[warn(unused_doc_comments)]` (part of `#[warn(unused)]`) on by default
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1245 |             ToolWindowHandle::Hierarchy(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: `#[deny(semicolon_in_expressions_from_macros)]` (part of `#[deny(future_incompatible)]`) on by default
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1246 |             ToolWindowHandle::Codex(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1247 |             ToolWindowHandle::Brainstorming(w) => apply_theme!(w, colors),
+     |                                                   ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1248 |             ToolWindowHandle::Analysis(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1249 |             ToolWindowHandle::Plot(w) => apply_theme!(w, colors),
+     |                                          ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1250 |             ToolWindowHandle::Notes(w) => apply_theme!(w, colors),
+     |                                           ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1251 |             ToolWindowHandle::Research(w) => apply_theme!(w, colors),
+     |                                              ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error: trailing semicolon in macro used in expression position
+    --> src/ui/tools/individual_tool_windows.rs:1200:10
+     |
+1200 |         };
+     |          ^
+...
+1252 |             ToolWindowHandle::Structure(w) => apply_theme!(w, colors),
+     |                                               ----------------------- in this macro invocation
+     |
+     = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+     = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+     = note: this error originates in the macro `apply_theme` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unused doc comment
+   --> src/ui/tools/threading_patterns.rs:426:1
+    |
+426 | /// Global managers using safe threading patterns
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/ui/tools/hierarchy_drag.rs:279:1
+    |
+279 | /// Global hierarchy drag handler instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused import: `Model`
+ --> src/ui/tools/hierarchy_ui.rs:9:13
+  |
+9 | use slint::{Model, ModelRc, VecModel, SharedString};
+  |             ^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: private item shadows public glob re-export
+  --> src/ui/tools/mod.rs:26:5
+   |
+26 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+note: the name `ToolLifecycleEvent` in the type namespace is supposed to be publicly re-exported here
+  --> src/ui/tools/mod.rs:20:9
+   |
+20 | pub use api_contracts::*;
+   |         ^^^^^^^^^^^^^^^^
+note: but the private item here shadows it
+  --> src/ui/tools/mod.rs:26:5
+   |
+26 | use crate::ui::tools::api_contracts::ToolLifecycleEvent;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   = note: `#[warn(hidden_glob_reexports)]` on by default
+
+warning: unused doc comment
+   --> src/ui/unified_toolbar.rs:225:1
+    |
+225 | /// Unified toolbar component definition
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused doc comment
+   --> src/ui/window_manager.rs:342:1
+    |
+342 | /// Global window manager instance
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ rustdoc does not generate documentation for macro invocations
+    |
+    = help: to document an item produced by a macro, the macro must produce the documentation as part of its expansion
+
+warning: unused imports: `Model` and `SharedString`
+ --> src/ui/font_manager_window.rs:2:30
+  |
+2 | use slint::{ComponentHandle, Model, VecModel, SharedString};
+  |                              ^^^^^            ^^^^^^^^^^^^
+
+warning: unused imports: `Arc` and `Mutex`
+ --> src/ui/font_manager_window.rs:3:17
+  |
+3 | use std::sync::{Arc, Mutex};
+  |                 ^^^  ^^^^^
+
+warning: unused imports: `FontManager` and `init_font_manager`
+ --> src/ui/font_manager_window.rs:5:27
+  |
+5 | use crate::font_manager::{FontManager, FontInfo, init_font_manager, get_font_manager};
+  |                           ^^^^^^^^^^^            ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `crate::ui::tools::base::ToolIntegration`
+  --> src/import/heuristic_import.rs:11:5
+   |
+11 | use crate::ui::tools::base::ToolIntegration;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `DatabaseConfig` and `ServiceFactory`
+  --> src/import/heuristic_import.rs:14:23
+   |
+14 | use crate::database::{ServiceFactory, DatabaseConfig};
+   |                       ^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^
+
+warning: unused import: `Context`
+ --> src/security/secure_storage.rs:1:22
+  |
+1 | use anyhow::{Result, Context};
+  |                      ^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'EnhancedToolbar' doesn't inherit Window. This is deprecated
+   --> src/ui/unified_toolbar.rs:507:22
+    |
+507 |     export component EnhancedToolbar {
+    |                      ^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemeSelector' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:456:22
+    |
+456 |     export component ThemeSelector {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedMenuBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:362:22
+    |
+362 |     export component ThemedMenuBar {
+    |                      ^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'ThemedStatusBar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:405:22
+    |
+405 |     export component ThemedStatusBar {
+    |                      ^^^^^^^^^^^^^^^
+
+warning: use of deprecated constant `ui::unified_toolbar::_::WARNING`: Exported component 'UnifiedToolbar' doesn't inherit Window. No code will be generated for it
+   --> src/ui/unified_toolbar.rs:278:22
+    |
+278 |     export component UnifiedToolbar {
+    |                      ^^^^^^^^^^^^^^
+
+error[E0119]: conflicting implementations of trait `Clone` for type `IndividualToolWindowManager`
+    --> src/ui/tools/individual_tool_windows.rs:1263:10
+     |
+1262 | #[derive(Clone)]
+     |          ----- first implementation here
+1263 | #[derive(Clone)]
+     |          ^^^^^ conflicting implementation for `IndividualToolWindowManager`
+
+warning: unused variable: `script`
+   --> src/automation/mod.rs:961:9
+    |
+961 |         script: &Script,
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:962:9
+    |
+962 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `parameters`
+   --> src/automation/mod.rs:978:9
+    |
+978 |         parameters: HashMap<String, serde_json::Value>,
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1041:9
+     |
+1041 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1042:9
+     |
+1042 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1043:9
+     |
+1043 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1063:9
+     |
+1063 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1064:9
+     |
+1064 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1065:9
+     |
+1065 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script`
+    --> src/automation/mod.rs:1084:9
+     |
+1084 |         script: &Script,
+     |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_script`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1085:9
+     |
+1085 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1086:9
+     |
+1086 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `workspace_path`
+    --> src/automation/mod.rs:1106:9
+     |
+1106 |         workspace_path: &PathBuf,
+     |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_workspace_path`
+
+warning: unused variable: `parameters`
+    --> src/automation/mod.rs:1107:9
+     |
+1107 |         parameters: HashMap<String, serde_json::Value>,
+     |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_parameters`
+
+warning: unused variable: `script_id`
+    --> src/automation/mod.rs:1267:49
+     |
+1267 |                     ErrorAction::CustomScript { script_id } => {
+     |                                                 ^^^^^^^^^ help: try ignoring the field: `script_id: _`
+
+warning: unused variable: `db_path_str`
+   --> src/database/enhanced_database_sqlx.rs:110:13
+    |
+110 |         let db_path_str = db_path.to_str().ok_or_else(|| {
+    |             ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_path_str`
+
+warning: unused variable: `file_path`
+   --> src/database/research_service.rs:576:9
+    |
+576 |         file_path: &PathBuf,
+    |         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_file_path`
+
+warning: unused variable: `context`
+   --> src/ui/comprehensive_error_handling.rs:461:9
+    |
+461 |         context: &ErrorContext,
+    |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_context`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:270:38
+    |
+270 |     pub async fn open_hierarchy_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:271:13
+    |
+271 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:276:34
+    |
+276 |     pub async fn open_codex_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:277:13
+    |
+277 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:282:42
+    |
+282 |     pub async fn open_brainstorming_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                          ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:283:13
+    |
+283 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:288:37
+    |
+288 |     pub async fn open_analysis_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:289:13
+    |
+289 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:294:33
+    |
+294 |     pub async fn open_plot_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                 ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:295:13
+    |
+295 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:300:34
+    |
+300 |     pub async fn open_notes_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                  ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:301:13
+    |
+301 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:306:37
+    |
+306 |     pub async fn open_research_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                     ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:307:13
+    |
+307 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `db_service`
+   --> src/ui/menu_integration_bridge.rs:312:38
+    |
+312 |     pub async fn open_structure_tool(db_service: Arc<RwLock<EnhancedDatabaseService>>) -> Result<(), Box<dyn std::error::Error>> {
+    |                                      ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_db_service`
+
+warning: variable does not need to be mutable
+   --> src/ui/menu_integration_bridge.rs:313:13
+    |
+313 |         let mut bridge = Self::get().await;
+    |             ----^^^^^^
+    |             |
+    |             help: remove this `mut`
+
+warning: unused variable: `tool`
+   --> src/ui/tools/threading_patterns.rs:238:13
+    |
+238 |         let tool = tools
+    |             ^^^^ help: if this is intentional, prefix it with an underscore: `_tool`
+
+warning: unused variable: `duration`
+  --> src/ui/tools/tools.rs:88:21
+   |
+88 |                 let duration = start_time.elapsed();
+   |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+warning: unused variable: `duration`
+   --> src/ui/tools/tools.rs:405:21
+    |
+405 |                 let duration = start_time.elapsed();
+    |                     ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_duration`
+
+warning: value assigned to `message` is never read
+   --> src/ui/window_persistence_integration.rs:144:17
+    |
+144 |         let mut message = None;
+    |                 ^^^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: value assigned to `stats` is never read
+   --> src/ui/window_persistence_integration.rs:145:17
+    |
+145 |         let mut stats = None;
+    |                 ^^^^^
+    |
+    = help: maybe it is overwritten before being read?
+
+warning: unused variable: `layout`
+   --> src/ui/window_state_persistence.rs:411:21
+    |
+411 |         if let Some(layout) = self.saved_layouts.remove(&layout_id) {
+    |                     ^^^^^^ help: if this is intentional, prefix it with an underscore: `_layout`
+
+warning: unused variable: `event_system`
+    --> src/automation/mod.rs:1151:25
+     |
+1151 |                     let event_system = self.event_system.write().unwrap();
+     |                         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_event_system`
+
+warning: unused variable: `scheduler`
+    --> src/automation/mod.rs:1162:25
+     |
+1162 |                     let scheduler = self.scheduler.write().unwrap();
+     |                         ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scheduler`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:443:21
+    |
+443 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:453:21
+    |
+453 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: unused variable: `state_manager`
+   --> src/ui/enhanced_window_manager.rs:485:21
+    |
+485 |         if let Some(state_manager) = &self.state_manager {
+    |                     ^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_state_manager`
+
+warning: variable does not need to be mutable
+    --> src/ui/tools/individual_tool_windows.rs:1354:25
+     |
+1354 |             if let Some(mut state) = states.get_mut(&tool_type) {
+     |                         ----^^^^^
+     |                         |
+     |                         help: remove this `mut`
+
+warning: irrefutable `if let` pattern
+   --> src/ui/window_manager.rs:216:12
+    |
+216 |         if let WindowType::IndividualTool(ref tool) = &window_state.window_type {
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: this pattern will always match, so the `if let` is useless
+    = help: consider replacing the `if let` with a `let`
+    = note: `#[warn(irrefutable_let_patterns)]` on by default
+
+Some errors have detailed explanations: E0119, E0412, E0422, E0433.
+For more information about an error, try `rustc --explain E0119`.
+warning: `herding-cats-rust` (lib) generated 66 warnings
+warning: herding-cats-rust@0.50.0: Found 27 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/theme_types.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error: could not compile `herding-cats-rust` (lib) due to 321 previous errors; 66 warnings emitted

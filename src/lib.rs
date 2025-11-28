@@ -4,17 +4,15 @@
 //! It exports all major subsystems including the database integration.
 
 pub mod automation;
+pub mod ipc_bridge;
 pub mod database;
 pub mod database_app_state;
 pub mod error;
 pub mod file_ops;
 pub mod services;
 pub mod settings;
-pub mod main_window_comprehensive;
-pub mod ui;
-pub mod ui_state;
+
 pub mod classify;
-pub mod import;
 pub mod convert;
 pub mod security;
 pub mod font_manager;
@@ -59,7 +57,7 @@ pub use database_app_state::{
 };
 
 // Re-export UI state types
-pub use ui_state::{AppState, ToolWindowsState, UiStateManager};
+
 
 // Re-export database module's error types as primary
 pub use database::{DatabaseError, DatabaseResult};

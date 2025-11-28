@@ -2,6 +2,8 @@ use aes_gcm::{Aes256Gcm, Key, Nonce};
 use rand::Rng;
 use std::sync::{Arc, Mutex};
 
+pub mod ai_service;
+
 /// Core service trait for dependency injection
 pub trait Service: Send + Sync {}
 

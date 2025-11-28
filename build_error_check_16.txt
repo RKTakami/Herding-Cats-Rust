@@ -1,0 +1,297 @@
+   Compiling herding-cats-rust v0.50.0 (/Users/rkt/Documents/Herding-Cats-Rust)
+warning: herding-cats-rust@0.50.0: Found 27 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/theme_types.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error: this file contains an unclosed delimiter
+   --> src/ui/tools/individual_tool_windows.rs:156:3
+    |
+ 18 | slint::slint! {
+    |               - unclosed delimiter
+...
+ 28 |     export component HierarchyToolWindow inherits Window {
+    |                                                          - this delimiter might not be properly closed...
+...
+126 |                 Rectangle { }
+    |                           --- block is empty, you might have not meant to close it
+...
+156 | }
+    | -^
+    | |
+    | ...as it matches this but it has different indentation
+
+warning: herding-cats-rust@0.50.0: Found 27 Slint files to compile
+warning: herding-cats-rust@0.50.0: Processing: src/ui/codex_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/styles.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/font_manager_ui.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/project_selector.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/main_window_comprehensive.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/hierarchy_window.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/theme_types.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/status_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ai_settings_popup.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_dropdowns.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/menu_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/title_bar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/toolbar_button.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/ribbon_toolbar.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/components/document_editor.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/structure_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/brainstorming_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/hierarchy_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/research_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/codex_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/plot_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/analysis_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools/notes_tool.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/writing_tools_enhanced.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/all_modules.slint
+warning: herding-cats-rust@0.50.0: Processing: src/ui/universal_tools_ui.slint
+warning: herding-cats-rust@0.50.0: Slint files detected - compilation will be handled by slint macros
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:102:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 102 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:129:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 129 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:156:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/analysis_tool.slint:183:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 183 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:147:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 147 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:249:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 249 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:296:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 296 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:343:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 343 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:392:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 392 |                 padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/brainstorming_tool.slint:477:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 477 |                 padding: 10px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:159:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 159 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/codex_window.slint:222:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 222 |                         padding: 15px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:130:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 130 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:166:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 166 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/hierarchy_window.slint:202:34
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 202 |                         padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                                  ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/notes_tool.slint:153:26
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 153 |                 padding: 8px;
+warning: herding-cats-rust@0.50.0:     |                          ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:118:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 118 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/research_tool.slint:156:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 156 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:100:22
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 100 |             padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                      ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:127:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 127 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+warning: herding-cats-rust@0.50.0: padding only has effect on layout elements
+warning: herding-cats-rust@0.50.0:    --> /Users/rkt/Documents/Herding-Cats-Rust/src/ui/writing_tools/structure_tool.slint:165:30
+warning: herding-cats-rust@0.50.0:     |
+warning: herding-cats-rust@0.50.0: 165 |                     padding: 12px;
+warning: herding-cats-rust@0.50.0:     |                              ^
+error: could not compile `herding-cats-rust` (lib) due to 1 previous error

@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Dark Theme */
+:root,
+.theme-dark {
+    --bg-primary: #1e1e1e;
+    --bg-secondary: #252526;
+    --bg-tertiary: #333333;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --accent-color: #007acc;
+    --border-color: #3e3e42;
+    --font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Light Theme */
+.theme-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f3f3;
+    --bg-tertiary: #e5e5e5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #007acc;
+    --border-color: #e5e5e5;
+}
+
+/* Warm Theme */
+.theme-warm {
+    --bg-primary: #fdf6e3;
+    --bg-secondary: #eee8d5;
+    --bg-tertiary: #e0dcc7;
+    --text-primary: #657b83;
+    --text-secondary: #93a1a1;
+    --accent-color: #b58900;
+    --border-color: #d3cbb7;
+}
+
+/* Terminal Green */
+.theme-terminal-green {
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --text-primary: #00ff00;
+    --text-secondary: #00cc00;
+    --accent-color: #00ff00;
+    --border-color: #30363d;
+    --font-family: 'Courier New', monospace;
+}
+
+/* Terminal Amber */
+.theme-terminal-amber {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #262626;
+    --bg-tertiary: #333333;
+    --text-primary: #ffb000;
+    --text-secondary: #cc8800;
+    --accent-color: #ffb000;
+    --border-color: #404040;
+    --font-family: 'Courier New', monospace;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    overflow: hidden;
+    /* Custom scrollbars */
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+}
+
+.titlebar {
+    height: 32px;
+    background-color: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border-color);
+    -webkit-app-region: drag;
+    /* Allow dragging window */
+}
+
+/* Editor Styles */
+.ProseMirror {
+    outline: none;
+    padding: 20px;
+    min-height: 100%;
+}
+
+.ProseMirror p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}

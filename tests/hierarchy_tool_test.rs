@@ -26,7 +26,7 @@ mod tests {
         println!("✅ Created hierarchy demo instance");
         
         // Initialize demo hierarchy
-        demo.initialize_demo_hierarchy();
+        demo.initialize_demo_hierarchy().await;
         println!("✅ Initialized demo hierarchy with sample data");
         
         // Display current hierarchy
@@ -42,7 +42,7 @@ mod tests {
         println!("✅ Demonstrated selective drag and drop");
         
         // Test item creation
-        demo.demonstrate_item_creation();
+        demo.demonstrate_item_creation().await;
         println!("✅ Demonstrated item creation");
         
         // Show hierarchy statistics
@@ -193,7 +193,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("   • Visual feedback for drag operations\n");
     
     // Run the complete demonstration
-    demo.run_complete_demo().await?;
+    demo.run_complete_demo().await;
     
     println!("\n🎉 HIERARCHY TOOL DEMONSTRATION COMPLETE! 🎉");
     println!("=============================================");
