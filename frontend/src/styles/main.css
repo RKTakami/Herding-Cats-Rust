@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global Reset */
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+}
+
 /* Default Dark Theme */
 :root,
 .theme-dark {
@@ -61,6 +70,7 @@
     --font-family: 'Courier New', monospace;
 }
 
+html,
 body {
     margin: 0;
     padding: 0;

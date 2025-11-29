@@ -958,8 +958,8 @@ impl ScriptEngine {
     /// Execute script directly (without sandbox)
     async fn execute_directly(
         &self,
-        script: &Script,
-        parameters: HashMap<String, serde_json::Value>,
+        _script: &Script,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, crate::error::AppError> {
         // This would execute scripts directly without isolation
         // For security reasons, this should generally be avoided
@@ -975,7 +975,7 @@ impl ScriptEngine {
         &self,
         script: &Script,
         workspace_path: &PathBuf,
-        parameters: HashMap<String, serde_json::Value>,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, AppError> {
         // Create temporary Rust file
         let script_path = workspace_path.join("script.rs");
@@ -1038,9 +1038,9 @@ impl ScriptEngine {
     /// Execute JavaScript script in sandbox
     async fn execute_javascript_script(
         &self,
-        script: &Script,
-        workspace_path: &PathBuf,
-        parameters: HashMap<String, serde_json::Value>,
+        _script: &Script,
+        _workspace_path: &PathBuf,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, AppError> {
         // For JavaScript, we would typically use a JavaScript runtime like Node.js or Deno
         // with proper sandboxing capabilities
@@ -1060,9 +1060,9 @@ impl ScriptEngine {
     /// Execute Python script in sandbox
     async fn execute_python_script(
         &self,
-        script: &Script,
-        workspace_path: &PathBuf,
-        parameters: HashMap<String, serde_json::Value>,
+        _script: &Script,
+        _workspace_path: &PathBuf,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, AppError> {
         // For Python, we would use a Python runtime with proper sandboxing
 
@@ -1081,9 +1081,9 @@ impl ScriptEngine {
     /// Execute Lua script in sandbox
     async fn execute_lua_script(
         &self,
-        script: &Script,
-        workspace_path: &PathBuf,
-        parameters: HashMap<String, serde_json::Value>,
+        _script: &Script,
+        _workspace_path: &PathBuf,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, AppError> {
         // For Lua, we would use a Lua interpreter with sandboxing
 
@@ -1103,8 +1103,8 @@ impl ScriptEngine {
     async fn execute_custom_script(
         &self,
         script: &Script,
-        workspace_path: &PathBuf,
-        parameters: HashMap<String, serde_json::Value>,
+        _workspace_path: &PathBuf,
+        _parameters: HashMap<String, serde_json::Value>,
     ) -> Result<ExecutionResult, AppError> {
         // Handle custom scripting languages
 
@@ -1148,7 +1148,7 @@ impl ScriptEngine {
         for trigger in &workflow.triggers {
             match trigger {
                 WorkflowTrigger::Event { event_type, .. } => {
-                    let event_system = self.event_system.write().unwrap();
+                    let _event_system = self.event_system.write().unwrap();
                     // Event handlers functionality removed - EventSystem only has event_queue
                     // This would need to be reimplemented if event handling is required
                     log::info!(
@@ -1159,7 +1159,7 @@ impl ScriptEngine {
                 }
                 WorkflowTrigger::Schedule { .. } => {
                     // Register with scheduler
-                    let scheduler = self.scheduler.write().unwrap();
+                    let _scheduler = self.scheduler.write().unwrap();
                     // Add to scheduled workflows
                 }
                 _ => {}
@@ -1264,7 +1264,7 @@ impl ScriptEngine {
                             context: HashMap::new(),
                         });
                     }
-                    ErrorAction::CustomScript { script_id } => {
+                    ErrorAction::CustomScript { script_id: _ } => {
                         // Execute custom error handling script
                     }
                 }
@@ -1500,6 +1500,7 @@ impl ScriptEngine {
 }
 
 /// Workflow event handler implementation
+#[allow(dead_code)]
 struct WorkflowEventHandler {
     workflow_id: Uuid,
 }

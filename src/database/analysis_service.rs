@@ -314,7 +314,7 @@ impl AnalysisService {
     }
 
     /// Generate insights based on analysis fields
-    fn generate_insights(&self, fields: &[AnalysisField]) -> Vec<String> {
+    fn _generate_insights(&self, fields: &[AnalysisField]) -> Vec<String> {
         let mut insights = Vec::new();
 
         // Count fields by type

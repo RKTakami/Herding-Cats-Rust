@@ -4,15 +4,15 @@ use crate::security::secure_storage::SecureStorageService;
 use anyhow::Result;
 
 pub struct AiService {
-    secure_storage: Arc<SecureStorageService>,
-    db_service: Arc<Mutex<DatabaseService>>,
+    _secure_storage: Arc<SecureStorageService>,
+    _db_service: Arc<Mutex<DatabaseService>>,
 }
 
 impl AiService {
     pub fn new(secure_storage: Arc<SecureStorageService>, db_service: Arc<Mutex<DatabaseService>>) -> Self {
         Self {
-            secure_storage,
-            db_service,
+            _secure_storage: secure_storage,
+            _db_service: db_service,
         }
     }
 

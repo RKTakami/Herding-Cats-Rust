@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { app, log } from '../api/ipc';
-import { ChevronDown, File, Folder, PenTool, Eye, HelpCircle } from 'lucide-react';
+import {
+    File, Folder, PenTool, Eye, HelpCircle
+} from 'lucide-react';
 
 const MenuDropdown = ({ label, icon: Icon, items }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,30 +23,36 @@ const MenuDropdown = ({ label, icon: Icon, items }) => {
     return (
         <div className="relative" ref={dropdownRef}>
             <button
-                className={`flex items-center space-x-1 px-3 py-1.5 rounded hover:bg-gray-700 text-sm ${isOpen ? 'bg-gray-700' : ''}`}
+                className={`flex items-center rounded bg-transparent hover:text-white transition-colors font-medium ${isOpen ? 'text-blue-400' : ''}`}
+                style={{
+                    color: 'var(--text-primary)',
+                    fontSize: '14px',
+                    padding: '4px 12px'
+                }}
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {Icon && <Icon size={14} className="mr-1" />}
                 <span>{label}</span>
-                <ChevronDown size={12} className="opacity-50" />
             </button>
 
             {isOpen && (
-                <div className="absolute top-full left-0 mt-1 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 py-1">
+                <div className="absolute top-full left-0 mt-1 w-48 rounded-lg shadow-xl z-50 py-1" style={{ backgroundColor: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
                     {items.map((item, index) => (
                         item.type === 'separator' ? (
-                            <div key={index} className="h-px bg-gray-700 my-1" />
+                            <div key={index} className="h-px my-1" style={{ backgroundColor: 'var(--border-color)' }} />
                         ) : (
                             <button
                                 key={index}
-                                className="w-full text-left px-4 py-2 text-sm hover:bg-gray-700 flex items-center justify-between group"
+                                className="w-full text-left px-4 py-1 text-sm bg-transparent flex items-center justify-between group transition-colors"
+                                style={{ color: 'var(--text-primary)' }}
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--bg-tertiary)'}
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
                                 onClick={() => {
                                     item.action();
                                     setIsOpen(false);
                                 }}
                             >
                                 <span>{item.label}</span>
-                                {item.shortcut && <span className="text-xs text-gray-500 group-hover:text-gray-400">{item.shortcut}</span>}
+                                {item.shortcut && <span className="text-xs" style={{ color: 'var(--text-secondary)' }}>{item.shortcut}</span>}
                             </button>
                         )
                     ))}
@@ -54,8 +62,11 @@ const MenuDropdown = ({ label, icon: Icon, items }) => {
     );
 };
 
+import { useTheme } from '../contexts/ThemeContext';
+
 const TopMenu = () => {
     const navigate = useNavigate();
+    const { theme, setTheme, themes } = useTheme();
 
     const handleExit = async () => {
         log('Exiting application...');
@@ -98,6 +109,8 @@ const TopMenu = () => {
                 { label: 'Research', action: () => app.openTool('research') },
                 { label: 'Mindmap', action: () => app.openTool('mindmap') },
                 { label: 'Brainstorm', action: () => app.openTool('brainstorm') },
+                { label: 'Concept Map', action: () => app.openTool('concept-map') },
+                { label: 'Flow Chart', action: () => app.openTool('flow-chart') },
             ]
         },
         {
@@ -105,7 +118,12 @@ const TopMenu = () => {
             icon: Eye,
             items: [
                 { label: 'Toggle Sidebar', action: () => log('View > Toggle Sidebar clicked') },
-                { label: 'Toggle Dark Mode', action: () => log('View > Toggle Dark Mode clicked') },
+                { type: 'separator' },
+                ...themes.map(t => ({
+                    label: `Theme: ${t.name}`,
+                    action: () => setTheme(t.id),
+                    shortcut: theme === t.id ? '✓' : ''
+                }))
             ]
         },
         {
@@ -119,8 +137,15 @@ const TopMenu = () => {
     ];
 
     return (
-        <div className="h-10 bg-gray-900 border-b border-gray-800 flex items-center px-2 select-none">
-            <div className="flex items-center space-x-1">
+        <div className="w-full flex items-center select-none" style={{
+            backgroundColor: 'var(--bg-primary)',
+            borderBottom: '1px solid var(--border-color)',
+            height: '30px',
+            padding: '0 16px',
+            gap: '20px',
+            zIndex: 40
+        }}>
+            <div className="flex items-center w-full" style={{ gap: '20px' }}>
                 {menuStructure.map((menu, index) => (
                     <MenuDropdown key={index} {...menu} />
                 ))}

@@ -1,30 +1,22 @@
 const pendingRequests = new Map();
 
-// Listen for responses from Rust
-window.addEventListener('message', (event) => {
-    // Rust sends responses via window.postMessage
-    // The data structure matches IpcResponseWrapper in Rust
-    const data = event.data;
-
+// Direct callback for Rust
+window.__IPC_RECEIVE__ = (data) => {
     if (data && data.id && pendingRequests.has(data.id)) {
         const { resolve, reject } = pendingRequests.get(data.id);
         pendingRequests.delete(data.id);
 
-        // Check for error response type
-        // The payload structure depends on the Rust IpcResponse enum serialization
-        // IpcResponse::Error { message } serializes to { type: "error", payload: { message: "..." } }
-        // Wait, IpcResponseWrapper has { id: "...", response: { type: "...", payload: ... } }
-        // because IpcResponse has #[serde(tag = "type", content = "payload")]
-
-        const response = data.response;
-
-        if (response.type === 'error') {
-            reject(new Error(response.payload.message));
+        if (data.type === 'error') {
+            reject(new Error(data.payload ? data.payload.message : 'Unknown error'));
+        } else if (data.type === 'db_result') {
+            resolve(data.payload); // Return the payload directly
+        } else if (data.type === 'ai_response') {
+            resolve(data.payload.text);
         } else {
-            resolve(response.payload);
+            resolve(data.payload);
         }
     }
-});
+};
 
 function generateId() {
     return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);

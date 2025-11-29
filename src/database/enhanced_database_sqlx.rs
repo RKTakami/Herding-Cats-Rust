@@ -107,9 +107,10 @@ impl IntoIterator for QueryResult {
 impl EnhancedDatabaseService {
     /// Create a new enhanced database service with sqlx
     pub async fn new(db_path: &Path, _config: DatabaseConfig) -> DatabaseResult<Self> {
-        let db_path_str = db_path.to_str().ok_or_else(|| {
-            DatabaseError::Configuration("Database path must be valid UTF-8".to_string())
-        })?;
+        let _db_path_str = db_path.to_string_lossy().to_string(); // Changed to to_string_lossy().to_string() to match type and remove unused error handling
+        // The original `db_path_str` was used for error handling if the path was not valid UTF-8.
+        // `to_string_lossy()` always succeeds, so `ok_or_else` is not applicable here.
+        // If `_db_path_str` is truly unused, this line can be simplified or removed.
 
         // Create the database directory if it doesn't exist
         if let Some(parent) = db_path.parent() {
@@ -205,7 +206,7 @@ impl EnhancedDatabaseService {
 
         sqlx::query(
             "INSERT INTO documents (id, project_id, title, content, document_type, word_count, checksum, created_at, updated_at, is_active, version, metadata)
-             VALUES (?, ?, ?, ?, 'markdown', ?, ?, ?, ?, 1, 1, NULL)"
+             VALUES (?, ?, ?, ?, 'json', ?, ?, ?, ?, 1, 1, NULL)"
         )
         .bind(&document_id)
         .bind(&project_id)
@@ -247,7 +248,7 @@ impl EnhancedDatabaseService {
         let version = 2i32;
 
         sqlx::query(
-            "UPDATE documents SET title = ?, content = ?, document_type = 'markdown', word_count = ?, checksum = ?, updated_at = ?, version = ? WHERE id = ?"
+            "UPDATE documents SET title = ?, content = ?, document_type = 'json', word_count = ?, checksum = ?, updated_at = ?, version = ? WHERE id = ?"
         )
         .bind(&title)
         .bind(&content)
@@ -302,7 +303,21 @@ impl EnhancedDatabaseService {
             for row in rows {
                 let mut values = Vec::new();
                 for i in 0..columns.len() {
-                    let value: Option<String> = row.get(i);
+                    // Try to get as String first
+                    let value: Option<String> = row.try_get(i).ok()
+                        .or_else(|| {
+                            // Try as i64
+                            row.try_get::<i64, _>(i).ok().map(|v| v.to_string())
+                        })
+                        .or_else(|| {
+                            // Try as f64
+                            row.try_get::<f64, _>(i).ok().map(|v| v.to_string())
+                        })
+                        .or_else(|| {
+                            // Try as bool
+                            row.try_get::<bool, _>(i).ok().map(|v| v.to_string())
+                        });
+                    
                     values.push(value);
                 }
                 result_rows.push(DatabaseRow::new(columns.clone(), values));
@@ -358,6 +373,24 @@ impl EnhancedDatabaseService {
                 .map_err(|e| {
                     DatabaseError::Migration(format!("Failed to execute schema: {}", e))
                 })?;
+        }
+
+        // Ensure default project exists
+        let project_count: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM projects")
+            .fetch_one(&self.pool)
+            .await
+            .unwrap_or(0);
+
+        if project_count == 0 {
+            sqlx::query(
+                "INSERT INTO projects (id, name, description, created_at, updated_at, is_active) 
+                 VALUES ('default-project', 'Default Project', 'Auto-generated default project', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1)"
+            )
+            .execute(&self.pool)
+            .await
+            .map_err(|e| {
+                DatabaseError::Service(format!("Failed to create default project: {}", e))
+            })?;
         }
 
         Ok(())

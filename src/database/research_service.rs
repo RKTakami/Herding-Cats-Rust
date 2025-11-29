@@ -573,7 +573,7 @@ impl ResearchService {
     async fn process_image(
         &self,
         material: &mut ResearchMaterial,
-        file_path: &PathBuf,
+        _file_path: &PathBuf,
     ) -> DatabaseResult<()> {
         // Note: In a real implementation, you would use an image processing library
         // For now, we'll just store basic metadata
