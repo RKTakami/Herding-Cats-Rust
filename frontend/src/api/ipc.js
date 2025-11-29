@@ -15,6 +15,9 @@ window.__IPC_RECEIVE__ = (data) => {
         } else {
             resolve(data.payload);
         }
+    } else if (data && data.type === 'open_document') {
+        // Handle unsolicited open_document event from backend
+        window.dispatchEvent(new CustomEvent('open-document', { detail: data.payload.id }));
     }
 };
 
@@ -73,6 +76,7 @@ export const ai = {
 export const app = {
     exit: () => sendRequest('app_action', { action: 'exit' }),
     openTool: (toolId) => sendRequest('app_action', { action: `open_tool:${toolId}` }),
+    openDocument: (docId) => sendRequest('app_action', { action: `open_document:${docId}` }),
 };
 
 export const log = (message) => sendRequest('log', { message });

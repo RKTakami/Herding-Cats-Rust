@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useEditor, EditorContent } from '@tiptap/react';
-import { Extension } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
 import { TextStyle } from '@tiptap/extension-text-style';
@@ -19,7 +19,7 @@ import { useStats } from '../contexts/StatsContext';
 // Custom Font Size Extension removed for stability
 
 const MenuBar = ({ editor }) => {
-    if (!editor) {
+    if (!editor || !editor.view || editor.isDestroyed) {
         return null;
     }
 
@@ -169,7 +169,12 @@ const MenuBar = ({ editor }) => {
     );
 };
 
-const Editor = ({ placeholder = 'Start writing...', documentId = 'scratchpad', trackGlobalStats = false }) => {
+const Editor = ({ placeholder = 'Start writing...', documentId: propDocumentId = 'scratchpad', trackGlobalStats = false }) => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const queryDocId = searchParams.get('docId');
+    const documentId = queryDocId || propDocumentId;
+
     const [content, setContent] = useState('');
     const [title, setTitle] = useState('');
     const [lastSaved, setLastSaved] = useState(null);
@@ -184,18 +189,21 @@ const Editor = ({ placeholder = 'Start writing...', documentId = 'scratchpad', t
                     const doc = result.data[0];
                     setTitle(doc.title || documentId);
                     let loadedContent = doc.content;
-                    // Try to parse as JSON, if fails treat as HTML string
+                    // Try to parse as JSON
                     try {
                         const parsed = JSON.parse(loadedContent);
                         // Check if it looks like a ProseMirror document (has type: 'doc')
                         if (parsed && parsed.type === 'doc') {
                             setContent(parsed);
                         } else {
-                            setContent(loadedContent);
+                            // Invalid JSON structure, reset to empty
+                            console.warn('Invalid Tiptap JSON structure, resetting document.');
+                            setContent('');
                         }
                     } catch (e) {
-                        // Not JSON, assume legacy HTML
-                        setContent(loadedContent);
+                        // Not JSON, reset to empty (Strict Mode: No HTML fallback)
+                        console.warn('Failed to parse document as JSON, resetting to empty.', e);
+                        setContent('');
                     }
                 } else {
                     setContent(''); // Reset content if document doesn't exist
@@ -283,19 +291,65 @@ const Editor = ({ placeholder = 'Start writing...', documentId = 'scratchpad', t
                 style: 'color: var(--text-primary)'
             },
         },
-    });
+    }, []); // Empty dependency array for stability
+
+    // Update editor attributes when theme changes
+    useEffect(() => {
+        if (editor && !editor.isDestroyed) {
+            editor.setOptions({
+                editorProps: {
+                    attributes: {
+                        class: `prose ${isDarkTheme ? 'prose-invert' : ''} max-w-none focus:outline-none min-h-[500px]`,
+                        style: 'color: var(--text-primary)'
+                    },
+                },
+            });
+        }
+    }, [editor, isDarkTheme]);
 
     // Update editor content when loaded from DB
     useEffect(() => {
-        if (editor && content !== undefined) {
-            // Check if content has changed significantly
-            // For JSON, we compare stringified versions or rely on Tiptap's internal check
-            // For HTML, we compare strings
+        if (editor && !editor.isDestroyed && content !== undefined) {
+            // When content changes (due to document switch), update editor
+            // We compare current editor content to new content to avoid loops, 
+            // but for document switches we rely on the fact that 'content' state changed.
 
-            // Simple check: if editor is empty and we have content, set it
-            if (editor.isEmpty && content) {
-                editor.commands.setContent(content);
-                // Update word count
+            // If the new content is different from editor's current content, update it.
+            // This is a simple check; for robust JSON comparison we might need more,
+            // but for switching documents, the content usually differs significantly.
+
+            // CRITICAL FIX: Always set content if it's a new load (implied by content dependency)
+            // We use a ref or simple comparison to avoid typing loops, but here 'content' 
+            // is only set by loadContent(), not by onUpdate.
+
+            const currentJSON = editor.getJSON();
+            if (JSON.stringify(currentJSON) !== JSON.stringify(content)) {
+                // Check if view is available before setting content
+                if (editor.view) {
+                    try {
+                        editor.commands.setContent(content);
+                    } catch (e) {
+                        console.warn('Failed to set content:', e);
+                    }
+                }
+                // Check again before focusing
+                if (!editor.isDestroyed && editor.view) {
+                    try {
+                        // Use setTimeout to ensure view is ready
+                        setTimeout(() => {
+                            if (!editor.isDestroyed && editor.view) {
+                                try {
+                                    editor.commands.focus('end');
+                                } catch (e) {
+                                    console.warn('Failed to focus editor (delayed):', e);
+                                }
+                            }
+                        }, 10);
+                    } catch (e) {
+                        console.warn('Failed to focus editor:', e);
+                    }
+                }
+
                 if (trackGlobalStats) {
                     const text = editor.getText();
                     const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
@@ -334,9 +388,11 @@ const Editor = ({ placeholder = 'Start writing...', documentId = 'scratchpad', t
                         backgroundColor: 'var(--bg-primary)',
                         color: 'var(--text-primary)'
                     }}
-                    onClick={() => editor?.chain().focus().run()}
+                    onClick={() => {
+                        // Removed focus-on-click for stability
+                    }}
                 >
-                    <EditorContent editor={editor} />
+                    {editor && <EditorContent editor={editor} />}
                 </div>
             </div>
         </div>

@@ -57,6 +57,7 @@ pub struct IpcBridge {
 pub enum AppAction {
     Exit,
     OpenTool { tool_id: String },
+    OpenDocument { document_id: String },
 }
 
 impl IpcBridge {
@@ -135,6 +136,10 @@ impl IpcBridge {
                         } else if req_action.starts_with("open_tool:") {
                             let tool_id = req_action.trim_start_matches("open_tool:").to_string();
                             action = Some(AppAction::OpenTool { tool_id });
+                            IpcResponse::Ack
+                        } else if req_action.starts_with("open_document:") {
+                            let document_id = req_action.trim_start_matches("open_document:").to_string();
+                            action = Some(AppAction::OpenDocument { document_id });
                             IpcResponse::Ack
                         } else {
                             IpcResponse::Error { message: "Unknown action".to_string() }

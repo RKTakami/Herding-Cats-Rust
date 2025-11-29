@@ -21,6 +21,7 @@ enum UserEvent {
     IpcResponse(WindowId, String),
     AppExit,
     OpenTool(String),
+    OpenDocument(String),
 }
 
 #[tokio::main]
@@ -54,6 +55,7 @@ async fn main() -> Result<()> {
             .arg("--strictPort")
             .arg("--port")
             .arg("5180")
+            .stdin(std::process::Stdio::null())
             .stdout(std::process::Stdio::inherit())
             .stderr(std::process::Stdio::inherit())
             .spawn()
@@ -88,6 +90,7 @@ async fn main() -> Result<()> {
     // Window Management
     // Store both Window and WebView to ensure Window is not dropped
     let mut webviews: HashMap<WindowId, (tao::window::Window, WebView)> = HashMap::new();
+    let mut main_window_id: Option<WindowId> = None;
 
     // Helper to create a window
     let proxy_for_window = proxy.clone();
@@ -105,7 +108,7 @@ async fn main() -> Result<()> {
         #[cfg(target_os = "macos")]
         {
             // Use title as unique identifier to prevent tabbing
-            window_builder = window_builder.with_tabbing_identifier(&title);
+            // window_builder = window_builder.with_tabbing_identifier(&title);
         }
 
         let window = window_builder.build(event_loop)?;
@@ -115,12 +118,15 @@ async fn main() -> Result<()> {
         let proxy_clone = proxy_for_window.clone();
 
         #[allow(unused_mut)]
-        let mut builder = WebViewBuilder::new(&window)
-            .with_url(&url)
-            .with_ipc_handler(move |msg| {
+        let mut builder = WebViewBuilder::new();
+        
+        builder = builder.with_url(&url);
+        
+        builder = builder.with_ipc_handler(move |msg| {
                 let bridge = ipc_bridge_clone.clone();
                 let proxy = proxy_clone.clone();
-                let msg_string = msg.clone();
+                // In wry 0.50+, msg is Request<String>. We need the body.
+                let msg_string = msg.into_body();
                 tokio::spawn(async move {
                     let (response, action) = bridge.handle_message(msg_string).await;
                     let _ = proxy.send_event(UserEvent::IpcResponse(window_id, response));
@@ -132,6 +138,9 @@ async fn main() -> Result<()> {
                             },
                             AppAction::OpenTool { tool_id } => {
                                 let _ = proxy.send_event(UserEvent::OpenTool(tool_id));
+                            },
+                            AppAction::OpenDocument { document_id } => {
+                                let _ = proxy.send_event(UserEvent::OpenDocument(document_id));
                             }
                         }
                     }
@@ -194,7 +203,7 @@ async fn main() -> Result<()> {
 
         let webview = builder
             .with_initialization_script("window.IPC_TEST = 'active'; console.log('Init script ran');")
-            .build()?;
+            .build(&window)?;
         
         Ok((window, webview))
     };
@@ -206,6 +215,7 @@ async fn main() -> Result<()> {
     let start_url = "app://localhost/index.html".to_string();
 
     let (main_window, main_webview) = create_window(&event_loop, start_url, "Herding Cats".to_string())?;
+    main_window_id = Some(main_window.id());
     webviews.insert(main_window.id(), (main_window, main_webview));
 
     // Run Event Loop
@@ -238,7 +248,7 @@ async fn main() -> Result<()> {
             Event::UserEvent(UserEvent::OpenTool(tool_id)) => {
                 println!("Opening tool window: {}", tool_id);
                 #[cfg(debug_assertions)]
-                let url = format!("http://127.0.0.1:5173/#/tool/{}", tool_id);
+                let url = format!("http://127.0.0.1:5180/#/tool/{}", tool_id);
                 #[cfg(not(debug_assertions))]
                 let url = format!("app://localhost/index.html#/tool/{}", tool_id);
                 match create_window(event_loop, url, format!("Tool: {}", tool_id)) {
@@ -246,6 +256,16 @@ async fn main() -> Result<()> {
                         webviews.insert(window.id(), (window, webview));
                     },
                     Err(e) => eprintln!("Failed to create tool window: {}", e),
+                }
+            },
+            Event::UserEvent(UserEvent::OpenDocument(document_id)) => {
+                println!("Opening document in main window: {}", document_id);
+                if let Some(id) = main_window_id {
+                    if let Some((_, webview)) = webviews.get(&id) {
+                        let payload = format!(r#"{{"type": "open_document", "payload": {{ "id": "{}" }} }}"#, document_id);
+                        let script = format!("if (window.__IPC_RECEIVE__) {{ window.__IPC_RECEIVE__({}) }} else {{ console.error('IPC Receive handler missing') }}", payload);
+                        let _ = webview.evaluate_script(&script);
+                    }
                 }
             }
             Event::LoopDestroyed => {

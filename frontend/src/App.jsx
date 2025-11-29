@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useLocation, useParams, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
 import { Database } from 'lucide-react';
 import Editor from './components/Editor';
 import TopMenu from './components/TopMenu';
@@ -17,6 +17,22 @@ import './styles/main.css';
 
 const MainWindow = () => {
   const [dbStatus, setDbStatus] = useState('Connecting...')
+  const navigate = useNavigate(); // Need to move Router up or use specific hook if MainWindow is inside Router.
+  // MainWindow is inside Router in App component. Wait, App renders Routes. MainWindow is a component rendered by Route.
+  // So MainWindow is inside Router context.
+
+  // So MainWindow is inside Router context.
+
+  useEffect(() => {
+    const handleOpenDocument = (e) => {
+      const docId = e.detail;
+      log(`[MainWindow] Navigating to document: ${docId}`);
+      navigate(`/manuscript?docId=${docId}`);
+    };
+
+    window.addEventListener('open-document', handleOpenDocument);
+    return () => window.removeEventListener('open-document', handleOpenDocument);
+  }, [navigate]);
 
   useEffect(() => {
     async function checkDb() {
@@ -65,8 +81,9 @@ const MainWindow = () => {
   );
 };
 
-const ToolWindow = () => {
-  const { toolId } = useParams();
+const ToolWindow = ({ toolId: propToolId }) => {
+  const { toolId: paramsToolId } = useParams();
+  const toolId = propToolId || paramsToolId;
 
   const tools = {
     hierarchy: Hierarchy,
@@ -93,7 +110,12 @@ const ToolWindow = () => {
         ) : (
           <div className="p-4">
             <h2 className="text-xl font-bold mb-4 capitalize">{toolId} Tool</h2>
-            <Editor placeholder={`Start writing in ${toolId}...`} documentId={`tool-${toolId}`} trackGlobalStats={false} />
+            {/* Only render Editor if toolId is valid but no component found, to avoid errors if toolId is undefined */}
+            {toolId ? (
+              <Editor placeholder={`Start writing in ${toolId}...`} documentId={`tool-${toolId}`} trackGlobalStats={false} />
+            ) : (
+              <div>Error: Tool ID missing</div>
+            )}
           </div>
         )}
       </div>
@@ -155,12 +177,44 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
+  const location = useLocation();
+  // Check window.location.search (browser URL) first, then hash search
+  const browserSearchParams = new URLSearchParams(window.location.search);
+  const hashSearchParams = new URLSearchParams(location.search);
+  const toolId = browserSearchParams.get('tool') || hashSearchParams.get('tool') || (location.pathname.startsWith('/tool/') ? location.pathname.split('/')[2] : null);
+
+  if (toolId && !location.pathname.startsWith('/tool/')) {
+    return (
+      <ErrorBoundary>
+        <ThemeProvider>
+          <StatsProvider>
+            <Routes>
+              <Route path="*" element={<Navigate to={`/tool/${toolId}`} replace />} />
+            </Routes>
+          </StatsProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    );
+  }
+
+  // Force ToolWindow if toolId is present
+  if (toolId) {
+    return (
+      <ErrorBoundary>
+        <ThemeProvider>
+          <StatsProvider>
+            <ToolWindow toolId={toolId} />
+          </StatsProvider>
+        </ThemeProvider>
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
       <ThemeProvider>
         <StatsProvider>
           <Routes>
-            <Route path="/tool/:toolId" element={<ToolWindow />} />
             <Route path="/*" element={<MainWindow />} />
           </Routes>
         </StatsProvider>
