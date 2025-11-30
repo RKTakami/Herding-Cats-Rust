@@ -58,6 +58,11 @@ pub enum AppAction {
     Exit,
     OpenTool { tool_id: String },
     OpenDocument { document_id: String },
+    CloseWindow,
+    MinimizeWindow,
+    ToggleMaximizeWindow,
+    StartResize { direction: String },
+    DragWindow,
 }
 
 impl IpcBridge {
@@ -140,6 +145,22 @@ impl IpcBridge {
                         } else if req_action.starts_with("open_document:") {
                             let document_id = req_action.trim_start_matches("open_document:").to_string();
                             action = Some(AppAction::OpenDocument { document_id });
+                            IpcResponse::Ack
+                        } else if req_action == "close_window" {
+                            action = Some(AppAction::CloseWindow);
+                            IpcResponse::Ack
+                        } else if req_action == "minimize_window" {
+                            action = Some(AppAction::MinimizeWindow);
+                            IpcResponse::Ack
+                        } else if req_action == "toggle_maximize_window" {
+                            action = Some(AppAction::ToggleMaximizeWindow);
+                            IpcResponse::Ack
+                        } else if req_action.starts_with("start_resize:") {
+                            let direction = req_action.trim_start_matches("start_resize:").to_string();
+                            action = Some(AppAction::StartResize { direction });
+                            IpcResponse::Ack
+                        } else if req_action == "drag_window" {
+                            action = Some(AppAction::DragWindow);
                             IpcResponse::Ack
                         } else {
                             IpcResponse::Error { message: "Unknown action".to_string() }

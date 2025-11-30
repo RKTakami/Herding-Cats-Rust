@@ -27,7 +27,8 @@ const MenuDropdown = ({ label, icon: Icon, items }) => {
                 style={{
                     color: 'var(--text-primary)',
                     fontSize: '14px',
-                    padding: '4px 12px'
+                    padding: '4px 12px',
+                    WebkitAppRegion: 'no-drag'
                 }}
                 onClick={() => setIsOpen(!isOpen)}
             >
@@ -63,6 +64,8 @@ const MenuDropdown = ({ label, icon: Icon, items }) => {
 };
 
 import { useTheme } from '../contexts/ThemeContext';
+
+import { X, Minus, Square } from 'lucide-react';
 
 const TopMenu = () => {
     const navigate = useNavigate();
@@ -143,8 +146,11 @@ const TopMenu = () => {
             height: '30px',
             padding: '0 16px',
             gap: '20px',
-            zIndex: 40
+            zIndex: 40,
+            // WebkitAppRegion: 'drag' // Removed drag, now handled by TitleBar
         }}>
+            {/* Traffic Lights removed - moved to TitleBar */}
+
             <div className="flex items-center w-full" style={{ gap: '20px' }}>
                 {menuStructure.map((menu, index) => (
                     <MenuDropdown key={index} {...menu} />

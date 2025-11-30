@@ -22,6 +22,11 @@ enum UserEvent {
     AppExit,
     OpenTool(String),
     OpenDocument(String),
+    CloseWindow(WindowId),
+    MinimizeWindow(WindowId),
+    ToggleMaximizeWindow(WindowId),
+    StartResize(WindowId, tao::window::ResizeDirection),
+    DragWindow(WindowId),
 }
 
 #[tokio::main]
@@ -101,14 +106,20 @@ async fn main() -> Result<()> {
         let offset_y = rng.gen_range(50.0..200.0);
 
         let mut window_builder = WindowBuilder::new()
-            .with_title(&title)
+            .with_title("Herding Cats")
             .with_inner_size(tao::dpi::LogicalSize::new(1200.0, 800.0))
-            .with_position(tao::dpi::LogicalPosition::new(offset_x, offset_y));
+            .with_position(tao::dpi::LogicalPosition::new(offset_x, offset_y))
+            .with_decorations(true)
+            .with_transparent(false);
 
         #[cfg(target_os = "macos")]
         {
             // Use title as unique identifier to prevent tabbing
             // window_builder = window_builder.with_tabbing_identifier(&title);
+            window_builder = window_builder
+                .with_titlebar_transparent(false)
+                .with_fullsize_content_view(false)
+                .with_movable_by_window_background(false);
         }
 
         let window = window_builder.build(event_loop)?;
@@ -141,6 +152,32 @@ async fn main() -> Result<()> {
                             },
                             AppAction::OpenDocument { document_id } => {
                                 let _ = proxy.send_event(UserEvent::OpenDocument(document_id));
+                            },
+                            AppAction::CloseWindow => {
+                                let _ = proxy.send_event(UserEvent::CloseWindow(window_id));
+                            },
+                            AppAction::MinimizeWindow => {
+                                let _ = proxy.send_event(UserEvent::MinimizeWindow(window_id));
+                            },
+                            AppAction::ToggleMaximizeWindow => {
+                                let _ = proxy.send_event(UserEvent::ToggleMaximizeWindow(window_id));
+                            },
+                            AppAction::StartResize { direction } => {
+                                let resize_direction = match direction.as_str() {
+                                    "East" => tao::window::ResizeDirection::East,
+                                    "North" => tao::window::ResizeDirection::North,
+                                    "NorthEast" => tao::window::ResizeDirection::NorthEast,
+                                    "NorthWest" => tao::window::ResizeDirection::NorthWest,
+                                    "South" => tao::window::ResizeDirection::South,
+                                    "SouthEast" => tao::window::ResizeDirection::SouthEast,
+                                    "SouthWest" => tao::window::ResizeDirection::SouthWest,
+                                    "West" => tao::window::ResizeDirection::West,
+                                    _ => tao::window::ResizeDirection::East, // Default fallback
+                                };
+                                let _ = proxy.send_event(UserEvent::StartResize(window_id, resize_direction));
+                            },
+                            AppAction::DragWindow => {
+                                let _ = proxy.send_event(UserEvent::DragWindow(window_id));
                             }
                         }
                     }
@@ -267,7 +304,34 @@ async fn main() -> Result<()> {
                         let _ = webview.evaluate_script(&script);
                     }
                 }
-            }
+            },
+            Event::UserEvent(UserEvent::CloseWindow(window_id)) => {
+                 println!("Closing window: {:?}", window_id);
+                 webviews.remove(&window_id);
+                 if webviews.is_empty() {
+                     *control_flow = ControlFlow::Exit;
+                 }
+            },
+            Event::UserEvent(UserEvent::MinimizeWindow(window_id)) => {
+                if let Some((window, _)) = webviews.get(&window_id) {
+                    window.set_minimized(true);
+                }
+            },
+            Event::UserEvent(UserEvent::ToggleMaximizeWindow(window_id)) => {
+                if let Some((window, _)) = webviews.get(&window_id) {
+                    window.set_maximized(!window.is_maximized());
+                }
+            },
+            Event::UserEvent(UserEvent::StartResize(window_id, direction)) => {
+                if let Some((window, _)) = webviews.get(&window_id) {
+                    let _ = window.drag_resize_window(direction);
+                }
+            },
+            Event::UserEvent(UserEvent::DragWindow(window_id)) => {
+                if let Some((window, _)) = webviews.get(&window_id) {
+                    let _ = window.drag_window();
+                }
+            },
             Event::LoopDestroyed => {
                 println!("Goodbye!");
                 #[cfg(debug_assertions)]

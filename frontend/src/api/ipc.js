@@ -77,6 +77,11 @@ export const app = {
     exit: () => sendRequest('app_action', { action: 'exit' }),
     openTool: (toolId) => sendRequest('app_action', { action: `open_tool:${toolId}` }),
     openDocument: (docId) => sendRequest('app_action', { action: `open_document:${docId}` }),
+    closeWindow: () => sendRequest('app_action', { action: 'close_window' }),
+    minimizeWindow: () => sendRequest('app_action', { action: 'minimize_window' }),
+    toggleMaximizeWindow: () => sendRequest('app_action', { action: 'toggle_maximize_window' }),
+    startResize: (direction) => sendRequest('app_action', { action: `start_resize:${direction}` }),
+    dragWindow: () => sendRequest('app_action', { action: 'drag_window' }),
 };
 
 export const log = (message) => sendRequest('log', { message });

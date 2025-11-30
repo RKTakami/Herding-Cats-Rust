@@ -22,6 +22,7 @@ button {
     --accent-color: #007acc;
     --border-color: #3e3e42;
     --font-family: 'Inter', system-ui, sans-serif;
+    --app-window-padding: 8px;
 }
 
 /* Light Theme */
@@ -33,6 +34,7 @@ button {
     --text-secondary: #666666;
     --accent-color: #007acc;
     --border-color: #e5e5e5;
+    --app-window-padding: 8px;
 }
 
 /* Warm Theme */
@@ -44,6 +46,7 @@ button {
     --text-secondary: #93a1a1;
     --accent-color: #b58900;
     --border-color: #d3cbb7;
+    --app-window-padding: 8px;
 }
 
 /* Terminal Green */
@@ -56,6 +59,7 @@ button {
     --accent-color: #00ff00;
     --border-color: #30363d;
     --font-family: 'Courier New', monospace;
+    --app-window-padding: 8px;
 }
 
 /* Terminal Amber */
@@ -68,6 +72,7 @@ button {
     --accent-color: #ffb000;
     --border-color: #404040;
     --font-family: 'Courier New', monospace;
+    --app-window-padding: 8px;
 }
 
 html,
@@ -81,10 +86,21 @@ body {
     /* Custom scrollbars */
 }
 
+#root {
+    height: 100%;
+    width: 100%;
+}
+
 .app-container {
     display: flex;
     height: 100vh;
     width: 100vw;
+    padding: var(--app-window-padding);
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    /* Ensure relative positioning for absolute children like resize handles */
 }
 
 .sidebar {

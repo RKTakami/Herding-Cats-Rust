@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
-import { Database } from 'lucide-react';
+import { Database, X } from 'lucide-react';
 import Editor from './components/Editor';
 import TopMenu from './components/TopMenu';
 import ResearchView from './components/ResearchView';
@@ -13,6 +13,10 @@ import Notes from './components/tools/Notes';
 import ConceptMap from './components/tools/ConceptMap';
 import FlowChart from './components/tools/FlowChart';
 import { db, log } from './api/ipc';
+import TitleBar from './components/TitleBar';
+import ResizeHandles from './components/ResizeHandles';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { StatsProvider } from './contexts/StatsContext';
 import './styles/main.css';
 
 const MainWindow = () => {
@@ -58,8 +62,9 @@ const MainWindow = () => {
 
   return (
     <div className="app-container flex-col h-screen overflow-hidden">
+      <ResizeHandles />
       <TopMenu />
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden" style={{ WebkitAppRegion: 'no-drag' }}>
         <div className="flex-1 overflow-auto" style={{ backgroundColor: 'var(--bg-primary)' }}>
           <Routes>
             <Route path="/" element={<Navigate to="/manuscript" replace />} />
@@ -81,6 +86,7 @@ const MainWindow = () => {
   );
 };
 
+
 const ToolWindow = ({ toolId: propToolId }) => {
   const { toolId: paramsToolId } = useParams();
   const toolId = propToolId || paramsToolId;
@@ -101,36 +107,30 @@ const ToolWindow = ({ toolId: propToolId }) => {
 
   return (
     <div className="app-container flex-col">
-      <div className="titlebar">
-        <span className="font-medium">Tool: {toolId}</span>
-      </div>
-      <div className="main-content flex-1 overflow-hidden relative">
+      <ResizeHandles />
+      <TitleBar title={`Tool: ${toolId}`} />
+      <div className="main-content flex-1 overflow-hidden relative" style={{ WebkitAppRegion: 'no-drag' }}>
         {ToolComponent ? (
           <ToolComponent />
         ) : (
-          <div className="p-4">
-            <h2 className="text-xl font-bold mb-4 capitalize">{toolId} Tool</h2>
-            {/* Only render Editor if toolId is valid but no component found, to avoid errors if toolId is undefined */}
-            {toolId ? (
-              <Editor placeholder={`Start writing in ${toolId}...`} documentId={`tool-${toolId}`} trackGlobalStats={false} />
-            ) : (
-              <div>Error: Tool ID missing</div>
-            )}
-          </div>
+          <div className="p-4">Tool not found: {toolId}</div>
         )}
       </div>
     </div>
   );
 };
 
-import { ThemeProvider } from './contexts/ThemeContext';
-import { StatsProvider, useStats } from './contexts/StatsContext';
-
-const StatusBar = ({ dbStatus }) => {
-  const { wordCount } = useStats();
+const StatusBar = ({ dbStatus, wordCount }) => { // wordCount is now passed as prop
+  // const { wordCount } = useStats(); // No longer needed here, passed as prop
 
   return (
-    <div className="p-2 border-t flex items-center select-none" style={{ backgroundColor: 'var(--bg-secondary)', borderColor: 'var(--border-color)', paddingLeft: '50px', gap: '30px' }}>
+    <div className="p-2 border-t flex items-center select-none" style={{
+      backgroundColor: 'var(--bg-secondary)',
+      borderColor: 'var(--border-color)',
+      paddingLeft: '50px',
+      gap: '30px',
+      WebkitAppRegion: 'no-drag'
+    }}>
       <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-secondary)' }}>
         <Database size={14} className="text-blue-400" />
         <span>{dbStatus},</span>
